@@ -1,3 +1,20 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = 'Forge'
+            url = 'https://maven.minecraftforge.net'
+        }
+            maven {
+                name = 'MixinGradle'
+                url = 'https://repo.spongepowered.org/repository/maven-public'
+            }
+    }
+    dependencies {
+            classpath "org.spongepowered:mixingradle:0.7-SNAPSHOT"
+    }
+}
+
 plugins {
     id 'net.minecraftforge.gradle' version '5.1.+'
 }
@@ -113,6 +130,9 @@ dependencies {
     implementation fg.deobf("maven.modrinth:gregtech-ce-unofficial:${ceu_version}")
     //implementation fg.deobf("libs:gregtech-1.12.2:2.5.4-beta")
     implementation fg.deobf("curse.maven:gregicality-multiblocks-564858:${gcym_version}")
+
+    implementation fg.deobf("curse.maven:thaumcraft-223628:2629023")
+    implementation fg.deobf("curse.maven:baubles-227083:2518667")
 
     compileOnly 'curse.maven:AdvancedRocketry-236542:3801020'
 
