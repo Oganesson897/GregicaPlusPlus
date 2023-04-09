@@ -1,8 +1,11 @@
 package me.oganesson.gregica;
 
+import me.oganesson.gregica.common.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -26,6 +29,18 @@ public class Gregica {
      */
     @Mod.Instance(MOD_ID)
     public static Gregica INSTANCE;
+
+    @SidedProxy(
+            modId = MOD_ID,
+            clientSide = "me.oganesson.common.ClientProxy",
+            serverSide = "me.oganesson.common.CommonProxy"
+    )
+    public static CommonProxy proxy;
+
+    @Mod.EventHandler
+    public void onConstruct(FMLConstructionEvent event) {
+
+    }
 
     /**
      * This is the first initialization event. Register tile entities here.
