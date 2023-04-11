@@ -21,7 +21,7 @@ import org.apache.logging.log4j.Logger;
         modid = Gregica.MOD_ID,
         name = Gregica.MOD_NAME,
         version = Gregica.VERSION,
-        dependencies="after:thaumcraft"
+        dependencies="after:thaumcraft;after:gregtech"
 )
 public class Gregica {
 
