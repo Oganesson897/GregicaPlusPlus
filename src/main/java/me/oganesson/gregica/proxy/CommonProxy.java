@@ -1,6 +1,7 @@
 package me.oganesson.gregica.proxy;
 
 import gregtech.api.block.VariantItemBlock;
+import me.oganesson.gregica.api.GCPPCapabilities;
 import me.oganesson.gregica.common.gregtech.GCMetaEntities;
 import me.oganesson.gregica.common.gregtech.tileentity.EssentiaHatch;
 import me.oganesson.gregica.common.item.itemUpgrades;
@@ -36,6 +37,7 @@ public class CommonProxy {
 
     public void preInit( FMLPreInitializationEvent event ) {
         GCMetaEntities.register();
+        GCPPCapabilities.init();
         LargeEssentiaEnergyData.processEssentiaData();
     }
 

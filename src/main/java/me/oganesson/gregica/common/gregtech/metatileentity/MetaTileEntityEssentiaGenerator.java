@@ -21,6 +21,7 @@ import gregtech.api.pattern.PatternMatchContext;
 import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.common.ConfigHolder;
+import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.gregtech.EssentiaLogic;
 import me.oganesson.gregica.common.gregtech.GCMetaBlocks;
 import me.oganesson.gregica.common.gregtech.predicate.EssentiaCellPredicate;
@@ -48,6 +49,7 @@ import javax.annotation.Nullable;
 import java.util.LinkedList;
 import java.util.List;
 
+import static me.oganesson.gregica.client.GCTextures.LARGE_ESSENTIA_GENERATOR;
 import static me.oganesson.gregica.common.gregtech.metablock.GCMetaCasing.MetalCasingType.MAGIC_CASING;
 
 public class MetaTileEntityEssentiaGenerator extends MultiblockWithDisplayBase implements IDataInfoProvider, IWorkable {
@@ -95,7 +97,7 @@ public class MetaTileEntityEssentiaGenerator extends MultiblockWithDisplayBase i
 
     @Override
     public ICubeRenderer getBaseTexture(IMultiblockPart iMultiblockPart) {
-        return me.oganesson.gregica.client.GCTextures.MAGIC_CASING;
+        return GCTextures.MAGIC_CASING;
     }
 
     protected void initializeAbilities() {
@@ -134,7 +136,7 @@ public class MetaTileEntityEssentiaGenerator extends MultiblockWithDisplayBase i
 
     @Nonnull
     protected ICubeRenderer getFrontOverlay() {
-        return me.oganesson.gregica.client.GCTextures.LARGE_ESSENTIA_GENERATOR;
+        return LARGE_ESSENTIA_GENERATOR;
     }
 
     protected void addDisplayText(List<ITextComponent> textList) {
@@ -326,6 +328,4 @@ public class MetaTileEntityEssentiaGenerator extends MultiblockWithDisplayBase i
         return false;
     }
 
-    private class GCTextures {
-    }
 }

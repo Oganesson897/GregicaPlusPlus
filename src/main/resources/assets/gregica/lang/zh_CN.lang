@@ -1,0 +1,60 @@
+# Special formatting codes:
+#
+# <BR> or <BR/>         Paragraph break (<BR/> is included for people using XML for their localization)
+# <LINE> or <LINE/>     Insert a fancy centered linebreak between sections of text.
+# <DIV> or <DIV/>     Insert a fancy left-justified linebreak between sections of text.
+# <PAGE> or <PAGE/>     Skip to a new page.
+# <IMG>...</IMG>  Insert a centered image into text. Parameters are separated by ':' and are:
+#                    - mod resource location name
+#                    - png file location (assumed to be a 256x256 texture, a sub-image will be grabbed from this png as specified below)
+#                    - x location of sub-image in png
+#                    - y location of sub-image in png
+#                    - x size of sub-image (255 if full x size of png must be used)
+#                    - y size of sub-image (255 if full y size of png must be used)
+#                    - scaling - 1.0 for normal 256x256 images, or smaller for proportionately smaller .png files (a 16x16 image will be 0.0625)
+#               Examples:
+#                   <IMG>thaumcraft:textures/gui/gui_researchbook.png:24:184:96:4:1.0</IMG>   <-- line break image as used in <LINE> above
+#                   <IMG>thaumcraft:textures/items/alumentum.png:0:0:255:255:0.0625</IMG>     <-- alumentum item icon
+
+#Language
+
+language.name=中文
+language.region=CN
+language.code=zh_CN
+
+itemGroup.gregica=Gregica++
+
+#Items
+item.upgradeEssentia.0.name=大型源质发电机升级：空
+item.upgradeEssentia.1.name=§e大型源质发电机升级：风§r
+item.upgradeEssentia.2.name=§c大型源质发电机升级：热力§r
+item.upgradeEssentia.3.name=§8大型源质发电机升级：不稳定§r
+item.upgradeEssentia.4.name=§d大型源质发电机升级：生命§r
+item.upgradeEssentia.5.name=§5大型源质发电机升级：腐化§r
+item.upgradeEssentia.6.name=§b大型源质发电机升级：机械§r
+item.upgradeEssentia.7.name=§6大型源质发电机升级：灵魂§r
+item.upgradeEssentia.8.name=§a大型源质发电机升级：辐射§r
+item.upgradeEssentia.9.name=§3大型源质发电机升级：电力§r
+
+#Blocks
+tile.gc_machine_casing.magic_machine_casing.name=魔法机械外壳
+tile.gc_machine_casing.essentia_cell_1.name=新手源质扩散单元
+tile.gc_machine_casing.essentia_cell_2.name=学徒源质扩散单元
+tile.gc_machine_casing.essentia_cell_3.name=大师源质扩散单元
+tile.gc_machine_casing.essentia_cell_4.name=宗室源质扩散单元
+tile.essentia_hatch.name=源质输入仓
+tile.gc_machine_casing.fishing_machine_casing.name=水产机械外壳
+
+#Info
+gc.multiblock.pattern.error.essentia=Essentia cell tier doesn't match.
+essentiahatch.chat.0=成功锁定为%s源质.
+essentiahatch.chat.1=清空.
+largeessentiagenerator.chat=安装成功!
+gregica.machine.essentia_generator.name=大型源质反应堆
+gregica.machine.industrial_fishing_pond.name=珠海渔场
+gregica.machine.quantum_computer.name=量子计算机
+gregica.machine.lightning_rod.hv.name=避雷针Ⅰ
+gregica.machine.lightning_rod.ev.name=避雷针Ⅱ
+gregica.machine.lightning_rod.iv.name=避雷针Ⅲ
+gregica.tooltip.warning=§c警告§r：§b能源仓§r不能与水接触而§b其余部分§r必须与水接触！
+gregica.tooltip.usage=§b用法§r：将§b原版的§r铁栏杆放置其上，每当雨天或雷雨天时它就会产生能量。

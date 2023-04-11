@@ -1,3 +1,6 @@
 {
-  "parent": "gregica:block/essentia_hatch"
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "gregica:blocks/essentia_hatch"
+  }
 }
