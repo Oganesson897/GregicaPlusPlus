@@ -1,0 +1,70 @@
+# Special formatting codes:
+#
+# <BR> or <BR/>         Paragraph break (<BR/> is included for people using XML for their localization)
+# <LINE> or <LINE/>     Insert a fancy centered linebreak between sections of text.
+# <DIV> or <DIV/>     Insert a fancy left-justified linebreak between sections of text.
+# <PAGE> or <PAGE/>     Skip to a new page.
+# <IMG>...</IMG>  Insert a centered image into text. Parameters are separated by ':' and are:
+#                    - mod resource location name
+#                    - png file location (assumed to be a 256x256 texture, a sub-image will be grabbed from this png as specified below)
+#                    - x location of sub-image in png
+#                    - y location of sub-image in png
+#                    - x size of sub-image (255 if full x size of png must be used)
+#                    - y size of sub-image (255 if full y size of png must be used)
+#                    - scaling - 1.0 for normal 256x256 images, or smaller for proportionately smaller .png files (a 16x16 image will be 0.0625)
+#               Examples:
+#                   <IMG>thaumcraft:textures/gui/gui_researchbook.png:24:184:96:4:1.0</IMG>   <-- line break image as used in <LINE> above
+#                   <IMG>thaumcraft:textures/items/alumentum.png:0:0:255:255:0.0625</IMG>     <-- alumentum item icon
+
+#Language
+
+language.name=English
+language.region=US
+language.code=en_US
+
+itemGroup.gregica=Gregica++
+
+#Items
+item.upgradeEssentia.0.name=Essentia Generator: Empty
+item.upgradeEssentia.1.name=§eEssentia Generator: Air§r
+item.upgradeEssentia.2.name=§cEssentia Generator: Thermal§r
+item.upgradeEssentia.3.name=§8Essentia Generator: Unstable§r
+item.upgradeEssentia.4.name=§dEssentia Generator: Victus§r
+item.upgradeEssentia.5.name=§5Essentia Generator: Tainted§r
+item.upgradeEssentia.6.name=§bEssentia Generator: Mechanics§r
+item.upgradeEssentia.7.name=§6Essentia Generator: Spirit§r
+item.upgradeEssentia.8.name=§aEssentia Generator: Radiation§r
+item.upgradeEssentia.9.name=§3Essentia Generator: Electric§r
+
+#Blocks
+tile.gc_machine_casing.magic_machine_casing.name=Magic Casing
+tile.gc_machine_casing.essentia_cell_1.name=Novice Essentia Diffusion Cell
+tile.gc_machine_casing.essentia_cell_2.name=Adept Essentia Diffusion Cell
+tile.gc_machine_casing.essentia_cell_3.name=Master Essentia Diffusion Cell
+tile.gc_machine_casing.essentia_cell_4.name=Grandmaster Essentia Diffusion Cell
+tile.essentia_hatch.name=Essentia Input Hatch
+tile.gc_machine_casing.fishing_machine_casing.name=Fishery Casing
+tile.gc_machine_casing.quantum_machine_casing.name=Quantum Casing
+
+gregica.machine.essentia_generator.name=Large Essentia Generator
+gregica.machine.industrial_fishing_pond.name=ZhuHai Fishing Pond
+gregica.machine.quantum_computer.name=Quantum Computer
+gregica.machine.lightning_rod.hv.name=Lightning Rod I
+gregica.machine.lightning_rod.ev.name=Lightning Rod II
+gregica.machine.lightning_rod.iv.name=Lightning Rod III
+gregica.machine.qubit_hatch.input.16.name=Qubit Input Hatch
+gregica.machine.qubit_hatch.output.1.name=Qubit Output Hatch
+
+gregica.laser.pipe.name=Laser Pipe
+#Info
+gc.multiblock.pattern.error.essentia=Essentia cell tier doesn't match.
+essentiahatch.chat.0=Successfully locked to %s.
+essentiahatch.chat.1=Cleared.
+largeessentiagenerator.chat=Installed!
+gregica.tooltip.warning=§cWarning§r : §bEnergy Hatch§r must be placed in a place that is not in contact with water, §bother parts§r need to be in contact with water!
+gregica.tooltip.usage=§bUsage§r : Place §cVANILLA§r iron bars on its top, when rain or thunder, it will generate energy.
+
+gregica.recipe.qubitProduce=Generation: %d qubit/t
+gregica.recipe.qubitConsume=Usage: %d qubit/t
+gregica.top.qubit_stored=Qubit:
+gregica.multiblock.not_enough_qubit=Not enough qubit

@@ -36,7 +36,8 @@ public class GCMetaCasing extends VariantBlock<GCMetaCasing.MetalCasingType> {
         ESSENTIA_CELL_T3("essentia_cell_3"),
         ESSENTIA_CELL_T4("essentia_cell_4"),
         MAGIC_CASING("magic_machine_casing"),
-        FISHING_CASING("fishing_machine_casing");
+        FISHING_CASING("fishing_machine_casing"),
+        QUANTUM_CASING("quantum_machine_casing");
 
         private final String name;
 
