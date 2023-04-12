@@ -1,4 +1,4 @@
-package me.oganesson.gregica.common.gregtech;
+package me.oganesson.gregica.common.gregtech.recipemap;
 
 import gregtech.api.GTValues;
 import gregtech.api.capability.GregtechDataCodes;

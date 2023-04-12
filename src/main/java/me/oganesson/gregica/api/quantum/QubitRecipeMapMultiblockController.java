@@ -43,6 +43,7 @@ public abstract class QubitRecipeMapMultiblockController extends RecipeMapMultib
     }
 
     protected void initializeAbilities() {
+        super.initializeAbilities();
         this.inputQubit = new QubitContainerList(getAbilities(GCPPCapabilities.INPUT_QBIT));
         this.outputQubit = new QubitContainerList(getAbilities(GCPPCapabilities.OUTPUT_QBIT));
     }

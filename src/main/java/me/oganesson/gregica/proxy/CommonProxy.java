@@ -1,17 +1,23 @@
 package me.oganesson.gregica.proxy;
 
+import gregtech.api.GTValues;
 import gregtech.api.block.VariantItemBlock;
+import gregtech.api.util.GTLog;
+import gregtech.integration.theoneprobe.TheOneProbeCompatibility;
 import me.oganesson.gregica.api.GCPPCapabilities;
+import me.oganesson.gregica.common.gregtech.FuelRecipe;
 import me.oganesson.gregica.common.gregtech.GCMetaEntities;
 import me.oganesson.gregica.common.gregtech.tileentity.EssentiaHatch;
 import me.oganesson.gregica.common.item.itemUpgrades;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
+import me.oganesson.gregica.common.top.GCPPCapability;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -42,6 +48,11 @@ public class CommonProxy {
     }
 
     public void init( FMLInitializationEvent event ) {
+        FuelRecipe.init();
+        if (Loader.isModLoaded(GTValues.MODID_TOP)) {
+            GTLog.logger.info("TheOneProbe found. Enabling integration...");
+            GCPPCapability.registerCompatibility();
+        }
     }
 
     public void registerItems(RegistryEvent.Register<Item> event) {

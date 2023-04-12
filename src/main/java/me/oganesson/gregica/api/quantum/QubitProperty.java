@@ -25,8 +25,5 @@ public class QubitProperty extends RecipeProperty<Integer> {
 
     @Override
     public void drawInfo(@Nonnull Minecraft minecraft, int x, int y, int color, Object value) {
-        Integer casted = castValue(value);
-        minecraft.fontRenderer.drawString(I18n.format(casted > 1 ? "gcpp.recipe.pressure" : "gcys.recipe.vacuum",
-                NumberFormattingUtil.formatDoubleToCompactString(casted)), x, y, color);
     }
 }

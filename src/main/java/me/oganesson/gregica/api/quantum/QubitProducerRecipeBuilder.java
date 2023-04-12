@@ -3,8 +3,10 @@ package me.oganesson.gregica.api.quantum;
 import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeBuilder;
 import gregtech.api.recipes.RecipeMap;
+import gregtech.api.recipes.recipeproperties.RecipePropertyStorage;
 import gregtech.api.util.EnumValidationResult;
 import gregtech.api.util.GTLog;
+import gregtech.api.util.GTUtility;
 import gregtech.api.util.ValidationResult;
 import mcp.MethodsReturnNonnullByDefault;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -50,16 +52,15 @@ public class QubitProducerRecipeBuilder extends RecipeBuilder<QubitProducerRecip
     }
 
     public ValidationResult<Recipe> build() {
-        return ValidationResult.newResult(finalizeAndValidate(),
-                new Recipe(inputs, outputs, chancedOutputs, fluidInputs, fluidOutputs,
-                        duration, EUt, hidden, isCTRecipe, recipePropertyStorage));
+        this.applyProperty(QubitProperty.getInstance(), qubit);
+        return super.build();
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
                 .appendSuper(super.toString())
-                .append("qubitProduce", qubit)
+                .append("qubitProduce", GTUtility.formatNumbers(qubit))
                 .toString();
     }
 

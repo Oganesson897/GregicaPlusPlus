@@ -81,4 +81,7 @@ public interface IQubitContainer {
      */
     long getInputQubit();
 
+    default boolean isOneProbeHidden() {
+        return false;
+    }
 }

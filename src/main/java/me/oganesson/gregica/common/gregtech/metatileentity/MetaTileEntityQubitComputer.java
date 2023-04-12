@@ -1,5 +1,6 @@
 package me.oganesson.gregica.common.gregtech.metatileentity;
 
+import gregtech.api.capability.IWorkable;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -10,7 +11,7 @@ import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.cube.OrientedOverlayRenderer;
 import me.oganesson.gregica.api.GCPPCapabilities;
 import me.oganesson.gregica.api.quantum.GCPPRecipeMaps;
-import me.oganesson.gregica.api.quantum.QubitProducerRecipeLogic;
+import me.oganesson.gregica.common.gregtech.recipemap.QubitProducerRecipeLogic;
 import me.oganesson.gregica.api.quantum.QubitRecipeMapMultiblockController;
 import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.gregtech.GCMetaBlocks;
@@ -21,7 +22,7 @@ import net.minecraft.util.ResourceLocation;
 import javax.annotation.Nonnull;
 
 
-public class MetaTileEntityQubitComputer extends QubitRecipeMapMultiblockController {
+public class MetaTileEntityQubitComputer extends QubitRecipeMapMultiblockController implements IWorkable {
     public MetaTileEntityQubitComputer(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GCPPRecipeMaps.SIMPLE_QUBIT_GENERATOR);
         this.recipeMapWorkable = new QubitProducerRecipeLogic(this);
@@ -38,7 +39,7 @@ public class MetaTileEntityQubitComputer extends QubitRecipeMapMultiblockControl
                 .aisle("CCCC", "CCCC", "CCCC", "CCCC")
                 .aisle("CCCC", "CSCC", "CCCC", "CCCC")
                 .where('S', selfPredicate())
-                .where('C', states(getCasingState()).setMinGlobalLimited(24).or(abilities(MultiblockAbility.INPUT_ENERGY).setMinGlobalLimited(1)).or(abilities(MultiblockAbility.IMPORT_ITEMS).setMinGlobalLimited(1)).or(abilities(GCPPCapabilities.OUTPUT_QBIT).setExactLimit(1)).or(abilities( MultiblockAbility.MAINTENANCE_HATCH).setExactLimit(1)))
+                .where('C', states(getCasingState()).setMinGlobalLimited(24).or(abilities(MultiblockAbility.INPUT_ENERGY).setMinGlobalLimited(1)).or(abilities(MultiblockAbility.IMPORT_ITEMS).setMinGlobalLimited(1)).or(abilities(MultiblockAbility.EXPORT_ITEMS).setExactLimit(1)).or(abilities(GCPPCapabilities.OUTPUT_QBIT).setExactLimit(1)).or(abilities( MultiblockAbility.MAINTENANCE_HATCH).setExactLimit(1)))
                 .build();
     }
 
@@ -55,5 +56,25 @@ public class MetaTileEntityQubitComputer extends QubitRecipeMapMultiblockControl
     @Override
     protected OrientedOverlayRenderer getFrontOverlay() {
         return GCTextures.QUBIT_COMPUTER_OVERLAY;
+    }
+
+    @Override
+    public int getProgress() {
+        return this.recipeMapWorkable.getProgress();
+    }
+
+    @Override
+    public int getMaxProgress() {
+        return this.recipeMapWorkable.getMaxProgress();
+    }
+
+    @Override
+    public boolean isWorkingEnabled() {
+        return this.recipeMapWorkable.isWorkingEnabled();
+    }
+
+    @Override
+    public void setWorkingEnabled(boolean e) {
+        this.recipeMapWorkable.setWorkingEnabled(e);
     }
 }

@@ -22,7 +22,7 @@ import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.common.ConfigHolder;
 import me.oganesson.gregica.client.GCTextures;
-import me.oganesson.gregica.common.gregtech.EssentiaLogic;
+import me.oganesson.gregica.common.gregtech.recipemap.EssentiaLogic;
 import me.oganesson.gregica.common.gregtech.GCMetaBlocks;
 import me.oganesson.gregica.common.gregtech.predicate.EssentiaCellPredicate;
 import me.oganesson.gregica.common.gregtech.predicate.TileEntityPredicate;
