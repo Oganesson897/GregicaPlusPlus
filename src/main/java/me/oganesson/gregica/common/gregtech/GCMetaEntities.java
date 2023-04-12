@@ -4,6 +4,8 @@ import gregtech.api.GTValues;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCPPValues;
 import me.oganesson.gregica.api.quantum.MetaTileEntityQubitHatch;
+import me.oganesson.gregica.common.gregtech.block.laserpipe.BlockLaserPipe;
+import me.oganesson.gregica.common.gregtech.block.laserpipe.LaserPipeType;
 import me.oganesson.gregica.common.gregtech.metatileentity.MetaTileEntityEssentiaGenerator;
 import me.oganesson.gregica.common.gregtech.metatileentity.MetaTileEntityIndustrialFishingPond;
 import me.oganesson.gregica.common.gregtech.metatileentity.MetaTileEntityLightningRod;
@@ -20,6 +22,7 @@ public class GCMetaEntities {
     public static MetaTileEntityQubitComputer QUBIT_COMPUTER;
     public static MetaTileEntityQubitHatch[] QBIT_INPUT_HATCH = new MetaTileEntityQubitHatch[GCPPValues.QUBIT.length];
     public static MetaTileEntityQubitHatch[] QBIT_OUTPUT_HATCH = new MetaTileEntityQubitHatch[GCPPValues.QUBIT.length];
+    public static final BlockLaserPipe[] LASER_PIPES = new BlockLaserPipe[1];
 
     public static void register() {
         ESSENTIA_GENERATOR = registerMetaTileEntity(11001, new MetaTileEntityEssentiaGenerator(gcID("essentia_generator")));
@@ -31,6 +34,10 @@ public class GCMetaEntities {
 
         QBIT_INPUT_HATCH[0] = registerMetaTileEntity(11007, new MetaTileEntityQubitHatch(gcID("qubit_hatch.input.16"), 0, 16, false));
         QBIT_OUTPUT_HATCH[0] = registerMetaTileEntity(11008, new MetaTileEntityQubitHatch(gcID("qubit_hatch.output.1"), 0, 16, true));
+        for (LaserPipeType type : LaserPipeType.values()) {
+            LASER_PIPES[type.ordinal()] = new BlockLaserPipe();
+            LASER_PIPES[type.ordinal()].setRegistryName(String.format("laser_pipe_%s", type.name));
+        }
     }
 
     private static ResourceLocation gcID(String name) {

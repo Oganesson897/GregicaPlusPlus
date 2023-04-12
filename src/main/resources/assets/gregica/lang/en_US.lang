@@ -55,6 +55,7 @@ gregica.machine.lightning_rod.iv.name=Lightning Rod III
 gregica.machine.qubit_hatch.input.16.name=Qubit Input Hatch
 gregica.machine.qubit_hatch.output.1.name=Qubit Output Hatch
 
+gregica.laser.pipe.name=Laser Pipe
 #Info
 gc.multiblock.pattern.error.essentia=Essentia cell tier doesn't match.
 essentiahatch.chat.0=Successfully locked to %s.

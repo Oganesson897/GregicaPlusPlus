@@ -4,6 +4,9 @@ import gregtech.client.renderer.texture.cube.OrientedOverlayRenderer;
 import gregtech.client.renderer.texture.cube.SimpleCubeRenderer;
 import gregtech.client.renderer.texture.cube.SimpleOverlayRenderer;
 import gregtech.client.renderer.texture.cube.SimpleSidedCubeRenderer;
+import me.oganesson.gregica.Gregica;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.util.ResourceLocation;
 
 public class GCTextures {
 
@@ -18,6 +21,8 @@ public class GCTextures {
     public static SimpleSidedCubeRenderer LIGHTNING_ROD_IV;
     public static SimpleSidedCubeRenderer LIGHTNING_ROD_ACTIVE_IV;
     public static OrientedOverlayRenderer QUBIT_COMPUTER_OVERLAY;
+
+    public static final ModelResourceLocation LASER_PIPE_MODEL = new ModelResourceLocation(new ResourceLocation(Gregica.MOD_ID, "laser_pipe_normal"), "normal");
 
     public static void preInit() {
         MAGIC_CASING = new SimpleOverlayRenderer("magic_machine_casing");

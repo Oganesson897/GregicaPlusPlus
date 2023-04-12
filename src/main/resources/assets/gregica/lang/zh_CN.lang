@@ -54,6 +54,8 @@ gregica.machine.lightning_rod.ev.name=避雷针Ⅱ
 gregica.machine.lightning_rod.iv.name=避雷针Ⅲ
 gregica.machine.qubit_hatch.input.16.name=量子位输入仓
 gregica.machine.qubit_hatch.output.1.name=量子位输出仓
+
+gregica.laser.pipe.name=激光管道
 #Info
 gc.multiblock.pattern.error.essentia=Essentia cell tier doesn't match.
 essentiahatch.chat.0=成功锁定为%s源质.
