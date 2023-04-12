@@ -60,7 +60,7 @@ public class QubitProducerRecipeBuilder extends RecipeBuilder<QubitProducerRecip
     public String toString() {
         return new ToStringBuilder(this)
                 .appendSuper(super.toString())
-                .append("qubitProduce", GTUtility.formatNumbers(qubit))
+                .append(QubitProperty.getInstance().getKey(), GTUtility.formatNumbers(qubit))
                 .toString();
     }
 

@@ -44,17 +44,25 @@ tile.gc_machine_casing.essentia_cell_3.name=大师源质扩散单元
 tile.gc_machine_casing.essentia_cell_4.name=宗室源质扩散单元
 tile.essentia_hatch.name=源质输入仓
 tile.gc_machine_casing.fishing_machine_casing.name=水产机械外壳
+tile.gc_machine_casing.quantum_machine_casing.name=量子外壳
 
-#Info
-gc.multiblock.pattern.error.essentia=Essentia cell tier doesn't match.
-essentiahatch.chat.0=成功锁定为%s源质.
-essentiahatch.chat.1=清空.
-largeessentiagenerator.chat=安装成功!
 gregica.machine.essentia_generator.name=大型源质反应堆
 gregica.machine.industrial_fishing_pond.name=珠海渔场
 gregica.machine.quantum_computer.name=量子计算机
 gregica.machine.lightning_rod.hv.name=避雷针Ⅰ
 gregica.machine.lightning_rod.ev.name=避雷针Ⅱ
 gregica.machine.lightning_rod.iv.name=避雷针Ⅲ
+gregica.machine.qubit_hatch.input.16.name=量子位输入仓
+gregica.machine.qubit_hatch.output.1.name=量子位输出仓
+#Info
+gc.multiblock.pattern.error.essentia=Essentia cell tier doesn't match.
+essentiahatch.chat.0=成功锁定为%s源质.
+essentiahatch.chat.1=清空.
+largeessentiagenerator.chat=安装成功!
 gregica.tooltip.warning=§c警告§r：§b能源仓§r不能与水接触而§b其余部分§r必须与水接触！
 gregica.tooltip.usage=§b用法§r：将§b原版的§r铁栏杆放置其上，每当雨天或雷雨天时它就会产生能量。
+
+gregica.recipe.qubitProduce=产生量子位：%d Qubit/t
+gregica.recipe.qubitConsume=消耗量子位：%d Qubit/t
+gregica.top.qubit_stored=量子位：
+gregica.multiblock.not_enough_qubit=量子位不足

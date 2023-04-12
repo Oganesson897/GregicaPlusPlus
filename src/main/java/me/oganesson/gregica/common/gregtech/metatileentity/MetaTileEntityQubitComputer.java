@@ -77,4 +77,9 @@ public class MetaTileEntityQubitComputer extends QubitRecipeMapMultiblockControl
     public void setWorkingEnabled(boolean e) {
         this.recipeMapWorkable.setWorkingEnabled(e);
     }
+
+    @Override
+    protected boolean shouldShowVoidingModeButton() {
+        return false;
+    }
 }

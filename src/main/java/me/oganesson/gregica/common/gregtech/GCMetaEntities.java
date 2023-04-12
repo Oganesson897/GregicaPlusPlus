@@ -29,8 +29,8 @@ public class GCMetaEntities {
         LIGHTNING_ROD[2] = registerMetaTileEntity(11005, new MetaTileEntityLightningRod(gcID("lightning_rod.iv"), GTValues.IV));
         QUBIT_COMPUTER = registerMetaTileEntity(11006, new MetaTileEntityQubitComputer(gcID("quantum_computer")));
 
-        QBIT_INPUT_HATCH[0] = registerMetaTileEntity(11007, new MetaTileEntityQubitHatch(gcID("qubit_hatch.input.16"), 0, 32000, false));
-        QBIT_OUTPUT_HATCH[0] = registerMetaTileEntity(11008, new MetaTileEntityQubitHatch(gcID("qubit_hatch.output.1"), 0, 32000, true));
+        QBIT_INPUT_HATCH[0] = registerMetaTileEntity(11007, new MetaTileEntityQubitHatch(gcID("qubit_hatch.input.16"), 0, 16, false));
+        QBIT_OUTPUT_HATCH[0] = registerMetaTileEntity(11008, new MetaTileEntityQubitHatch(gcID("qubit_hatch.output.1"), 0, 16, true));
     }
 
     private static ResourceLocation gcID(String name) {

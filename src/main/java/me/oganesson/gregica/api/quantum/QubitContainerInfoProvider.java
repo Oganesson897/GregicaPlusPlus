@@ -20,7 +20,7 @@ public class QubitContainerInfoProvider extends CapabilityInfoProvider<IQubitCon
 
     @Override
     public String getID() {
-        return "gtadditions:qubit_container_provider";
+        return "gregica:qubit_container_provider";
     }
 
     @Override
@@ -35,7 +35,7 @@ public class QubitContainerInfoProvider extends CapabilityInfoProvider<IQubitCon
         if (maxStorage == 0) return; //do not add empty max storage progress bar
         IProbeInfo horizontalPane = probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER));
         String additionalSpacing = tileEntity.hasCapability(GregtechTileCapabilities.CAPABILITY_WORKABLE, entityPlayer.getHorizontalFacing()) ? "   " : "";
-        horizontalPane.text(TextStyleClass.INFO + "{*gtaddition.top.qubit_stored*} " + additionalSpacing);
+        horizontalPane.text(TextStyleClass.INFO + "{*gregica.top.qubit_stored*} " + additionalSpacing);
         horizontalPane.progress(qubitStored, maxStorage, probeInfo.defaultProgressStyle()
                 .suffix("/" + maxStorage + " qubit")
                 .borderColor(0x00000000)
