@@ -36,6 +36,7 @@ item.upgradeEssentia.7.name=§6Essentia Generator: Spirit§r
 item.upgradeEssentia.8.name=§aEssentia Generator: Radiation§r
 item.upgradeEssentia.9.name=§3Essentia Generator: Electric§r
 
+metaitem.tool.baguette.name=Baguette
 #Blocks
 tile.gc_machine_casing.magic_machine_casing.name=Magic Casing
 tile.gc_machine_casing.essentia_cell_1.name=Novice Essentia Diffusion Cell
@@ -68,3 +69,5 @@ gregica.recipe.qubitProduce=Generation: %d qubit/t
 gregica.recipe.qubitConsume=Usage: %d qubit/t
 gregica.top.qubit_stored=Qubit:
 gregica.multiblock.not_enough_qubit=Not enough qubit
+
+recipemap.simple_qubit_generator.name=Qubit Generator

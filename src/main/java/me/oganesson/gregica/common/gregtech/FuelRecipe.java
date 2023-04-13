@@ -9,11 +9,13 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import static gregtech.api.GTValues.UV;
-import static gregtech.api.unification.material.Materials.DistilledWater;
-import static gregtech.api.unification.material.Materials.MetalMixture;
+import static gregtech.api.GTValues.*;
+import static gregtech.api.recipes.RecipeMaps.CANNER_RECIPES;
+import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.circuit;
 import static gregtech.api.unification.ore.OrePrefix.dust;
+import static gregtech.common.items.MetaItems.BATTERY_HULL_LARGE_VANADIUM;
+import static gregtech.common.items.MetaItems.BATTERY_LUV_VANADIUM;
 
 public class FuelRecipe {
     public static void registerQubitGeneratorFuel(OrePrefix prefix, Material material, int duration, int tier, int qubit) {
@@ -38,5 +40,11 @@ public class FuelRecipe {
         registerQubitGeneratorFuel(circuit, MarkerMaterials.Tier.UXV,            19_200, UV, 16);
         registerQubitGeneratorFuel(circuit, MarkerMaterials.Tier.OpV,            25_600, UV, 32);
         registerQubitGeneratorFuel(circuit, MarkerMaterials.Tier.MAX,            51_200, UV, 64);
+
+        CANNER_RECIPES.recipeBuilder().duration(999).EUt(VA[ULV])
+                .input(Items.BREAD)
+                .input(dust, Obsidian, 64)
+                .output(GCMetaItems.BAGUETTE_SWORD)
+                .buildAndRegister();
     }
 }

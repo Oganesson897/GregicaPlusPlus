@@ -36,6 +36,7 @@ item.upgradeEssentia.7.name=§6大型源质发电机升级：灵魂§r
 item.upgradeEssentia.8.name=§a大型源质发电机升级：辐射§r
 item.upgradeEssentia.9.name=§3大型源质发电机升级：电力§r
 
+metaitem.tool.baguette.name=法棍
 #Blocks
 tile.gc_machine_casing.magic_machine_casing.name=魔法机械外壳
 tile.gc_machine_casing.essentia_cell_1.name=新手源质扩散单元
@@ -68,3 +69,5 @@ gregica.recipe.qubitProduce=产生量子位：%d Qubit/t
 gregica.recipe.qubitConsume=消耗量子位：%d Qubit/t
 gregica.top.qubit_stored=量子位：
 gregica.multiblock.not_enough_qubit=量子位不足
+
+recipemap.simple_qubit_generator.name=量子计算
