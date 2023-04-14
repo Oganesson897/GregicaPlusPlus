@@ -34,7 +34,7 @@ public class FuelRecipe {
     public static NBTTagCompound generateResearchNBT(@Nonnull String researchId) {
         if (researchId.isEmpty()) throw new IllegalArgumentException("Assemblyline researchId cannot be empty");
         NBTTagCompound compound = new NBTTagCompound();
-        compound.setString("assemblylineResearch", researchId);
+        compound.setString("researchId", researchId);
         return compound;
     }
 
