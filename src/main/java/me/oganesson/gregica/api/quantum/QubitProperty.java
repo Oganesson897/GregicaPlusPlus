@@ -26,6 +26,7 @@ public class QubitProperty extends RecipeProperty<Integer> {
 
     @Override
     public void drawInfo(Minecraft minecraft, int x, int y, int color, Object value) {
-        minecraft.fontRenderer.drawString(I18n.format("gregica.recipe.qubitProduce", castValue(value)), x, y, color);
+        Integer casted = castValue(value);
+        minecraft.fontRenderer.drawString(I18n.format(casted > 0 ? "gregica.recipe.qubitProduce" : "gregica.recipe.qubitConsume", castValue(value)), x, y, color);
     }
 }
