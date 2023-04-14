@@ -46,6 +46,7 @@ tile.gc_machine_casing.essentia_cell_4.name=宗室源质扩散单元
 tile.essentia_hatch.name=源质输入仓
 tile.gc_machine_casing.fishing_machine_casing.name=水产机械外壳
 tile.gc_machine_casing.quantum_machine_casing.name=量子外壳
+tile.gc_machine_casing.quantum_generator_machine_casing.name=量子发生机械外壳
 
 gregica.machine.essentia_generator.name=大型源质反应堆
 gregica.machine.industrial_fishing_pond.name=珠海渔场
@@ -55,6 +56,7 @@ gregica.machine.lightning_rod.ev.name=避雷针Ⅱ
 gregica.machine.lightning_rod.iv.name=避雷针Ⅲ
 gregica.machine.qubit_hatch.input.16.name=量子位输入仓
 gregica.machine.qubit_hatch.output.1.name=量子位输出仓
+gregica.machine.research_station.name=研究站
 
 gregica.laser.pipe.name=激光管道
 #Info
@@ -71,3 +73,4 @@ gregica.top.qubit_stored=量子位：
 gregica.multiblock.not_enough_qubit=量子位不足
 
 recipemap.simple_qubit_generator.name=量子计算
+recipemap.research_station.name=研究站

@@ -46,6 +46,7 @@ tile.gc_machine_casing.essentia_cell_4.name=Grandmaster Essentia Diffusion Cell
 tile.essentia_hatch.name=Essentia Input Hatch
 tile.gc_machine_casing.fishing_machine_casing.name=Fishery Casing
 tile.gc_machine_casing.quantum_machine_casing.name=Quantum Casing
+tile.gc_machine_casing.quantum_generator_machine_casing.name=Quantum Generator Casing
 
 gregica.machine.essentia_generator.name=Large Essentia Generator
 gregica.machine.industrial_fishing_pond.name=ZhuHai Fishing Pond
@@ -55,6 +56,7 @@ gregica.machine.lightning_rod.ev.name=Lightning Rod II
 gregica.machine.lightning_rod.iv.name=Lightning Rod III
 gregica.machine.qubit_hatch.input.16.name=Qubit Input Hatch
 gregica.machine.qubit_hatch.output.1.name=Qubit Output Hatch
+gregica.machine.research_station.name=Research Station
 
 gregica.laser.pipe.name=Laser Pipe
 #Info
@@ -71,3 +73,4 @@ gregica.top.qubit_stored=Qubit:
 gregica.multiblock.not_enough_qubit=Not enough qubit
 
 recipemap.simple_qubit_generator.name=Qubit Generator
+recipemap.research_station.name=Research Station

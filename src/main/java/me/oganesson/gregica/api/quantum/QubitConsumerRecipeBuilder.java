@@ -1,7 +1,6 @@
 package me.oganesson.gregica.api.quantum;
 
 
-import com.google.common.collect.ImmutableMap;
 import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeBuilder;
 import gregtech.api.recipes.RecipeMap;
@@ -42,7 +41,7 @@ public class QubitConsumerRecipeBuilder extends RecipeBuilder<QubitConsumerRecip
 
     public QubitConsumerRecipeBuilder(Recipe recipe, RecipeMap<QubitConsumerRecipeBuilder> recipeMap) {
         super(recipe, recipeMap);
-        this.qubit = recipe.getProperty(QubitProperty.getInstance(), 0);
+        this.qubit = recipe.getProperty(OutputQubitProperty.getInstance(), 0);
     }
 
     public QubitConsumerRecipeBuilder(RecipeBuilder<QubitConsumerRecipeBuilder> recipeBuilder) {
@@ -83,22 +82,13 @@ public class QubitConsumerRecipeBuilder extends RecipeBuilder<QubitConsumerRecip
     }
 
     public ValidationResult<Recipe> build() {
-        return ValidationResult.newResult(finalizeAndValidate(),
-                new Recipe(inputs, outputs, chancedOutputs, fluidInputs, fluidOutputs,
-                        duration, EUt, hidden, isCTRecipe, recipePropertyStorage));
+        this.applyProperty(OutputQubitProperty.getInstance(), qubit);
+        return super.build();
     }
 
     @Override
     public void buildAndRegister() {
-        if (!noSolder && fluidInputs.isEmpty()) {
-            for (FluidStack fluidStack : SOLDER_FLUIDS) {
-                recipeMap.addRecipe(this.copy()
-                        .fluidInputs(new FluidStack(fluidStack.getFluid(), Math.min(64000, fluidStack.amount * solderMultiplier)))
-                        .build());
-            }
-        } else {
             recipeMap.addRecipe(build());
-        }
     }
 
     @Override
