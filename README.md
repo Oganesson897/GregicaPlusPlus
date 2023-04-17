@@ -21,3 +21,7 @@ ALREADY LICENSED
 
 Merged the GtMagic Core mod.
 Have gained access to some code and ideas.
+
+
+## Other
+Discord: [here](https://discord.gg/gXEeKcJv9d)
