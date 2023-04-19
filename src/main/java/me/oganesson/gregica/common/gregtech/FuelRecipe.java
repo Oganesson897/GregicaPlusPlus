@@ -4,14 +4,18 @@ import gregtech.api.GTValues;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.ore.OrePrefix;
+import gregtech.common.items.MetaItems;
 import me.oganesson.gregica.api.quantum.GCPPRecipeMaps;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
-import static gregtech.api.GTValues.UV;
-import static gregtech.api.unification.material.Materials.DistilledWater;
+import javax.annotation.Nonnull;
+
+import static gregtech.api.GTValues.*;
+import static gregtech.api.recipes.RecipeMaps.CANNER_RECIPES;
 import static gregtech.api.unification.material.Materials.MetalMixture;
+import static gregtech.api.unification.material.Materials.Obsidian;
 import static gregtech.api.unification.ore.OrePrefix.circuit;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 
@@ -23,6 +27,32 @@ public class FuelRecipe {
                 .duration(duration)
                 .EUt((int) GTValues.V[tier])
                 .output(dust, MetalMixture)
+                .buildAndRegister();
+    }
+
+    @Nonnull
+    public static NBTTagCompound generateResearchNBT(@Nonnull String researchId) {
+        if (researchId.isEmpty()) throw new IllegalArgumentException("Assemblyline researchId cannot be empty");
+        NBTTagCompound compound = new NBTTagCompound();
+        compound.setString("researchId", researchId);
+        return compound;
+    }
+
+    public static void registerResearchStationResearch(ItemStack researchItem, int duration, int tier, int qubit, String researchId) {
+
+        NBTTagCompound compound = new NBTTagCompound();
+        compound.setTag("assemblylineResearch", generateResearchNBT(researchId));
+
+        ItemStack dataStick = MetaItems.TOOL_DATA_STICK.getStackForm();
+        dataStick.setTagCompound(compound);
+
+        GCPPRecipeMaps.RESEARCH_STATION.recipeBuilder()
+                .qubit(qubit)
+                .inputs(researchItem)
+                .input(MetaItems.TOOL_DATA_STICK)
+                .duration(duration)
+                .EUt((int) GTValues.V[tier])
+                .outputs(dataStick)
                 .buildAndRegister();
     }
 
@@ -38,5 +68,13 @@ public class FuelRecipe {
         registerQubitGeneratorFuel(circuit, MarkerMaterials.Tier.UXV,            19_200, UV, 16);
         registerQubitGeneratorFuel(circuit, MarkerMaterials.Tier.OpV,            25_600, UV, 32);
         registerQubitGeneratorFuel(circuit, MarkerMaterials.Tier.MAX,            51_200, UV, 64);
+
+        CANNER_RECIPES.recipeBuilder().duration(999).EUt(VA[ULV])
+                .input(Items.BREAD)
+                .input(dust, Obsidian, 64)
+                .output(GCMetaItems.BAGUETTE_SWORD)
+                .buildAndRegister();
+
+        registerResearchStationResearch(new ItemStack(Items.BREAD), 99, IV, 1, "baguette_sword");
     }
 }

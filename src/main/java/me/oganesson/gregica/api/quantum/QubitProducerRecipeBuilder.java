@@ -3,7 +3,6 @@ package me.oganesson.gregica.api.quantum;
 import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeBuilder;
 import gregtech.api.recipes.RecipeMap;
-import gregtech.api.recipes.recipeproperties.RecipePropertyStorage;
 import gregtech.api.util.EnumValidationResult;
 import gregtech.api.util.GTLog;
 import gregtech.api.util.GTUtility;
@@ -21,7 +20,7 @@ public class QubitProducerRecipeBuilder extends RecipeBuilder<QubitProducerRecip
 
     public QubitProducerRecipeBuilder(Recipe recipe, RecipeMap<QubitProducerRecipeBuilder> recipeMap) {
         super(recipe, recipeMap);
-        this.qubit = recipe.getProperty(QubitProperty.getInstance(), 0);
+        this.qubit = recipe.getProperty(InputQubitProperty.getInstance(), 0);
     }
 
     public QubitProducerRecipeBuilder(RecipeBuilder<QubitProducerRecipeBuilder> recipeBuilder) {
@@ -52,7 +51,7 @@ public class QubitProducerRecipeBuilder extends RecipeBuilder<QubitProducerRecip
     }
 
     public ValidationResult<Recipe> build() {
-        this.applyProperty(QubitProperty.getInstance(), qubit);
+        this.applyProperty(InputQubitProperty.getInstance(), qubit);
         return super.build();
     }
 
@@ -60,7 +59,7 @@ public class QubitProducerRecipeBuilder extends RecipeBuilder<QubitProducerRecip
     public String toString() {
         return new ToStringBuilder(this)
                 .appendSuper(super.toString())
-                .append(QubitProperty.getInstance().getKey(), GTUtility.formatNumbers(qubit))
+                .append(InputQubitProperty.getInstance().getKey(), GTUtility.formatNumbers(qubit))
                 .toString();
     }
 

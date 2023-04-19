@@ -6,10 +6,7 @@ import me.oganesson.gregica.api.GCPPValues;
 import me.oganesson.gregica.api.quantum.MetaTileEntityQubitHatch;
 import me.oganesson.gregica.common.gregtech.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.gregtech.block.laserpipe.LaserPipeType;
-import me.oganesson.gregica.common.gregtech.metatileentity.MetaTileEntityEssentiaGenerator;
-import me.oganesson.gregica.common.gregtech.metatileentity.MetaTileEntityIndustrialFishingPond;
-import me.oganesson.gregica.common.gregtech.metatileentity.MetaTileEntityLightningRod;
-import me.oganesson.gregica.common.gregtech.metatileentity.MetaTileEntityQubitComputer;
+import me.oganesson.gregica.common.gregtech.metatileentity.*;
 import net.minecraft.util.ResourceLocation;
 
 import static gregtech.common.metatileentities.MetaTileEntities.registerMetaTileEntity;
@@ -23,7 +20,7 @@ public class GCMetaEntities {
     public static MetaTileEntityQubitHatch[] QBIT_INPUT_HATCH = new MetaTileEntityQubitHatch[GCPPValues.QUBIT.length];
     public static MetaTileEntityQubitHatch[] QBIT_OUTPUT_HATCH = new MetaTileEntityQubitHatch[GCPPValues.QUBIT.length];
     public static final BlockLaserPipe[] LASER_PIPES = new BlockLaserPipe[1];
-
+    public static MetaTileEntityResearchStation RESEARCH_STATION;
     public static void register() {
         ESSENTIA_GENERATOR = registerMetaTileEntity(11001, new MetaTileEntityEssentiaGenerator(gcID("essentia_generator")));
         INDUSTRIAL_POND = registerMetaTileEntity(11002, new MetaTileEntityIndustrialFishingPond(gcID("industrial_fishing_pond")));
@@ -34,6 +31,8 @@ public class GCMetaEntities {
 
         QBIT_INPUT_HATCH[0] = registerMetaTileEntity(11007, new MetaTileEntityQubitHatch(gcID("qubit_hatch.input.16"), 0, 16, false));
         QBIT_OUTPUT_HATCH[0] = registerMetaTileEntity(11008, new MetaTileEntityQubitHatch(gcID("qubit_hatch.output.1"), 0, 16, true));
+
+        RESEARCH_STATION = registerMetaTileEntity(11009, new MetaTileEntityResearchStation(gcID("research_station")));
         for (LaserPipeType type : LaserPipeType.values()) {
             LASER_PIPES[type.ordinal()] = new BlockLaserPipe();
             LASER_PIPES[type.ordinal()].setRegistryName(String.format("laser_pipe_%s", type.name));

@@ -39,6 +39,11 @@
         "textures": {
           "all": "gregica:blocks/quantum_machine_casing"
         }
+      },
+      "quantum_generator_machine_casing": {
+        "textures": {
+          "all": "gregica:blocks/quantum_generator_machine_casing"
+        }
       }
     }
   }
