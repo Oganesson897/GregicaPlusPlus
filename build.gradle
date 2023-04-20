@@ -1,14 +1,15 @@
 buildscript {
     repositories {
         mavenCentral()
+        mavenLocal()
         maven {
             name = 'Forge'
             url = 'https://maven.minecraftforge.net'
         }
-            maven {
-                name = 'MixinGradle'
-                url = 'https://repo.spongepowered.org/repository/maven-public'
-            }
+        maven {
+            name = 'MixinGradle'
+            url = 'https://repo.spongepowered.org/repository/maven-public'
+        }
     }
     dependencies {
             classpath "org.spongepowered:mixingradle:0.7-SNAPSHOT"
@@ -17,6 +18,7 @@ buildscript {
 
 plugins {
     id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'wtf.gofancy.fancygradle' version "1.1.+"
 }
 
 apply plugin: 'org.spongepowered.mixin'
@@ -121,11 +123,15 @@ dependencies {
 
 
 
-    runtimeOnly("curse.maven:code-chicken-lib-1-8-242818:2779848")
+    implementation fg.deobf("curse.maven:code-chicken-lib-1-8-242818:2779848")
 
     implementation "mezz.jei:jei_1.12.2:${jei_version}"
     implementation "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-${crt_version}"
     implementation fg.deobf("curse.maven:top-${top_pid}:${top_fid}")
+    implementation fg.deobf("curse.maven:ctm-${ctm_pid}:${ctm_fid}")
+    implementation fg.deobf("curse.maven:groovyscript-${grs_pid}:${grs_fid}")
+    implementation fg.deobf("curse.maven:ae2-extended-life-${ae2_pid}:${ae2_fid}")
+    implementation fg.deobf("maven.modrinth:endercore:0.5.76")
 
     implementation fg.deobf("maven.modrinth:gregtech-ce-unofficial:${ceu_version}")
     //implementation fg.deobf("libs:gregtech-1.12.2:2.5.4-beta")
@@ -133,6 +139,8 @@ dependencies {
 
     implementation fg.deobf("curse.maven:thaumcraft-223628:2629023")
     implementation fg.deobf("curse.maven:baubles-227083:2518667")
+
+    implementation "zone.rong:mixinbooter:${mixinbooter_version}"
 
     compileOnly 'curse.maven:AdvancedRocketry-236542:3801020'
 
@@ -143,6 +151,17 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 }
+
+fancyGradle {
+    patches {
+        resources
+        coremods
+        codeChickenLib
+        asm
+        mergetool
+    }
+}
+
 
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
