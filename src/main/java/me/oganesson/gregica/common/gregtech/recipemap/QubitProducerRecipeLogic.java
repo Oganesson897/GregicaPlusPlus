@@ -5,7 +5,7 @@ import gregtech.api.capability.impl.MultiblockRecipeLogic;
 import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.recipes.Recipe;
 import me.oganesson.gregica.api.quantum.IQubitContainer;
-import me.oganesson.gregica.api.quantum.QubitProperty;
+import me.oganesson.gregica.api.quantum.InputQubitProperty;
 import me.oganesson.gregica.api.quantum.QubitRecipeMapMultiblockController;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -32,7 +32,7 @@ public class QubitProducerRecipeLogic extends MultiblockRecipeLogic {
     @Override
     protected void setupRecipe(Recipe recipe) {
         super.setupRecipe(recipe);
-        this.recipeOutputQubit = recipe.getProperty(QubitProperty.getInstance(), 0);
+        this.recipeOutputQubit = recipe.getProperty(InputQubitProperty.getInstance(), 0);
     }
 
     @Override

@@ -7,6 +7,7 @@ import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCPPCapabilities;
 import me.oganesson.gregica.common.gregtech.FuelRecipe;
 import me.oganesson.gregica.common.gregtech.GCMetaEntities;
+import me.oganesson.gregica.common.gregtech.GCMetaItems;
 import me.oganesson.gregica.common.gregtech.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.gregtech.block.laserpipe.ItemBlockLaserPipe;
 import me.oganesson.gregica.common.gregtech.block.laserpipe.tile.TileEntityLaserPipe;
@@ -48,6 +49,7 @@ public class CommonProxy {
 
     public void preInit( FMLPreInitializationEvent event ) {
         GCMetaEntities.register();
+        GCMetaItems.initMetaItems();
         GCPPCapabilities.init();
         LargeEssentiaEnergyData.processEssentiaData();
     }
@@ -61,6 +63,8 @@ public class CommonProxy {
     }
 
     public void registerItems(RegistryEvent.Register<Item> event) {
+        GCMetaItems.initSubitems();
+
         Upgrades.setCreativeTab(Tab);
         event.getRegistry().register(Upgrades);
         event.getRegistry().register(createItemBlock(GC_BLOCK_CASING, VariantItemBlock::new));

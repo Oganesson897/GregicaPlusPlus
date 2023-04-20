@@ -35,7 +35,7 @@ public class QubitConsumeRecipeLogic extends MultiblockRecipeLogic {
     @Override
     protected void setupRecipe(Recipe recipe) {
         super.setupRecipe(recipe);
-        recipeQubit = recipe.getProperty(QubitProperty.getInstance(), 0);
+        recipeQubit = recipe.getProperty(OutputQubitProperty.getInstance(), 0);
     }
 
     @Override
