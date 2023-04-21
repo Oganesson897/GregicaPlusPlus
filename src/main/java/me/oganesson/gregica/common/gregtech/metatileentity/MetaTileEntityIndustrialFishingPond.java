@@ -287,7 +287,7 @@ public class MetaTileEntityIndustrialFishingPond extends MultiblockWithDisplayBa
         }
 
         if (logic.isInventoryFull())
-            textList.add(new TextComponentTranslation("gregtech.multiblock.large_miner.invfull").setStyle(new Style().setColor(TextFormatting.RED)));
+            textList.add(new TextComponentTranslation("gregtech.multiblock.slarge_miner.invfull").setStyle(new Style().setColor(TextFormatting.RED)));
     }
 
     @Override

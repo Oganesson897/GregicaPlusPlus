@@ -30,6 +30,11 @@
           "all": "gregica:blocks/fishing_machine_casing"
         }
       },
+      "aseptic_farm_maching_casing": {
+        "textures": {
+          "all": "gregica:blocks/aseptic_farm_maching_casing"
+        }
+      },
       "magic_machine_casing": {
         "textures": {
           "all": "gregica:blocks/magic_machine_casing"
