@@ -1,8 +1,12 @@
 package me.oganesson.gregica.common.tileentities.metatileentity;
 
 import gregtech.api.GTValues;
+import gregtech.api.metatileentity.SimpleGeneratorMetaTileEntity;
+import gregtech.api.util.GTUtility;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCValues;
+import me.oganesson.gregica.api.recipe.GCRecipeMaps;
+import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.tileentities.metatileentity.multipart.MetaTileEntityQubitHatch;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.LaserPipeType;
@@ -16,7 +20,6 @@ import net.minecraft.util.ResourceLocation;
 import static gregtech.common.metatileentities.MetaTileEntities.registerMetaTileEntity;
 
 public class GCMetaEntities {
-
     public static MetaTileEntityEssentiaGenerator ESSENTIA_GENERATOR;
     public static MetaTileEntityIndustrialFishingPond INDUSTRIAL_POND;
     public static final MetaTileEntityLightningRod[] LIGHTNING_ROD = new MetaTileEntityLightningRod[4];
@@ -25,6 +28,9 @@ public class GCMetaEntities {
     public static MetaTileEntityQubitHatch[] QBIT_OUTPUT_HATCH = new MetaTileEntityQubitHatch[GCValues.QUBIT.length];
     public static final BlockLaserPipe[] LASER_PIPES = new BlockLaserPipe[1];
     public static MetaTileEntityResearchStation RESEARCH_STATION;
+    public static final SimpleGeneratorMetaTileEntity[] SEMI_FLUID_GENERATOR = new SimpleGeneratorMetaTileEntity[3];
+
+
     public static void register() {
         ESSENTIA_GENERATOR = registerMetaTileEntity(11001, new MetaTileEntityEssentiaGenerator(gcID("essentia_generator")));
         INDUSTRIAL_POND = registerMetaTileEntity(11002, new MetaTileEntityIndustrialFishingPond(gcID("industrial_fishing_pond")));

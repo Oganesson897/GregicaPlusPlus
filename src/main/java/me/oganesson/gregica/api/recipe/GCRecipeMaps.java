@@ -1,7 +1,11 @@
 package me.oganesson.gregica.api.recipe;
 
 import crafttweaker.annotations.ZenRegister;
+import gregtech.api.gui.GuiTextures;
+import gregtech.api.gui.widgets.ProgressWidget;
 import gregtech.api.recipes.RecipeMap;
+import gregtech.api.recipes.builders.FuelRecipeBuilder;
+import gregtech.core.sound.GTSoundEvents;
 import me.oganesson.gregica.api.capability.quantum.QubitConsumerRecipeBuilder;
 import me.oganesson.gregica.api.capability.quantum.QubitProducerRecipeBuilder;
 import stanhebben.zenscript.annotations.ZenClass;
