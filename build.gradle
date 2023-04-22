@@ -107,9 +107,6 @@ repositories {
     maven {
         url = "https://api.modrinth.com/maven"
     }
-    flatDir {
-        dir 'libs'
-    }
     maven {
         url = 'https://maven.cleanroommc.com'
     }
@@ -131,7 +128,6 @@ dependencies {
     implementation fg.deobf("curse.maven:ctm-${ctm_pid}:${ctm_fid}")
     implementation fg.deobf("curse.maven:groovyscript-${grs_pid}:${grs_fid}")
     implementation fg.deobf("curse.maven:ae2-extended-life-${ae2_pid}:${ae2_fid}")
-    implementation fg.deobf("maven.modrinth:endercore:0.5.76")
 
     implementation fg.deobf("maven.modrinth:gregtech-ce-unofficial:${ceu_version}")
     //implementation fg.deobf("libs:gregtech-1.12.2:2.5.4-beta")

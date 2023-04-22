@@ -2,9 +2,9 @@ package me.oganesson.gregica.proxy;
 
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.client.GCTextures;
-import me.oganesson.gregica.common.gregtech.CommonBlocks;
-import me.oganesson.gregica.common.gregtech.GCMetaBlocks;
-import me.oganesson.gregica.common.gregtech.block.laserpipe.BlockLaserPipe;
+import me.oganesson.gregica.common.block.CommonBlocks;
+import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
+import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.client.LaserPipeRenderer;
 import me.oganesson.gregica.common.item.itemUpgrades;
 import net.minecraft.block.state.IBlockState;
@@ -17,7 +17,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import javax.annotation.Nonnull;
 
-import static me.oganesson.gregica.common.gregtech.GCMetaEntities.LASER_PIPES;
+import static me.oganesson.gregica.common.tileentities.metatileentity.GCMetaEntities.LASER_PIPES;
 
 public class ClientProxy extends CommonProxy {
 

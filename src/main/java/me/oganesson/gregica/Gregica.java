@@ -29,7 +29,8 @@ public class Gregica {
 
     public static final String MOD_ID = "gregica";
     public static final String MOD_NAME = "Gregica";
-    public static final String VERSION = "1.0-SNAPSHOT";
+    public static final String MOD_ABRIDGE = "GC";
+    public static final String VERSION = "0.0.2-Alpha";
 
     @SidedProxy(clientSide = "me.oganesson.gregica.proxy.ClientProxy", serverSide = "me.oganesson.gregica.proxy.CommonProxy")
     public static CommonProxy proxy;

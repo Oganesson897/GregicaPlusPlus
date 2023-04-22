@@ -8,7 +8,7 @@ import gregtech.api.pipenet.tile.IPipeTile;
 import gregtech.api.unification.material.Material;
 import gregtech.client.renderer.pipe.PipeRenderer;
 import me.oganesson.gregica.Gregica;
-import me.oganesson.gregica.common.gregtech.block.laserpipe.LaserPipeType;
+import me.oganesson.gregica.common.block.laserpipe.LaserPipeType;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.ResourceLocation;

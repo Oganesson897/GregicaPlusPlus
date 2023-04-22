@@ -4,17 +4,17 @@ import gregtech.api.GTValues;
 import gregtech.api.block.VariantItemBlock;
 import gregtech.api.util.GTLog;
 import me.oganesson.gregica.Gregica;
-import me.oganesson.gregica.api.GCPPCapabilities;
-import me.oganesson.gregica.common.gregtech.FuelRecipe;
-import me.oganesson.gregica.common.gregtech.GCMetaEntities;
-import me.oganesson.gregica.common.gregtech.GCMetaItems;
-import me.oganesson.gregica.common.gregtech.block.laserpipe.BlockLaserPipe;
-import me.oganesson.gregica.common.gregtech.block.laserpipe.ItemBlockLaserPipe;
-import me.oganesson.gregica.common.gregtech.block.laserpipe.tile.TileEntityLaserPipe;
-import me.oganesson.gregica.common.gregtech.tileentity.EssentiaHatch;
+import me.oganesson.gregica.api.capability.GCCapabilities;
+import me.oganesson.gregica.common.recipes.FuelRecipe;
+import me.oganesson.gregica.common.tileentities.metatileentity.GCMetaEntities;
+import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
+import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
+import me.oganesson.gregica.common.block.laserpipe.ItemBlockLaserPipe;
+import me.oganesson.gregica.common.block.laserpipe.tile.TileEntityLaserPipe;
+import me.oganesson.gregica.common.tileentities.EssentiaHatch;
 import me.oganesson.gregica.common.item.itemUpgrades;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
-import me.oganesson.gregica.common.top.GCPPCapability;
+import me.oganesson.gregica.api.capability.GCCapabilityProvider;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -31,9 +31,9 @@ import javax.annotation.Nonnull;
 import java.util.Objects;
 import java.util.function.Function;
 
-import static me.oganesson.gregica.common.gregtech.CommonBlocks.ESSENTIA_HATCH;
-import static me.oganesson.gregica.common.gregtech.GCMetaBlocks.GC_BLOCK_CASING;
-import static me.oganesson.gregica.common.gregtech.GCMetaEntities.LASER_PIPES;
+import static me.oganesson.gregica.common.block.CommonBlocks.ESSENTIA_HATCH;
+import static me.oganesson.gregica.common.block.metablock.GCMetaBlocks.GC_BLOCK_CASING;
+import static me.oganesson.gregica.common.tileentities.metatileentity.GCMetaEntities.LASER_PIPES;
 
 public class CommonProxy {
 
@@ -50,7 +50,7 @@ public class CommonProxy {
     public void preInit( FMLPreInitializationEvent event ) {
         GCMetaEntities.register();
         GCMetaItems.initMetaItems();
-        GCPPCapabilities.init();
+        GCCapabilities.init();
         LargeEssentiaEnergyData.processEssentiaData();
     }
 
@@ -58,7 +58,7 @@ public class CommonProxy {
         FuelRecipe.init();
         if (Loader.isModLoaded(GTValues.MODID_TOP)) {
             GTLog.logger.info("TheOneProbe found. Enabling integration...");
-            GCPPCapability.registerCompatibility();
+            GCCapabilityProvider.registerCompatibility();
         }
     }
 
