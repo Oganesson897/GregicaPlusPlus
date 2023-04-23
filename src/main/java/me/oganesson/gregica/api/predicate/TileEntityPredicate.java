@@ -4,7 +4,7 @@ import gregtech.api.pattern.TraceabilityPredicate;
 import gregtech.api.util.BlockInfo;
 import me.oganesson.gregica.common.block.CommonBlocks;
 import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
-import me.oganesson.gregica.common.tileentities.metatileentity.multi.generators.MetaTileEntityEssentiaGenerator;
+import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEEssentiaGenerator;
 import net.minecraft.tileentity.TileEntity;
 
 import java.util.Arrays;
@@ -12,7 +12,7 @@ import java.util.Comparator;
 
 public class TileEntityPredicate extends TraceabilityPredicate {
 
-    public TileEntityPredicate(Class<? extends TileEntity> tileClazz, MetaTileEntityEssentiaGenerator host) {
+    public TileEntityPredicate(Class<? extends TileEntity> tileClazz, MTEEssentiaGenerator host) {
         super(blockWorldState -> {
             TileEntity te = blockWorldState.getTileEntity();
             if (tileClazz.isInstance(te)) {
@@ -26,7 +26,7 @@ public class TileEntityPredicate extends TraceabilityPredicate {
                 .toArray(BlockInfo[]::new));
     }
 
-    public static TileEntityPredicate get(Class<? extends TileEntity> tileClazz, MetaTileEntityEssentiaGenerator host) {
+    public static TileEntityPredicate get(Class<? extends TileEntity> tileClazz, MTEEssentiaGenerator host) {
         return new TileEntityPredicate(tileClazz, host);
     }
 

@@ -11,4 +11,8 @@ public class GCLog {
     public static void init(Logger modLogger) {
         logger = modLogger;
     }
+    
+    public static void info(String info){
+        logger.info(info);
+    }
 }

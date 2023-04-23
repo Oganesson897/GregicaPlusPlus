@@ -58,6 +58,37 @@ gregica.machine.qubit_hatch.input.16.name=量子位输入仓
 gregica.machine.qubit_hatch.output.1.name=量子位输出仓
 gregica.machine.research_station.name=研究站
 
+gregica.machine.creative_energy_hatch.lv.name=创造模式能源仓 LV
+gregica.machine.creative_energy_hatch.mv.name=创造模式能源仓 MV
+gregica.machine.creative_energy_hatch.hv.name=创造模式能源仓 HV
+gregica.machine.creative_energy_hatch.ev.name=创造模式能源仓 EV
+gregica.machine.creative_energy_hatch.iv.name=创造模式能源仓 IV
+gregica.machine.creative_energy_hatch.luv.name=创造模式能源仓 LUV
+gregica.machine.creative_energy_hatch.zpm.name=创造模式能源仓 ZPM
+gregica.machine.creative_energy_hatch.uv.name=创造模式能源仓 UV
+gregica.machine.creative_energy_hatch.uhv.name=创造模式能源仓 UHV
+gregica.machine.creative_energy_hatch.uev.name=创造模式能源仓 UEV
+gregica.machine.creative_energy_hatch.uiv.name=创造模式能源仓 UIV
+gregica.machine.creative_energy_hatch.uxv.name=创造模式能源仓 UXU
+gregica.machine.creative_energy_hatch.opv.name=创造模式能源仓 OPV
+gregica.machine.creative_energy_hatch.max.name=创造模式能源仓 MAX
+
+gregica.machine.creative_generator.lv.name=创造模式发电机 LV
+gregica.machine.creative_generator.mv.name=创造模式发电机 MV
+gregica.machine.creative_generator.hv.name=创造模式发电机 HV
+gregica.machine.creative_generator.ev.name=创造模式发电机 EV
+gregica.machine.creative_generator.iv.name=创造模式发电机 IV
+gregica.machine.creative_generator.luv.name=创造模式发电机 LUV
+gregica.machine.creative_generator.zpm.name=创造模式发电机 ZPM
+gregica.machine.creative_generator.uv.name=创造模式发电机 UVX
+gregica.machine.creative_generator.uhv.name=创造模式发电机 UHV
+gregica.machine.creative_generator.uev.name=创造模式发电机 UEV
+gregica.machine.creative_generator.uiv.name=创造模式发电机 UIV
+gregica.machine.creative_generator.uxv.name=创造模式发电机 UXU
+gregica.machine.creative_generator.opv.name=创造模式发电机 OPV
+gregica.machine.creative_generator.max.name=创造模式发电机 MAX
+gregica.machine.creative_generator.amperage=能量输出 %d A
+
 gregica.laser.pipe.name=激光管道
 #Info
 gc.multiblock.pattern.error.essentia=Essentia cell tier doesn't match.
@@ -74,3 +105,9 @@ gregica.multiblock.not_enough_qubit=量子位不足
 
 recipemap.simple_qubit_generator.name=量子计算
 recipemap.research_station.name=研究站
+
+#MixinGregtech
+gregica.mixin.gregtech.itemblock.multiblock_controller=§a多方块结构控制器
+gregica.mixin.gregtech.itemblock.multiblock_part=§a多方块结构部件
+gregica.mixin.gregtech.itemblock.creative_only=§c创造模式专用
+gregtech.tool_action.screwdriver.set_output_amperage=§8使用螺丝刀调整输出电流

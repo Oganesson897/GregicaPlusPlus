@@ -7,7 +7,7 @@ import gregtech.api.metatileentity.multiblock.IMaintenance;
 import gregtech.api.unification.material.Materials;
 import gregtech.common.ConfigHolder;
 import me.oganesson.gregica.common.unification.materials.GCMaterial;
-import me.oganesson.gregica.common.tileentities.metatileentity.multi.generators.MetaTileEntityEssentiaGenerator;
+import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEEssentiaGenerator;
 import me.oganesson.gregica.common.tileentities.EssentiaHatch;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
 import net.minecraft.nbt.NBTTagCompound;
@@ -24,7 +24,7 @@ import javax.annotation.Nonnull;
 
 public class EssentiaLogic {
 
-    private final MetaTileEntityEssentiaGenerator host;
+    private final MTEEssentiaGenerator host;
     private int maxProgress = 0;
     private int progressTime = 0;
     private final boolean hasMaintenance;
@@ -37,7 +37,7 @@ public class EssentiaLogic {
     private int eAmpereFlow;
     private int mStableValue;
 
-    public EssentiaLogic(MetaTileEntityEssentiaGenerator generator) {
+    public EssentiaLogic(MTEEssentiaGenerator generator) {
         this.host = generator;
         this.hasMaintenance = ConfigHolder.machines.enableMaintenance && ((IMaintenance) generator).hasMaintenanceMechanics();
     }

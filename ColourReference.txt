@@ -1,0 +1,19 @@
+有关原版颜色使用的参考
+from: https://wiki.biligame.com/mc/%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81#%E9%A2%9C%E8%89%B2%E4%BB%A3%E7%A0%81
+§0 黑色    black 
+§1 深蓝色 dark_blue 
+§2 深绿色 dark_green 
+§3 湖蓝色 dark_aqua 
+§4 深红色 dark_red 
+§5 紫色    dark_purple 
+§6 金色    gold 
+§7 灰色    gray 
+§8 深灰色 dark_gray 
+§9 蓝色    blue 
+§a 绿色    green 
+§b 天蓝色 aqua 
+§c 红色     red 
+§d 粉红色 light_purple     
+§e 黄色     yellow             
+§f 白色     white 	        
+§g 硬币金 minecoin_gold

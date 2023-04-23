@@ -109,6 +109,9 @@ dependencies {
 
     compileOnly (files("libs/EnderCore-1.12.2-0.5.76-core.jar"))
 
+    implementation 'org.spongepowered:mixin:0.8.2'
+    annotationProcessor 'org.spongepowered:mixin:0.8.2:processor'
+
     // Examples using mod jars from ./libs
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
 
@@ -132,6 +135,9 @@ fancyGradle {
 jar {
     manifest {
         attributes([
+                "TweakClass": "org.spongepowered.asm.launch.MixinTweaker",
+                "TweakOrder": "0",
+                "ForceLoadAsMod": "true",
                 "Specification-Title"     : "gregica",
                 "Specification-Vendor"    : "Oganesson897",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
@@ -143,6 +149,12 @@ jar {
     }
 }
 
+mixin {
+    add sourceSets.main, "mixins.gregica.refmap.json"
+    config 'mixins.gregica.json'
+
+    debug.export = true
+}
 jar.finalizedBy('reobfJar')
 
 tasks.withType(JavaCompile).configureEach {
@@ -180,3 +192,4 @@ idea {
         downloadSources = true
     }
 }
+

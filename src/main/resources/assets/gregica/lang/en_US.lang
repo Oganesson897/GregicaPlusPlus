@@ -58,6 +58,38 @@ gregica.machine.qubit_hatch.input.16.name=Qubit Input Hatch
 gregica.machine.qubit_hatch.output.1.name=Qubit Output Hatch
 gregica.machine.research_station.name=Research Station
 
+gregica.machine.creative_energy_hatch.lv.name=CreativeEnergyHatch LV
+gregica.machine.creative_energy_hatch.mv.name=CreativeEnergyHatch MV
+gregica.machine.creative_energy_hatch.hv.name=CreativeEnergyHatch HV
+gregica.machine.creative_energy_hatch.ev.name=CreativeEnergyHatch EV
+gregica.machine.creative_energy_hatch.iv.name=CreativeEnergyHatch IV
+gregica.machine.creative_energy_hatch.luv.name=CreativeEnergyHatch LUV
+gregica.machine.creative_energy_hatch.zpm.name=CreativeEnergyHatch ZPM
+gregica.machine.creative_energy_hatch.uv.name=CreativeEnergyHatch UV
+gregica.machine.creative_energy_hatch.uhv.name=CreativeEnergyHatch UHV
+gregica.machine.creative_energy_hatch.uev.name=CreativeEnergyHatch UEV
+gregica.machine.creative_energy_hatch.uiv.name=CreativeEnergyHatch UIV
+gregica.machine.creative_energy_hatch.uxv.name=CreativeEnergyHatch UXU
+gregica.machine.creative_energy_hatch.opv.name=CreativeEnergyHatch OPV
+gregica.machine.creative_energy_hatch.max.name=CreativeEnergyHatch MAX
+
+gregica.machine.creative_generator.lv.name=CreativeGenerator LV
+gregica.machine.creative_generator.mv.name=CreativeGenerator MV
+gregica.machine.creative_generator.hv.name=CreativeGenerator HV
+gregica.machine.creative_generator.ev.name=CreativeGenerator EV
+gregica.machine.creative_generator.iv.name=CreativeGenerator IV
+gregica.machine.creative_generator.luv.name=CreativeGenerator LUV
+gregica.machine.creative_generator.zpm.name=CreativeGenerator ZPM
+gregica.machine.creative_generator.uv.name=CreativeGenerator UV
+gregica.machine.creative_generator.uhv.name=CreativeGenerator UHV
+gregica.machine.creative_generator.uev.name=CreativeGenerator UEV
+gregica.machine.creative_generator.uiv.name=CreativeGenerator UIV
+gregica.machine.creative_generator.uxv.name=CreativeGenerator UXU
+gregica.machine.creative_generator.opv.name=CreativeGenerator OPV
+gregica.machine.creative_generator.max.name=CreativeGenerator MAX
+
+gregica.machine.creative_energy_hatch.amperage=Output Amperage %d A
+
 gregica.laser.pipe.name=Laser Pipe
 #Info
 gc.multiblock.pattern.error.essentia=Essentia cell tier doesn't match.
@@ -74,3 +106,9 @@ gregica.multiblock.not_enough_qubit=Not enough qubit
 
 recipemap.simple_qubit_generator.name=Qubit Generator
 recipemap.research_station.name=Research Station
+
+#MixinGregtech
+gregica.mixin.gregtech.itemblock.multiblock_controller=§aThis is a multiblock controller.
+gregica.mixin.gregtech.itemblock.multiblock_part=§aThis is a multiblock part.
+gregica.mixin.gregtech.itemblock.creative_only=§cCreative Only
+gregtech.tool_action.screwdriver.set_output_amperage=§8Use Screwdriver to change output amperage

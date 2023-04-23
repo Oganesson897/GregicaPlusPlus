@@ -7,7 +7,7 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.multiblock.IMaintenance;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.common.ConfigHolder;
-import me.oganesson.gregica.common.tileentities.metatileentity.multi.generators.MetaTileEntityIndustrialFishingPond;
+import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEIndustrialFishingPond;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -33,7 +33,7 @@ public class FishPondLogic {
     private int progressTime = 0;
     private int maxProgress = 0;
     private int minEnergyTier;
-    private final MetaTileEntityIndustrialFishingPond metaTileEntity;
+    private final MTEIndustrialFishingPond metaTileEntity;
     private int output;
     private String loottable = "";
     private int mode;
@@ -47,7 +47,7 @@ public class FishPondLogic {
     private boolean hasNotEnoughEnergy;
     private final boolean hasMaintenance;
 
-    public FishPondLogic(MetaTileEntityIndustrialFishingPond metaTileEntity, int minEnergyTier) {
+    public FishPondLogic(MTEIndustrialFishingPond metaTileEntity, int minEnergyTier) {
         this.metaTileEntity = metaTileEntity;
         this.minEnergyTier = minEnergyTier;
         this.hasMaintenance = ConfigHolder.machines.enableMaintenance && ((IMaintenance) metaTileEntity).hasMaintenanceMechanics();
