@@ -14,6 +14,7 @@ concurrency:
 
 jobs:
   Test:
+  
     runs-on: ubuntu-latest
 
     steps:
@@ -25,6 +26,9 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '8'
+
+      - name: Run chmod to make gradlew executable
+      run: chmod +x ./gradlew
 
       - name: Run Tests
         uses: gradle/gradle-build-action@v2
