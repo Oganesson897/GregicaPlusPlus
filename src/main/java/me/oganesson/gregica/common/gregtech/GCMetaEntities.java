@@ -21,6 +21,7 @@ public class GCMetaEntities {
     public static MetaTileEntityQubitHatch[] QBIT_OUTPUT_HATCH = new MetaTileEntityQubitHatch[GCPPValues.QUBIT.length];
     public static final BlockLaserPipe[] LASER_PIPES = new BlockLaserPipe[1];
     public static MetaTileEntityResearchStation RESEARCH_STATION;
+    public static MetaTileEntityAlgaeFarm ALGAE_FARM;
     public static void register() {
         ESSENTIA_GENERATOR = registerMetaTileEntity(11001, new MetaTileEntityEssentiaGenerator(gcID("essentia_generator")));
         INDUSTRIAL_POND = registerMetaTileEntity(11002, new MetaTileEntityIndustrialFishingPond(gcID("industrial_fishing_pond")));
@@ -37,6 +38,7 @@ public class GCMetaEntities {
             LASER_PIPES[type.ordinal()] = new BlockLaserPipe();
             LASER_PIPES[type.ordinal()].setRegistryName(String.format("laser_pipe_%s", type.name));
         }
+        ALGAE_FARM = registerMetaTileEntity(11010,new MetaTileEntityAlgaeFarm(gcID("algae_farm")));
     }
 
     private static ResourceLocation gcID(String name) {

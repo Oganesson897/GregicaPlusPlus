@@ -1,10 +1,13 @@
 package me.oganesson.gregica.common.gregtech.metatileentity;
 
+import codechicken.lib.raytracer.IndexedCuboid6;
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
 import com.google.common.collect.Lists;
+import gregtech.GregTechMod;
 import gregtech.api.GTValues;
+import gregtech.api.block.machines.BlockMachine;
 import gregtech.api.capability.GregtechTileCapabilities;
 import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.capability.IMultipleTankHandler;
@@ -21,18 +24,24 @@ import gregtech.api.metatileentity.multiblock.MultiblockWithDisplayBase;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.PatternMatchContext;
+import gregtech.api.pattern.TraceabilityPredicate;
 import gregtech.api.util.GTTransferUtils;
-import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.ICubeRenderer;
-import gregtech.client.renderer.texture.Textures;
+import gregtech.common.blocks.BlockMachineCasing;
+import gregtech.common.blocks.MetaBlocks;
+import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.client.GCTextures;
-import me.oganesson.gregica.common.gregtech.recipemap.FishPondLogic;
 import me.oganesson.gregica.common.gregtech.GCMetaBlocks;
 import me.oganesson.gregica.common.gregtech.metablock.GCMetaCasing;
+import me.oganesson.gregica.common.gregtech.predicate.AlgaeFarmPredicate;
+import me.oganesson.gregica.common.gregtech.recipemap.AlgaeFarmLogic;
+import me.oganesson.gregica.common.gregtech.recipemap.EssentiaLogic;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
@@ -43,7 +52,6 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.IItemHandlerModifiable;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -51,17 +59,41 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MetaTileEntityIndustrialFishingPond extends MultiblockWithDisplayBase implements IWorkable, IDataInfoProvider {
-
-    private final FishPondLogic logic;
+public class MetaTileEntityAlgaeFarm extends MultiblockWithDisplayBase implements IDataInfoProvider, IWorkable {
+    private final AlgaeFarmLogic logic;
     private IEnergyContainer energyContainer;
     protected IMultipleTankHandler inputFluidInventory;
     protected ItemHandlerList itemImportInventory;
     protected IItemHandler outputItemInventory;
-
-    public MetaTileEntityIndustrialFishingPond(ResourceLocation metaTileEntityId) {
+    public MetaTileEntityAlgaeFarm(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId);
-        this.logic = new FishPondLogic(this, GTValues.IV);
+        this.logic = new AlgaeFarmLogic(this,GTValues.MV);
+    }
+
+    @Override
+    public int getProgress() {
+        return logic.getProgressTime();
+    }
+
+    @Override
+    public int getMaxProgress() {
+        return logic.getMaxProgress();
+    }
+
+    @Override
+    public boolean isWorkingEnabled() {
+        return logic.isWorkingEnabled();
+    }
+
+    @Override
+    public void setWorkingEnabled(boolean b) {
+        logic.setWorkingEnabled(b);
+    }
+
+    @Nonnull
+    @Override
+    public List<ITextComponent> getDataInfo() {
+        return new LinkedList<>();
     }
 
     @Override
@@ -72,7 +104,44 @@ public class MetaTileEntityIndustrialFishingPond extends MultiblockWithDisplayBa
             this.logic.setActive(false);
         }
     }
+    protected IBlockState getCasingState() {
+        return GCMetaBlocks.GC_BLOCK_CASING.getState(GCMetaCasing.MetalCasingType.ASEPTIC_FARM_CASING);
+    }
+    @Nonnull
+    @Override
+    protected BlockPattern createStructurePattern() {
+        return FactoryBlockPattern.start()
+                .aisle("EEEEEEEEE", "EEEEEEEEE", "EEEEEEEEE")
+                .aisle("EXXXXXXXE", "E#######E", "E#######E")
+                .aisle("EXXXXXXXE", "E#######E", "E#######E")
+                .aisle("EXXXXXXXE", "E#######E", "E#######E")
+                .aisle("EXXXXXXXE", "E#######E", "E#######E")
+                .aisle("EXXXXXXXE", "E#######E", "E#######E")
+                .aisle("EXXXXXXXE", "E#######E", "E#######E")
+                .aisle("EXXXXXXXE", "E#######E", "E#######E")
+                .aisle("EEEESEEEE", "EEEEEEEEE", "EEEEEEEEE")
+                .where('S', selfPredicate())
+                .where('X', AlgaeFarmPredicate.MACHINECASINGS)
+                .where('E', states(getCasingState()).setMinGlobalLimited(80)
+                        .or(abilities(MultiblockAbility.EXPORT_ITEMS).setMinGlobalLimited(1))
+                        .or(abilities(MultiblockAbility.IMPORT_ITEMS).setMinGlobalLimited(1))
+                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setExactLimit(1))
+                        .or(abilities(MultiblockAbility.MUFFLER_HATCH).setExactLimit(1))
+                        .or(abilities(MultiblockAbility.MAINTENANCE_HATCH).setExactLimit(1)))
+                .where('#', any())
+                .build();
+                //.getState(BlockMachineCasing.MachineCasingType.MV)
+    }
 
+    @Override
+    public ICubeRenderer getBaseTexture(IMultiblockPart iMultiblockPart) {
+        return GCTextures.ASEPTIC_FARM_CASING;
+    }
+
+    @Override
+    public MetaTileEntity createMetaTileEntity(IGregTechTileEntity iGregTechTileEntity) {
+        return new MetaTileEntityAlgaeFarm(metaTileEntityId);
+    }
     protected void initializeAbilities() {
         this.inputFluidInventory = new FluidTankList(true, getAbilities(MultiblockAbility.IMPORT_FLUIDS));
         this.outputItemInventory = new ItemHandlerList(getAbilities(MultiblockAbility.EXPORT_ITEMS));
@@ -86,8 +155,6 @@ public class MetaTileEntityIndustrialFishingPond extends MultiblockWithDisplayBa
         this.itemImportInventory = new ItemHandlerList(Collections.emptyList());
         this.energyContainer = new EnergyContainerList(Lists.newArrayList());
     }
-
-
     @Override
     protected void formStructure(PatternMatchContext context) {
         super.formStructure(context);
@@ -110,123 +177,6 @@ public class MetaTileEntityIndustrialFishingPond extends MultiblockWithDisplayBa
 
     public boolean fillChest(ItemStack stack, boolean simulate) {
         return GTTransferUtils.addItemsToItemHandler(outputItemInventory, simulate, Collections.singletonList(stack));
-    }
-
-    @Override
-    protected BlockPattern createStructurePattern() {
-        return FactoryBlockPattern.start()
-                .aisle("EEEEEEEEE", "XXXXXXXXX", "XXXXXXXXX")
-                .aisle("EXXXXXXXE", "X#######X", "X#######X")
-                .aisle("EXXXXXXXE", "X#######X", "X#######X")
-                .aisle("EXXXXXXXE", "X#######X", "X#######X")
-                .aisle("EXXXXXXXE", "X#######X", "X#######X")
-                .aisle("EXXXXXXXE", "X#######X", "X#######X")
-                .aisle("EXXXXXXXE", "X#######X", "X#######X")
-                .aisle("EXXXXXXXE", "X#######X", "X#######X")
-                .aisle("EEEEEEEEE", "XXXXSXXXX", "XXXXXXXXX")
-                .where('S', selfPredicate())
-                .where('X', states(getCasingState()).setMinGlobalLimited(105)
-                        .or(abilities(MultiblockAbility.EXPORT_ITEMS).setExactLimit(1))
-                        .or(abilities(MultiblockAbility.IMPORT_ITEMS).setExactLimit(1))
-                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setMaxGlobalLimited(1))
-                        .or(abilities(MultiblockAbility.MUFFLER_HATCH).setExactLimit(1))
-                        .or(abilities(MultiblockAbility.MAINTENANCE_HATCH).setExactLimit(1)))
-                .where('E', states(getCasingState())
-                        .or(abilities(MultiblockAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(3)))
-                .where('#', any())
-                .build();
-    }
-
-    @Override
-    public MetaTileEntity createMetaTileEntity(IGregTechTileEntity tileEntity) {
-        return new MetaTileEntityIndustrialFishingPond(metaTileEntityId);
-    }
-
-    @Override
-    public ICubeRenderer getBaseTexture(IMultiblockPart sourcePart) {
-        return GCTextures.FISHING_CASING;
-    }
-
-    public int getMaxParallelRecipes() {
-        return (2 * (this.getEnergyTier() + 1));
-    }
-
-    protected IBlockState getCasingState() {
-        return GCMetaBlocks.GC_BLOCK_CASING.getState(GCMetaCasing.MetalCasingType.FISHING_CASING);
-    }
-
-    public long getEnergyInputPerSecond() {
-        return energyContainer.getInputPerSec();
-    }
-
-    public boolean fillTanks(ItemStack stack, boolean simulate) {
-        return GTTransferUtils.addItemsToItemHandler(outputItemInventory, simulate, Collections.singletonList(stack));
-    }
-
-    @Nonnull
-    @Override
-    protected ICubeRenderer getFrontOverlay() {
-        return Textures.VACUUM_FREEZER_OVERLAY;
-    }
-
-    @Override
-    public boolean hasMufflerMechanics() {
-        return true;
-    }
-
-    @Override
-    public int getProgress() {
-        return logic.getProgressTime();
-    }
-
-    @Override
-    public int getMaxProgress() {
-        return logic.getMaxProgress();
-    }
-
-    @Override
-    public boolean isWorkingEnabled() {
-        return logic.isWorkingEnabled();
-    }
-
-    @Override
-    public boolean getIsWeatherOrTerrainResistant(){
-        return true;
-    }
-
-    @Override
-    public void setWorkingEnabled(boolean b) {
-        logic.setWorkingEnabled(b);
-    }
-
-    public IItemHandlerModifiable getImportItem() {
-        return itemImportInventory;
-    }
-
-    public IMultipleTankHandler getImportFluid() {
-        return this.inputFluidInventory;
-    }
-
-    @Nonnull
-    @Override
-    public List<ITextComponent> getDataInfo() {
-        return new LinkedList<>();
-    }
-
-    public int getEnergyTier() {
-        if (energyContainer == null) return GTValues.IV;
-        return Math.max(GTValues.LV, GTUtility.getFloorTierByVoltage(energyContainer.getInputVoltage()));
-    }
-
-    public boolean drainEnergy(boolean simulate) {
-        long energyToDrain = GTValues.VA[getEnergyTier()];
-        long resultEnergy = energyContainer.getEnergyStored() - energyToDrain;
-        if (resultEnergy >= 0L && resultEnergy <= energyContainer.getEnergyCapacity()) {
-            if (!simulate)
-                energyContainer.changeEnergy(-energyToDrain);
-            return true;
-        }
-        return false;
     }
 
     @Override
@@ -269,13 +219,6 @@ public class MetaTileEntityIndustrialFishingPond extends MultiblockWithDisplayBa
         if (!isStructureFormed())
             return;
 
-        if (energyContainer != null && energyContainer.getEnergyCapacity() > 0) {
-            int energyContainer = getEnergyTier();
-            long maxVoltage = GTValues.V[energyContainer];
-            String voltageName = GTValues.VNF[energyContainer];
-            textList.add(new TextComponentTranslation("gregtech.multiblock.max_energy_per_tick", maxVoltage, voltageName));
-        }
-
         if (!logic.isWorkingEnabled()) {
             textList.add(new TextComponentTranslation("gregtech.multiblock.work_paused"));
 
@@ -287,12 +230,6 @@ public class MetaTileEntityIndustrialFishingPond extends MultiblockWithDisplayBa
             textList.add(new TextComponentTranslation("gregtech.multiblock.idling"));
         }
 
-        if (!drainEnergy(true)) {
-            textList.add(new TextComponentTranslation("gregtech.multiblock.not_enough_energy").setStyle(new Style().setColor(TextFormatting.RED)));
-        }
-
-        if (logic.isInventoryFull())
-            textList.add(new TextComponentTranslation("gregtech.multiblock.slarge_miner.invfull").setStyle(new Style().setColor(TextFormatting.RED)));
     }
 
     @Override
@@ -315,9 +252,4 @@ public class MetaTileEntityIndustrialFishingPond extends MultiblockWithDisplayBa
         this.logic.receiveCustomData(dataId, buf);
     }
 
-    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
-        super.addInformation(stack, player, tooltip, advanced);
-            tooltip.add(net.minecraft.client.resources.I18n.format("gregica.tooltip.warning", new Object[0]));
-
-    }
 }
