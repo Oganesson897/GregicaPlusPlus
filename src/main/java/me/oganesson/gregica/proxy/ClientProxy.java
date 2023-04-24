@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.DefaultStateMapper;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -33,7 +34,7 @@ public class ClientProxy extends CommonProxy {
 
     public void onModelRegister() {
         GCMetaBlocks.registerItemModels();
-        CommonBlocks.registerItemModels();
+        if(Loader.isModLoaded("thaumcraft")) CommonBlocks.registerItemModels();
         for (BlockLaserPipe pipe : LASER_PIPES) {
             ModelLoader.setCustomStateMapper(pipe, new DefaultStateMapper() {
                 @Nonnull

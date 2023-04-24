@@ -100,8 +100,8 @@ dependencies {
     //implementation fg.deobf("libs:gregtech-1.12.2:2.5.4-beta")
     implementation fg.deobf("curse.maven:gregicality-multiblocks-564858:${gcym_version}")
 
-    implementation fg.deobf("curse.maven:thaumcraft-223628:2629023")
-    implementation fg.deobf("curse.maven:baubles-227083:2518667")
+    compileOnly "curse.maven:thaumcraft-223628:2629023"
+    compileOnly "curse.maven:baubles-227083:2518667"
 
     runtimeOnly "zone.rong:mixinbooter:${mixinbooter_version}"
 
