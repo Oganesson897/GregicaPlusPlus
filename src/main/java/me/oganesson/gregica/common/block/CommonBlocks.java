@@ -6,6 +6,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -17,7 +18,7 @@ public class CommonBlocks {
 
     @SideOnly(Side.CLIENT)
     public static void registerItemModels() {
-        registerItemModel(ESSENTIA_HATCH);
+        if(Loader.isModLoaded("thaumcraft")) registerItemModel(ESSENTIA_HATCH);
     }
 
     @SideOnly(Side.CLIENT)

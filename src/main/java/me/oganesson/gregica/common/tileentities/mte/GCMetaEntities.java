@@ -16,6 +16,7 @@ import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEQubitCompu
 import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEResearchStation;
 import me.oganesson.gregica.common.tileentities.mte.single.MTECreativeGenerator;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.Loader;
 
 import java.util.function.IntFunction;
 
@@ -40,7 +41,10 @@ public class GCMetaEntities {
     public static final MTECreativeEnergyHatch[] CREATIVE_ENERGY_HATCHES = new MTECreativeEnergyHatch[GTValues.V.length];
 
     public static void register() {
-        ESSENTIA_GENERATOR = registerMetaTileEntity(nextID(), new MTEEssentiaGenerator(gcID("essentia_generator")));
+        if(Loader.isModLoaded("thaumcraft"))
+        {
+            ESSENTIA_GENERATOR = registerMetaTileEntity(nextID(), new MTEEssentiaGenerator(gcID("essentia_generator")));
+        }
         INDUSTRIAL_POND = registerMetaTileEntity(nextID(), new MTEIndustrialFishingPond(gcID("industrial_fishing_pond")));
         LIGHTNING_ROD[0] = registerMetaTileEntity(nextID(), new MTELightningRod(gcID("lightning_rod.hv"), GTValues.HV));
         LIGHTNING_ROD[1] = registerMetaTileEntity(nextID(), new MTELightningRod(gcID("lightning_rod.ev"), GTValues.EV));
