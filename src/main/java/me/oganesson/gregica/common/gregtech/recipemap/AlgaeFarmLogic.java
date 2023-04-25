@@ -2,32 +2,48 @@ package me.oganesson.gregica.common.gregtech.recipemap;
 
 import gregtech.api.GTValues;
 import gregtech.api.capability.GregtechDataCodes;
+import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.multiblock.IMaintenance;
+import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.common.ConfigHolder;
+import gregtech.common.blocks.BlockMachineCasing;
+import gregtech.common.blocks.MetaBlocks;
+import javafx.geometry.Pos;
+import me.oganesson.gregica.common.gregtech.GCMetaItems;
 import me.oganesson.gregica.common.gregtech.metatileentity.MetaTileEntityAlgaeFarm;
 import me.oganesson.gregica.common.gregtech.metatileentity.MetaTileEntityIndustrialFishingPond;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.LootTable;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 
 import javax.annotation.Nonnull;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
+import static scala.collection.concurrent.Debug.log;
 
 public class AlgaeFarmLogic {
-    public static final int MAX_PROGRESS = 20;
+    public static final int MAX_PROGRESS = 2000;
 
     private int progressTime = 0;
     private int maxProgress = 0;
-    private int minEnergyTier;
+    private int CasingTier=1;
     private final MetaTileEntityAlgaeFarm metaTileEntity;
-    private int output;
+
 
     private int mode;
 
@@ -35,20 +51,255 @@ public class AlgaeFarmLogic {
     private boolean isWorkingEnabled = true;
     private boolean wasActiveAndNeedsUpdate;
     private boolean isDone = false;
-    protected boolean isInventoryFull;
+    protected boolean isInventoryFull=false;
 
     private boolean hasNotEnoughEnergy;
     private final boolean hasMaintenance;
     public AlgaeFarmLogic(MetaTileEntityAlgaeFarm metaTileEntity, int minEnergyTier) {
         this.metaTileEntity = metaTileEntity;
-        this.minEnergyTier = minEnergyTier;
+        this.CasingTier = minEnergyTier;
         this.hasMaintenance = ConfigHolder.machines.enableMaintenance && ((IMaintenance) metaTileEntity).hasMaintenanceMechanics();
     }
+    private boolean isNotStaticWater(Block block) {
+        return block == Blocks.AIR || block == Blocks.FLOWING_WATER;
+    }
 
+    private boolean depleteInput(FluidStack fluid) {
+        if (fluid == null) {
+            return false;
+        }
+        IMultipleTankHandler inputTank = metaTileEntity.getImportFluid();
+        if (fluid.isFluidStackIdentical(inputTank.drain(fluid, false))) {
+            inputTank.drain(fluid, true);
+            return true;
+        }
+        return false;
+    }
+    public Boolean CheckWater() {
+        int mCurrentDirectionX;
+        int mCurrentDirectionZ;
+        int mOffsetX_Lower;
+        int mOffsetX_Upper;
+        int mOffsetZ_Lower;
+        int mOffsetZ_Upper;
+
+        mCurrentDirectionX = 4;
+        mCurrentDirectionZ = 4;
+
+        mOffsetX_Lower = -4;
+        mOffsetX_Upper = 4;
+        mOffsetZ_Lower = -4;
+        mOffsetZ_Upper = 4;
+
+        // if (aBaseMetaTileEntity.fac)
+
+        final int xDir = this.metaTileEntity.getFrontFacing().getOpposite().getXOffset()
+                * mCurrentDirectionX;
+        final int zDir = this.metaTileEntity.getFrontFacing().getOpposite().getZOffset()
+                * mCurrentDirectionZ;
+
+        int tAmount = 0;
+        for (int i = mOffsetX_Lower + 1; i <= mOffsetX_Upper - 1; ++i) {
+            for (int j = mOffsetZ_Lower + 1; j <= mOffsetZ_Upper - 1; ++j) {
+                for (int h = 0; h < 2; h++) {
+                    BlockPos waterCheckPos = this.metaTileEntity.getPos().add(xDir + i, h, zDir + j);
+                    Block tBlock = this.metaTileEntity.getWorld().getBlockState(waterCheckPos).getBlock();
+                    if (isNotStaticWater(tBlock)) {
+                        if (this.metaTileEntity.getImportFluid() != null) {
+                            if(depleteInput(FluidRegistry.getFluidStack("water", 1000)))
+                                this.metaTileEntity.getWorld().setBlockState(
+                                        waterCheckPos,
+                                        Blocks.WATER.getDefaultState());
+                        }
+                    }
+                    tBlock = this.metaTileEntity.getWorld().getBlockState(this.metaTileEntity.getPos().add(xDir + i, h, zDir + j)).getBlock();
+                    if (tBlock == Blocks.WATER || tBlock == Blocks.FLOWING_WATER) {
+                        ++tAmount;
+                        // log("Found Water");
+                    }
+                }
+            }
+        }
+
+        boolean isValidWater = tAmount >= 49;
+        if (isValidWater) {
+            log("Filled structure.");
+        } else {
+            log("Did not fill structure.");
+        }
+        return isValidWater;
+    }
+    private void CanOutPut()
+    {
+        if(metaTileEntity.fillChest(new ItemStack(Items.SKULL,1), true) )
+        {
+            for (int i = 0; i < this.metaTileEntity.getImportItem().getSlots(); i++) {
+                if(this.metaTileEntity.getImportItem().getStackInSlot(i).isItemEqual(IntCircuitIngredient.getIntegratedCircuit(0)) && this.metaTileEntity.getImportItem().getStackInSlot(i).getTagCompound() != null)
+                {
+                    //this.isWorkingEnabled = true;
+                    this.isInventoryFull=false;
+                    this.mode = this.metaTileEntity.getImportItem().getStackInSlot(i).getTagCompound().getInteger("Configuration");
+                    break;
+                }
+                else
+                {
+                    //this.isWorkingEnabled = false;
+                    this.isInventoryFull=true;
+                    this.mode=-1;
+                }
+            }
+        }
+        else
+        {
+            this.isInventoryFull=true;
+            this.mode=-1;
+        }
+    }
+    private void CountOutMultiplier()
+    {
+        EnumFacing facing =  metaTileEntity.getFrontFacing();
+        if(facing.getIndex()==2)
+        {
+            BlockPos pos = metaTileEntity.getPos().add(0,0,1);
+            getCasingTire(pos);
+        }
+        else if(facing.getIndex()==3)
+        {
+            BlockPos pos = metaTileEntity.getPos().add(0,0,-1);
+            getCasingTire(pos);
+        }
+        else if(facing.getIndex()==4)
+        {
+            BlockPos pos = metaTileEntity.getPos().add(1,0,0);
+            getCasingTire(pos);
+        }
+        else if(facing.getIndex()==5)
+        {
+            BlockPos pos = metaTileEntity.getPos().add(-1,0,0);
+            getCasingTire(pos);
+        }
+        else
+            this.CasingTier=0;
+    }
+    private void getCasingTire(BlockPos pos)
+    {
+        if(MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.MV).equals(metaTileEntity.getWorld().getBlockState(pos)))
+        {
+            this.CasingTier = 1;
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.EV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+            this.CasingTier = 2;
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.IV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+            this.CasingTier = 3;
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.LuV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+            this.CasingTier = 4;
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.ZPM).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+            this.CasingTier = 5;
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.UV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+            this.CasingTier = 6;
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.UHV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+            this.CasingTier = 7;
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.UEV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+            this.CasingTier = 8;
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.UIV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+            this.CasingTier = 9;
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.OpV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+            this.CasingTier = 10;
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.MAX).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+            this.CasingTier = 11;
+        }
+    }
     public void update() {
         if (metaTileEntity.getWorld().isRemote) return;
+        if (!CheckWater()) return;
+        CanOutPut();
         if (!this.isWorkingEnabled)  return;
-        this.metaTileEntity.fillChest(new ItemStack(Items.DIAMOND),false);
+        if (hasMaintenance && ((IMaintenance) metaTileEntity).getNumMaintenanceProblems() > 5) return;
+
+       if (!isInventoryFull) {
+            if (!this.isActive)
+                setActive(true);
+        } else {
+            if (this.isActive)
+                setActive(false);
+            return;
+        }
+
+        if(this.mode==5) {
+
+            CountOutMultiplier();
+            progressTime++;
+            if (progressTime % (MAX_PROGRESS /Math.pow(2,(double) this.CasingTier-1)) != 0)
+                return;
+            progressTime = 0;
+            int x = new Random().nextInt(5);
+            //褐藻
+            if(metaTileEntity.fillChest(new ItemStack(GCMetaItems.BROWN_ALGAE.getMetaItem(),x*Math.min(0,(CasingTier-1))), true))
+            {
+                metaTileEntity.fillChest(new ItemStack(GCMetaItems.BROWN_ALGAE.getMetaItem(),x*Math.min(0,(CasingTier-1))), false);
+            }
+            else {
+                isInventoryFull = true;
+                setActive(false);
+                setWasActiveAndNeedsUpdate(true);
+            }
+            //普通
+            if(metaTileEntity.fillChest(new ItemStack(GCMetaItems.COMMON_ALGAE.getMetaItem(),x*CasingTier), true))
+            {
+                metaTileEntity.fillChest(new ItemStack(GCMetaItems.COMMON_ALGAE.getMetaItem(),x*CasingTier), false);
+            }
+            else {
+                isInventoryFull = true;
+                setActive(false);
+                setWasActiveAndNeedsUpdate(true);
+            }
+            //绿藻
+            if(metaTileEntity.fillChest(new ItemStack(GCMetaItems.GREEN_ALGAE.getMetaItem(),x*CasingTier), true))
+            {
+                metaTileEntity.fillChest(new ItemStack(GCMetaItems.GREEN_ALGAE.getMetaItem(),x*CasingTier), false);
+            }
+            else {
+                isInventoryFull = true;
+                setActive(false);
+                setWasActiveAndNeedsUpdate(true);
+            }
+
+            //金藻
+            if(metaTileEntity.fillChest(new ItemStack(GCMetaItems.GOLD_ALGAE.getMetaItem(),x*Math.min(0,(CasingTier-2))), true))
+            {
+                metaTileEntity.fillChest(new ItemStack(GCMetaItems.GOLD_ALGAE.getMetaItem(),x*Math.min(0,(CasingTier-2))), false);
+            }
+            else {
+                isInventoryFull = true;
+                setActive(false);
+                setWasActiveAndNeedsUpdate(true);
+            }
+            //红藻
+            if(metaTileEntity.fillChest(new ItemStack(GCMetaItems.RED_ALGAE.getMetaItem(),x*Math.min(0,(CasingTier-2))/2), true))
+            {
+                metaTileEntity.fillChest(new ItemStack(GCMetaItems.RED_ALGAE.getMetaItem(),x*Math.min(0,(CasingTier-2))/2), false);
+            }
+            else {
+                isInventoryFull = true;
+                setActive(false);
+                setWasActiveAndNeedsUpdate(true);
+            }
+            //T藻
+            if(metaTileEntity.fillChest(new ItemStack(GCMetaItems.T_ALGAE.getMetaItem(),x*Math.min(0,(CasingTier-4))), true))
+            {
+                metaTileEntity.fillChest(new ItemStack(GCMetaItems.T_ALGAE.getMetaItem(),x*Math.min(0,(CasingTier-4))), false);
+            }
+            else {
+                isInventoryFull = true;
+                setActive(false);
+                setWasActiveAndNeedsUpdate(true);
+            }
+
+
+        }else {
+            isInventoryFull = true;
+            setActive(false);
+            setWasActiveAndNeedsUpdate(true);
+        }
     }
 
     public int getMaxProgress() {
@@ -126,7 +377,7 @@ public class AlgaeFarmLogic {
     }
 
     public double getProgressPercent() {
-        return getProgressTime() * 1.0 / MAX_PROGRESS;
+        return getProgressTime() * 1.0 / (MAX_PROGRESS/Math.pow(2,(double) this.CasingTier-1));
     }
 
 

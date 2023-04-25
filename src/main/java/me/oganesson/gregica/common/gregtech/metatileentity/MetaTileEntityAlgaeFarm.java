@@ -52,6 +52,7 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.IItemHandlerModifiable;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -61,7 +62,6 @@ import java.util.List;
 
 public class MetaTileEntityAlgaeFarm extends MultiblockWithDisplayBase implements IDataInfoProvider, IWorkable {
     private final AlgaeFarmLogic logic;
-    private IEnergyContainer energyContainer;
     protected IMultipleTankHandler inputFluidInventory;
     protected ItemHandlerList itemImportInventory;
     protected IItemHandler outputItemInventory;
@@ -70,6 +70,15 @@ public class MetaTileEntityAlgaeFarm extends MultiblockWithDisplayBase implement
         this.logic = new AlgaeFarmLogic(this,GTValues.MV);
     }
 
+    public IMultipleTankHandler getImportFluid() {
+        return this.inputFluidInventory;
+    }
+    public IItemHandlerModifiable getImportItem() {
+        return itemImportInventory;
+    }
+    public boolean fillTanks(ItemStack stack, boolean simulate) {
+        return GTTransferUtils.addItemsToItemHandler(outputItemInventory, simulate, Collections.singletonList(stack));
+    }
     @Override
     public int getProgress() {
         return logic.getProgressTime();
@@ -146,14 +155,12 @@ public class MetaTileEntityAlgaeFarm extends MultiblockWithDisplayBase implement
         this.inputFluidInventory = new FluidTankList(true, getAbilities(MultiblockAbility.IMPORT_FLUIDS));
         this.outputItemInventory = new ItemHandlerList(getAbilities(MultiblockAbility.EXPORT_ITEMS));
         this.itemImportInventory = new ItemHandlerList(getAbilities(MultiblockAbility.IMPORT_ITEMS));
-        this.energyContainer = new EnergyContainerList(getAbilities(MultiblockAbility.INPUT_ENERGY));
     }
 
     private void resetTileAbilities() {
         this.inputFluidInventory = new FluidTankList(true);
         this.outputItemInventory = new ItemHandlerList(Collections.emptyList());
         this.itemImportInventory = new ItemHandlerList(Collections.emptyList());
-        this.energyContainer = new EnergyContainerList(Lists.newArrayList());
     }
     @Override
     protected void formStructure(PatternMatchContext context) {

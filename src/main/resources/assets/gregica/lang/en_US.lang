@@ -61,6 +61,12 @@ gregica.machine.research_station.name=Research Station
 gregica.machine.algae_farm.name=Algea Farm
 
 gregica.laser.pipe.name=Laser Pipe
+metaitem.algae.common.name=Common Algae
+metaitem.algae.red.name=Red Algae
+metaitem.algae.green.name=Green Algae
+metaitem.algae.gold.name=Gold Algae
+metaitem.algae.brown.name=Brown Algae
+metaitem.algae.t.name=T Algae
 #Info
 gc.multiblock.pattern.error.essentia=Essentia cell tier doesn't match.
 essentiahatch.chat.0=Successfully locked to %s.

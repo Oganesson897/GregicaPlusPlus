@@ -141,7 +141,7 @@ dependencies {
     implementation fg.deobf("curse.maven:baubles-227083:2518667")
 
     implementation "zone.rong:mixinbooter:${mixinbooter_version}"
-
+    compileOnly (files("libs/EnderCore-1.12.2-0.5.76.jar"))
     compileOnly 'curse.maven:AdvancedRocketry-236542:3801020'
 
     // Examples using mod jars from ./libs

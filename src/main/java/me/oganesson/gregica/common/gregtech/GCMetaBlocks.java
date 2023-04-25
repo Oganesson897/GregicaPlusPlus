@@ -40,7 +40,10 @@ public class GCMetaBlocks {
         } else if (state.equals(MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.LV))) {
             return false;
         }
-         else return true;
+         else {
+
+            return true;
+        }
     }
 
     public static int getCellTier(IBlockState state) {
