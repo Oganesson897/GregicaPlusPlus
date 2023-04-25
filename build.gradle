@@ -111,7 +111,7 @@ dependencies {
 
 
     implementation 'org.spongepowered:mixin:0.8.2'
-   // annotationProcessor 'org.spongepowered:mixin:0.8.2:processor'
+    annotationProcessor 'org.spongepowered:mixin:0.8.2:processor'
 
     // Examples using mod jars from ./libs
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
