@@ -20,7 +20,7 @@ public class GCMetaBlocks {
     public static final GCMetaCells GC_ESSENTIA_CELLS = new GCMetaCells();
 
     public static boolean isEssentiaCell(IBlockState state) {
-        if (!state.getBlock().equals(GC_BLOCK_CASING)) {
+        if (!state.getBlock().equals(GC_ESSENTIA_CELLS)) {
             return false;
         }
         if (state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T1))) {
