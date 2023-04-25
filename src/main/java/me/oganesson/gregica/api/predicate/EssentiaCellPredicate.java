@@ -4,7 +4,7 @@ import gregtech.api.pattern.PatternStringError;
 import gregtech.api.pattern.TraceabilityPredicate;
 import gregtech.api.util.BlockInfo;
 import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
-import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
+import me.oganesson.gregica.common.block.metablock.GCMetaCells;
 import net.minecraft.block.state.IBlockState;
 
 import java.util.Arrays;
@@ -26,9 +26,9 @@ public class EssentiaCellPredicate {
             return true;
         }
         return false;
-    }, () -> Arrays.stream(GCMetaCasing.MetalCasingType.values())
-            .sorted(Comparator.comparing(GCMetaCasing.MetalCasingType::getName))
-            .map(type -> new BlockInfo(GCMetaBlocks.GC_BLOCK_CASING.getState(type), null))
+    }, () -> Arrays.stream(GCMetaCells.MetalCellType.values())
+            .sorted(Comparator.comparing(GCMetaCells.MetalCellType::getName))
+            .map(type -> new BlockInfo(GCMetaBlocks.GC_ESSENTIA_CELLS.getState(type), null))
             .toArray(BlockInfo[]::new))
             .addTooltips("gc.multiblock.pattern.error.essentia");
 

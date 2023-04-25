@@ -39,10 +39,10 @@ item.upgradeEssentia.9.name=§3Essentia Generator: Electric§r
 metaitem.tool.baguette.name=Baguette
 #Blocks
 tile.gc_machine_casing.magic_machine_casing.name=Magic Casing
-tile.gc_machine_casing.essentia_cell_1.name=Novice Essentia Diffusion Cell
-tile.gc_machine_casing.essentia_cell_2.name=Adept Essentia Diffusion Cell
-tile.gc_machine_casing.essentia_cell_3.name=Master Essentia Diffusion Cell
-tile.gc_machine_casing.essentia_cell_4.name=Grandmaster Essentia Diffusion Cell
+tile.gc_essentia_cell.essentia_cell_1.name=Novice Essentia Diffusion Cell
+tile.gc_essentia_cell.essentia_cell_2.name=Adept Essentia Diffusion Cell
+tile.gc_essentia_cell.essentia_cell_3.name=Master Essentia Diffusion Cell
+tile.gc_essentia_cell.essentia_cell_4.name=Grandmaster Essentia Diffusion Cell
 tile.essentia_hatch.name=Essentia Input Hatch
 tile.gc_machine_casing.fishing_machine_casing.name=Fishery Casing
 tile.gc_machine_casing.quantum_machine_casing.name=Quantum Casing

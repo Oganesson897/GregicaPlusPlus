@@ -2,7 +2,6 @@ package me.oganesson.gregica.proxy;
 
 import gregtech.api.GTValues;
 import gregtech.api.block.VariantItemBlock;
-import gregtech.api.util.GTLog;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCLog;
 import me.oganesson.gregica.api.capability.GCCapabilities;
@@ -35,6 +34,7 @@ import java.util.function.Function;
 
 import static me.oganesson.gregica.common.block.CommonBlocks.ESSENTIA_HATCH;
 import static me.oganesson.gregica.common.block.metablock.GCMetaBlocks.GC_BLOCK_CASING;
+import static me.oganesson.gregica.common.block.metablock.GCMetaBlocks.GC_ESSENTIA_CELLS;
 import static me.oganesson.gregica.common.tileentities.mte.GCMetaEntities.LASER_PIPES;
 
 public class CommonProxy {
@@ -60,7 +60,7 @@ public class CommonProxy {
     public void init( FMLInitializationEvent event ) {
         FuelRecipe.init();
         if (Loader.isModLoaded(GTValues.MODID_TOP)) {
-            GTLog.logger.info("TheOneProbe found. Enabling integration...");
+            GCLog.logger.info("TheOneProbe found. Enabling integration...");
             GCCapabilityProvider.registerCompatibility();
         }
     }
@@ -71,13 +71,16 @@ public class CommonProxy {
         Upgrades.setCreativeTab(Tab);
         event.getRegistry().register(Upgrades);
         event.getRegistry().register(createItemBlock(GC_BLOCK_CASING, VariantItemBlock::new));
+        event.getRegistry().register(createItemBlock(GC_ESSENTIA_CELLS, VariantItemBlock::new));
         if(Loader.isModLoaded("thaumcraft")) event.getRegistry().register(createItemBlock(ESSENTIA_HATCH, ItemBlock::new));
         for(BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(createItemBlock(pipe, ItemBlockLaserPipe::new));
     }
 
     public void registerBlocks(RegistryEvent.Register<Block> event) {
         GC_BLOCK_CASING.setCreativeTab(Tab);
+        GC_ESSENTIA_CELLS.setCreativeTab(Tab);
         event.getRegistry().register(GC_BLOCK_CASING);
+        event.getRegistry().register(GC_ESSENTIA_CELLS);
         for (BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(pipe);
         if(Loader.isModLoaded("thaumcraft")){
             GameRegistry.registerTileEntity(EssentiaHatch.class, Objects.requireNonNull(ESSENTIA_HATCH.getRegistryName()));

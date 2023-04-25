@@ -20,6 +20,7 @@ import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.PatternMatchContext;
 import gregtech.api.util.GTTransferUtils;
 import gregtech.client.renderer.ICubeRenderer;
+import gregtech.client.renderer.texture.Textures;
 import me.oganesson.gregica.api.predicate.AlgaeFarmPredicate;
 import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
@@ -117,11 +118,9 @@ public class MTEAlgaeFarm extends MultiblockWithDisplayBase implements IDataInfo
                 .where('S', selfPredicate())
                 .where('X', AlgaeFarmPredicate.MACHINECASINGS)
                 .where('E', states(getCasingState()).setMinGlobalLimited(80)
-                        .or(abilities(MultiblockAbility.EXPORT_ITEMS).setMinGlobalLimited(1))
-                        .or(abilities(MultiblockAbility.IMPORT_ITEMS).setMinGlobalLimited(1))
-                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setExactLimit(1))
-                        .or(abilities(MultiblockAbility.MUFFLER_HATCH).setExactLimit(1))
-                        .or(abilities(MultiblockAbility.MAINTENANCE_HATCH).setExactLimit(1)))
+                        .or(abilities(MultiblockAbility.EXPORT_ITEMS).setMinGlobalLimited(1).setPreviewCount(1))
+                        .or(abilities(MultiblockAbility.IMPORT_ITEMS).setMinGlobalLimited(1).setPreviewCount(1))
+                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setExactLimit(1)))
                 .where('#', any())
                 .build();
                 //.getState(BlockMachineCasing.MachineCasingType.MV)
@@ -193,6 +192,12 @@ public class MTEAlgaeFarm extends MultiblockWithDisplayBase implements IDataInfo
     public void receiveInitialSyncData(PacketBuffer buf) {
         super.receiveInitialSyncData(buf);
         this.logic.receiveInitialSyncData(buf);
+    }
+
+    @Nonnull
+    @Override
+    protected ICubeRenderer getFrontOverlay() {
+        return GCTextures.ALGAE_FARM;
     }
 
     @Override

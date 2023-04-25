@@ -48,7 +48,7 @@ public class AlgaeFarmLogic {
     public AlgaeFarmLogic(MTEAlgaeFarm metaTileEntity, int minEnergyTier) {
         this.metaTileEntity = metaTileEntity;
         this.CasingTier = minEnergyTier;
-        this.hasMaintenance = ConfigHolder.machines.enableMaintenance && ((IMaintenance) metaTileEntity).hasMaintenanceMechanics();
+        this.hasMaintenance = false;
     }
     private boolean isNotStaticWater(Block block) {
         return block == Blocks.AIR || block == Blocks.FLOWING_WATER;
@@ -203,7 +203,6 @@ public class AlgaeFarmLogic {
         if (!CheckWater()) return;
         CanOutPut();
         if (!this.isWorkingEnabled)  return;
-        if (hasMaintenance && ((IMaintenance) metaTileEntity).getNumMaintenanceProblems() > 5) return;
 
        if (!isInventoryFull) {
             if (!this.isActive)

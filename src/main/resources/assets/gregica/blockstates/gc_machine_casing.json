@@ -5,26 +5,6 @@
   },
   "variants": {
     "variant": {
-      "essentia_cell_1": {
-        "textures": {
-          "all": "gregica:blocks/essentia_cell_1"
-        }
-      },
-      "essentia_cell_2": {
-        "textures": {
-          "all": "gregica:blocks/essentia_cell_2"
-        }
-      },
-      "essentia_cell_3": {
-        "textures": {
-          "all": "gregica:blocks/essentia_cell_3"
-        }
-      },
-      "essentia_cell_4": {
-        "textures": {
-          "all": "gregica:blocks/essentia_cell_4"
-        }
-      },
       "fishing_machine_casing": {
         "textures": {
           "all": "gregica:blocks/fishing_machine_casing"

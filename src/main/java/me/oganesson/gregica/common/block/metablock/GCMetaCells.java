@@ -11,36 +11,33 @@ import net.minecraft.world.IBlockAccess;
 
 import javax.annotation.Nonnull;
 
-public class GCMetaCasing extends VariantBlock<GCMetaCasing.MetalCasingType> {
+public class GCMetaCells extends VariantBlock<GCMetaCells.MetalCellType> {
 
-    public GCMetaCasing() {
+    public GCMetaCells() {
         super(Material.IRON);
-        setTranslationKey("gc_machine_casing");
+        setTranslationKey("gc_essentia_cell");
         setHardness(2.0f);
         setResistance(5.0f);
         setSoundType(SoundType.METAL);
         setHarvestLevel("wrench", 2);
-        setDefaultState(getState(MetalCasingType.MAGIC_CASING));
-        setRegistryName("gc_machine_casing");
+        setDefaultState(getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T1));
+        setRegistryName("gc_essentia_cell");
     }
-
     @Override
     public boolean canCreatureSpawn(@Nonnull IBlockState state, @Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull EntityLiving.SpawnPlacementType type) {
         return false;
     }
 
-    public enum MetalCasingType implements IStringSerializable {
+    public enum MetalCellType implements IStringSerializable {
 
-        MAGIC_CASING("magic_machine_casing"),
-        FISHING_CASING("fishing_machine_casing"),
-        QUANTUM_CASING("quantum_machine_casing"),
-        QUANTUM_GENERATOR_CASING("quantum_generator_machine_casing"),
+        ESSENTIA_CELL_T1("essentia_cell_1"),
+        ESSENTIA_CELL_T2("essentia_cell_2"),
+        ESSENTIA_CELL_T3("essentia_cell_3"),
+        ESSENTIA_CELL_T4("essentia_cell_4");
 
-        POWER_CASING("high_power_casing"),
-        ASEPTIC_FARM_CASING("aseptic_farm_maching_casing");
         private final String name;
 
-        MetalCasingType(String name) {
+        MetalCellType(String name) {
             this.name = name;
         }
 
