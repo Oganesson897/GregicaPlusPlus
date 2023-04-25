@@ -126,8 +126,13 @@ public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implemen
                 .aisle("EEEEEEEEE", "XXXXSXXXX", "XXXXXXXXX")
                 .where('S', selfPredicate())
                 .where('X', states(getCasingState()).setMinGlobalLimited(105)
-                        .or(abilities(MultiblockAbility.EXPORT_ITEMS).setExactLimit(1)).or(abilities(MultiblockAbility.IMPORT_ITEMS).setExactLimit(1)).or(abilities(MultiblockAbility.IMPORT_FLUIDS).setMaxGlobalLimited(1)).or(abilities(MultiblockAbility.MUFFLER_HATCH).setExactLimit(1)).or(abilities(MultiblockAbility.MAINTENANCE_HATCH).setExactLimit(1)))
-                .where('E', states(getCasingState()).or(abilities(MultiblockAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(3)))
+                        .or(abilities(MultiblockAbility.EXPORT_ITEMS).setExactLimit(1))
+                        .or(abilities(MultiblockAbility.IMPORT_ITEMS).setExactLimit(1))
+                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setMaxGlobalLimited(1))
+                        .or(abilities(MultiblockAbility.MUFFLER_HATCH).setExactLimit(1))
+                        .or(abilities(MultiblockAbility.MAINTENANCE_HATCH).setExactLimit(1)))
+                .where('E', states(getCasingState())
+                        .or(abilities(MultiblockAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(3)))
                 .where('#', any())
                 .build();
     }
@@ -287,7 +292,7 @@ public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implemen
         }
 
         if (logic.isInventoryFull())
-            textList.add(new TextComponentTranslation("gregtech.multiblock.large_miner.invfull").setStyle(new Style().setColor(TextFormatting.RED)));
+            textList.add(new TextComponentTranslation("gregtech.multiblock.slarge_miner.invfull").setStyle(new Style().setColor(TextFormatting.RED)));
     }
 
     @Override

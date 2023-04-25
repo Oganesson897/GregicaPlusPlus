@@ -48,6 +48,7 @@ tile.gc_machine_casing.fishing_machine_casing.name=Fishery Casing
 tile.gc_machine_casing.quantum_machine_casing.name=Quantum Casing
 tile.gc_machine_casing.quantum_generator_machine_casing.name=Quantum Generator Casing
 tile.gc_machine_casing.high_power_casing.name=High Power Casing
+tile.gc_machine_casing.aseptic_farm_maching_casing.name=Aseptic Farm Casing
 
 gregica.machine.essentia_generator.name=Large Essentia Generator
 gregica.machine.industrial_fishing_pond.name=ZhuHai Fishing Pond
@@ -58,6 +59,7 @@ gregica.machine.lightning_rod.iv.name=Lightning Rod III
 gregica.machine.qubit_hatch.input.16.name=Qubit Input Hatch
 gregica.machine.qubit_hatch.output.1.name=Qubit Output Hatch
 gregica.machine.research_station.name=Research Station
+gregica.machine.algae_farm.name=Algea Farm
 
 gregica.machine.creative_energy_hatch.lv.name=CreativeEnergyHatch LV
 gregica.machine.creative_energy_hatch.mv.name=CreativeEnergyHatch MV
@@ -92,6 +94,12 @@ gregica.machine.creative_generator.max.name=CreativeGenerator MAX
 gregica.machine.creative_energy_hatch.amperage=Output Amperage %d A
 
 gregica.laser.pipe.name=Laser Pipe
+metaitem.algae.common.name=Common Algae
+metaitem.algae.red.name=Red Algae
+metaitem.algae.green.name=Green Algae
+metaitem.algae.gold.name=Gold Algae
+metaitem.algae.brown.name=Brown Algae
+metaitem.algae.t.name=T Algae
 #Info
 gc.multiblock.pattern.error.essentia=Essentia cell tier doesn't match.
 essentiahatch.chat.0=Successfully locked to %s.

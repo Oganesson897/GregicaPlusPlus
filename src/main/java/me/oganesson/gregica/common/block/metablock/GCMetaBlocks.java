@@ -1,5 +1,7 @@
 package me.oganesson.gregica.common.block.metablock;
 
+import gregtech.common.blocks.BlockMachineCasing;
+import gregtech.common.blocks.MetaBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -27,6 +29,20 @@ public class GCMetaBlocks {
         } else if (state.equals(GC_BLOCK_CASING.getState(GCMetaCasing.MetalCasingType.ESSENTIA_CELL_T3))) {
             return true;
         } else return state.equals(GC_BLOCK_CASING.getState(GCMetaCasing.MetalCasingType.ESSENTIA_CELL_T4));
+    }
+    public static boolean isMachineCasing(IBlockState state) {
+        if (!state.getBlock().equals(MetaBlocks.MACHINE_CASING)) {
+            return false;
+        }
+        if (state.equals(MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.ULV))) {
+            return false;
+        } else if (state.equals(MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.LV))) {
+            return false;
+        }
+         else {
+
+            return true;
+        }
     }
 
     public static int getCellTier(IBlockState state) {
