@@ -41,6 +41,10 @@ public class GCMetaBlocks {
         }
         return -1;
     }
+    
+    public static GCMetaCasing.MetalCasingType getType(IBlockState state){
+        return GC_BLOCK_CASING.getState(state);
+    }
 
     @SideOnly(Side.CLIENT)
     public static void registerItemModels() {

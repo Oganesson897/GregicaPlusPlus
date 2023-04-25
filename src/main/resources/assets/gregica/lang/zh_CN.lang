@@ -47,6 +47,7 @@ tile.essentia_hatch.name=源质输入仓
 tile.gc_machine_casing.fishing_machine_casing.name=水产机械外壳
 tile.gc_machine_casing.quantum_machine_casing.name=量子外壳
 tile.gc_machine_casing.quantum_generator_machine_casing.name=量子发生机械外壳
+tile.gc_machine_casing.high_power_casing.name=超能机械方块
 
 gregica.machine.essentia_generator.name=大型源质反应堆
 gregica.machine.industrial_fishing_pond.name=珠海渔场

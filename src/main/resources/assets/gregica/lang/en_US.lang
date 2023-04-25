@@ -47,6 +47,7 @@ tile.essentia_hatch.name=Essentia Input Hatch
 tile.gc_machine_casing.fishing_machine_casing.name=Fishery Casing
 tile.gc_machine_casing.quantum_machine_casing.name=Quantum Casing
 tile.gc_machine_casing.quantum_generator_machine_casing.name=Quantum Generator Casing
+tile.gc_machine_casing.high_power_casing.name=High Power Casing
 
 gregica.machine.essentia_generator.name=Large Essentia Generator
 gregica.machine.industrial_fishing_pond.name=ZhuHai Fishing Pond
