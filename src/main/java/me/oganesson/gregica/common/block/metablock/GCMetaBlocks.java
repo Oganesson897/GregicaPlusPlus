@@ -32,18 +32,7 @@ public class GCMetaBlocks {
         } else return state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T4));
     }
     public static boolean isMachineCasing(IBlockState state) {
-        if (!state.getBlock().equals(MetaBlocks.MACHINE_CASING)) {
-            return false;
-        }
-        if (state.equals(MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.ULV))) {
-            return false;
-        } else if (state.equals(MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.LV))) {
-            return false;
-        }
-         else {
-
-            return true;
-        }
+        return state.getBlock().equals(MetaBlocks.MACHINE_CASING);
     }
 
     public static int getCellTier(IBlockState state) {

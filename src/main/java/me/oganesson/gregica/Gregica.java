@@ -28,7 +28,7 @@ public class Gregica {
     public static Logger logger = LogManager.getLogger(Gregica.MOD_ID);
 
     public static final String MOD_ID = "gregica";
-    public static final String MOD_NAME = "Gregica";
+    public static final String MOD_NAME = "Gregica++";
     public static final String MOD_ABRIDGE = "GC";
     public static final String VERSION = "0.0.2-Alpha";
 
