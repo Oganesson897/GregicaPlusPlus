@@ -44,11 +44,9 @@ public class AlgaeFarmLogic {
     protected boolean isInventoryFull=false;
 
     private boolean hasNotEnoughEnergy;
-    private final boolean hasMaintenance;
     public AlgaeFarmLogic(MTEAlgaeFarm metaTileEntity, int minEnergyTier) {
         this.metaTileEntity = metaTileEntity;
         this.CasingTier = minEnergyTier;
-        this.hasMaintenance = false;
     }
     private boolean isNotStaticWater(Block block) {
         return block == Blocks.AIR || block == Blocks.FLOWING_WATER;
@@ -173,28 +171,28 @@ public class AlgaeFarmLogic {
     }
     private void getCasingTire(BlockPos pos)
     {
-        if(MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.MV).equals(metaTileEntity.getWorld().getBlockState(pos)))
+        if(MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.ULV).equals(metaTileEntity.getWorld().getBlockState(pos)))
         {
             this.CasingTier = 1;
-        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.EV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.LV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
             this.CasingTier = 2;
-        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.IV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.MV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
             this.CasingTier = 3;
-        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.LuV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.HV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
             this.CasingTier = 4;
-        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.ZPM).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.EV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
             this.CasingTier = 5;
-        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.UV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.IV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
             this.CasingTier = 6;
-        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.UHV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.LuV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
             this.CasingTier = 7;
-        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.UEV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.ZPM).equals(metaTileEntity.getWorld().getBlockState(pos))) {
             this.CasingTier = 8;
-        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.UIV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.UV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
             this.CasingTier = 9;
-        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.OpV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.UHV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
             this.CasingTier = 10;
-        } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.MAX).equals(metaTileEntity.getWorld().getBlockState(pos))) {
+        } else {
             this.CasingTier = 11;
         }
     }
@@ -222,9 +220,9 @@ public class AlgaeFarmLogic {
             progressTime = 0;
             int x = new Random().nextInt(5);
             //褐藻
-            if(metaTileEntity.fillChest(new ItemStack(GCMetaItems.BROWN_ALGAE.getMetaItem(),x*Math.min(0,(CasingTier-1))), true))
+            if(metaTileEntity.fillChest(GCMetaItems.BROWN_ALGAE.getStackForm(x*Math.max(0,(CasingTier-2))), true))
             {
-                metaTileEntity.fillChest(new ItemStack(GCMetaItems.BROWN_ALGAE.getMetaItem(),x*Math.min(0,(CasingTier-1))), false);
+                metaTileEntity.fillChest(GCMetaItems.BROWN_ALGAE.getStackForm(x*Math.max(0,(CasingTier-2))), false);
             }
             else {
                 isInventoryFull = true;
@@ -232,9 +230,9 @@ public class AlgaeFarmLogic {
                 setWasActiveAndNeedsUpdate(true);
             }
             //普通
-            if(metaTileEntity.fillChest(new ItemStack(GCMetaItems.COMMON_ALGAE.getMetaItem(),x*CasingTier), true))
+            if(metaTileEntity.fillChest(GCMetaItems.COMMON_ALGAE.getStackForm(x*CasingTier), true))
             {
-                metaTileEntity.fillChest(new ItemStack(GCMetaItems.COMMON_ALGAE.getMetaItem(),x*CasingTier), false);
+                metaTileEntity.fillChest(GCMetaItems.COMMON_ALGAE.getStackForm(x*CasingTier), false);
             }
             else {
                 isInventoryFull = true;
@@ -242,9 +240,9 @@ public class AlgaeFarmLogic {
                 setWasActiveAndNeedsUpdate(true);
             }
             //绿藻
-            if(metaTileEntity.fillChest(new ItemStack(GCMetaItems.GREEN_ALGAE.getMetaItem(),x*CasingTier), true))
+            if(metaTileEntity.fillChest(GCMetaItems.GREEN_ALGAE.getStackForm(x*CasingTier), true))
             {
-                metaTileEntity.fillChest(new ItemStack(GCMetaItems.GREEN_ALGAE.getMetaItem(),x*CasingTier), false);
+                metaTileEntity.fillChest(GCMetaItems.GREEN_ALGAE.getStackForm(x*CasingTier), false);
             }
             else {
                 isInventoryFull = true;
@@ -253,9 +251,9 @@ public class AlgaeFarmLogic {
             }
 
             //金藻
-            if(metaTileEntity.fillChest(new ItemStack(GCMetaItems.GOLD_ALGAE.getMetaItem(),x*Math.min(0,(CasingTier-2))), true))
+            if(metaTileEntity.fillChest(GCMetaItems.GOLD_ALGAE.getStackForm(x*Math.max(0,(CasingTier-4))), true))
             {
-                metaTileEntity.fillChest(new ItemStack(GCMetaItems.GOLD_ALGAE.getMetaItem(),x*Math.min(0,(CasingTier-2))), false);
+                metaTileEntity.fillChest(GCMetaItems.GOLD_ALGAE.getStackForm(x*Math.max(0,(CasingTier-4))), false);
             }
             else {
                 isInventoryFull = true;
@@ -263,9 +261,9 @@ public class AlgaeFarmLogic {
                 setWasActiveAndNeedsUpdate(true);
             }
             //红藻
-            if(metaTileEntity.fillChest(new ItemStack(GCMetaItems.RED_ALGAE.getMetaItem(),x*Math.min(0,(CasingTier-2))/2), true))
+            if(metaTileEntity.fillChest(GCMetaItems.RED_ALGAE.getStackForm(x*Math.max(0,(CasingTier-5))/2), true))
             {
-                metaTileEntity.fillChest(new ItemStack(GCMetaItems.RED_ALGAE.getMetaItem(),x*Math.min(0,(CasingTier-2))/2), false);
+                metaTileEntity.fillChest(GCMetaItems.RED_ALGAE.getStackForm(x*Math.max(0,(CasingTier-5))/2), false);
             }
             else {
                 isInventoryFull = true;
@@ -273,15 +271,15 @@ public class AlgaeFarmLogic {
                 setWasActiveAndNeedsUpdate(true);
             }
             //T藻
-            if(metaTileEntity.fillChest(new ItemStack(GCMetaItems.T_ALGAE.getMetaItem(),x*Math.min(0,(CasingTier-4))), true))
-            {
-                metaTileEntity.fillChest(new ItemStack(GCMetaItems.T_ALGAE.getMetaItem(),x*Math.min(0,(CasingTier-4))), false);
-            }
-            else {
-                isInventoryFull = true;
-                setActive(false);
-                setWasActiveAndNeedsUpdate(true);
-            }
+        //    if(metaTileEntity.fillChest(GCMetaItems.T_ALGAE.getStackForm(x*Math.min(0,(CasingTier-4))), true))
+         //   {
+         //       metaTileEntity.fillChest(GCMetaItems.T_ALGAE.getStackForm(x*Math.min(0,(CasingTier-4))), false);
+         //   }
+        //    else {
+         //       isInventoryFull = true;
+         //       setActive(false);
+        //        setWasActiveAndNeedsUpdate(true);
+        //    }
 
 
         }else {

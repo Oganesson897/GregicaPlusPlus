@@ -1,16 +1,16 @@
 {
-  "required": true,
+  "minVersion": "0.7",
   "package": "me.oganesson.gregica.mixin",
   "compatibilityLevel": "JAVA_8",
-  "minVersion": "0.7",
-  "mixins": [
-  ],
+  "refmap": "mixins.gregica.refmap.json",
+  "mixins": [],
   "client": [
     "MixinMachineItemBlock"
   ],
+  "server": [
+  ],
   "injectors": {
     "defaultRequire": 1
-  },
-  "refmap": "mixins.gregica.refmap.json"
+  }
 
 }

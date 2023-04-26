@@ -56,6 +56,9 @@ public class MTEAlgaeFarm extends MultiblockWithDisplayBase implements IDataInfo
         this.logic = new AlgaeFarmLogic(this,GTValues.MV);
     }
 
+    public boolean hasMaintenanceMechanics() {
+        return false;
+    }
     public IMultipleTankHandler getImportFluid() {
         return this.inputFluidInventory;
     }
