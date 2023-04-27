@@ -184,7 +184,7 @@ public class AlgaeFarmLogic {
 
             CountOutMultiplier();
             progressTime++;
-            if (progressTime % (MAX_PROGRESS /Math.pow(2,(double) this.CasingTier-1)) != 0)
+            if (progressTime % (int)(MAX_PROGRESS /Math.pow(2,(double) this.CasingTier-1)) != 0)
                 return;
             progressTime = 0;
             int x = new Random().nextInt(5);
@@ -326,7 +326,7 @@ public class AlgaeFarmLogic {
     }
 
     public double getProgressPercent() {
-        return getProgressTime() * 1.0 / (MAX_PROGRESS/Math.pow(2,(double) this.CasingTier-1));
+        return getProgressTime() * 1.0 / (int)(MAX_PROGRESS/Math.pow(2,(double) this.CasingTier-1));
     }
 
 
