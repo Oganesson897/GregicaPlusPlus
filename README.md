@@ -25,3 +25,5 @@ Have gained access to some code and ideas.
 
 ## Other
 Discord: [here](https://discord.gg/gXEeKcJv9d)
+All the SNAPSHOT version just can test the contents.
+And can not play in Survival Save.
