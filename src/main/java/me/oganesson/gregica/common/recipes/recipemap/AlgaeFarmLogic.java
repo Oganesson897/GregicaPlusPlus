@@ -27,15 +27,12 @@ import java.util.Random;
 import static scala.collection.concurrent.Debug.log;
 
 public class AlgaeFarmLogic {
-    public static final int MAX_PROGRESS = 2000;
+    public static final int MAX_PROGRESS = 189000;
 
     private int progressTime = 0;
     private int maxProgress = 0;
     private int CasingTier=1;
     private final MTEAlgaeFarm metaTileEntity;
-
-
-    private int mode;
 
     private boolean isActive;
     private boolean isWorkingEnabled = true;
@@ -117,32 +114,7 @@ public class AlgaeFarmLogic {
         }
         return isValidWater;
     }
-    private void CanOutPut()
-    {
-        if(metaTileEntity.fillChest(new ItemStack(Items.SKULL,1), true) )
-        {
-            for (int i = 0; i < this.metaTileEntity.getImportItem().getSlots(); i++) {
-                if(this.metaTileEntity.getImportItem().getStackInSlot(i).isItemEqual(IntCircuitIngredient.getIntegratedCircuit(0)) && this.metaTileEntity.getImportItem().getStackInSlot(i).getTagCompound() != null)
-                {
-                    //this.isWorkingEnabled = true;
-                    this.isInventoryFull=false;
-                    this.mode = this.metaTileEntity.getImportItem().getStackInSlot(i).getTagCompound().getInteger("Configuration");
-                    break;
-                }
-                else
-                {
-                    //this.isWorkingEnabled = false;
-                    this.isInventoryFull=true;
-                    this.mode=-1;
-                }
-            }
-        }
-        else
-        {
-            this.isInventoryFull=true;
-            this.mode=-1;
-        }
-    }
+
     private void CountOutMultiplier()
     {
         EnumFacing facing =  metaTileEntity.getFrontFacing();
@@ -199,7 +171,6 @@ public class AlgaeFarmLogic {
     public void update() {
         if (metaTileEntity.getWorld().isRemote) return;
         if (!CheckWater()) return;
-        CanOutPut();
         if (!this.isWorkingEnabled)  return;
 
        if (!isInventoryFull) {
@@ -210,8 +181,6 @@ public class AlgaeFarmLogic {
                 setActive(false);
             return;
         }
-
-        if(this.mode==5) {
 
             CountOutMultiplier();
             progressTime++;
@@ -280,13 +249,6 @@ public class AlgaeFarmLogic {
          //       setActive(false);
         //        setWasActiveAndNeedsUpdate(true);
         //    }
-
-
-        }else {
-            isInventoryFull = true;
-            setActive(false);
-            setWasActiveAndNeedsUpdate(true);
-        }
     }
 
     public int getMaxProgress() {

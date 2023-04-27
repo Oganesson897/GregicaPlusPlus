@@ -100,7 +100,7 @@ gregica.machine.creative_generator.amperage=能量输出 %d A
 
 gregica.laser.pipe.name=激光管道
 #Info
-gc.multiblock.pattern.error.essentia=Essentia cell tier doesn't match.
+gc.multiblock.pattern.error.essentia=无法获取扩散单元等级！
 essentiahatch.chat.0=成功锁定为%s源质.
 essentiahatch.chat.1=清空.
 largeessentiagenerator.chat=安装成功!
@@ -115,6 +115,12 @@ gregica.multiblock.not_enough_qubit=量子位不足
 recipemap.simple_qubit_generator.name=量子计算
 recipemap.research_station.name=研究站
 
+
+gregicaplusplus.multiblock.industrial_fisher.mode0=模式：捕鱼
+gregicaplusplus.multiblock.industrial_fisher.mode1=模式：捕垃圾
+gregicaplusplus.multiblock.industrial_fisher.mode2=模式: 捕宝藏
+
+gregicaplusplus.multiblock.industrial_fisher.inv_full=物品栏已满
 #MixinGregtech
 gregica.mixin.gregtech.itemblock.multiblock_controller=§a多方块结构控制器
 gregica.mixin.gregtech.itemblock.multiblock_part=§a多方块结构部件

@@ -1,5 +1,6 @@
-package me.oganesson.gregica.common.tileentities.mte.multi.generators;
+package me.oganesson.gregica.common.tileentities.mte.multi.machines;
 
+import codechicken.lib.raytracer.CuboidRayTraceResult;
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
@@ -30,20 +31,18 @@ import me.oganesson.gregica.common.recipes.recipemap.FishPondLogic;
 import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
 import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.Style;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.*;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.IItemHandlerModifiable;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -56,7 +55,6 @@ public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implemen
     private final FishPondLogic logic;
     private IEnergyContainer energyContainer;
     protected IMultipleTankHandler inputFluidInventory;
-    protected ItemHandlerList itemImportInventory;
     protected IItemHandler outputItemInventory;
 
     public MTEIndustrialFishingPond(ResourceLocation metaTileEntityId) {
@@ -76,18 +74,22 @@ public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implemen
     protected void initializeAbilities() {
         this.inputFluidInventory = new FluidTankList(true, getAbilities(MultiblockAbility.IMPORT_FLUIDS));
         this.outputItemInventory = new ItemHandlerList(getAbilities(MultiblockAbility.EXPORT_ITEMS));
-        this.itemImportInventory = new ItemHandlerList(getAbilities(MultiblockAbility.IMPORT_ITEMS));
         this.energyContainer = new EnergyContainerList(getAbilities(MultiblockAbility.INPUT_ENERGY));
     }
 
     private void resetTileAbilities() {
         this.inputFluidInventory = new FluidTankList(true);
         this.outputItemInventory = new ItemHandlerList(Collections.emptyList());
-        this.itemImportInventory = new ItemHandlerList(Collections.emptyList());
         this.energyContainer = new EnergyContainerList(Lists.newArrayList());
     }
 
-
+    public boolean onScrewdriverClick(EntityPlayer playerIn, EnumHand hand, EnumFacing facing, CuboidRayTraceResult hitResult) {
+        if (logic.getMode() < 2)
+            this.logic.setMode(logic.getMode() + 1);
+        else
+            this.logic.setMode(0);
+        return true;
+    }
     @Override
     protected void formStructure(PatternMatchContext context) {
         super.formStructure(context);
@@ -103,7 +105,7 @@ public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implemen
 
     @Override
     public void addToolUsages(ItemStack stack, @Nullable World world, List<String> tooltip, boolean advanced) {
-        tooltip.add(I18n.translateToLocal("gregtech.tool_action.screwdriver.access_covers"));
+        tooltip.add(I18n.translateToLocal("gregtech.tool_action.screwdriver.toggle_mode_covers"));
         tooltip.add(I18n.translateToLocal("gregtech.tool_action.wrench.set_facing"));
         super.addToolUsages(stack, world, tooltip, advanced);
     }
@@ -125,9 +127,8 @@ public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implemen
                 .aisle("EXXXXXXXE", "X#######X", "X#######X")
                 .aisle("EEEEEEEEE", "XXXXSXXXX", "XXXXXXXXX")
                 .where('S', selfPredicate())
-                .where('X', states(getCasingState()).setMinGlobalLimited(105)
+                .where('X', states(getCasingState()).setMinGlobalLimited(106)
                         .or(abilities(MultiblockAbility.EXPORT_ITEMS).setExactLimit(1))
-                        .or(abilities(MultiblockAbility.IMPORT_ITEMS).setExactLimit(1))
                         .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setMaxGlobalLimited(1))
                         .or(abilities(MultiblockAbility.MUFFLER_HATCH).setExactLimit(1))
                         .or(abilities(MultiblockAbility.MAINTENANCE_HATCH).setExactLimit(1)))
@@ -197,10 +198,6 @@ public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implemen
     @Override
     public void setWorkingEnabled(boolean b) {
         logic.setWorkingEnabled(b);
-    }
-
-    public IItemHandlerModifiable getImportItem() {
-        return itemImportInventory;
     }
 
     public IMultipleTankHandler getImportFluid() {
@@ -287,12 +284,19 @@ public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implemen
             textList.add(new TextComponentTranslation("gregtech.multiblock.idling"));
         }
 
+        if (logic.getMode() == 1)
+            textList.add(new TextComponentTranslation("gregicaplusplus.multiblock.industrial_fisher.mode1"));
+        else if (logic.getMode() == 2)
+            textList.add(new TextComponentTranslation("gregicaplusplus.multiblock.industrial_fisher.mode2"));
+        else
+            textList.add(new TextComponentTranslation("gregicaplusplus.multiblock.industrial_fisher.mode0"));
+
         if (!drainEnergy(true)) {
             textList.add(new TextComponentTranslation("gregtech.multiblock.not_enough_energy").setStyle(new Style().setColor(TextFormatting.RED)));
         }
 
         if (logic.isInventoryFull())
-            textList.add(new TextComponentTranslation("gregtech.multiblock.slarge_miner.invfull").setStyle(new Style().setColor(TextFormatting.RED)));
+            textList.add(new TextComponentTranslation("gregicaplusplus.multiblock.industrial_fisher.inv_full").setStyle(new Style().setColor(TextFormatting.RED)));
     }
 
     @Override

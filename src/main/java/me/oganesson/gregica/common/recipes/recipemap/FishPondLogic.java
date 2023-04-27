@@ -5,9 +5,8 @@ import gregtech.api.capability.GregtechDataCodes;
 import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.multiblock.IMaintenance;
-import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.common.ConfigHolder;
-import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEIndustrialFishingPond;
+import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEIndustrialFishingPond;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -36,7 +35,7 @@ public class FishPondLogic {
     private final MTEIndustrialFishingPond metaTileEntity;
     private int output;
     private String loottable = "";
-    private int mode;
+    private int mode = 0;
 
     private boolean isActive;
     private boolean isWorkingEnabled = true;
@@ -53,6 +52,13 @@ public class FishPondLogic {
         this.hasMaintenance = ConfigHolder.machines.enableMaintenance && ((IMaintenance) metaTileEntity).hasMaintenanceMechanics();
     }
 
+    public int getMode() {
+        return this.mode;
+    }
+
+    public void setMode(int val) {
+        this.mode = val;
+    }
 
     private boolean isNotStaticWater(Block block) {
         return block == Blocks.AIR || block == Blocks.FLOWING_WATER;
@@ -126,29 +132,22 @@ public class FishPondLogic {
     }
 
     public String getLootTable() {
-        if(this.metaTileEntity.getImportItem().getStackInSlot(0).getTagCompound() != null && this.metaTileEntity.getImportItem().getStackInSlot(0).isItemEqual(IntCircuitIngredient.getIntegratedCircuit(0))) {
-            if (this.metaTileEntity.getImportItem().getStackInSlot(0).getTagCompound().getInteger("Configuration") == 14) {
+            if (this.mode == 0) {
                 output = 8 + (metaTileEntity.getMaxParallelRecipes() - 2);
                 this.loottable = "gameplay/fishing/fish";
-                this.mode = 14;
             }
             // Junk
-            else if (this.metaTileEntity.getImportItem().getStackInSlot(0).getTagCompound().getInteger("Configuration") == 15) {
+            else if (this.mode == 1) {
                 output = 4;
-                this.mode = 15;
                 this.loottable = "gameplay/fishing/junk";
             }
             // Loot
-            else if (this.metaTileEntity.getImportItem().getStackInSlot(0).getTagCompound().getInteger("Configuration") == 16) {
+            else if (this.mode == 2) {
                 output = 4;
-                this.mode = 16;
                 this.loottable = "gameplay/fishing/treasure";
             }else {
-                output = 0;
                 this.mode = 0;
-                this.loottable = "";
             }
-        }
         return loottable;
     }
     /**
@@ -187,35 +186,28 @@ public class FishPondLogic {
         }
 
         // increase progress
-        if(this.metaTileEntity.getImportItem().getStackInSlot(0).isItemEqual(IntCircuitIngredient.getIntegratedCircuit(0))  && this.metaTileEntity.getImportItem().getStackInSlot(0).getTagCompound() != null) {
+        progressTime++;
+        if (progressTime % MAX_PROGRESS != 0)
+            return;
+        progressTime = 0;
 
-            progressTime++;
-            if (progressTime % MAX_PROGRESS != 0)
-                return;
-            progressTime = 0;
+        World world = this.metaTileEntity.getWorld();
+        int k = world.rand.nextInt(output);
+        while (k < output) {
 
-            World world = this.metaTileEntity.getWorld();
-            int k = world.rand.nextInt(output);
-            while (k < output) {
+            LootTable table = world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(getLootTable()));
+            LootContext ctx = new LootContext.Builder((WorldServer) world).build();
+            List<ItemStack> stacks = table.generateLootForPools(world.rand, ctx);
 
-                LootTable table = world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(getLootTable()));
-                LootContext ctx = new LootContext.Builder((WorldServer) world).build();
-                List<ItemStack> stacks = table.generateLootForPools(world.rand, ctx);
-
-                for (ItemStack stack : stacks)
-                    if (metaTileEntity.fillTanks(stack, true)) {
-                        metaTileEntity.fillTanks(stack, false);
-                    } else {
-                        isInventoryFull = true;
-                        setActive(false);
-                        setWasActiveAndNeedsUpdate(true);
-                    }
-                k++;
-            }
-        }else {
-            isInventoryFull = true;
-            setActive(false);
-            setWasActiveAndNeedsUpdate(true);
+            for (ItemStack stack : stacks)
+                if (metaTileEntity.fillTanks(stack, true)) {
+                    metaTileEntity.fillTanks(stack, false);
+                } else {
+                    isInventoryFull = true;
+                    setActive(false);
+                    setWasActiveAndNeedsUpdate(true);
+                }
+            k++;
         }
     }
 
@@ -365,6 +357,7 @@ public class FishPondLogic {
         data.setInteger("progressTime", progressTime);
         data.setInteger("maxProgress", maxProgress);
         data.setBoolean("isInventoryFull", isInventoryFull);
+        data.setInteger("mode", mode);
         return data;
     }
 
@@ -380,6 +373,7 @@ public class FishPondLogic {
         this.progressTime = data.getInteger("progressTime");
         this.maxProgress =  data.getInteger("maxProgress");
         this.isInventoryFull = data.getBoolean("isInventoryFull");
+        this.mode = data.getInteger("mode");
     }
 
     /**

@@ -11,7 +11,7 @@ import me.oganesson.gregica.common.tileentities.mte.multipart.MTEQubitHatch;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.LaserPipeType;
 import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEEssentiaGenerator;
-import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEIndustrialFishingPond;
+import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEIndustrialFishingPond;
 import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTELightningRod;
 import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEQubitComputer;
 import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEResearchStation;
