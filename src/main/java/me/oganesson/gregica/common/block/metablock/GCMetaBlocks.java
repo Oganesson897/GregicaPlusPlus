@@ -1,7 +1,5 @@
 package me.oganesson.gregica.common.block.metablock;
 
-import gregtech.common.blocks.BlockMachineCasing;
-import gregtech.common.blocks.MetaBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -17,45 +15,36 @@ import static gregtech.common.blocks.MetaBlocks.statePropertiesToString;
 public class GCMetaBlocks {
 
     public static final GCMetaCasing GC_BLOCK_CASING = new GCMetaCasing();
-    public static final GCMetaCells GC_ESSENTIA_CELLS = new GCMetaCells();
 
     public static boolean isEssentiaCell(IBlockState state) {
-        if (!state.getBlock().equals(GC_ESSENTIA_CELLS)) {
+        if (!state.getBlock().equals(GC_BLOCK_CASING)) {
             return false;
         }
-        if (state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T1))) {
+        if (state.equals(GC_BLOCK_CASING.getState(GCMetaCasing.MetalCasingType.ESSENTIA_CELL_T1))) {
             return true;
-        } else if (state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T2))) {
+        } else if (state.equals(GC_BLOCK_CASING.getState(GCMetaCasing.MetalCasingType.ESSENTIA_CELL_T2))) {
             return true;
-        } else if (state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T3))) {
+        } else if (state.equals(GC_BLOCK_CASING.getState(GCMetaCasing.MetalCasingType.ESSENTIA_CELL_T3))) {
             return true;
-        } else return state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T4));
-    }
-    public static boolean isMachineCasing(IBlockState state) {
-        return state.getBlock().equals(MetaBlocks.MACHINE_CASING);
+        } else return state.equals(GC_BLOCK_CASING.getState(GCMetaCasing.MetalCasingType.ESSENTIA_CELL_T4));
     }
 
     public static int getCellTier(IBlockState state) {
-        if (state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T1))) {
+        if (state.equals(GC_BLOCK_CASING.getState(GCMetaCasing.MetalCasingType.ESSENTIA_CELL_T1))) {
             return 1;
-        } else if (state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T2))) {
+        } else if (state.equals(GC_BLOCK_CASING.getState(GCMetaCasing.MetalCasingType.ESSENTIA_CELL_T2))) {
             return 2;
-        } else if (state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T3))) {
+        } else if (state.equals(GC_BLOCK_CASING.getState(GCMetaCasing.MetalCasingType.ESSENTIA_CELL_T3))) {
             return 3;
-        } else if (state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T4))) {
+        } else if (state.equals(GC_BLOCK_CASING.getState(GCMetaCasing.MetalCasingType.ESSENTIA_CELL_T4))) {
             return 4;
         }
         return -1;
-    }
-    
-    public static GCMetaCasing.MetalCasingType getType(IBlockState state){
-        return GC_BLOCK_CASING.getState(state);
     }
 
     @SideOnly(Side.CLIENT)
     public static void registerItemModels() {
         registerItemModel(GC_BLOCK_CASING);
-        registerItemModel(GC_ESSENTIA_CELLS);
     }
 
     @SideOnly(Side.CLIENT)
