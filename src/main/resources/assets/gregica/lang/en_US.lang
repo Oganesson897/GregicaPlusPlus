@@ -37,6 +37,8 @@ item.upgradeEssentia.8.name=§aEssentia Generator: Radiation§r
 item.upgradeEssentia.9.name=§3Essentia Generator: Electric§r
 
 metaitem.tool.baguette.name=Baguette
+
+item.gt.tool.choocher.name=%s Skookum Choocher
 #Blocks
 tile.gc_machine_casing.magic_machine_casing.name=Magic Casing
 tile.gc_essentia_cell.essentia_cell_1.name=Novice Essentia Diffusion Cell

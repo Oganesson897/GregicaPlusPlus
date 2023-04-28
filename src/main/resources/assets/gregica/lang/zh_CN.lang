@@ -37,6 +37,9 @@ item.upgradeEssentia.8.name=§a大型源质发电机升级：辐射§r
 item.upgradeEssentia.9.name=§3大型源质发电机升级：电力§r
 
 metaitem.tool.baguette.name=法棍
+
+item.gt.tool.choocher.name=%s 两用扳手
+
 metaitem.algae.common.name=普通藻类
 metaitem.algae.red.name=红色藻类
 metaitem.algae.green.name=绿色藻类

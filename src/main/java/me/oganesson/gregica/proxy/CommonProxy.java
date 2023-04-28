@@ -11,6 +11,7 @@ import me.oganesson.gregica.common.block.laserpipe.ItemBlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.tile.TileEntityLaserPipe;
 import me.oganesson.gregica.common.item.itemUpgrades;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
+import me.oganesson.gregica.common.item.metaitems.GCMetaToolItems;
 import me.oganesson.gregica.common.recipes.FuelRecipe;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
 import me.oganesson.gregica.common.tileentities.EssentiaHatch;
@@ -52,6 +53,7 @@ public class CommonProxy {
     public void preInit( FMLPreInitializationEvent event ) {
         GCMetaEntities.register();
         GCMetaItems.initMetaItems();
+        GCMetaToolItems.init();
         GCCapabilities.init();
         if(Loader.isModLoaded("thaumcraft")) LargeEssentiaEnergyData.processEssentiaData();
         GCLog.init(LogManager.getLogger(Gregica.MOD_ID));
