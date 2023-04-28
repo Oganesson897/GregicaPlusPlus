@@ -1,4 +1,4 @@
-package me.oganesson.gregica.common.behavior;
+package me.oganesson.gregica.common.item.behavior;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
