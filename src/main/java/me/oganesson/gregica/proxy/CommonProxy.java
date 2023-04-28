@@ -9,6 +9,7 @@ import me.oganesson.gregica.api.capability.GCCapabilityProvider;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.ItemBlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.tile.TileEntityLaserPipe;
+import me.oganesson.gregica.common.cover.GCCoverBehaviors;
 import me.oganesson.gregica.common.item.itemUpgrades;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
 import me.oganesson.gregica.common.item.metaitems.GCMetaToolItems;
@@ -61,6 +62,7 @@ public class CommonProxy {
 
     public void init( FMLInitializationEvent event ) {
         FuelRecipe.init();
+        GCCoverBehaviors.init();
         if (Loader.isModLoaded(GTValues.MODID_TOP)) {
             GCLog.logger.info("TheOneProbe found. Enabling integration...");
             GCCapabilityProvider.registerCompatibility();

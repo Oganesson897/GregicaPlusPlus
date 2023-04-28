@@ -102,6 +102,24 @@ metaitem.algae.green.name=Green Algae
 metaitem.algae.gold.name=Gold Algae
 metaitem.algae.brown.name=Brown Algae
 metaitem.algae.t.name=T Algae
+
+metaitem.cover.conveyor.ulv.name=ULV Conveyor Module
+metaitem.cover.emitter.ulv.name=ULV Emitter
+metaitem.cover.field_generator.ulv.name=ULV Field Generator
+metaitem.cover.motor.ulv.name=ULV Electric Motor
+metaitem.cover.piston.ulv.name=ULV Electric Piston
+metaitem.cover.robotic_arm.ulv.name=ULV Robot Arm
+metaitem.cover.sensor.ulv.name=ULV Sensor
+metaitem.cover.pump.ulv.name=ULV Electric Pump
+
+metaitem.cover.conveyor.max.name=MAX Conveyor Module
+metaitem.cover.emitter.max.name=MAX Emitter
+metaitem.cover.field_generator.max.name=MAX Field Generator
+metaitem.cover.motor.max.name=MAX Electric Motor
+metaitem.cover.piston.max.name=MAX Electric Piston
+metaitem.cover.robotic_arm.max.name=MAX Robot Arm
+metaitem.cover.sensor.max.name=MAX Sensor
+metaitem.cover.pump.max.name=MAX Electric Pump
 #Info
 gc.multiblock.pattern.error.essentia=Essentia cell tier doesn't match.
 essentiahatch.chat.0=Successfully locked to %s.
