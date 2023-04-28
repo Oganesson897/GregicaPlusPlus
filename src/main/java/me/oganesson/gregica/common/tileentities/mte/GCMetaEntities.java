@@ -5,16 +5,12 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.SimpleGeneratorMetaTileEntity;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCValues;
-import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEAlgaeFarm;
+import me.oganesson.gregica.common.tileentities.mte.multi.machines.*;
 import me.oganesson.gregica.common.tileentities.mte.multipart.MTECreativeEnergyHatch;
 import me.oganesson.gregica.common.tileentities.mte.multipart.MTEQubitHatch;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.LaserPipeType;
 import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEEssentiaGenerator;
-import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEIndustrialFishingPond;
-import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTELightningRod;
-import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEQubitComputer;
-import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEResearchStation;
 import me.oganesson.gregica.common.tileentities.mte.single.MTECreativeGenerator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
@@ -40,6 +36,8 @@ public class GCMetaEntities {
     public static final MTECreativeGenerator[] CREATIVE_GENERATORS = new MTECreativeGenerator[GTValues.V.length];
     
     public static final MTECreativeEnergyHatch[] CREATIVE_ENERGY_HATCHES = new MTECreativeEnergyHatch[GTValues.V.length];
+
+    public static MTEReplicator REPLICATOR;
 
     public static void register() {
         if(Loader.isModLoaded("thaumcraft"))
@@ -71,6 +69,8 @@ public class GCMetaEntities {
                 (i) -> new MTECreativeEnergyHatch(gcID("creative_energy_hatch."+GTValues.VN[i].toLowerCase()),i));
 
         ALGAE_FARM = registerMetaTileEntity(nextID(),new MTEAlgaeFarm(gcID("algae_farm")));
+
+        REPLICATOR = registerMetaTileEntity(nextID(), new MTEReplicator(gcID("replicator")));
     }
 
     private static ResourceLocation gcID(String name) {

@@ -47,4 +47,7 @@ public class GCRecipeMaps {
             .setSlotOverlay(false, false, GuiTextures.BOX_OVERLAY)
             .setSlotOverlay(true, false, GuiTextures.BOX_OVERLAY)
             .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL);
+
+    public static final RecipeMap<QubitConsumerRecipeBuilder> REPLICATOR = new RecipeMap<>("replication",
+            1, 1, 4, 1, new QubitConsumerRecipeBuilder(), false);
 }
