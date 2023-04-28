@@ -24,5 +24,4 @@ public class GCMaterial {
         FirstDegreeMaterials.register();
         SecondDegreeMaterials.register();
     }
-
 }
