@@ -20,4 +20,31 @@ public class GCRecipeMaps {
 
     public static final RecipeMap<QubitConsumerRecipeBuilder> RESEARCH_STATION = new RecipeMap<>("research_station",
             2, 1, 0, 0, new QubitConsumerRecipeBuilder(), false);
+
+    public static final RecipeMap<FuelRecipeBuilder> NR_MKI = new RecipeMap<>("naquadah_reactor_mki",
+            1, 1, 0, 0, new FuelRecipeBuilder(), false)
+            .setSlotOverlay(false, false, GuiTextures.BOX_OVERLAY)
+            .setSlotOverlay(true, false, GuiTextures.BOX_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL);
+
+    public static final RecipeMap<FuelRecipeBuilder> NR_MKII = new RecipeMap<>("naquadah_reactor_mkii",
+            1, 1, 0, 0, new FuelRecipeBuilder(), false)
+            .setSlotOverlay(false, false, GuiTextures.BOX_OVERLAY)
+            .setSlotOverlay(true, false, GuiTextures.BOX_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL);
+    public static final RecipeMap<FuelRecipeBuilder> NR_MKIII = new RecipeMap<>("naquadah_reactor_mkiii",
+            1, 1, 0, 0, new FuelRecipeBuilder(), false)
+            .setSlotOverlay(false, false, GuiTextures.BOX_OVERLAY)
+            .setSlotOverlay(true, false, GuiTextures.BOX_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL);
+    public static final RecipeMap<FuelRecipeBuilder> NR_MKIV = new RecipeMap<>("naquadah_reactor_mkiv",
+            1, 1, 0, 0, new FuelRecipeBuilder(), false)
+            .setSlotOverlay(false, false, GuiTextures.BOX_OVERLAY)
+            .setSlotOverlay(true, false, GuiTextures.BOX_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL);
+    public static final RecipeMap<FuelRecipeBuilder> NR_MKV = new RecipeMap<>("naquadah_reactor_mkv",
+            1, 1, 0, 0, new FuelRecipeBuilder(), false)
+            .setSlotOverlay(false, false, GuiTextures.BOX_OVERLAY)
+            .setSlotOverlay(true, false, GuiTextures.BOX_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL);
 }
