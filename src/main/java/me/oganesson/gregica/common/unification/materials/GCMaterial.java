@@ -19,6 +19,8 @@ public class GCMaterial {
     public static Material Hollowtears;
     public static Material AtomicSeparationCatalyst;
     public static Material Tiberium;
+    public static Material NeutronsFlow;
+    public static Material ProtonFlow;
 
     public static void register() {
         FirstDegreeMaterials.register();

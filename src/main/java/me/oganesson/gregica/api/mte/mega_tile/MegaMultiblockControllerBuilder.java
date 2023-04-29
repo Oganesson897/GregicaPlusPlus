@@ -11,23 +11,35 @@ import net.minecraft.util.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
 public class MegaMultiblockControllerBuilder extends RecipeMapMultiblockController {
-    public MegaMultiblockControllerBuilder(ResourceLocation metaTileEntityId, RecipeMap<?> recipeMap) {
-        super(metaTileEntityId, recipeMap);
+    private ICubeRenderer casingTexture;
+    private MetaTileEntity machine;
+
+    public MegaMultiblockControllerBuilder(MetaTileEntity machine) {
+        super(new ResourceLocation("gregic", machine.metaTileEntityId.getPath()+".mega"), machine.getRecipeMap());
+        this.machine = machine;
+    }
+
+    public void setPattern(BlockPattern pattern) {
+        this.structurePattern = pattern;
+    }
+
+    public void setCasingTexture(ICubeRenderer texture) {
+        casingTexture = texture;
     }
 
     @NotNull
     @Override
     protected BlockPattern createStructurePattern() {
-        return null;
+        return structurePattern;
     }
 
     @Override
     public ICubeRenderer getBaseTexture(IMultiblockPart iMultiblockPart) {
-        return null;
+        return casingTexture;
     }
 
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity iGregTechTileEntity) {
-        return null;
+        return new MegaMultiblockControllerBuilder(machine);
     }
 }

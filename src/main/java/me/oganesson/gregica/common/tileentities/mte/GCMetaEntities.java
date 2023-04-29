@@ -7,15 +7,12 @@ import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTEActiveTransformer;
 import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEAlgaeFarm;
+import me.oganesson.gregica.common.tileentities.mte.multi.machines.*;
 import me.oganesson.gregica.common.tileentities.mte.multipart.MTECreativeEnergyHatch;
 import me.oganesson.gregica.common.tileentities.mte.multipart.MTEQubitHatch;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.LaserPipeType;
 import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEEssentiaGenerator;
-import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEIndustrialFishingPond;
-import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTELightningRod;
-import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEQubitComputer;
-import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEResearchStation;
 import me.oganesson.gregica.common.tileentities.mte.single.MTECreativeGenerator;
 import net.minecraft.util.ResourceLocation;
 
@@ -42,6 +39,8 @@ public class GCMetaEntities {
     public static final MTECreativeEnergyHatch[] CREATIVE_ENERGY_HATCHES = new MTECreativeEnergyHatch[GTValues.V.length];
     
     public static MTEActiveTransformer ACTIVE_TRANSFORMER;
+
+    public static MTEReplicator REPLICATOR;
 
     public static void register() {
         if(GCValues.IS_TC_LOADED)
@@ -74,6 +73,8 @@ public class GCMetaEntities {
 
         ALGAE_FARM = registerMetaTileEntity(nextID(),new MTEAlgaeFarm(gcID("algae_farm")));
         ACTIVE_TRANSFORMER = registerMetaTileEntity(nextID(),new MTEActiveTransformer(gcID("active_transformer")));
+
+        REPLICATOR = registerMetaTileEntity(nextID(), new MTEReplicator(gcID("replicator")));
     }
 
     private static ResourceLocation gcID(String name) {

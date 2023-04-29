@@ -29,11 +29,6 @@ public class FirstDegreeMaterials {
                 .color(0x51C031).iconSet(MaterialIconSet.FLUID)
                 .build();
 
-        GCMaterial.Blood = new Material.Builder(26004, "lifeessence")
-                .fluid(FluidTypes.LIQUID)
-                .color(0xE61B1B).iconSet(MaterialIconSet.FLUID)
-                .build();
-
         GCMaterial.Spirit = new Material.Builder(26007, "fluidspirit")
                 .fluid(FluidTypes.LIQUID)
                 .color(0x701D36).iconSet(MaterialIconSet.FLUID)

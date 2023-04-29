@@ -10,12 +10,15 @@ import me.oganesson.gregica.api.capability.GCCapabilityProvider;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.ItemBlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.tile.TileEntityLaserPipe;
+import me.oganesson.gregica.common.cover.GCCoverBehaviors;
 import me.oganesson.gregica.common.item.itemUpgrades;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
+import me.oganesson.gregica.common.item.metaitems.GCMetaToolItems;
 import me.oganesson.gregica.common.recipes.FuelRecipe;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
 import me.oganesson.gregica.common.tileentities.EssentiaHatch;
 import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
+import me.oganesson.gregica.common.recipes.GCRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -51,8 +54,11 @@ public class CommonProxy {
     public void preInit( FMLPreInitializationEvent event ) {
         GCMetaEntities.register();
         GCMetaItems.initMetaItems();
+        GCMetaToolItems.init();
         GCCapabilities.init();
         if(GCValues.IS_TC_LOADED) LargeEssentiaEnergyData.processEssentiaData();
+        GCRecipes.registerTool();
+        if(Loader.isModLoaded("thaumcraft")) LargeEssentiaEnergyData.processEssentiaData();
         GCLog.init(LogManager.getLogger(Gregica.MOD_ID));
     }
 
@@ -60,6 +66,10 @@ public class CommonProxy {
         FuelRecipe.init();
         if (GCValues.IS_TOP_LOADED) {
             GTLog.logger.info("TheOneProbe found. Enabling integration...");
+        GCRecipes.register();
+        GCCoverBehaviors.init();
+        if (Loader.isModLoaded(GTValues.MODID_TOP)) {
+            GCLog.logger.info("TheOneProbe found. Enabling integration...");
             GCCapabilityProvider.registerCompatibility();
         }
     }
