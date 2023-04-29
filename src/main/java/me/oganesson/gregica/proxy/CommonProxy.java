@@ -1,10 +1,10 @@
 package me.oganesson.gregica.proxy;
 
-import gregtech.api.GTValues;
 import gregtech.api.block.VariantItemBlock;
 import gregtech.api.util.GTLog;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCLog;
+import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.api.capability.GCCapabilities;
 import me.oganesson.gregica.api.capability.GCCapabilityProvider;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
@@ -23,7 +23,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -53,13 +52,13 @@ public class CommonProxy {
         GCMetaEntities.register();
         GCMetaItems.initMetaItems();
         GCCapabilities.init();
-        LargeEssentiaEnergyData.processEssentiaData();
+        if(GCValues.IS_TC_LOADED) LargeEssentiaEnergyData.processEssentiaData();
         GCLog.init(LogManager.getLogger(Gregica.MOD_ID));
     }
 
     public void init( FMLInitializationEvent event ) {
         FuelRecipe.init();
-        if (Loader.isModLoaded(GTValues.MODID_TOP)) {
+        if (GCValues.IS_TOP_LOADED) {
             GTLog.logger.info("TheOneProbe found. Enabling integration...");
             GCCapabilityProvider.registerCompatibility();
         }
@@ -71,17 +70,19 @@ public class CommonProxy {
         Upgrades.setCreativeTab(Tab);
         event.getRegistry().register(Upgrades);
         event.getRegistry().register(createItemBlock(GC_BLOCK_CASING, VariantItemBlock::new));
-        event.getRegistry().register(createItemBlock(ESSENTIA_HATCH, ItemBlock::new));
+        if(GCValues.IS_TC_LOADED) event.getRegistry().register(createItemBlock(ESSENTIA_HATCH, ItemBlock::new));
         for(BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(createItemBlock(pipe, ItemBlockLaserPipe::new));
     }
 
     public void registerBlocks(RegistryEvent.Register<Block> event) {
         GC_BLOCK_CASING.setCreativeTab(Tab);
-        ESSENTIA_HATCH.setCreativeTab(Tab);
+        if(GCValues.IS_TC_LOADED){
+            ESSENTIA_HATCH.setCreativeTab(Tab);
+            event.getRegistry().register(ESSENTIA_HATCH);
+            GameRegistry.registerTileEntity(EssentiaHatch.class, Objects.requireNonNull(ESSENTIA_HATCH.getRegistryName()));
+        }
         event.getRegistry().register(GC_BLOCK_CASING);
-        event.getRegistry().register(ESSENTIA_HATCH);
         for (BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(pipe);
-        GameRegistry.registerTileEntity(EssentiaHatch.class, Objects.requireNonNull(ESSENTIA_HATCH.getRegistryName()));
         GameRegistry.registerTileEntity(TileEntityLaserPipe.class, new ResourceLocation(Gregica.MOD_ID, "laser_pipe"));
     }
 

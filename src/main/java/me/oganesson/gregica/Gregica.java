@@ -6,12 +6,12 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
@@ -21,7 +21,7 @@ import org.apache.logging.log4j.Logger;
         modid = Gregica.MOD_ID,
         name = Gregica.MOD_NAME,
         version = Gregica.VERSION,
-        dependencies="required-after:gregtech;after:thaumcraft"
+        dependencies="required-after:gregtech;after:thaumcraft;required:mixinbooter"
 )
 public class Gregica {
 
@@ -67,5 +67,14 @@ public class Gregica {
         public static void modelRegistryEvent(ModelRegistryEvent event) {
             proxy.onModelRegister();
         }
+        
+    }
+    @Mod.EventBusSubscriber
+    @SideOnly(Side.CLIENT)
+    public static class ClientEventRegister{
+//        @SubscribeEvent
+//        public static void onCustomResourcePack(CustomResourcePackEvent event){
+//            ((ClientProxy)proxy).onCustomResourcePack(event);
+//        }
     }
 }

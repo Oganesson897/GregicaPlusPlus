@@ -5,6 +5,7 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.SimpleGeneratorMetaTileEntity;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCValues;
+import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTEActiveTransformer;
 import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEAlgaeFarm;
 import me.oganesson.gregica.common.tileentities.mte.multipart.MTECreativeEnergyHatch;
 import me.oganesson.gregica.common.tileentities.mte.multipart.MTEQubitHatch;
@@ -17,7 +18,6 @@ import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEQubitCompu
 import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEResearchStation;
 import me.oganesson.gregica.common.tileentities.mte.single.MTECreativeGenerator;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.Loader;
 
 import java.util.function.IntFunction;
 
@@ -40,9 +40,11 @@ public class GCMetaEntities {
     public static final MTECreativeGenerator[] CREATIVE_GENERATORS = new MTECreativeGenerator[GTValues.V.length];
     
     public static final MTECreativeEnergyHatch[] CREATIVE_ENERGY_HATCHES = new MTECreativeEnergyHatch[GTValues.V.length];
+    
+    public static MTEActiveTransformer ACTIVE_TRANSFORMER;
 
     public static void register() {
-        if(Loader.isModLoaded("thaumcraft"))
+        if(GCValues.IS_TC_LOADED)
         {
             ESSENTIA_GENERATOR = registerMetaTileEntity(nextID(), new MTEEssentiaGenerator(gcID("essentia_generator")));
         }
@@ -71,6 +73,7 @@ public class GCMetaEntities {
                 (i) -> new MTECreativeEnergyHatch(gcID("creative_energy_hatch."+GTValues.VN[i].toLowerCase()),i));
 
         ALGAE_FARM = registerMetaTileEntity(nextID(),new MTEAlgaeFarm(gcID("algae_farm")));
+        ACTIVE_TRANSFORMER = registerMetaTileEntity(nextID(),new MTEActiveTransformer(gcID("active_transformer")));
     }
 
     private static ResourceLocation gcID(String name) {

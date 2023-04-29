@@ -10,9 +10,9 @@
           "all": "gregica:blocks/fishing_machine_casing"
         }
       },
-      "aseptic_farm_maching_casing": {
+      "aseptic_farm_machine_casing": {
         "textures": {
-          "all": "gregica:blocks/aseptic_farm_maching_casing"
+          "all": "gregica:blocks/aseptic_farm_machine_casing"
         }
       },
       "magic_machine_casing": {
@@ -28,6 +28,11 @@
       "quantum_generator_machine_casing": {
         "textures": {
           "all": "gregica:blocks/quantum_generator_machine_casing"
+        }
+      },
+      "high_power_casing": {
+        "textures": {
+          "all": "gregica:blocks/high_power_casing"
         }
       }
     }

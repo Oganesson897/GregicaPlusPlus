@@ -5,7 +5,8 @@
   "refmap": "mixins.gregica.refmap.json",
   "mixins": [],
   "client": [
-    "MixinMachineItemBlock"
+    "MixinMachineItemBlock",
+    "MixinMTEParallelHatch"
   ],
   "server": [
   ],

@@ -67,6 +67,7 @@ gregica.machine.qubit_hatch.output.1.name=量子位输出仓
 gregica.machine.research_station.name=研究站
 gregica.machine.algae_farm.name=藻类农场
 
+gregica.machine.creative_energy_hatch.ulv.name=创造模式能源仓 ULV
 gregica.machine.creative_energy_hatch.lv.name=创造模式能源仓 LV
 gregica.machine.creative_energy_hatch.mv.name=创造模式能源仓 MV
 gregica.machine.creative_energy_hatch.hv.name=创造模式能源仓 HV
@@ -82,6 +83,7 @@ gregica.machine.creative_energy_hatch.uxv.name=创造模式能源仓 UXU
 gregica.machine.creative_energy_hatch.opv.name=创造模式能源仓 OPV
 gregica.machine.creative_energy_hatch.max.name=创造模式能源仓 MAX
 
+gregica.machine.creative_generator.ulv.name=创造模式发电机 ULV
 gregica.machine.creative_generator.lv.name=创造模式发电机 LV
 gregica.machine.creative_generator.mv.name=创造模式发电机 MV
 gregica.machine.creative_generator.hv.name=创造模式发电机 HV
@@ -126,3 +128,4 @@ gregica.mixin.gregtech.itemblock.multiblock_controller=§a多方块结构控制�
 gregica.mixin.gregtech.itemblock.multiblock_part=§a多方块结构部件
 gregica.mixin.gregtech.itemblock.creative_only=§c创造模式专用
 gregtech.tool_action.screwdriver.set_output_amperage=§8使用螺丝刀调整输出电流
+gergica.mixin.parallel.banned=§c该并行仓已经被禁,将只有64并行

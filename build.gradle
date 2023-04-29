@@ -35,6 +35,8 @@ java {
 minecraft {
     mappings channel: 'stable', version: '39-1.12'
 
+    accessTransformer = file('src/main/resources/META-INF/gregica_at.cfg')
+
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     // Default run configurations.
@@ -138,7 +140,9 @@ jar {
         attributes([
 //                "TweakClass": "org.spongepowered.asm.launch.MixinTweaker",
 //                "TweakOrder": "0",
-//                "ForceLoadAsMod": "true",
+                'FMLCorePluginContainsFMLMod': true,
+                'FMLCorePlugin': 'me.oganesson.gregica.mixininit.EarlyMixinInit',
+                "ForceLoadAsMod": "true",
                 "Specification-Title"     : "gregica",
                 "Specification-Vendor"    : "Oganesson897",
                 "Specification-Version"   : "1", // We are version 1 of ourselves

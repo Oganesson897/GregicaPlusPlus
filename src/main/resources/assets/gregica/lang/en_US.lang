@@ -61,6 +61,7 @@ gregica.machine.qubit_hatch.output.1.name=Qubit Output Hatch
 gregica.machine.research_station.name=Research Station
 gregica.machine.algae_farm.name=Algea Farm
 
+gregica.machine.creative_energy_hatch.ulv.name=CreativeEnergyHatch ULV
 gregica.machine.creative_energy_hatch.lv.name=CreativeEnergyHatch LV
 gregica.machine.creative_energy_hatch.mv.name=CreativeEnergyHatch MV
 gregica.machine.creative_energy_hatch.hv.name=CreativeEnergyHatch HV
@@ -76,6 +77,7 @@ gregica.machine.creative_energy_hatch.uxv.name=CreativeEnergyHatch UXU
 gregica.machine.creative_energy_hatch.opv.name=CreativeEnergyHatch OPV
 gregica.machine.creative_energy_hatch.max.name=CreativeEnergyHatch MAX
 
+gregica.machine.creative_generator.ulv.name=CreativeGenerator ULV
 gregica.machine.creative_generator.lv.name=CreativeGenerator LV
 gregica.machine.creative_generator.mv.name=CreativeGenerator MV
 gregica.machine.creative_generator.hv.name=CreativeGenerator HV
@@ -121,8 +123,10 @@ gregicaplusplus.multiblock.industrial_fisher.mode1=Mode: Catching Trash
 gregicaplusplus.multiblock.industrial_fisher.mode2=Mode: Catching Treasure
 
 gregicaplusplus.multiblock.industrial_fisher.inv_full=Inventory Full
+
 #MixinGregtech
 gregica.mixin.gregtech.itemblock.multiblock_controller=§aThis is a multiblock controller.
 gregica.mixin.gregtech.itemblock.multiblock_part=§aThis is a multiblock part.
 gregica.mixin.gregtech.itemblock.creative_only=§cCreative Only
 gregtech.tool_action.screwdriver.set_output_amperage=§8Use Screwdriver to change output amperage
+gergica.mixin.parallel.banned=§cThis hatch has been banned and limited to 64 parallel.

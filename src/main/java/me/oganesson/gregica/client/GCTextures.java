@@ -20,6 +20,8 @@ public class GCTextures {
     public static SimpleSidedCubeRenderer LIGHTNING_ROD_ACTIVE_EV;
     public static SimpleSidedCubeRenderer LIGHTNING_ROD_IV;
     public static SimpleSidedCubeRenderer LIGHTNING_ROD_ACTIVE_IV;
+    
+    public static SimpleSidedCubeRenderer HIGH_POWER_CASING;
     public static OrientedOverlayRenderer QUBIT_COMPUTER_OVERLAY;
     public static OrientedOverlayRenderer RESEARCH_STATION_OVERLAY;
     public static SimpleOverlayRenderer ASEPTIC_FARM_CASING;
@@ -42,6 +44,7 @@ public class GCTextures {
         QUBIT_COMPUTER_OVERLAY = new OrientedOverlayRenderer("multiblock/qubit_computer", OrientedOverlayRenderer.OverlayFace.FRONT);
         RESEARCH_STATION_OVERLAY= new OrientedOverlayRenderer("multiblock/research_station", OrientedOverlayRenderer.OverlayFace.FRONT);
         ALGAE_FARM= new OrientedOverlayRenderer("multiblock/algae_farm", OrientedOverlayRenderer.OverlayFace.FRONT);
+        HIGH_POWER_CASING = new SimpleSidedCubeRenderer("casing/high_power_casing");
     }
 
 }
