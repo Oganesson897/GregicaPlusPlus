@@ -2,8 +2,10 @@ package me.oganesson.gregica.common.item.metaitems;
 
 import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.items.metaitem.StandardMetaItem;
-import me.oganesson.gregica.common.item.behavior.BaguetteBehavior;
+import gregtech.common.items.behaviors.TooltipBehavior;
+import me.oganesson.gregica.common.behavior.BaguetteBehavior;
 import me.oganesson.gregica.proxy.CommonProxy;
+import net.minecraft.client.resources.I18n;
 
 public class GCMetaItems {
     private static StandardMetaItem metaItem1;
