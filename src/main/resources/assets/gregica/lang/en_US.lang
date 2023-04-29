@@ -61,7 +61,8 @@ gregica.machine.lightning_rod.iv.name=Lightning Rod III
 gregica.machine.qubit_hatch.input.16.name=Qubit Input Hatch
 gregica.machine.qubit_hatch.output.1.name=Qubit Output Hatch
 gregica.machine.research_station.name=Research Station
-gregica.machine.algae_farm.name=Algea Farm
+gregica.machine.algae_farm.name=Algae Farm
+gregica.machine.active_transformer.name=Active Transformer
 
 gregica.machine.creative_energy_hatch.ulv.name=CreativeEnergyHatch ULV
 gregica.machine.creative_energy_hatch.lv.name=CreativeEnergyHatch LV

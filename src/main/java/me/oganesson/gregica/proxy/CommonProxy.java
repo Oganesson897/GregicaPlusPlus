@@ -1,7 +1,6 @@
 package me.oganesson.gregica.proxy;
 
 import gregtech.api.block.VariantItemBlock;
-import gregtech.api.util.GTLog;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCLog;
 import me.oganesson.gregica.api.GCValues;
@@ -37,6 +36,7 @@ import java.util.function.Function;
 
 import static me.oganesson.gregica.common.block.CommonBlocks.ESSENTIA_HATCH;
 import static me.oganesson.gregica.common.block.metablock.GCMetaBlocks.GC_BLOCK_CASING;
+import static me.oganesson.gregica.common.block.metablock.GCMetaBlocks.GC_ESSENTIA_CELLS;
 import static me.oganesson.gregica.common.tileentities.mte.GCMetaEntities.LASER_PIPES;
 
 public class CommonProxy {
@@ -64,7 +64,7 @@ public class CommonProxy {
     public void init( FMLInitializationEvent event ) {
         FuelRecipe.init();
         if (GCValues.IS_TOP_LOADED) {
-            GTLog.logger.info("TheOneProbe found. Enabling integration...");
+            GCLog.logger.info("TheOneProbe found. Enabling integration...");
             GCCapabilityProvider.registerCompatibility();
         }
         GCRecipes.register();
@@ -79,6 +79,7 @@ public class CommonProxy {
         Upgrades.setCreativeTab(Tab);
         event.getRegistry().register(Upgrades);
         event.getRegistry().register(createItemBlock(GC_BLOCK_CASING, VariantItemBlock::new));
+        event.getRegistry().register(createItemBlock(GC_ESSENTIA_CELLS, VariantItemBlock::new));
         if(GCValues.IS_TC_LOADED) event.getRegistry().register(createItemBlock(ESSENTIA_HATCH, ItemBlock::new));
         for(BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(createItemBlock(pipe, ItemBlockLaserPipe::new));
     }
@@ -91,6 +92,7 @@ public class CommonProxy {
             GameRegistry.registerTileEntity(EssentiaHatch.class, Objects.requireNonNull(ESSENTIA_HATCH.getRegistryName()));
         }
         event.getRegistry().register(GC_BLOCK_CASING);
+        event.getRegistry().register(GC_ESSENTIA_CELLS);
         for (BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(pipe);
         GameRegistry.registerTileEntity(TileEntityLaserPipe.class, new ResourceLocation(Gregica.MOD_ID, "laser_pipe"));
     }
