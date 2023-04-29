@@ -3,7 +3,7 @@ package me.oganesson.gregica.common.item.metaitems;
 import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.items.metaitem.StandardMetaItem;
 import gregtech.common.items.behaviors.TooltipBehavior;
-import me.oganesson.gregica.common.behavior.BaguetteBehavior;
+import me.oganesson.gregica.common.item.behavior.BaguetteBehavior;
 import me.oganesson.gregica.proxy.CommonProxy;
 import net.minecraft.client.resources.I18n;
 
@@ -91,7 +91,7 @@ public class GCMetaItems {
             lines.add(I18n.format("metaitem.robot.arm.tooltip"));
             lines.add(I18n.format("gregtech.universal.tooltip.item_transfer_rate", 16 * 64 * 2));
         }));
-        MAX_EMITTER = metaItem1.addItem(35, "cover.emitter.MAX").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
+        MAX_EMITTER = metaItem1.addItem(35, "cover.emitter.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         MAX_SENSOR = metaItem1.addItem(36, "cover.sensor.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         MAX_FIELD_GENERATOR = metaItem1.addItem(37, "cover.field_generator.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
 

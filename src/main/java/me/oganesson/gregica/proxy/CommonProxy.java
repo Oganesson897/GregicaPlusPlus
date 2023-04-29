@@ -17,6 +17,7 @@ import me.oganesson.gregica.common.recipes.FuelRecipe;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
 import me.oganesson.gregica.common.tileentities.EssentiaHatch;
 import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
+import me.oganesson.gregica.common.recipes.GCRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -56,12 +57,14 @@ public class CommonProxy {
         GCMetaItems.initMetaItems();
         GCMetaToolItems.init();
         GCCapabilities.init();
+        GCRecipes.registerTool();
         if(Loader.isModLoaded("thaumcraft")) LargeEssentiaEnergyData.processEssentiaData();
         GCLog.init(LogManager.getLogger(Gregica.MOD_ID));
     }
 
     public void init( FMLInitializationEvent event ) {
         FuelRecipe.init();
+        GCRecipes.register();
         GCCoverBehaviors.init();
         if (Loader.isModLoaded(GTValues.MODID_TOP)) {
             GCLog.logger.info("TheOneProbe found. Enabling integration...");
