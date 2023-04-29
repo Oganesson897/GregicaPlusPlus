@@ -58,7 +58,6 @@ public class CommonProxy {
         GCCapabilities.init();
         if(GCValues.IS_TC_LOADED) LargeEssentiaEnergyData.processEssentiaData();
         GCRecipes.registerTool();
-        if(Loader.isModLoaded("thaumcraft")) LargeEssentiaEnergyData.processEssentiaData();
         GCLog.init(LogManager.getLogger(Gregica.MOD_ID));
     }
 
@@ -66,13 +65,13 @@ public class CommonProxy {
         FuelRecipe.init();
         if (GCValues.IS_TOP_LOADED) {
             GTLog.logger.info("TheOneProbe found. Enabling integration...");
-        GCRecipes.register();
-        GCCoverBehaviors.init();
-        if (Loader.isModLoaded(GTValues.MODID_TOP)) {
-            GCLog.logger.info("TheOneProbe found. Enabling integration...");
             GCCapabilityProvider.registerCompatibility();
         }
+        GCRecipes.register();
+        GCCoverBehaviors.init();
+        
     }
+    
 
     public void registerItems(RegistryEvent.Register<Item> event) {
         GCMetaItems.initSubitems();
