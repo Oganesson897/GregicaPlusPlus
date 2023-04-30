@@ -12,7 +12,6 @@ import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.common.blocks.BlockFusionCasing;
 import gregtech.common.blocks.MetaBlocks;
-import me.oganesson.gregica.api.mte.IUpdatable;
 import me.oganesson.gregica.api.mte.energy.LongBufferLogic;
 import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
@@ -26,7 +25,6 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nonnull;
 
 import static me.oganesson.gregica.client.GCTextures.ACTIVE_TRANSFORMER;
-import static me.oganesson.gregica.client.GCTextures.LARGE_ESSENTIA_GENERATOR;
 
 public class MTEActiveTransformer extends MultiblockWithUpdatable<LongBufferLogic> {
     
@@ -38,7 +36,7 @@ public class MTEActiveTransformer extends MultiblockWithUpdatable<LongBufferLogi
     }
     
     @Override
-    public IUpdatable getLogic() {
+    public LongBufferLogic getLogic() {
         return logic;
     }
     

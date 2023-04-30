@@ -69,6 +69,7 @@ gregica.machine.qubit_hatch.input.16.name=量子位输入仓
 gregica.machine.qubit_hatch.output.1.name=量子位输出仓
 gregica.machine.research_station.name=研究站
 gregica.machine.algae_farm.name=藻类农场
+gregica.machine.active_transformer.name=有源变压器
 
 gregica.machine.creative_energy_hatch.ulv.name=创造模式能源仓 ULV
 gregica.machine.creative_energy_hatch.lv.name=创造模式能源仓 LV
@@ -130,5 +131,8 @@ gregicaplusplus.multiblock.industrial_fisher.inv_full=物品栏已满
 gregica.mixin.gregtech.itemblock.multiblock_controller=§a多方块结构控制器
 gregica.mixin.gregtech.itemblock.multiblock_part=§a多方块结构部件
 gregica.mixin.gregtech.itemblock.creative_only=§c创造模式专用
+gregica.mixin.nerf.steam.solar.detail=§4工作超过1天后,输出将会在10天内线性减小到1/3
 gregtech.tool_action.screwdriver.set_output_amperage=§8使用螺丝刀调整输出电流
-gergica.mixin.parallel.banned=§c该并行仓已经被禁,将只有64并行
+gergica.mixin.parallel.banned=§4该并行仓已经被禁,将只有64并行
+gregica.mixin.gregtech.itemblock.nerfed=§c该机器被nerf啦,按下shift显示详细信息
+gregica.mixin.gregica=§b由Gregica++添加
