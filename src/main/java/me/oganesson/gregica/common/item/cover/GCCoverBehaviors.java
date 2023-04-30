@@ -1,4 +1,4 @@
-package me.oganesson.gregica.common.cover;
+package me.oganesson.gregica.common.item.cover;
 
 import gregtech.api.GTValues;
 import gregtech.common.covers.CoverConveyor;

@@ -42,20 +42,36 @@ public class GCMetaEntities {
     public static final BlockLaserPipe[] LASER_PIPES = new BlockLaserPipe[1];
 
     public static void register() {
+        LIGHTNING_ROD[0] = registerMetaTileEntity(nextID(), new MTELightningRod(gcID("lightning_rod.hv"), GTValues.HV));
+        LIGHTNING_ROD[1] = registerMetaTileEntity(nextID(), new MTELightningRod(gcID("lightning_rod.ev"), GTValues.EV));
+        LIGHTNING_ROD[2] = registerMetaTileEntity(nextID(), new MTELightningRod(gcID("lightning_rod.iv"), GTValues.IV));
+
+        simpleTiredInit(CREATIVE_GENERATORS,
+                (i) -> new MTECreativeGenerator(gcID("creative_generator."+GTValues.VN[i].toLowerCase()),i));
+
         if(GCValues.IS_TC_LOADED)
         {
             ESSENTIA_GENERATOR = registerMetaTileEntity(nextID(), new MTEEssentiaGenerator(gcID("essentia_generator")));
         }
         INDUSTRIAL_POND = registerMetaTileEntity(nextID(), new MTEIndustrialFishingPond(gcID("industrial_fishing_pond")));
-        LIGHTNING_ROD[0] = registerMetaTileEntity(nextID(), new MTELightningRod(gcID("lightning_rod.hv"), GTValues.HV));
-        LIGHTNING_ROD[1] = registerMetaTileEntity(nextID(), new MTELightningRod(gcID("lightning_rod.ev"), GTValues.EV));
-        LIGHTNING_ROD[2] = registerMetaTileEntity(nextID(), new MTELightningRod(gcID("lightning_rod.iv"), GTValues.IV));
+
         QUBIT_COMPUTER = registerMetaTileEntity(nextID(), new MTEQubitComputer(gcID("quantum_computer")));
+
+        RESEARCH_STATION = registerMetaTileEntity(nextID(), new MTEResearchStation(gcID("research_station")));
+
+        ALGAE_FARM = registerMetaTileEntity(nextID(),new MTEAlgaeFarm(gcID("algae_farm")));
+
+        ACTIVE_TRANSFORMER = registerMetaTileEntity(nextID(),new MTEActiveTransformer(gcID("active_transformer")));
+
+        REPLICATOR = registerMetaTileEntity(nextID(), new MTEReplicator(gcID("replicator")));
 
         QBIT_INPUT_HATCH[0] = registerMetaTileEntity(nextID(), new MTEQubitHatch(gcID("qubit_hatch.input.16"), 0, 16, false));
         QBIT_OUTPUT_HATCH[0] = registerMetaTileEntity(nextID(), new MTEQubitHatch(gcID("qubit_hatch.output.1"), 0, 16, true));
 
-        RESEARCH_STATION = registerMetaTileEntity(nextID(), new MTEResearchStation(gcID("research_station")));
+        simpleTiredInit(CREATIVE_ENERGY_HATCHES,
+                (i) -> new MTECreativeEnergyHatch(gcID("creative_energy_hatch."+GTValues.VN[i].toLowerCase()),i));
+
+
         for (LaserPipeType type : LaserPipeType.values()) {
             LASER_PIPES[type.ordinal()] = new BlockLaserPipe();
             LASER_PIPES[type.ordinal()].setRegistryName(String.format("laser_pipe_%s", type.name));
@@ -65,15 +81,6 @@ public class GCMetaEntities {
 //                    nextID(),new MTECreativeGenerator(
 //                            gcID("creative_generator."+GTValues.VN[i].toLowerCase()),i));
 //        }
-        simpleTiredInit(CREATIVE_GENERATORS,
-                (i) -> new MTECreativeGenerator(gcID("creative_generator."+GTValues.VN[i].toLowerCase()),i));
-        simpleTiredInit(CREATIVE_ENERGY_HATCHES,
-                (i) -> new MTECreativeEnergyHatch(gcID("creative_energy_hatch."+GTValues.VN[i].toLowerCase()),i));
-
-        ALGAE_FARM = registerMetaTileEntity(nextID(),new MTEAlgaeFarm(gcID("algae_farm")));
-        ACTIVE_TRANSFORMER = registerMetaTileEntity(nextID(),new MTEActiveTransformer(gcID("active_transformer")));
-
-        REPLICATOR = registerMetaTileEntity(nextID(), new MTEReplicator(gcID("replicator")));
     }
 
     private static ResourceLocation gcID(String name) {
