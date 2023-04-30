@@ -3,8 +3,8 @@ package me.oganesson.gregica.api.mte.energy;
 import gregtech.api.capability.GregtechDataCodes;
 import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
-import gregtech.api.metatileentity.multiblock.MultiblockControllerBase;
 import me.oganesson.gregica.api.mte.IUpdatable;
+import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTEActiveTransformer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import org.jetbrains.annotations.NotNull;
@@ -13,7 +13,7 @@ import java.util.List;
 
 public class LongBufferLogic implements IEnergyBufferLogic<Long>, IUpdatable {
     
-    private final MultiblockControllerBase metaTileEntity;
+    private final MTEActiveTransformer metaTileEntity;
     
     private long stored;
     
@@ -23,7 +23,7 @@ public class LongBufferLogic implements IEnergyBufferLogic<Long>, IUpdatable {
     
     private boolean workingEnable;
     
-    public LongBufferLogic(MultiblockControllerBase metaTileEntity) {
+    public LongBufferLogic(MTEActiveTransformer metaTileEntity) {
         this.metaTileEntity = metaTileEntity;
     }
     
@@ -47,6 +47,9 @@ public class LongBufferLogic implements IEnergyBufferLogic<Long>, IUpdatable {
     
     @Override
     public void update() {
+        if (!this.workingEnable)
+            return;
+
         List<IEnergyContainer> input = metaTileEntity.getAbilities(MultiblockAbility.INPUT_ENERGY);
         List<IEnergyContainer> output = metaTileEntity.getAbilities(MultiblockAbility.OUTPUT_ENERGY);
         this.capacity = getCapacity(input,output);
