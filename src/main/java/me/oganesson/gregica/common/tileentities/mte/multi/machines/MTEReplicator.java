@@ -3,6 +3,8 @@ package me.oganesson.gregica.common.tileentities.mte.multi.machines;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
+import gregtech.api.metatileentity.multiblock.MultiblockAbility;
+import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.client.renderer.ICubeRenderer;
@@ -17,7 +19,7 @@ import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
 import net.minecraft.util.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
-public class MTEReplicator extends QubitRecipeMapMultiblockController {
+public class MTEReplicator extends RecipeMapMultiblockController {
     public MTEReplicator(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GCRecipeMaps.REPLICATOR);
     }
@@ -36,7 +38,7 @@ public class MTEReplicator extends QubitRecipeMapMultiblockController {
                         .or(autoAbilities(true, true, true, true, true, true, false)))
                 .where('G', states(MetaBlocks.TRANSPARENT_CASING.getState(BlockGlassCasing.CasingType.LAMINATED_GLASS)))
                 .where('U', states(GCMetaBlocks.GC_BLOCK_CASING.getState(GCMetaCasing.MetalCasingType.MATTER_FABRICATION_CPU)))
-                .where('M', autoAbilities(false, true))
+                .where('M', abilities(MultiblockAbility.MUFFLER_HATCH))
                 .where('A', air())
                 .build();
     }

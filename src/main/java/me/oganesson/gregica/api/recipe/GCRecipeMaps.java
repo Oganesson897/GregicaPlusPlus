@@ -3,8 +3,10 @@ package me.oganesson.gregica.api.recipe;
 import crafttweaker.annotations.ZenRegister;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.widgets.ProgressWidget;
+import gregtech.api.recipes.RecipeBuilder;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.builders.FuelRecipeBuilder;
+import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.core.sound.GTSoundEvents;
 import me.oganesson.gregica.api.capability.quantum.QubitConsumerRecipeBuilder;
@@ -49,6 +51,6 @@ public class GCRecipeMaps {
             .setSlotOverlay(true, false, GuiTextures.BOX_OVERLAY)
             .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL);
 
-    public static final RecipeMap<QubitConsumerRecipeBuilder> REPLICATOR = new RecipeMap<>("replication",
-            1, 1, 4, 1, new QubitConsumerRecipeBuilder(), false);
+    public static final RecipeMap<SimpleRecipeBuilder> REPLICATOR = new RecipeMap<>("replication",
+            1, 1, 4, 1, new SimpleRecipeBuilder(), false);
 }
