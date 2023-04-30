@@ -12,7 +12,7 @@ public abstract class MultiblockWithUpdatable<T extends IUpdatable> extends Mult
         super(metaTileEntityId);
     }
     
-    public abstract IUpdatable getLogic();
+    public abstract T getLogic();
     
     @Override
     protected void updateFormedValid() {

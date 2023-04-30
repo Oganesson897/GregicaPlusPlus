@@ -13,7 +13,6 @@ import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.common.blocks.BlockFusionCasing;
 import gregtech.common.blocks.MetaBlocks;
-import me.oganesson.gregica.api.mte.IUpdatable;
 import me.oganesson.gregica.api.mte.energy.LongBufferLogic;
 import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
@@ -45,7 +44,7 @@ public class MTEActiveTransformer extends MultiblockWithUpdatable<LongBufferLogi
     }
     
     @Override
-    public IUpdatable getLogic() {
+    public LongBufferLogic getLogic() {
         return logic;
     }
     
