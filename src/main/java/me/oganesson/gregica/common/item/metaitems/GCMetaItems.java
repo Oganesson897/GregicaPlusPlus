@@ -2,6 +2,7 @@ package me.oganesson.gregica.common.item.metaitems;
 
 import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.items.metaitem.StandardMetaItem;
+import gregtech.common.items.MetaItem1;
 import gregtech.common.items.behaviors.TooltipBehavior;
 import me.oganesson.gregica.common.item.behavior.BaguetteBehavior;
 import me.oganesson.gregica.proxy.CommonProxy;
@@ -55,8 +56,10 @@ public class GCMetaItems {
         BROWN_ALGAE = metaItem1.addItem(13,"algae.brown").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         GOLD_ALGAE = metaItem1.addItem(14,"algae.gold").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         T_ALGAE = metaItem1.addItem(15,"algae.t").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
+        tierItems();
+    }
 
-
+    private static void tierItems() {
         //ulv cover(22 ~ 29)
         ULV_CONVEYOR_MODULE = metaItem1.addItem(22, "cover.conveyor.ulv").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab).addComponents(new TooltipBehavior(lines -> {
             lines.add(I18n.format("metaitem.conveyor.module.tooltip"));
@@ -94,7 +97,6 @@ public class GCMetaItems {
         MAX_EMITTER = metaItem1.addItem(35, "cover.emitter.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         MAX_SENSOR = metaItem1.addItem(36, "cover.sensor.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         MAX_FIELD_GENERATOR = metaItem1.addItem(37, "cover.field_generator.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
-
     }
     private static StandardMetaItem onItemsHandler(String name)
     {

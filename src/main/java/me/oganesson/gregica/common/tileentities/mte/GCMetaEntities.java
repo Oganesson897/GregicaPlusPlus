@@ -23,24 +23,23 @@ import static gregtech.common.metatileentities.MetaTileEntities.registerMetaTile
 public class GCMetaEntities {
     
     public static int currentID = 11000;
+    public static final MTELightningRod[] LIGHTNING_ROD = new MTELightningRod[4];
+    public static final MTECreativeGenerator[] CREATIVE_GENERATORS = new MTECreativeGenerator[GTValues.V.length];
+
+
     public static MTEEssentiaGenerator ESSENTIA_GENERATOR;
     public static MTEIndustrialFishingPond INDUSTRIAL_POND;
-    public static final MTELightningRod[] LIGHTNING_ROD = new MTELightningRod[4];
     public static MTEQubitComputer QUBIT_COMPUTER;
-    public static MTEQubitHatch[] QBIT_INPUT_HATCH = new MTEQubitHatch[GCValues.QUBIT.length];
-    public static MTEQubitHatch[] QBIT_OUTPUT_HATCH = new MTEQubitHatch[GCValues.QUBIT.length];
-    public static final BlockLaserPipe[] LASER_PIPES = new BlockLaserPipe[1];
     public static MTEResearchStation RESEARCH_STATION;
     public static MTEAlgaeFarm ALGAE_FARM;
-    public static final SimpleGeneratorMetaTileEntity[] SEMI_FLUID_GENERATOR = new SimpleGeneratorMetaTileEntity[3];
-    
-    public static final MTECreativeGenerator[] CREATIVE_GENERATORS = new MTECreativeGenerator[GTValues.V.length];
-    
-    public static final MTECreativeEnergyHatch[] CREATIVE_ENERGY_HATCHES = new MTECreativeEnergyHatch[GTValues.V.length];
-    
     public static MTEActiveTransformer ACTIVE_TRANSFORMER;
-
     public static MTEReplicator REPLICATOR;
+
+    public static MTEQubitHatch[] QBIT_INPUT_HATCH = new MTEQubitHatch[GCValues.QUBIT.length];
+    public static MTEQubitHatch[] QBIT_OUTPUT_HATCH = new MTEQubitHatch[GCValues.QUBIT.length];
+    public static final MTECreativeEnergyHatch[] CREATIVE_ENERGY_HATCHES = new MTECreativeEnergyHatch[GTValues.V.length];
+
+    public static final BlockLaserPipe[] LASER_PIPES = new BlockLaserPipe[1];
 
     public static void register() {
         if(GCValues.IS_TC_LOADED)
