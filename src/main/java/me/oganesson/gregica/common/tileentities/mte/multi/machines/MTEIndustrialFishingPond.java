@@ -31,6 +31,7 @@ import me.oganesson.gregica.common.recipes.recipemap.FishPondLogic;
 import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
 import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -39,7 +40,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.*;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.IItemHandler;
@@ -105,8 +105,8 @@ public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implemen
 
     @Override
     public void addToolUsages(ItemStack stack, @Nullable World world, List<String> tooltip, boolean advanced) {
-        tooltip.add(I18n.translateToLocal("gregtech.tool_action.screwdriver.toggle_mode_covers"));
-        tooltip.add(I18n.translateToLocal("gregtech.tool_action.wrench.set_facing"));
+        tooltip.add(I18n.format("gregtech.tool_action.screwdriver.toggle_mode_covers"));
+        tooltip.add(I18n.format("gregtech.tool_action.wrench.set_facing"));
         super.addToolUsages(stack, world, tooltip, advanced);
     }
 
@@ -321,7 +321,7 @@ public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implemen
 
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
         super.addInformation(stack, player, tooltip, advanced);
-            tooltip.add(net.minecraft.client.resources.I18n.format("gregica.tooltip.warning", new Object[0]));
+            tooltip.add(net.minecraft.client.resources.I18n.format("gregica.tooltip.warning"));
 
     }
 }

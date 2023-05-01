@@ -25,7 +25,7 @@ public class QubitConsumerRecipeBuilder extends RecipeBuilder<QubitConsumerRecip
     static {
             for (String fluid : GCConfig.Misc.solderingFluidList) {
             String[] fluidSplit = fluid.split(":");
-            int amount = GCUtility.setBetweenInclusive(Integer.parseInt(fluidSplit[1]), 1, 64000);
+            int amount = GCUtility.clamp(Integer.parseInt(fluidSplit[1]), 1, 64000);
 
             FluidStack fluidStack = FluidRegistry.getFluidStack(fluidSplit[0], amount);
             if (fluidStack != null) SOLDER_FLUIDS.add(fluidStack);

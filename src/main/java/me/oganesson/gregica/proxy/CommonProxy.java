@@ -1,9 +1,9 @@
 package me.oganesson.gregica.proxy;
 
-import gregtech.api.GTValues;
 import gregtech.api.block.VariantItemBlock;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCLog;
+import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.api.capability.GCCapabilities;
 import me.oganesson.gregica.api.capability.GCCapabilityProvider;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
@@ -11,12 +11,15 @@ import me.oganesson.gregica.common.block.laserpipe.ItemBlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.tile.TileEntityLaserPipe;
 import me.oganesson.gregica.common.block.metablock.GCMetaGlasses;
 import me.oganesson.gregica.common.block.metablock.GCMetaGlasses1;
+import me.oganesson.gregica.common.item.cover.GCCoverBehaviors;
 import me.oganesson.gregica.common.item.itemUpgrades;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
+import me.oganesson.gregica.common.item.metaitems.GCMetaToolItems;
 import me.oganesson.gregica.common.recipes.FuelRecipe;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
 import me.oganesson.gregica.common.tileentities.EssentiaHatch;
 import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
+import me.oganesson.gregica.common.recipes.GCRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -24,7 +27,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -53,8 +55,10 @@ public class CommonProxy {
     public void preInit( FMLPreInitializationEvent event ) {
         GCMetaEntities.register();
         GCMetaItems.initMetaItems();
+        GCMetaToolItems.init();
         GCCapabilities.init();
-        if(Loader.isModLoaded("thaumcraft")) LargeEssentiaEnergyData.processEssentiaData();
+        if(GCValues.IS_TC_LOADED) LargeEssentiaEnergyData.processEssentiaData();
+        GCRecipes.registerTool();
         GCLog.init(LogManager.getLogger(Gregica.MOD_ID));
         TRANSPARENT_CASING = new GCMetaGlasses("glasses_casing");
         TRANSPARENT_CASING1 = new GCMetaGlasses1("glasses_casing1");
@@ -62,11 +66,15 @@ public class CommonProxy {
 
     public void init( FMLInitializationEvent event ) {
         FuelRecipe.init();
-        if (Loader.isModLoaded(GTValues.MODID_TOP)) {
+        if (GCValues.IS_TOP_LOADED) {
             GCLog.logger.info("TheOneProbe found. Enabling integration...");
             GCCapabilityProvider.registerCompatibility();
         }
+        GCRecipes.register();
+        GCCoverBehaviors.init();
+        
     }
+    
 
     public void registerItems(RegistryEvent.Register<Item> event) {
         GCMetaItems.initSubitems();
@@ -77,8 +85,8 @@ public class CommonProxy {
         event.getRegistry().register(createItemBlock(GC_ESSENTIA_CELLS, VariantItemBlock::new));
         event.getRegistry().register(createItemBlock(TRANSPARENT_CASING,  VariantItemBlock::new));
         event.getRegistry().register(createItemBlock(TRANSPARENT_CASING1,  VariantItemBlock::new));
-
-        if(Loader.isModLoaded("thaumcraft")) event.getRegistry().register(createItemBlock(ESSENTIA_HATCH, ItemBlock::new));
+        event.getRegistry().register(createItemBlock(GC_LAPOTRONIC_CASING, VariantItemBlock::new));
+        if(GCValues.IS_TC_LOADED) event.getRegistry().register(createItemBlock(ESSENTIA_HATCH, ItemBlock::new));
         for(BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(createItemBlock(pipe, ItemBlockLaserPipe::new));
     }
 
@@ -87,15 +95,18 @@ public class CommonProxy {
         GC_ESSENTIA_CELLS.setCreativeTab(Tab);
         TRANSPARENT_CASING.setCreativeTab(Tab);
         TRANSPARENT_CASING1.setCreativeTab(Tab);
-        event.getRegistry().register(GC_BLOCK_CASING);
-        event.getRegistry().register(GC_ESSENTIA_CELLS);
         event.getRegistry().register(TRANSPARENT_CASING);
         event.getRegistry().register(TRANSPARENT_CASING1);
-        for (BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(pipe);
-        if(Loader.isModLoaded("thaumcraft")){
-            GameRegistry.registerTileEntity(EssentiaHatch.class, Objects.requireNonNull(ESSENTIA_HATCH.getRegistryName()));
+        GC_LAPOTRONIC_CASING.setCreativeTab(Tab);
+        if(GCValues.IS_TC_LOADED){
             ESSENTIA_HATCH.setCreativeTab(Tab);
-            event.getRegistry().register(ESSENTIA_HATCH);}
+            event.getRegistry().register(ESSENTIA_HATCH);
+            GameRegistry.registerTileEntity(EssentiaHatch.class, Objects.requireNonNull(ESSENTIA_HATCH.getRegistryName()));
+        }
+        event.getRegistry().register(GC_BLOCK_CASING);
+        event.getRegistry().register(GC_ESSENTIA_CELLS);
+        event.getRegistry().register(GC_LAPOTRONIC_CASING);
+        for (BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(pipe);
         GameRegistry.registerTileEntity(TileEntityLaserPipe.class, new ResourceLocation(Gregica.MOD_ID, "laser_pipe"));
     }
 

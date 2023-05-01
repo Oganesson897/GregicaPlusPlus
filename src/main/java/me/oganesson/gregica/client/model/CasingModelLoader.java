@@ -3,6 +3,7 @@ package me.oganesson.gregica.client.model;
 import mcp.MethodsReturnNonnullByDefault;
 import me.oganesson.gregica.client.model.models.CasingModel;
 import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
+import net.minecraft.client.renderer.block.model.ModelBlock;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
@@ -23,14 +24,30 @@ public class CasingModelLoader implements ICustomModelLoader {
     @Override
     public boolean accepts(ResourceLocation modelLocation) {
         if(!(modelLocation instanceof ModelResourceLocation)) return false;
-        String s = modelLocation.getPath();
-        return s.contains("gc_machine_casing");
+        String s1 = modelLocation.getPath();
+        String s2 = ((ModelResourceLocation) modelLocation).getVariant();
+        return s1.contains("gc_machine_casing") && s2.contains("block_model");
                 //&&s.contains("model");
     }
     
     @Override
     public IModel loadModel(ResourceLocation modelLocation) {
-        String s = modelLocation.getPath();
-        return new CasingModel(GCMetaCasing.MetalCasingType.values()[Integer.parseInt(s.substring(s.length()-1))]);
+        int index = 0;
+        if(modelLocation instanceof ModelResourceLocation){
+            String s = ((ModelResourceLocation) modelLocation).getVariant();
+            index = Integer.parseInt(s.substring(s.length()-1));
+        }
+        return new CasingModel(GCMetaCasing.MetalCasingType.values()[index],
+                genModelBlock(GCMetaCasing.MetalCasingType.values()[index].getName()));
+    }
+    
+    public static String genModelJson(String name){
+        return name+": { \"textures\": { \"all\": \"gregica:blocks/"+name+"}}";
+    }
+    
+    public static ModelBlock genModelBlock(String name){
+        ModelBlock result = ModelBlock.deserialize(genModelJson(name));
+        result.name = name;
+        return result;
     }
 }

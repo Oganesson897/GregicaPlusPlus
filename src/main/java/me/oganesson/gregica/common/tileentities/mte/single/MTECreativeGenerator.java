@@ -142,7 +142,7 @@ public class MTECreativeGenerator extends TieredMetaTileEntity implements IContr
     }
     
     public void setOutputAmperage(int i){
-        this.outputAmperage = GCUtility.setBetweenInclusive(i,0,64);
+        this.outputAmperage = GCUtility.clamp(i,0,64);
     }
     
     public void changeAmperage(int i){

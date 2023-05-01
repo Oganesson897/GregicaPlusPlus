@@ -1,26 +1,20 @@
 package me.oganesson.gregica.proxy;
 
 import me.oganesson.gregica.Gregica;
+import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.client.LaserPipeRenderer;
-import me.oganesson.gregica.client.model.CasingModelLoader;
 import me.oganesson.gregica.common.block.CommonBlocks;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
-import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
 import me.oganesson.gregica.common.item.itemUpgrades;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.renderer.block.statemap.BlockStateMapper;
 import net.minecraft.client.renderer.block.statemap.DefaultStateMapper;
-import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.client.model.ModelLoaderRegistry;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -44,7 +38,7 @@ public class ClientProxy extends CommonProxy {
 
     public void onModelRegister() {
         GCMetaBlocks.registerItemModels();
-        CommonBlocks.registerItemModels();
+        if(GCValues.IS_TC_LOADED) CommonBlocks.registerItemModels();
         for (BlockLaserPipe pipe : LASER_PIPES) {
             ModelLoader.setCustomStateMapper(pipe, new DefaultStateMapper() {
                 @Nonnull
@@ -63,9 +57,14 @@ public class ClientProxy extends CommonProxy {
 //           @Nonnull
 //           protected ModelResourceLocation getModelResourceLocation(@Nonnull IBlockState state) {
 //               return new ModelResourceLocation(new ResourceLocation(Gregica.MOD_ID,"gc_machine_casing"),
-//                       "model"+ GCMetaBlocks.getType(state).ordinal());
+//                       "block_model"+ GCMetaBlocks.getType(state).ordinal());
 //           }
 //       });
-        //ModelLoaderRegistry.registerLoader(new CasingModelLoader());
+//        ModelLoaderRegistry.registerLoader(new CasingModelLoader());
     }
+    
+//    public void onCustomResourcePack(CustomResourcePackEvent event){
+//        //GCLog.info("test_mixin");
+//        event.addCustomResourcePack(Gregica.MOD_ID,new CasingResourcePack());
+//    }
 }

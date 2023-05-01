@@ -1,6 +1,5 @@
 package me.oganesson.gregica.common.block.metablock;
 
-import gregtech.common.blocks.BlockMachineCasing;
 import gregtech.common.blocks.MetaBlocks;
 import me.oganesson.gregica.proxy.CommonProxy;
 import net.minecraft.block.Block;
@@ -25,6 +24,8 @@ public class GCMetaBlocks {
     public GCMetaBlocks(){}
     public static final GCMetaCasing GC_BLOCK_CASING = new GCMetaCasing();
     public static final GCMetaCells GC_ESSENTIA_CELLS = new GCMetaCells();
+    
+    public static final GCLapotronicCasing GC_LAPOTRONIC_CASING = new GCLapotronicCasing();
 
 
     public static boolean isEssentiaCell(IBlockState state) {
@@ -55,7 +56,7 @@ public class GCMetaBlocks {
         }
         return -1;
     }
-    
+
     public static GCMetaCasing.MetalCasingType getType(IBlockState state){
         return GC_BLOCK_CASING.getState(state);
     }
@@ -64,7 +65,7 @@ public class GCMetaBlocks {
     public static void registerItemModels() {
         registerItemModel(GC_BLOCK_CASING);
         registerItemModel(GC_ESSENTIA_CELLS);
-
+        registerItemModel(GC_LAPOTRONIC_CASING);
     }
 
     @SideOnly(Side.CLIENT)

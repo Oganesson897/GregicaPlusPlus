@@ -1,0 +1,64 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:cube_column"
+  },
+  "variants": {
+    "variant":{
+      "lapotronic_super_capacitor_casing":{
+        "textures": {
+          "end": "gregica:blocks/casing/lapotronic/lsc_base_top",
+          "side": "gregica:blocks/casing/lapotronic/lsc_base_side"
+        }
+      },
+      "lapotronic_capacitor_empty":{
+        "textures": {
+          "end": "gregica:blocks/casing/lapotronic/lsc_empty_top",
+          "side": "gregica:blocks/casing/lapotronic/lsc_empty_side"
+        }
+      },
+      "lapotronic_capacitor_ev": {
+        "textures": {
+          "end": "gregica:blocks/casing/lapotronic/lsc_ev_top",
+          "side": "gregica:blocks/casing/lapotronic/lsc_ev_side"
+        }
+      },
+      "lapotronic_capacitor_iv": {
+        "textures": {
+          "end": "gregica:blocks/casing/lapotronic/lsc_iv_top",
+          "side": "gregica:blocks/casing/lapotronic/lsc_iv_side"
+        }
+      },
+      "lapotronic_capacitor_luv": {
+        "textures": {
+          "end": "gregica:blocks/casing/lapotronic/lsc_luv_top",
+          "side": "gregica:blocks/casing/lapotronic/lsc_luv_side"
+        }
+      },
+      "lapotronic_capacitor_zpm": {
+        "textures": {
+          "end": "gregica:blocks/casing/lapotronic/lsc_zpm_top",
+          "side": "gregica:blocks/casing/lapotronic/lsc_zpm_side"
+        }
+      },
+      "lapotronic_capacitor_uv": {
+        "textures": {
+          "end": "gregica:blocks/casing/lapotronic/lsc_uv_top",
+          "side": "gregica:blocks/casing/lapotronic/lsc_uv_side"
+        }
+      },
+      "lapotronic_capacitor_uhv": {
+        "textures": {
+          "end": "gregica:blocks/casing/lapotronic/lsc_uhv_top",
+          "side": "gregica:blocks/casing/lapotronic/lsc_uhv_side"
+        }
+      },
+      "lapotronic_capacitor_uev": {
+        "textures": {
+          "end": "gregica:blocks/casing/lapotronic/lsc_uev_top",
+          "side": "gregica:blocks/casing/lapotronic/lsc_uev_side"
+        }
+      }
+    }
+  }
+}

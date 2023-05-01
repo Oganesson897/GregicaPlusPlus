@@ -37,6 +37,9 @@ item.upgradeEssentia.8.name=§a大型源质发电机升级：辐射§r
 item.upgradeEssentia.9.name=§3大型源质发电机升级：电力§r
 
 metaitem.tool.baguette.name=法棍
+
+item.gt.tool.choocher.name=%s 两用扳手
+
 metaitem.algae.common.name=普通藻类
 metaitem.algae.red.name=红色藻类
 metaitem.algae.green.name=绿色藻类
@@ -48,14 +51,24 @@ tile.gc_machine_casing.magic_machine_casing.name=魔法机械外壳
 tile.gc_essentia_cell.essentia_cell_1.name=新手源质扩散单元
 tile.gc_essentia_cell.essentia_cell_2.name=学徒源质扩散单元
 tile.gc_essentia_cell.essentia_cell_3.name=大师源质扩散单元
-tile.gc_essentia_cell.essentia_cell_4.name=宗室源质扩散单元
+tile.gc_essentia_cell.essentia_cell_4.name=宗师源质扩散单元
 tile.essentia_hatch.name=源质输入仓
 tile.ti_boron_silicate_glass_block.name=钛强化硅酸盐硼玻璃
 tile.gc_machine_casing.fishing_machine_casing.name=水产机械外壳
 tile.gc_machine_casing.quantum_machine_casing.name=量子外壳
 tile.gc_machine_casing.quantum_generator_machine_casing.name=量子发生机械外壳
 tile.gc_machine_casing.high_power_casing.name=超能机械方块
-tile.gc_machine_casing.aseptic_farm_maching_casing.name=无菌农场方块
+tile.gc_machine_casing.aseptic_farm_machine_casing.name=无菌农场方块
+
+tile.gc_lapotronic_casing.lapotronic_super_capacitor_casing.name=兰波顿超级电容机械方块
+tile.gc_lapotronic_casing.lapotronic_capacitor_empty.name=空电容
+tile.gc_lapotronic_casing.lapotronic_capacitor_ev.name=兰波顿电容(EV)
+tile.gc_lapotronic_casing.lapotronic_capacitor_iv.name=兰波顿电容(IV)
+tile.gc_lapotronic_casing.lapotronic_capacitor_luv.name=兰波顿电容(LUV)
+tile.gc_lapotronic_casing.lapotronic_capacitor_zpm.name=兰波顿电容(ZPM)
+tile.gc_lapotronic_casing.lapotronic_capacitor_uv.name=兰波顿电容(UV)
+tile.gc_lapotronic_casing.lapotronic_capacitor_uhv.name=兰波顿电容(UHV)
+tile.gc_lapotronic_casing.lapotronic_capacitor_uev.name=兰波顿电容(UEV)
 
 gregica.machine.essentia_generator.name=大型源质反应堆
 gregica.machine.industrial_fishing_pond.name=珠海渔场
@@ -68,7 +81,10 @@ gregica.machine.qubit_hatch.output.1.name=量子位输出仓
 gregica.machine.research_station.name=研究站
 gregica.machine.algae_farm.name=藻类农场
 gregica.machine.log_create_factory.name=原木拟生厂
+gregica.machine.active_transformer.name=有源变压器
+gregica.machine.lapotronic_super_capacitor.name=兰波顿超级电容库
 
+gregica.machine.creative_energy_hatch.ulv.name=创造模式能源仓 ULV
 gregica.machine.creative_energy_hatch.lv.name=创造模式能源仓 LV
 gregica.machine.creative_energy_hatch.mv.name=创造模式能源仓 MV
 gregica.machine.creative_energy_hatch.hv.name=创造模式能源仓 HV
@@ -84,6 +100,7 @@ gregica.machine.creative_energy_hatch.uxv.name=创造模式能源仓 UXU
 gregica.machine.creative_energy_hatch.opv.name=创造模式能源仓 OPV
 gregica.machine.creative_energy_hatch.max.name=创造模式能源仓 MAX
 
+gregica.machine.creative_generator.ulv.name=创造模式发电机 ULV
 gregica.machine.creative_generator.lv.name=创造模式发电机 LV
 gregica.machine.creative_generator.mv.name=创造模式发电机 MV
 gregica.machine.creative_generator.hv.name=创造模式发电机 HV
@@ -91,7 +108,7 @@ gregica.machine.creative_generator.ev.name=创造模式发电机 EV
 gregica.machine.creative_generator.iv.name=创造模式发电机 IV
 gregica.machine.creative_generator.luv.name=创造模式发电机 LUV
 gregica.machine.creative_generator.zpm.name=创造模式发电机 ZPM
-gregica.machine.creative_generator.uv.name=创造模式发电机 UVX
+gregica.machine.creative_generator.uv.name=创造模式发电机 UV
 gregica.machine.creative_generator.uhv.name=创造模式发电机 UHV
 gregica.machine.creative_generator.uev.name=创造模式发电机 UEV
 gregica.machine.creative_generator.uiv.name=创造模式发电机 UIV
@@ -101,6 +118,10 @@ gregica.machine.creative_generator.max.name=创造模式发电机 MAX
 gregica.machine.creative_generator.amperage=能量输出 %d A
 
 gregica.laser.pipe.name=激光管道
+gregica.casing.lapotronic.capacity=容量: %d eu
+gregica.casing.lapotronic.passive_loss=(每个)在超级兰波顿能量电容中造成被动损耗: %d eu/t
+gregica.casing.lapotronic.part=§3兰波顿超级电容库的组成部分
+
 #Info
 gc.multiblock.pattern.error.essentia=无法获取扩散单元等级！
 essentiahatch.chat.0=成功锁定为%s源质.
@@ -123,11 +144,20 @@ gregicaplusplus.multiblock.industrial_fisher.mode1=模式：捕垃圾
 gregicaplusplus.multiblock.industrial_fisher.mode2=模式: 捕宝藏
 
 gregicaplusplus.multiblock.industrial_fisher.inv_full=物品栏已满
+
+gregica.multiblock.lapotronic_super_capacitor.stored=   储存能量: %s eu
+gregica.multiblock.lapotronic_super_capacitor.capacity=   能量容量: %s eu
+
+gregica.multiblock.active_transformer.stored=   储存能量: %d eu
+gregica.multiblock.active_transformer.capacity=   能量容量: %d eu
+gregica.multiblock.active_transformer.percent=   百分比: %.2f%%
+gregica.multiblock.active_transformer.tooltip1=允许你随意变压
+gregica.multiblock.active_transformer.tooltip2=仅有 0.0002 损耗!
+
 #MixinGregtech
 gregica.mixin.gregtech.itemblock.multiblock_controller=§a多方块结构控制器
 gregica.mixin.gregtech.itemblock.multiblock_part=§a多方块结构部件
 gregica.mixin.gregtech.itemblock.creative_only=§c创造模式专用
-gregtech.tool_action.screwdriver.set_output_amperage=§8使用螺丝刀调整输出电流
 
 #Glasses
 tile.glasses_casing.ti_boron_silicate_glass_block.name=钛强化硅酸盐硼玻璃
@@ -140,3 +170,10 @@ tile.glasses_casing.ne_boron_silicate_glass_block.name=中子强化硅酸盐硼�
 tile.glasses_casing.sne_boron_silicate_glass_block.name=宇宙中子强化硅酸盐硼玻璃
 tile.glasses_casing.ava_boron_silicate_glass_block.name=无尽强化硅酸盐硼玻璃
 tile.glasses_casing.tl_boron_silicate_glass_block.name=超时空强化硅酸盐硼玻璃
+
+gregica.mixin.nerf.steam.solar.detail=§4工作超过1天后,输出将会在10天内线性减小到1/3
+gregtech.tool_action.screwdriver.set_output_amperage=§8使用螺丝刀调整输出电流
+gergica.mixin.parallel.banned=§4该并行仓已经被禁,将只有64并行
+gregica.mixin.gregtech.itemblock.nerfed=§c该机器被nerf啦,按下shift显示详细信息
+gregica.mixin.gregica=§b由Gregica++添加
+gregica.mixin.info.steam=当前蒸汽输出: %d l/s

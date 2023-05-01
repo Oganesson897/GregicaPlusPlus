@@ -1,0 +1,19 @@
+{
+  "minVersion": "0.7",
+  "package": "me.oganesson.gregica.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "mixins.gregica.refmap.json",
+  "mixins": [],
+  "client": [
+    "MixinMachineItemBlock",
+    "MixinMTEParallelHatch",
+    "MixinSolarBoiler",
+    "MixinSteamBoilerAccess"
+  ],
+  "server": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+
+}

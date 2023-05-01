@@ -37,6 +37,32 @@ item.upgradeEssentia.8.name=§aEssentia Generator: Radiation§r
 item.upgradeEssentia.9.name=§3Essentia Generator: Electric§r
 
 metaitem.tool.baguette.name=Baguette
+
+item.gt.tool.choocher.name=%s Skookum Choocher
+metaitem.algae.common.name=Common Algae
+metaitem.algae.red.name=Red Algae
+metaitem.algae.green.name=Green Algae
+metaitem.algae.gold.name=Gold Algae
+metaitem.algae.brown.name=Brown Algae
+metaitem.algae.t.name=T Algae
+
+metaitem.cover.conveyor.ulv.name=ULV Conveyor Module
+metaitem.cover.emitter.ulv.name=ULV Emitter
+metaitem.cover.field_generator.ulv.name=ULV Field Generator
+metaitem.cover.motor.ulv.name=ULV Electric Motor
+metaitem.cover.piston.ulv.name=ULV Electric Piston
+metaitem.cover.robotic_arm.ulv.name=ULV Robot Arm
+metaitem.cover.sensor.ulv.name=ULV Sensor
+metaitem.cover.pump.ulv.name=ULV Electric Pump
+
+metaitem.cover.conveyor.max.name=MAX Conveyor Module
+metaitem.cover.emitter.max.name=MAX Emitter
+metaitem.cover.field_generator.max.name=MAX Field Generator
+metaitem.cover.motor.max.name=MAX Electric Motor
+metaitem.cover.piston.max.name=MAX Electric Piston
+metaitem.cover.robotic_arm.max.name=MAX Robot Arm
+metaitem.cover.sensor.max.name=MAX Sensor
+metaitem.cover.pump.max.name=MAX Electric Pump
 #Blocks
 tile.gc_machine_casing.magic_machine_casing.name=Magic Casing
 tile.gc_essentia_cell.essentia_cell_1.name=Novice Essentia Diffusion Cell
@@ -49,7 +75,17 @@ tile.gc_machine_casing.fishing_machine_casing.name=Fishery Casing
 tile.gc_machine_casing.quantum_machine_casing.name=Quantum Casing
 tile.gc_machine_casing.quantum_generator_machine_casing.name=Quantum Generator Casing
 tile.gc_machine_casing.high_power_casing.name=High Power Casing
-tile.gc_machine_casing.aseptic_farm_maching_casing.name=Aseptic Farm Casing
+tile.gc_machine_casing.aseptic_farm_machine_casing.name=Aseptic Farm Casing
+
+tile.gc_lapotronic_casing.lapotronic_super_capacitor_casing.name=Lapotronic Super Capacitor Casing
+tile.gc_lapotronic_casing.lapotronic_capacitor_empty.name=Empty Capacitor
+tile.gc_lapotronic_casing.lapotronic_capacitor_ev.name=Lapotronic Capacitor(EV)
+tile.gc_lapotronic_casing.lapotronic_capacitor_iv.name=Lapotronic Capacitor(IV)
+tile.gc_lapotronic_casing.lapotronic_capacitor_luv.name=Lapotronic Capacitor(LUV)
+tile.gc_lapotronic_casing.lapotronic_capacitor_zpm.name=Lapotronic Capacitor(ZPM)
+tile.gc_lapotronic_casing.lapotronic_capacitor_uv.name=Lapotronic Capacitor(UV)
+tile.gc_lapotronic_casing.lapotronic_capacitor_uhv.name=Lapotronic Capacitor(UHV)
+tile.gc_lapotronic_casing.lapotronic_capacitor_uev.name=Lapotronic Capacitor(UEV)
 
 gregica.machine.essentia_generator.name=Large Essentia Generator
 gregica.machine.industrial_fishing_pond.name=ZhuHai Fishing Pond
@@ -60,9 +96,12 @@ gregica.machine.lightning_rod.iv.name=Lightning Rod III
 gregica.machine.qubit_hatch.input.16.name=Qubit Input Hatch
 gregica.machine.qubit_hatch.output.1.name=Qubit Output Hatch
 gregica.machine.research_station.name=Research Station
-gregica.machine.algae_farm.name=Algea Farm
 gregica.machine.log_create_factory.name=Log Create Factory
+gregica.machine.algae_farm.name=Algae Farm
+gregica.machine.active_transformer.name=Active Transformer
+gregica.machine.lapotronic_super_capacitor.name=Lapotronic Super Capacitor
 
+gregica.machine.creative_energy_hatch.ulv.name=CreativeEnergyHatch ULV
 gregica.machine.creative_energy_hatch.lv.name=CreativeEnergyHatch LV
 gregica.machine.creative_energy_hatch.mv.name=CreativeEnergyHatch MV
 gregica.machine.creative_energy_hatch.hv.name=CreativeEnergyHatch HV
@@ -78,6 +117,7 @@ gregica.machine.creative_energy_hatch.uxv.name=CreativeEnergyHatch UXU
 gregica.machine.creative_energy_hatch.opv.name=CreativeEnergyHatch OPV
 gregica.machine.creative_energy_hatch.max.name=CreativeEnergyHatch MAX
 
+gregica.machine.creative_generator.ulv.name=CreativeGenerator ULV
 gregica.machine.creative_generator.lv.name=CreativeGenerator LV
 gregica.machine.creative_generator.mv.name=CreativeGenerator MV
 gregica.machine.creative_generator.hv.name=CreativeGenerator HV
@@ -96,12 +136,10 @@ gregica.machine.creative_generator.max.name=CreativeGenerator MAX
 gregica.machine.creative_energy_hatch.amperage=Output Amperage %d A
 
 gregica.laser.pipe.name=Laser Pipe
-metaitem.algae.common.name=Common Algae
-metaitem.algae.red.name=Red Algae
-metaitem.algae.green.name=Green Algae
-metaitem.algae.gold.name=Gold Algae
-metaitem.algae.brown.name=Brown Algae
-metaitem.algae.t.name=T Algae
+gregica.casing.lapotronic.capacity=Capacity: %d eu
+gregica.casing.lapotronic.passive_loss=Caused passive loss in Lapotronic Super Capacitor: %d eu/t
+gregica.casing.lapotronic.part=§3Part of the Lapotronic Super Capacitor.
+
 #Info
 gc.multiblock.pattern.error.essentia=Essentia cell tier doesn't match.
 essentiahatch.chat.0=Successfully locked to %s.
@@ -123,11 +161,20 @@ gregicaplusplus.multiblock.industrial_fisher.mode1=Mode: Catching Trash
 gregicaplusplus.multiblock.industrial_fisher.mode2=Mode: Catching Treasure
 
 gregicaplusplus.multiblock.industrial_fisher.inv_full=Inventory Full
+
+gregica.multiblock.lapotronic_super_capacitor.stored=   Stored Energy: %s eu
+gregica.multiblock.lapotronic_super_capacitor.capacity=   Energy Capacity: %s eu
+
+gregica.multiblock.active_transformer.stored=   Stored Energy: %d eu
+gregica.multiblock.active_transformer.capacity=   Energy Capacity: %d eu
+gregica.multiblock.active_transformer.percent=   Storage Percentage: %.2f%%
+gregica.multiblock.active_transformer.tooltip1=Transform power up or down as your will.
+gregica.multiblock.active_transformer.tooltip2=Only 0.0002 loss!
+
 #MixinGregtech
 gregica.mixin.gregtech.itemblock.multiblock_controller=§aThis is a multiblock controller.
 gregica.mixin.gregtech.itemblock.multiblock_part=§aThis is a multiblock part.
 gregica.mixin.gregtech.itemblock.creative_only=§cCreative Only
-gregtech.tool_action.screwdriver.set_output_amperage=§8Use Screwdriver to change output amperage
 
 #Glasses
 tile.glasses_casing.ti_boron_silicate_glass_block.name=Ti Boron Silicate GLASS
@@ -140,3 +187,11 @@ tile.glasses_casing.ne_boron_silicate_glass_block.name=NE Boron Silicate GLASS
 tile.glasses_casing.sne_boron_silicate_glass_block.name=SpaceNE Boron Silicate GLASS
 tile.glasses_casing.ava_boron_silicate_glass_block.name=AVA Boron Silicate GLASS
 tile.glasses_casing.tl_boron_silicate_glass_block.name=TL Boron Silicate GLASS
+
+gregica.mixin.nerf.steam.solar.detail=§4The output will decrease to 1/3 linear in ten days,after it worked more than one day.
+gregtech.tool_action.screwdriver.set_output_amperage=§8Use Screwdriver to change output amperage
+gergica.mixin.parallel.banned=§4This hatch has been banned and limited to 64 parallel.
+gregica.mixin.gregtech.itemblock.nerfed=§cThis machine has nerfed.Press shift to show details.
+gregica.mixin.gregica=§bAdded by Gregica++
+gregica.mixin.info.steam=Current steam output %d l/s
+

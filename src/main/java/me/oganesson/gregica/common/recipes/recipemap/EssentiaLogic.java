@@ -321,7 +321,7 @@ public class EssentiaLogic {
         int ceoInput = (int) LargeEssentiaEnergyData.getAspectCeo(aspect) * 18;
         if (depleteInput(GCMaterial.XPJuice.getFluid(ceoInput))) {
             ceoOutput = 2.0D;
-        } else if (depleteInput(GCMaterial.Blood.getFluid(ceoInput))) {
+        } else if (depleteInput(FluidRegistry.getFluidStack("lifeessence", ceoInput))) {
             ceoOutput = 6.0D;
         }
         return (long) (baseValue * ceoOutput);

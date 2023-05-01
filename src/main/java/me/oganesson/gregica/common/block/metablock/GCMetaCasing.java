@@ -35,9 +35,9 @@ public class GCMetaCasing extends VariantBlock<GCMetaCasing.MetalCasingType> {
         FISHING_CASING("fishing_machine_casing"),
         QUANTUM_CASING("quantum_machine_casing"),
         QUANTUM_GENERATOR_CASING("quantum_generator_machine_casing"),
-
-        POWER_CASING("high_power_casing"),
-        ASEPTIC_FARM_CASING("aseptic_farm_maching_casing");
+        HIGH_POWER_CASING("high_power_casing"),
+        ASEPTIC_FARM_CASING("aseptic_farm_machine_casing"),
+        MATTER_FABRICATION_CPU("matter_fabrication_cpu");
         private final String name;
 
         MetalCasingType(String name) {
