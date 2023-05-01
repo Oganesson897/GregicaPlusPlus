@@ -4,6 +4,9 @@ import gregtech.api.GTValues;
 import gregtech.api.metatileentity.MetaTileEntity;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCValues;
+import me.oganesson.gregica.common.tileentities.mte.multi.machines.*;
+import me.oganesson.gregica.common.tileentities.mte.multipart.MTECreativeEnergyHatch;
+import me.oganesson.gregica.common.tileentities.mte.multipart.MTEQubitHatch;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.LaserPipeType;
 import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTEActiveTransformer;
@@ -31,12 +34,19 @@ public class GCMetaEntities {
     public static MTEQubitComputer QUBIT_COMPUTER;
     public static MTEResearchStation RESEARCH_STATION;
     public static MTEAlgaeFarm ALGAE_FARM;
+
+    //public static MTEALogCreateFactory LOG_CREATE_FACTORY;
+    public static final SimpleGeneratorMetaTileEntity[] SEMI_FLUID_GENERATOR = new SimpleGeneratorMetaTileEntity[3];
+    
+    public static final MTECreativeGenerator[] CREATIVE_GENERATORS = new MTECreativeGenerator[GTValues.V.length];
+
     public static MTEActiveTransformer ACTIVE_TRANSFORMER;
     public static MTEReplicator REPLICATOR;
 
     public static MTELapotronicSuperCapacitor LAPOTRONIC_SUPER_CAPACITOR;
     public static MTEQubitHatch[] QBIT_INPUT_HATCH = new MTEQubitHatch[GCValues.QUBIT.length];
     public static MTEQubitHatch[] QBIT_OUTPUT_HATCH = new MTEQubitHatch[GCValues.QUBIT.length];
+
     public static final MTECreativeEnergyHatch[] CREATIVE_ENERGY_HATCHES = new MTECreativeEnergyHatch[GTValues.V.length];
 
     public static final BlockLaserPipe[] LASER_PIPES = new BlockLaserPipe[1];
@@ -83,6 +93,12 @@ public class GCMetaEntities {
 //                    nextID(),new MTECreativeGenerator(
 //                            gcID("creative_generator."+GTValues.VN[i].toLowerCase()),i));
 //        }
+        simpleTiredInit(CREATIVE_GENERATORS,
+                (i) -> new MTECreativeGenerator(gcID("creative_generator."+GTValues.VN[i].toLowerCase()),i));
+        simpleTiredInit(CREATIVE_ENERGY_HATCHES,
+                (i) -> new MTECreativeEnergyHatch(gcID("creative_energy_hatch."+GTValues.VN[i].toLowerCase()),i));
+
+        //LOG_CREATE_FACTORY = registerMetaTileEntity(nextID(),new MTEALogCreateFactory(gcID("log_create_factory")));
     }
 
     private static ResourceLocation gcID(String name) {

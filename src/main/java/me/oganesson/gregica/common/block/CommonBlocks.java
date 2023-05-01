@@ -1,5 +1,7 @@
 package me.oganesson.gregica.common.block;
 
+import me.oganesson.gregica.common.block.metablock.GCMetaGlasses;
+import me.oganesson.gregica.common.block.metablock.GCMetaGlasses1;
 import me.oganesson.gregica.api.GCValues;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -14,9 +16,16 @@ import javax.annotation.Nonnull;
 public class CommonBlocks {
 
     public static final TEBlock ESSENTIA_HATCH = new TEBlock("essentia_hatch", 1);
+    public static  GCMetaGlasses TRANSPARENT_CASING;
+    public static GCMetaGlasses1 TRANSPARENT_CASING1;
 
     @SideOnly(Side.CLIENT)
     public static void registerItemModels() {
+
+        TRANSPARENT_CASING.onModelRegister();
+        TRANSPARENT_CASING1.onModelRegister();
+        //registerItemModel(TRANSPARENT_CASING);
+
         if(GCValues.IS_TC_LOADED) registerItemModel(ESSENTIA_HATCH);
     }
 
@@ -30,5 +39,6 @@ public class CommonBlocks {
                     new ModelResourceLocation(block.getRegistryName(), "inventory"));
         }
     }
+
 
 }

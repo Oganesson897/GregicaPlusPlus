@@ -53,6 +53,7 @@ tile.gc_essentia_cell.essentia_cell_2.name=学徒源质扩散单元
 tile.gc_essentia_cell.essentia_cell_3.name=大师源质扩散单元
 tile.gc_essentia_cell.essentia_cell_4.name=宗师源质扩散单元
 tile.essentia_hatch.name=源质输入仓
+tile.ti_boron_silicate_glass_block.name=钛强化硅酸盐硼玻璃
 tile.gc_machine_casing.fishing_machine_casing.name=水产机械外壳
 tile.gc_machine_casing.quantum_machine_casing.name=量子外壳
 tile.gc_machine_casing.quantum_generator_machine_casing.name=量子发生机械外壳
@@ -79,6 +80,7 @@ gregica.machine.qubit_hatch.input.16.name=量子位输入仓
 gregica.machine.qubit_hatch.output.1.name=量子位输出仓
 gregica.machine.research_station.name=研究站
 gregica.machine.algae_farm.name=藻类农场
+gregica.machine.log_create_factory.name=原木拟生厂
 gregica.machine.active_transformer.name=有源变压器
 gregica.machine.lapotronic_super_capacitor.name=兰波顿超级电容库
 
@@ -156,6 +158,19 @@ gregica.multiblock.active_transformer.tooltip2=仅有 0.0002 损耗!
 gregica.mixin.gregtech.itemblock.multiblock_controller=§a多方块结构控制器
 gregica.mixin.gregtech.itemblock.multiblock_part=§a多方块结构部件
 gregica.mixin.gregtech.itemblock.creative_only=§c创造模式专用
+
+#Glasses
+tile.glasses_casing.ti_boron_silicate_glass_block.name=钛强化硅酸盐硼玻璃
+tile.glasses_casing.w_boron_silicate_glass_block.name=钨强化硅酸盐硼玻璃
+tile.glasses_casing.cr_boron_silicate_glass_block.name=铬强化硅酸盐硼玻璃
+tile.glasses_casing.thy_boron_silicate_glass_block.name=钍钇强化玻璃块
+tile.glasses_casing.ir_boron_silicate_glass_block.name=铱强化硅酸盐硼玻璃
+tile.glasses_casing.os_boron_silicate_glass_block.name=锇强化硅酸盐硼玻璃
+tile.glasses_casing.ne_boron_silicate_glass_block.name=中子强化硅酸盐硼玻璃
+tile.glasses_casing.sne_boron_silicate_glass_block.name=宇宙中子强化硅酸盐硼玻璃
+tile.glasses_casing.ava_boron_silicate_glass_block.name=无尽强化硅酸盐硼玻璃
+tile.glasses_casing.tl_boron_silicate_glass_block.name=超时空强化硅酸盐硼玻璃
+
 gregica.mixin.nerf.steam.solar.detail=§4工作超过1天后,输出将会在10天内线性减小到1/3
 gregtech.tool_action.screwdriver.set_output_amperage=§8使用螺丝刀调整输出电流
 gergica.mixin.parallel.banned=§4该并行仓已经被禁,将只有64并行

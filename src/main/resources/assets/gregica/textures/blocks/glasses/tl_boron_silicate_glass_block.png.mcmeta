@@ -1,0 +1,13 @@
+{
+    "ctm": {
+        "ctm_version": 1,
+        "type": "CTM",
+        "layer": "TRANSLUCENT",
+        "textures": [
+            "gregica:blocks/glasses/tl_boron_silicate_glass_block_ctm"
+        ],
+        "extra": {
+            "connect_inside": true
+        }
+    }
+}
