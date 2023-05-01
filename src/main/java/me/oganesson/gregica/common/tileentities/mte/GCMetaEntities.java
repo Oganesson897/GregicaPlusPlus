@@ -5,16 +5,12 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.SimpleGeneratorMetaTileEntity;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCValues;
-import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEAlgaeFarm;
+import me.oganesson.gregica.common.tileentities.mte.multi.machines.*;
 import me.oganesson.gregica.common.tileentities.mte.multipart.MTECreativeEnergyHatch;
 import me.oganesson.gregica.common.tileentities.mte.multipart.MTEQubitHatch;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.LaserPipeType;
 import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEEssentiaGenerator;
-import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEIndustrialFishingPond;
-import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTELightningRod;
-import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEQubitComputer;
-import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEResearchStation;
 import me.oganesson.gregica.common.tileentities.mte.single.MTECreativeGenerator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
@@ -35,6 +31,7 @@ public class GCMetaEntities {
     public static final BlockLaserPipe[] LASER_PIPES = new BlockLaserPipe[1];
     public static MTEResearchStation RESEARCH_STATION;
     public static MTEAlgaeFarm ALGAE_FARM;
+    //public static MTEALogCreateFactory LOG_CREATE_FACTORY;
     public static final SimpleGeneratorMetaTileEntity[] SEMI_FLUID_GENERATOR = new SimpleGeneratorMetaTileEntity[3];
     
     public static final MTECreativeGenerator[] CREATIVE_GENERATORS = new MTECreativeGenerator[GTValues.V.length];
@@ -71,6 +68,7 @@ public class GCMetaEntities {
                 (i) -> new MTECreativeEnergyHatch(gcID("creative_energy_hatch."+GTValues.VN[i].toLowerCase()),i));
 
         ALGAE_FARM = registerMetaTileEntity(nextID(),new MTEAlgaeFarm(gcID("algae_farm")));
+        //LOG_CREATE_FACTORY = registerMetaTileEntity(nextID(),new MTEALogCreateFactory(gcID("log_create_factory")));
     }
 
     private static ResourceLocation gcID(String name) {

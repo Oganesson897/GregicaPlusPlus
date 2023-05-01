@@ -17,14 +17,17 @@ import net.minecraft.client.renderer.block.statemap.DefaultStateMapper;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import javax.annotation.Nonnull;
 
+import static me.oganesson.gregica.common.block.CommonBlocks.TRANSPARENT_CASING;
 import static me.oganesson.gregica.common.tileentities.mte.GCMetaEntities.LASER_PIPES;
 
 public class ClientProxy extends CommonProxy {
@@ -41,7 +44,7 @@ public class ClientProxy extends CommonProxy {
 
     public void onModelRegister() {
         GCMetaBlocks.registerItemModels();
-        if(Loader.isModLoaded("thaumcraft")) CommonBlocks.registerItemModels();
+        CommonBlocks.registerItemModels();
         for (BlockLaserPipe pipe : LASER_PIPES) {
             ModelLoader.setCustomStateMapper(pipe, new DefaultStateMapper() {
                 @Nonnull
