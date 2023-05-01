@@ -10,23 +10,43 @@ import net.minecraft.util.ResourceLocation;
 public class GCTextures {
 
     public static SimpleOverlayRenderer MAGIC_CASING;
+    
     public static SimpleOverlayRenderer FISHING_CASING;
+    
     public static SimpleOverlayRenderer QUANTUM_CASING;
+    
     public static SimpleOverlayRenderer QUBIT_GENERATOR_CASING;
+    
     public static OrientedOverlayRenderer LARGE_ESSENTIA_GENERATOR;
+    
     public static SimpleSidedCubeRenderer LIGHTNING_ROD_HV;
+    
     public static SimpleSidedCubeRenderer LIGHTNING_ROD_ACTIVE_HV;
+    
     public static SimpleSidedCubeRenderer LIGHTNING_ROD_EV;
+    
     public static SimpleSidedCubeRenderer LIGHTNING_ROD_ACTIVE_EV;
+    
     public static SimpleSidedCubeRenderer LIGHTNING_ROD_IV;
+    
     public static SimpleSidedCubeRenderer LIGHTNING_ROD_ACTIVE_IV;
     
     public static SimpleOverlayRenderer HIGH_POWER_CASING;
+    
+    public static SimpleSidedCubeRenderer LAPOTRONIC_CASING;
+    
+    public static OrientedOverlayRenderer LAPOTRONIC_CAPACITOR;
+    
     public static OrientedOverlayRenderer QUBIT_COMPUTER_OVERLAY;
+    
     public static OrientedOverlayRenderer RESEARCH_STATION_OVERLAY;
+    
     public static SimpleOverlayRenderer ASEPTIC_FARM_CASING;
+    
     public static OrientedOverlayRenderer ALGAE_FARM;
+    
     public static OrientedOverlayRenderer ACTIVE_TRANSFORMER;
+    
     public static final ModelResourceLocation LASER_PIPE_MODEL = new ModelResourceLocation(new ResourceLocation(Gregica.MOD_ID, "laser_pipe_normal"), "normal");
 
     public static void preInit() {
@@ -35,7 +55,9 @@ public class GCTextures {
         ASEPTIC_FARM_CASING = new SimpleOverlayRenderer("aseptic_farm_machine_casing");
         QUANTUM_CASING = new SimpleOverlayRenderer("computer_machine_casing");
         QUBIT_GENERATOR_CASING = new SimpleOverlayRenderer("quantum_generator_machine_casing");
-        HIGH_POWER_CASING = new SimpleOverlayRenderer("high_power_casing");
+        HIGH_POWER_CASING = new SimpleOverlayRenderer("casings/high_power_casing");
+        LAPOTRONIC_CASING = new SimpleSidedCubeRenderer("casings/lapotronic");
+        LAPOTRONIC_CAPACITOR = new OrientedOverlayRenderer("casings/lapotronic/capacitor");
         LARGE_ESSENTIA_GENERATOR = new OrientedOverlayRenderer("multiblock/large_essentia_generator", OrientedOverlayRenderer.OverlayFace.FRONT);
         LIGHTNING_ROD_HV = new SimpleSidedCubeRenderer("casings/lightning_rod_hv/normal");
         LIGHTNING_ROD_ACTIVE_HV = new SimpleSidedCubeRenderer("casings/lightning_rod_hv/active");

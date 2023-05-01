@@ -17,6 +17,8 @@ public class GCMetaBlocks {
 
     public static final GCMetaCasing GC_BLOCK_CASING = new GCMetaCasing();
     public static final GCMetaCells GC_ESSENTIA_CELLS = new GCMetaCells();
+    
+    public static final GCLapotronicCasing GC_LAPOTRONIC_CASING = new GCLapotronicCasing();
 
     public static boolean isEssentiaCell(IBlockState state) {
         if (!state.getBlock().equals(GC_ESSENTIA_CELLS)) {
@@ -55,6 +57,7 @@ public class GCMetaBlocks {
     public static void registerItemModels() {
         registerItemModel(GC_BLOCK_CASING);
         registerItemModel(GC_ESSENTIA_CELLS);
+        registerItemModel(GC_LAPOTRONIC_CASING);
     }
 
     @SideOnly(Side.CLIENT)

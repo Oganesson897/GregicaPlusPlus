@@ -15,11 +15,6 @@ public abstract class MultiblockWithUpdatable<T extends IUpdatable> extends Mult
     public abstract T getLogic();
     
     @Override
-    protected void updateFormedValid() {
-    
-    }
-    
-    @Override
     public NBTTagCompound writeToNBT(NBTTagCompound data) {
         super.writeToNBT(data);
         return this.getLogic().writeToNBT(data);

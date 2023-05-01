@@ -4,7 +4,7 @@ import gregtech.api.capability.GregtechDataCodes;
 import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import me.oganesson.gregica.api.mte.IUpdatable;
-import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTEActiveTransformer;
+import me.oganesson.gregica.common.tileentities.mte.multi.MultiblockWithUpdatable;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import org.jetbrains.annotations.NotNull;
@@ -13,7 +13,7 @@ import java.util.List;
 
 public class LongBufferLogic implements IEnergyBufferLogic<Long>, IUpdatable {
     
-    private final MTEActiveTransformer metaTileEntity;
+    private final MultiblockWithUpdatable<?> metaTileEntity;
     
     private long stored;
     
@@ -23,12 +23,11 @@ public class LongBufferLogic implements IEnergyBufferLogic<Long>, IUpdatable {
     
     private boolean workingEnable;
     
-    public LongBufferLogic(MTEActiveTransformer metaTileEntity) {
+    public LongBufferLogic(MultiblockWithUpdatable<?> metaTileEntity) {
         this.metaTileEntity = metaTileEntity;
     }
     
-    @Override
-    public Long getCapacity(List<IEnergyContainer> input, List<IEnergyContainer> output ) {
+    public Long updateCapacity(List<IEnergyContainer> input, List<IEnergyContainer> output ) {
         long l = 0;
         for(IEnergyContainer container : input){
             l = l+container.getEnergyCapacity();
@@ -44,26 +43,34 @@ public class LongBufferLogic implements IEnergyBufferLogic<Long>, IUpdatable {
         return stored;
     }
     
+    @Override
+    public float getLossRate() {
+        return 0.9998f;
+    }
+    
     
     @Override
     public void update() {
         if (!this.workingEnable)
             return;
-
-        List<IEnergyContainer> input = metaTileEntity.getAbilities(MultiblockAbility.INPUT_ENERGY);
-        List<IEnergyContainer> output = metaTileEntity.getAbilities(MultiblockAbility.OUTPUT_ENERGY);
-        this.capacity = getCapacity(input,output);
-        this.stored = Math.min(capacity,stored);
-        updateLeftCapacity();
-        tryInoutEnergy(input);
-        tryOutputEnergy(output);
+        if(metaTileEntity.getOffsetTimer()%5==0) {
+            List<IEnergyContainer> input = metaTileEntity.getAbilities(MultiblockAbility.INPUT_ENERGY);
+            List<IEnergyContainer> output = metaTileEntity.getAbilities(MultiblockAbility.OUTPUT_ENERGY);
+            this.capacity = updateCapacity(input, output);
+            this.stored = Math.min(capacity, stored);
+            updateLeftCapacity();
+            tryInputEnergy(input);
+            tryOutputEnergy(output);
+        }
     }
     
-    public void tryInoutEnergy(List<IEnergyContainer> input){
+    public void tryInputEnergy(List<IEnergyContainer> input){
         for(IEnergyContainer energyContainer : input){
-            if(this.leftCapacity > energyContainer.getEnergyStored()){
-                this.stored = this.stored + energyContainer.getEnergyStored();
-                energyContainer.removeEnergy(energyContainer.getEnergyStored());
+            if(leftCapacity > 0){
+                long toAdd = Math.min(leftCapacity, energyContainer.getEnergyStored());
+                this.stored = this.stored + toAdd;
+                this.stored = this.stored - (long) (toAdd*(1-getLossRate()));
+                energyContainer.removeEnergy(toAdd);
                 updateLeftCapacity();
             }
         }
@@ -135,6 +142,15 @@ public class LongBufferLogic implements IEnergyBufferLogic<Long>, IUpdatable {
                 this.metaTileEntity.writeCustomData(GregtechDataCodes.WORKING_ENABLED, buf -> buf.writeBoolean(isWorkingEnabled));
             }
         }
+    }
+    
+    @Override
+    public Long getCapacity(){
+        return capacity;
+    }
+    
+    public long getBuffedCapacity(){
+        return capacity;
     }
     
 }

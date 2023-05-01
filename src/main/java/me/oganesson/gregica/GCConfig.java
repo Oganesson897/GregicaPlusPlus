@@ -18,7 +18,7 @@ public class GCConfig {
     public static class Misc {
         @Config.Comment("List of Soldering fluid [<fluid>:<amount>] amount=[1 ~ 64000]")
         @Config.RequiresMcRestart
-        public String[] solderingFluidList = new String[]{"soldering_alloy:72", "tin:144"};
+        public static String[] solderingFluidList = new String[]{"soldering_alloy:72", "tin:144"};
     }
     
     @Config(modid = Gregica.MOD_ID)
@@ -26,7 +26,7 @@ public class GCConfig {
 
         @Config.Comment({"Enable the Pollution System.", "Strict requirements GTCEu version:" + GCValues.CEu_VERSION})
         @Config.RequiresMcRestart
-        public boolean enablePollution = true;
+        public static boolean enablePollution = true;
 
     }
     
@@ -35,7 +35,7 @@ public class GCConfig {
         
         @Config.Comment({"Enable nerf the steam solar boiler.The output will decrease to 1/3 as time goes on."})
         @Config.RequiresMcRestart
-        public boolean enableNerfSteamSolarBoiler = true;
+        public static boolean enableNerfSteamSolarBoiler = true;
         
     }
 }

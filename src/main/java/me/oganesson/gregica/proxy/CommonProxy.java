@@ -35,8 +35,7 @@ import java.util.Objects;
 import java.util.function.Function;
 
 import static me.oganesson.gregica.common.block.CommonBlocks.ESSENTIA_HATCH;
-import static me.oganesson.gregica.common.block.metablock.GCMetaBlocks.GC_BLOCK_CASING;
-import static me.oganesson.gregica.common.block.metablock.GCMetaBlocks.GC_ESSENTIA_CELLS;
+import static me.oganesson.gregica.common.block.metablock.GCMetaBlocks.*;
 import static me.oganesson.gregica.common.tileentities.mte.GCMetaEntities.LASER_PIPES;
 
 public class CommonProxy {
@@ -80,12 +79,14 @@ public class CommonProxy {
         event.getRegistry().register(Upgrades);
         event.getRegistry().register(createItemBlock(GC_BLOCK_CASING, VariantItemBlock::new));
         event.getRegistry().register(createItemBlock(GC_ESSENTIA_CELLS, VariantItemBlock::new));
+        event.getRegistry().register(createItemBlock(GC_LAPOTRONIC_CASING, VariantItemBlock::new));
         if(GCValues.IS_TC_LOADED) event.getRegistry().register(createItemBlock(ESSENTIA_HATCH, ItemBlock::new));
         for(BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(createItemBlock(pipe, ItemBlockLaserPipe::new));
     }
 
     public void registerBlocks(RegistryEvent.Register<Block> event) {
         GC_BLOCK_CASING.setCreativeTab(Tab);
+        GC_LAPOTRONIC_CASING.setCreativeTab(Tab);
         if(GCValues.IS_TC_LOADED){
             ESSENTIA_HATCH.setCreativeTab(Tab);
             event.getRegistry().register(ESSENTIA_HATCH);
@@ -93,6 +94,7 @@ public class CommonProxy {
         }
         event.getRegistry().register(GC_BLOCK_CASING);
         event.getRegistry().register(GC_ESSENTIA_CELLS);
+        event.getRegistry().register(GC_LAPOTRONIC_CASING);
         for (BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(pipe);
         GameRegistry.registerTileEntity(TileEntityLaserPipe.class, new ResourceLocation(Gregica.MOD_ID, "laser_pipe"));
     }

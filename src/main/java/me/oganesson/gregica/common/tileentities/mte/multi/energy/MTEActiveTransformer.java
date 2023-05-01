@@ -22,6 +22,8 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fml.relauncher.Side;
@@ -76,11 +78,27 @@ public class MTEActiveTransformer extends MultiblockWithUpdatable<LongBufferLogi
                 .where('E',states(MetaBlocks.FUSION_CASING.getState(BlockFusionCasing.CasingType.SUPERCONDUCTOR_COIL)))
                 .where('X',states(GCMetaBlocks.GC_BLOCK_CASING.getState(GCMetaCasing.MetalCasingType.HIGH_POWER_CASING))
                         .setMinGlobalLimited(10)
-                        .or(abilities(MultiblockAbility.INPUT_ENERGY).setPreviewCount(2))
+                        .or(abilities(MultiblockAbility.INPUT_ENERGY).setPreviewCount(1))
                         .or(abilities(MultiblockAbility.OUTPUT_ENERGY).setPreviewCount(1))
                 ).build();
     }
-
+    
+    @Override
+    protected void addDisplayText(List<ITextComponent> textList) {
+        super.addDisplayText(textList);
+        textList.add(new TextComponentTranslation("gregica.multiblock.active_transformer.stored",getLogic().getStored()));
+        textList.add(new TextComponentTranslation("gregica.multiblock.active_transformer.capacity",getLogic().getBuffedCapacity()));
+        textList.add(new TextComponentTranslation("gregica.multiblock.active_transformer.percent",
+                ((float) getLogic().getStored()/(float) getLogic().getBuffedCapacity())*100f));
+    }
+    
+    @Override
+    public void addInformation(ItemStack stack, @org.jetbrains.annotations.Nullable World world, @NotNull List<String> tooltip, boolean advanced) {
+        super.addInformation(stack, world, tooltip, advanced);
+        tooltip.add(I18n.format("gregica.multiblock.active_transformer.tooltip1"));
+        tooltip.add(I18n.format("gregica.multiblock.active_transformer.tooltip2"));
+    }
+    
     @Override
     public void addToolUsages(ItemStack stack, @Nullable World world, List<String> tooltip, boolean advanced) {
         tooltip.add(I18n.format("gregtech.tool_action.screwdriver.access_covers"));
@@ -99,7 +117,9 @@ public class MTEActiveTransformer extends MultiblockWithUpdatable<LongBufferLogi
     public ICubeRenderer getBaseTexture(IMultiblockPart iMultiblockPart) {
         return GCTextures.HIGH_POWER_CASING;
     }
+    
     @Nonnull
+    @Override
     protected ICubeRenderer getFrontOverlay() {
         return ACTIVE_TRANSFORMER;
     }

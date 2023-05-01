@@ -2,17 +2,16 @@ package me.oganesson.gregica.common.tileentities.mte;
 
 import gregtech.api.GTValues;
 import gregtech.api.metatileentity.MetaTileEntity;
-import gregtech.api.metatileentity.SimpleGeneratorMetaTileEntity;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCValues;
+import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
+import me.oganesson.gregica.common.block.laserpipe.LaserPipeType;
 import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTEActiveTransformer;
-import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEAlgaeFarm;
+import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTELapotronicSuperCapacitor;
+import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEEssentiaGenerator;
 import me.oganesson.gregica.common.tileentities.mte.multi.machines.*;
 import me.oganesson.gregica.common.tileentities.mte.multipart.MTECreativeEnergyHatch;
 import me.oganesson.gregica.common.tileentities.mte.multipart.MTEQubitHatch;
-import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
-import me.oganesson.gregica.common.block.laserpipe.LaserPipeType;
-import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEEssentiaGenerator;
 import me.oganesson.gregica.common.tileentities.mte.single.MTECreativeGenerator;
 import net.minecraft.util.ResourceLocation;
 
@@ -35,6 +34,7 @@ public class GCMetaEntities {
     public static MTEActiveTransformer ACTIVE_TRANSFORMER;
     public static MTEReplicator REPLICATOR;
 
+    public static MTELapotronicSuperCapacitor LAPOTRONIC_SUPER_CAPACITOR;
     public static MTEQubitHatch[] QBIT_INPUT_HATCH = new MTEQubitHatch[GCValues.QUBIT.length];
     public static MTEQubitHatch[] QBIT_OUTPUT_HATCH = new MTEQubitHatch[GCValues.QUBIT.length];
     public static final MTECreativeEnergyHatch[] CREATIVE_ENERGY_HATCHES = new MTECreativeEnergyHatch[GTValues.V.length];
@@ -64,6 +64,8 @@ public class GCMetaEntities {
         ACTIVE_TRANSFORMER = registerMetaTileEntity(nextID(),new MTEActiveTransformer(gcID("active_transformer")));
 
         REPLICATOR = registerMetaTileEntity(nextID(), new MTEReplicator(gcID("replicator")));
+        
+        LAPOTRONIC_SUPER_CAPACITOR = registerMetaTileEntity(nextID(),new MTELapotronicSuperCapacitor(gcID("lapotronic_super_capacitor")));
 
         QBIT_INPUT_HATCH[0] = registerMetaTileEntity(nextID(), new MTEQubitHatch(gcID("qubit_hatch.input.16"), 0, 16, false));
         QBIT_OUTPUT_HATCH[0] = registerMetaTileEntity(nextID(), new MTEQubitHatch(gcID("qubit_hatch.output.1"), 0, 16, true));

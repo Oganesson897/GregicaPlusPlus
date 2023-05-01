@@ -5,8 +5,14 @@ import gregtech.api.capability.IEnergyContainer;
 import java.util.List;
 
 public interface IEnergyBufferLogic<T extends Number> {
-    T getCapacity(List<IEnergyContainer> input, List<IEnergyContainer> output );
+    
+    void tryInputEnergy(List<IEnergyContainer> input);
+    
+    void tryOutputEnergy(List<IEnergyContainer> output);
+    T getCapacity();
     
     T getStored();
+    
+    float getLossRate();
     
 }
