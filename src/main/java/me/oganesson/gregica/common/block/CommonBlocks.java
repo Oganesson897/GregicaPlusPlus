@@ -1,8 +1,8 @@
 package me.oganesson.gregica.common.block;
 
+import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.common.block.metablock.GCMetaGlasses;
 import me.oganesson.gregica.common.block.metablock.GCMetaGlasses1;
-import me.oganesson.gregica.api.GCValues;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;

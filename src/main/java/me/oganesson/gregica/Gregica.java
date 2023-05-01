@@ -1,6 +1,5 @@
 package me.oganesson.gregica;
 
-import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
 import me.oganesson.gregica.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

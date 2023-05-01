@@ -20,7 +20,6 @@ import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.PatternMatchContext;
 import gregtech.api.util.GTTransferUtils;
 import gregtech.client.renderer.ICubeRenderer;
-import gregtech.client.renderer.texture.Textures;
 import me.oganesson.gregica.api.predicate.AlgaeFarmPredicate;
 import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;

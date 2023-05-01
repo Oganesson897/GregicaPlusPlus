@@ -1,20 +1,14 @@
 package me.oganesson.gregica.common.block.metablock;
 
 import gregtech.common.blocks.MetaBlocks;
-import me.oganesson.gregica.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.block.*;
-import net.minecraft.block.BlockLog.EnumAxis;
-import net.minecraft.block.BlockSlab.EnumBlockHalf;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.state.IBlockState;
+
 import javax.annotation.Nonnull;
 
 import static gregtech.common.blocks.MetaBlocks.statePropertiesToString;

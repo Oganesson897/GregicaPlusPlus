@@ -158,6 +158,12 @@ gregica.multiblock.active_transformer.tooltip2=仅有 0.0002 损耗!
 gregica.mixin.gregtech.itemblock.multiblock_controller=§a多方块结构控制器
 gregica.mixin.gregtech.itemblock.multiblock_part=§a多方块结构部件
 gregica.mixin.gregtech.itemblock.creative_only=§c创造模式专用
+gregica.mixin.nerf.steam.solar.detail=§4工作超过1天后,输出将会在10天内线性减小到1/3
+gregtech.tool_action.screwdriver.set_output_amperage=§8使用螺丝刀调整输出电流
+gergica.mixin.parallel.banned=§4该并行仓已经被禁,将只有64并行
+gregica.mixin.gregtech.itemblock.nerfed=§c该机器被nerf啦,按下shift显示详细信息
+gregica.mixin.gregica=§b由Gregica++添加
+gregica.mixin.info.steam=当前蒸汽输出: %d l/s
 
 #Glasses
 tile.glasses_casing.ti_boron_silicate_glass_block.name=钛强化硅酸盐硼玻璃
@@ -170,10 +176,3 @@ tile.glasses_casing.ne_boron_silicate_glass_block.name=中子强化硅酸盐硼�
 tile.glasses_casing.sne_boron_silicate_glass_block.name=宇宙中子强化硅酸盐硼玻璃
 tile.glasses_casing.ava_boron_silicate_glass_block.name=无尽强化硅酸盐硼玻璃
 tile.glasses_casing.tl_boron_silicate_glass_block.name=超时空强化硅酸盐硼玻璃
-
-gregica.mixin.nerf.steam.solar.detail=§4工作超过1天后,输出将会在10天内线性减小到1/3
-gregtech.tool_action.screwdriver.set_output_amperage=§8使用螺丝刀调整输出电流
-gergica.mixin.parallel.banned=§4该并行仓已经被禁,将只有64并行
-gregica.mixin.gregtech.itemblock.nerfed=§c该机器被nerf啦,按下shift显示详细信息
-gregica.mixin.gregica=§b由Gregica++添加
-gregica.mixin.info.steam=当前蒸汽输出: %d l/s

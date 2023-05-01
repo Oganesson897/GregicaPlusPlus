@@ -3,7 +3,6 @@ package me.oganesson.gregica.common;
 import net.minecraft.util.EnumFacing;
 
 import static net.minecraft.util.EnumFacing.*;
-import static net.minecraft.util.EnumFacing.SOUTH;
 
 public class GCUtility {
     public static int clamp(int value, int min, int max) {

@@ -2,11 +2,9 @@ package me.oganesson.gregica.common.tileentities.mte;
 
 import gregtech.api.GTValues;
 import gregtech.api.metatileentity.MetaTileEntity;
+import gregtech.api.metatileentity.SimpleGeneratorMetaTileEntity;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCValues;
-import me.oganesson.gregica.common.tileentities.mte.multi.machines.*;
-import me.oganesson.gregica.common.tileentities.mte.multipart.MTECreativeEnergyHatch;
-import me.oganesson.gregica.common.tileentities.mte.multipart.MTEQubitHatch;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.LaserPipeType;
 import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTEActiveTransformer;
@@ -37,8 +35,6 @@ public class GCMetaEntities {
 
     //public static MTEALogCreateFactory LOG_CREATE_FACTORY;
     public static final SimpleGeneratorMetaTileEntity[] SEMI_FLUID_GENERATOR = new SimpleGeneratorMetaTileEntity[3];
-    
-    public static final MTECreativeGenerator[] CREATIVE_GENERATORS = new MTECreativeGenerator[GTValues.V.length];
 
     public static MTEActiveTransformer ACTIVE_TRANSFORMER;
     public static MTEReplicator REPLICATOR;

@@ -2,7 +2,6 @@ package me.oganesson.gregica.common.item.metaitems;
 
 import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.items.metaitem.StandardMetaItem;
-import gregtech.common.items.MetaItem1;
 import gregtech.common.items.behaviors.TooltipBehavior;
 import me.oganesson.gregica.common.item.behavior.BaguetteBehavior;
 import me.oganesson.gregica.proxy.CommonProxy;

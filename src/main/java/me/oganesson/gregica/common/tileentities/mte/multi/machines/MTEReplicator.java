@@ -12,7 +12,6 @@ import gregtech.client.renderer.texture.Textures;
 import gregtech.common.blocks.BlockFusionCasing;
 import gregtech.common.blocks.BlockGlassCasing;
 import gregtech.common.blocks.MetaBlocks;
-import me.oganesson.gregica.api.capability.quantum.QubitRecipeMapMultiblockController;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
 import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
 import me.oganesson.gregica.common.block.metablock.GCMetaCasing;

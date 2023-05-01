@@ -5,9 +5,9 @@ import gregtech.api.unification.material.Materials;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
-import static me.oganesson.gregica.api.recipe.GCRecipeMaps.*;
-import static me.oganesson.gregica.common.unification.materials.GCMaterial.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
+import static me.oganesson.gregica.api.recipe.GCRecipeMaps.*;
+import static me.oganesson.gregica.common.unification.materials.GCMaterial.Tiberium;
 
 public class NaquadahReactorRecipes {
 
