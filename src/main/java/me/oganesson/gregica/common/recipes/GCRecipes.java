@@ -3,7 +3,9 @@ package me.oganesson.gregica.common.recipes;
 import gregicality.multiblocks.api.recipes.GCYMRecipeMaps;
 import gregicality.multiblocks.api.unification.GCYMMaterials;
 import gregtech.api.metatileentity.multiblock.CleanroomType;
+import gregtech.api.recipes.GTRecipeHandler;
 import gregtech.api.recipes.ModHandler;
+import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
@@ -21,9 +23,10 @@ import me.oganesson.gregica.common.item.metaitems.GCMetaToolItems;
 import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
 import me.oganesson.gregica.common.unification.materials.GCMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 
 import static gregtech.api.GTValues.*;
-import static gregtech.api.recipes.RecipeMaps.ASSEMBLER_RECIPES;
+import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.loaders.recipe.handlers.ToolRecipeHandler.addToolRecipe;
 
@@ -64,12 +67,43 @@ public class GCRecipes {
                 'C', new ItemStack(MetaBlocks.MACHINE_CASING, 1, 8),
                 'M', MetaTileEntities.TRANSFORMER[8].getStackForm());
 
+        ModHandler.addShapedRecipe("lapotron_super_capacitor_bank", GCMetaEntities.LAPOTRONIC_SUPER_CAPACITOR.getStackForm(),
+                "WMW", "EFE", "WMW",
+                'W', MetaItems.LAPOTRON_CRYSTAL.getStackForm(),
+                'E', new UnificationEntry(circuit, MarkerMaterials.Tier.LuV),
+                'F', new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1,0),
+                'M', MetaItems.POWER_INTEGRATED_CIRCUIT.getStackForm());
+
         //machine casing
         ModHandler.addShapedRecipe("fishing_casing", new ItemStack(GCMetaBlocks.GC_BLOCK_CASING, 2, 1),
                 "WhW", "KFK", "WdW",
                 'W', new UnificationEntry(OrePrefix.plate, GCYMMaterials.WatertightSteel),
                 'K', new UnificationEntry(OrePrefix.plate, Materials.Kanthal),
                 'F', new UnificationEntry(OrePrefix.frameGt, GCYMMaterials.WatertightSteel));
+
+        ModHandler.addShapedRecipe("super_capacitor_casing", new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1),
+                "WFW", "KBK", "WFW",
+                'W', new UnificationEntry(OrePrefix.plate, Materials.Tantalum),
+                'K', new UnificationEntry(stickLong, Materials.TungstenSteel),
+                'F', new UnificationEntry(OrePrefix.frameGt, Materials.TungstenSteel),
+                'B', new UnificationEntry(OrePrefix.block, Materials.Lapis));
+
+        ModHandler.addShapedRecipe("blank_lapotron_capacitor", new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 0),
+                "WFW", "F F", "WFW",
+                'W', new UnificationEntry(screw, Materials.Lapis),
+                'F', new UnificationEntry(plate, Materials.Lapis));
+
+        ModHandler.addShapedRecipe("lapotron_capacitor_block_tier_1", new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 1),
+                "WFW", "FCF", "WFW",
+                'C', MetaItems.LAPOTRON_CRYSTAL,
+                'W', new UnificationEntry(screw, Materials.Lapis),
+                'F', new UnificationEntry(plate, Materials.Lapis));
+
+        ModHandler.addShapedRecipe("lapotron_capacitor_block_tier_2", new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 2),
+                "WFW", "FOF", "WFW",
+                'O', MetaItems.ENERGY_LAPOTRONIC_ORB,
+                'W', new UnificationEntry(screw, Materials.Lapis),
+                'F', new UnificationEntry(plate, Materials.Lapis));
 
         //Cover
         ModHandler.addShapedRecipe("ulv_electric_pump", GCMetaItems.ULV_ELECTRIC_PUMP.getStackForm(),
@@ -158,7 +192,7 @@ public class GCRecipes {
                 .inputs(MetaTileEntities.TRANSFORMER[6].getStackForm())
                 .input(GCMetaItems.ADVANCED_PROCESS_CIRCUIT)
                 .input(wireGtSingle, Materials.IndiumTinBariumTitaniumCuprate, 16)
-                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT)
+                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 2)
                 .fluidInputs(Materials.TungstenSteel.getFluid(576))
                 .outputs(GCMetaEntities.ACTIVE_TRANSFORMER.getStackForm())
                 .EUt(VA[LuV]).duration(400)
@@ -198,6 +232,171 @@ public class GCRecipes {
                 .blastFurnaceTemp(5475)
                 .EUt(VA[IV]).duration(800)
                 .fluidOutputs(GCMaterial.BismuthLeadAlloy.getFluid(14000))
+                .buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(MetaItems.ENERGY_LAPOTRONIC_ORB_CLUSTER)
+                .input(frameGt, Materials.TungstenSteel, 4)
+                .input(screw, Materials.TungstenSteel, 24)
+                .outputs(new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 4))
+                .circuitMeta(6)
+                .EUt(VA[IV]).duration(800)
+                .buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(MetaItems.ENERGY_LAPOTRONIC_ORB)
+                .inputs(new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 1))
+                .outputs(new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 3))
+                .circuitMeta(6)
+                .EUt(VA[IV]).duration(400)
+                .buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(MetaItems.LAPOTRON_CRYSTAL)
+                .inputs(new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 1))
+                .outputs(new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 2))
+                .circuitMeta(6)
+                .EUt(VA[EV]).duration(200)
+                .buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .EUt(80000).duration(1000)
+                .input(frameGt, Materials.TungstenSteel, 4)
+                .input(screw, Materials.TungstenSteel, 24)
+                .input(MetaItems.EXTREME_CIRCUIT_BOARD)
+                .input(OrePrefix.plate, Materials.Europium, 8)
+                .input(OrePrefix.circuit, MarkerMaterials.Tier.LuV, 4)
+                .input(MetaItems.ENERGY_LAPOTRONIC_ORB)
+                .input(MetaItems.FIELD_GENERATOR_IV)
+                .input(MetaItems.HIGH_POWER_INTEGRATED_CIRCUIT, 16)
+                .input(MetaItems.ADVANCED_SMD_DIODE, 8)
+                .input(MetaItems.ADVANCED_SMD_CAPACITOR, 8)
+                .input(MetaItems.ADVANCED_SMD_RESISTOR, 8)
+                .input(MetaItems.ADVANCED_SMD_TRANSISTOR, 8)
+                .input(MetaItems.ADVANCED_SMD_INDUCTOR, 8)
+                .input(OrePrefix.wireFine, Materials.Platinum, 64)
+                .input(OrePrefix.bolt, Materials.Naquadah, 16)
+                .fluidInputs(new FluidStack[]{Materials.SolderingAlloy.getFluid(720)})
+                .outputs(new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 4))
+                .buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .EUt(100000).duration(1200)
+                .input(frameGt, Materials.NaquadahAlloy, 4)
+                .input(screw, Materials.NaquadahAlloy, 24)
+                .input(MetaItems.ELITE_CIRCUIT_BOARD)
+                .input(OrePrefix.plateDouble, Materials.Europium, 8)
+                .input(OrePrefix.circuit, MarkerMaterials.Tier.ZPM, 4)
+                .input(MetaItems.ENERGY_LAPOTRONIC_ORB_CLUSTER)
+                .input(MetaItems.FIELD_GENERATOR_LuV)
+                .input(MetaItems.HIGH_POWER_INTEGRATED_CIRCUIT, 32)
+                .input(MetaItems.ADVANCED_SMD_DIODE, 12)
+                .input(MetaItems.ADVANCED_SMD_CAPACITOR, 12)
+                .input(MetaItems.ADVANCED_SMD_RESISTOR, 12)
+                .input(MetaItems.ADVANCED_SMD_TRANSISTOR, 12)
+                .input(MetaItems.ADVANCED_SMD_INDUCTOR, 12)
+                .input(OrePrefix.wireFine, Materials.Ruridit, 64)
+                .input(OrePrefix.bolt, Materials.Trinium, 16)
+                .fluidInputs(new FluidStack[]{Materials.SolderingAlloy.getFluid(1440)})
+                .outputs(new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 5))
+                .buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .EUt(200000).duration(1400)
+                .input(frameGt, Materials.Darmstadtium, 4)
+                .input(screw, Materials.Darmstadtium, 24)
+                .input(MetaItems.WETWARE_CIRCUIT_BOARD)
+                .input(OrePrefix.plate, Materials.Americium, 16)
+                .input(MetaItems.WETWARE_SUPER_COMPUTER_UV, 4)
+                .input(MetaItems.ENERGY_MODULE)
+                .input(MetaItems.FIELD_GENERATOR_ZPM)
+                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 32)
+                .input(MetaItems.ADVANCED_SMD_DIODE, 16)
+                .input(MetaItems.ADVANCED_SMD_CAPACITOR, 16)
+                .input(MetaItems.ADVANCED_SMD_RESISTOR, 16)
+                .input(MetaItems.ADVANCED_SMD_TRANSISTOR, 16)
+                .input(MetaItems.ADVANCED_SMD_INDUCTOR, 16)
+                .input(OrePrefix.wireFine, Materials.Osmiridium, 64)
+                .input(OrePrefix.bolt, Materials.Naquadria, 16)
+                .fluidInputs(new FluidStack[]{Materials.SolderingAlloy.getFluid(2880)})
+                .fluidInputs(new FluidStack[]{Materials.Polybenzimidazole.getFluid(576)})
+                .outputs(new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 6))
+                .buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .EUt(300000).duration(2000)
+                .input(frameGt, Materials.Neutronium, 4)
+                .input(screw, Materials.Neutronium, 24)
+                .input(OrePrefix.plateDouble, Materials.Darmstadtium, 16)
+                .input(OrePrefix.circuit, MarkerMaterials.Tier.UHV, 4)
+                .input(MetaItems.ENERGY_CLUSTER, 16)
+                .input(MetaItems.FIELD_GENERATOR_UV, 4)
+                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT_WAFER, 64)
+                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT_WAFER, 64)
+                .input(MetaItems.ADVANCED_SMD_DIODE, 64)
+                .input(MetaItems.ADVANCED_SMD_CAPACITOR, 64)
+                .input(MetaItems.ADVANCED_SMD_RESISTOR, 64)
+                .input(MetaItems.ADVANCED_SMD_TRANSISTOR, 64)
+                .input(MetaItems.ADVANCED_SMD_INDUCTOR, 64)
+                .input(OrePrefix.wireGtSingle, Materials.EnrichedNaquadahTriniumEuropiumDuranide, 64)
+                .input(OrePrefix.bolt, Materials.Neutronium, 64)
+                .fluidInputs(new FluidStack[]{Materials.SolderingAlloy.getFluid(5760)})
+                .fluidInputs(new FluidStack[]{Materials.Polybenzimidazole.getFluid(2304)})
+                .fluidInputs(new FluidStack[]{Materials.Naquadria.getFluid(2592)})
+                .outputs(new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 7))
+                .buildAndRegister();
+
+        GTRecipeHandler.removeRecipesByInputs(ASSEMBLER_RECIPES, new ItemStack[]{new ItemStack(MetaBlocks.TRANSPARENT_CASING, 1, 2), OreDictUnifier.get(plate, Materials.Naquadah, 4), MetaItems.NEUTRON_REFLECTOR.getStackForm(4)}, new FluidStack[]{Materials.Polybenzimidazole.getFluid(144)});
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .EUt(VA[LuV]).duration(50)
+                .inputs(new ItemStack(GCMetaBlocks.TRANSPARENT_CASING, 1, 5))
+                .input(plate, Materials.Naquadah, 4)
+                .inputs(MetaItems.NEUTRON_REFLECTOR.getStackForm(4))
+                .fluidInputs(Materials.Polybenzimidazole.getFluid(144))
+                .outputs(new ItemStack(MetaBlocks.TRANSPARENT_CASING, 2, 1))
+                .buildAndRegister();
+
+
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder()
+                .EUt(VA[HV]).duration(18)
+                .input(block, Materials.BorosilicateGlass, 1)
+                .fluidInputs(Materials.Titanium.getFluid(1152))
+                .outputs(new ItemStack(GCMetaBlocks.TRANSPARENT_CASING, 1, 0))
+                .buildAndRegister();
+
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder()
+                .EUt(VA[EV]).duration(18)
+                .input(block, Materials.BorosilicateGlass, 1)
+                .fluidInputs(Materials.TungstenSteel.getFluid(1152))
+                .outputs(new ItemStack(GCMetaBlocks.TRANSPARENT_CASING, 1, 1))
+                .buildAndRegister();
+
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder()
+                .EUt(VA[IV]).duration(18)
+                .input(block, Materials.BorosilicateGlass, 1)
+                .fluidInputs(Materials.RhodiumPlatedPalladium.getFluid(1152))
+                .outputs(new ItemStack(GCMetaBlocks.TRANSPARENT_CASING, 1, 3))
+                .buildAndRegister();
+
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder()
+                .EUt(VA[LuV]).duration(18)
+                .input(block, Materials.BorosilicateGlass, 1)
+                .fluidInputs(Materials.Osmiridium.getFluid(1152))
+                .outputs(new ItemStack(GCMetaBlocks.TRANSPARENT_CASING, 1, 5))
+                .buildAndRegister();
+
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder()
+                .EUt(VA[ZPM]).duration(18)
+                .input(block, Materials.BorosilicateGlass, 1)
+                .fluidInputs(Materials.Iridium.getFluid(1152))
+                .outputs(new ItemStack(GCMetaBlocks.TRANSPARENT_CASING, 1, 4))
+                .buildAndRegister();
+
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder()
+                .EUt(VA[UV]).duration(18)
+                .input(block, Materials.BorosilicateGlass, 1)
+                .fluidInputs(Materials.Neutronium.getFluid(1152))
+                .outputs(new ItemStack(GCMetaBlocks.TRANSPARENT_CASING, 1, 6))
                 .buildAndRegister();
     }
 }
