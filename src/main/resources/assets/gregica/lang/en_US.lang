@@ -63,6 +63,8 @@ metaitem.cover.piston.max.name=MAX Electric Piston
 metaitem.cover.robotic_arm.max.name=MAX Robot Arm
 metaitem.cover.sensor.max.name=MAX Sensor
 metaitem.cover.pump.max.name=MAX Electric Pump
+
+metaitem.item.advanced_circuit.name=High Power Circuit
 #Blocks
 tile.gc_machine_casing.magic_machine_casing.name=Magic Casing
 tile.gc_essentia_cell.essentia_cell_1.name=Novice Essentia Diffusion Cell
@@ -139,6 +141,9 @@ gregica.laser.pipe.name=Laser Pipe
 gregica.casing.lapotronic.capacity=Capacity: %d eu
 gregica.casing.lapotronic.passive_loss=Caused passive loss in Lapotronic Super Capacitor: %d eu/t
 gregica.casing.lapotronic.part=§3Part of the Lapotronic Super Capacitor.
+
+#Fluid
+material.bismuth_lead_alloy=Bismuth-Lead-Alloy
 
 #Info
 gc.multiblock.pattern.error.essentia=Essentia cell tier doesn't match.

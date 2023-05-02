@@ -37,5 +37,6 @@ public class SecondDegreeMaterials {
 
         Materials.Potin.addFlags("generate_rotor", "generate_small_gear");
         Materials.Iridium.addFlags("generate_frame");
+        Materials.Cobalt.addFlags("generate_fine_wire");
     }
 }

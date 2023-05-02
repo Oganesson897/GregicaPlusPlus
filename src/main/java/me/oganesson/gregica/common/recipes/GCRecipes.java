@@ -186,7 +186,7 @@ public class GCRecipes {
                 .input(wireFine, Materials.Copper, 16)
                 .input(wireGtSingle, Materials.NiobiumTitanium, 2)
                 .fluidInputs(Materials.TungstenSteel.getFluid(576))
-                .outputs(new ItemStack(GCMetaBlocks.GC_BLOCK_CASING, 1, 6))
+                .outputs(new ItemStack(GCMetaBlocks.GC_BLOCK_CASING, 1, 4))
                 .EUt(VA[LuV]).duration(100)
                 .buildAndRegister();
 

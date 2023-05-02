@@ -46,6 +46,8 @@ metaitem.algae.green.name=绿色藻类
 metaitem.algae.gold.name=金色藻类
 metaitem.algae.brown.name=棕色藻类
 metaitem.algae.t.name=T型藻类
+
+metaitem.item.advanced_circuit.name=高能电路板
 #Blocks
 tile.gc_machine_casing.magic_machine_casing.name=魔法机械外壳
 tile.gc_essentia_cell.essentia_cell_1.name=新手源质扩散单元
@@ -121,6 +123,9 @@ gregica.laser.pipe.name=激光管道
 gregica.casing.lapotronic.capacity=容量: %d eu
 gregica.casing.lapotronic.passive_loss=(每个)在超级兰波顿能量电容中造成被动损耗: %d eu/t
 gregica.casing.lapotronic.part=§3兰波顿超级电容库的组成部分
+
+#Fluid
+material.bismuth_lead_alloy=铅铋合金
 
 #Info
 gc.multiblock.pattern.error.essentia=无法获取扩散单元等级！
