@@ -2,13 +2,14 @@ package me.oganesson.gregica.mixin;
 
 import gregtech.common.blocks.BlockGlassCasing;
 import me.oganesson.gregica.api.blocks.ITiredGlass;
+import net.minecraft.util.IStringSerializable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 import javax.annotation.Nonnull;
 
 @Mixin(BlockGlassCasing.CasingType.class)
-public abstract class MixinGTGlassCasingType implements ITiredGlass {
+public abstract class MixinGTGlassCasingType implements IStringSerializable,  ITiredGlass {
     
     
     @Shadow(remap = false) @Nonnull public abstract String getName();

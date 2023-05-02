@@ -88,18 +88,18 @@ public class GCRecipes {
                 'F', new UnificationEntry(OrePrefix.frameGt, Materials.TungstenSteel),
                 'B', new UnificationEntry(OrePrefix.block, Materials.Lapis));
 
-        ModHandler.addShapedRecipe("blank_lapotron_capacitor", new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 0),
+        ModHandler.addShapedRecipe("blank_lapotron_capacitor", new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 1),
                 "WFW", "F F", "WFW",
                 'W', new UnificationEntry(screw, Materials.Lapis),
                 'F', new UnificationEntry(plate, Materials.Lapis));
 
-        ModHandler.addShapedRecipe("lapotron_capacitor_block_tier_1", new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 1),
+        ModHandler.addShapedRecipe("lapotron_capacitor_block_tier_1", new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 2),
                 "WFW", "FCF", "WFW",
                 'C', MetaItems.LAPOTRON_CRYSTAL,
                 'W', new UnificationEntry(screw, Materials.Lapis),
                 'F', new UnificationEntry(plate, Materials.Lapis));
 
-        ModHandler.addShapedRecipe("lapotron_capacitor_block_tier_2", new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 2),
+        ModHandler.addShapedRecipe("lapotron_capacitor_block_tier_2", new ItemStack(GCMetaBlocks.GC_LAPOTRONIC_CASING, 1, 3),
                 "WFW", "FOF", "WFW",
                 'O', MetaItems.ENERGY_LAPOTRONIC_ORB,
                 'W', new UnificationEntry(screw, Materials.Lapis),
@@ -379,14 +379,14 @@ public class GCRecipes {
                 .buildAndRegister();
 
         FLUID_SOLIDFICATION_RECIPES.recipeBuilder()
-                .EUt(VA[LuV]).duration(18)
+                .EUt(VA[ZPM]).duration(18)
                 .input(block, Materials.BorosilicateGlass, 1)
                 .fluidInputs(Materials.Osmiridium.getFluid(1152))
                 .outputs(new ItemStack(GCMetaBlocks.TRANSPARENT_CASING, 1, 5))
                 .buildAndRegister();
 
         FLUID_SOLIDFICATION_RECIPES.recipeBuilder()
-                .EUt(VA[ZPM]).duration(18)
+                .EUt(VA[LuV]).duration(18)
                 .input(block, Materials.BorosilicateGlass, 1)
                 .fluidInputs(Materials.Iridium.getFluid(1152))
                 .outputs(new ItemStack(GCMetaBlocks.TRANSPARENT_CASING, 1, 4))
