@@ -3,12 +3,15 @@
   "package": "me.oganesson.gregica.mixin",
   "compatibilityLevel": "JAVA_8",
   "refmap": "mixins.gregica.refmap.json",
-  "mixins": [],
-  "client": [
-    "MixinMachineItemBlock",
+  "mixins": [
     "MixinMTEParallelHatch",
     "MixinSolarBoiler",
-    "MixinSteamBoilerAccess"
+    "MixinSteamBoilerAccess",
+    "MixinGTGlassCasingType"
+  ],
+  "client": [
+    "MixinMachineItemBlock",
+    "MixinBlockGlassCasing"
   ],
   "server": [
   ],

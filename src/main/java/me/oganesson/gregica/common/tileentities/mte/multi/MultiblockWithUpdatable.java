@@ -6,6 +6,10 @@ import me.oganesson.gregica.api.mte.IUpdatable;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentTranslation;
+
+import java.util.List;
 
 public abstract class MultiblockWithUpdatable<T extends IUpdatable> extends MultiblockWithDisplayBase implements IControllable {
     public MultiblockWithUpdatable(ResourceLocation metaTileEntityId) {
@@ -52,5 +56,11 @@ public abstract class MultiblockWithUpdatable<T extends IUpdatable> extends Mult
     public void receiveCustomData(int dataId, PacketBuffer buf) {
         super.receiveCustomData(dataId, buf);
         this.getLogic().receiveCustomData(dataId,buf);
+    }
+    
+    @Override
+    protected void addDisplayText(List<ITextComponent> textList) {
+        super.addDisplayText(textList);
+        if(!isActive()) textList.add(new TextComponentTranslation("gregica.multiblock.data.remind"));
     }
 }

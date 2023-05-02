@@ -6,7 +6,7 @@ import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.client.LaserPipeRenderer;
 import me.oganesson.gregica.common.block.CommonBlocks;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
-import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
+import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.item.itemUpgrades;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;

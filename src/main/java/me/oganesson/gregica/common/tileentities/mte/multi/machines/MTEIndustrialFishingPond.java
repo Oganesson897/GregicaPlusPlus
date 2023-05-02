@@ -27,7 +27,7 @@ import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import me.oganesson.gregica.client.GCTextures;
-import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
+import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
 import me.oganesson.gregica.common.recipes.recipemap.FishPondLogic;
 import net.minecraft.block.state.IBlockState;

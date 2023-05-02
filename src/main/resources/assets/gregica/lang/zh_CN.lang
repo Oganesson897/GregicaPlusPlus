@@ -152,12 +152,15 @@ gregicaplusplus.multiblock.industrial_fisher.inv_full=物品栏已满
 
 gregica.multiblock.lapotronic_super_capacitor.stored=   储存能量: %s eu
 gregica.multiblock.lapotronic_super_capacitor.capacity=   能量容量: %s eu
+gregica.multiblock.lapotronic_super_capacitor.passive_loss=   被动损失: %d eu/t
 
 gregica.multiblock.active_transformer.stored=   储存能量: %d eu
 gregica.multiblock.active_transformer.capacity=   能量容量: %d eu
 gregica.multiblock.active_transformer.percent=   百分比: %.2f%%
 gregica.multiblock.active_transformer.tooltip1=允许你随意变压
 gregica.multiblock.active_transformer.tooltip2=仅有 0.0002 损耗!
+
+gregica.multiblock.data.remind=§c未开机机器不会更新数据!
 
 #MixinGregtech
 gregica.mixin.gregtech.itemblock.multiblock_controller=§a多方块结构控制器
@@ -169,6 +172,7 @@ gergica.mixin.parallel.banned=§4该并行仓已经被禁,将只有64并行
 gregica.mixin.gregtech.itemblock.nerfed=§c该机器被nerf啦,按下shift显示详细信息
 gregica.mixin.gregica=§b由Gregica++添加
 gregica.mixin.info.steam=当前蒸汽输出: %d l/s
+gregica.mixin.info.glass.tier=%s 等级玻璃
 
 #Glasses
 tile.glasses_casing.ti_boron_silicate_glass_block.name=钛强化硅酸盐硼玻璃

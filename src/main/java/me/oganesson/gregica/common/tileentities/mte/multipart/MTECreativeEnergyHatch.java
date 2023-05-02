@@ -30,7 +30,7 @@ public class MTECreativeEnergyHatch extends MetaTileEntityMultiblockPart impleme
     
     public MTECreativeEnergyHatch(ResourceLocation metaTileEntityId, int tier) {
         super(metaTileEntityId, tier);
-        this.energyContainer = new EnergyContainerCreative(this,Integer.MAX_VALUE,GTValues.V[tier],0,GTValues.V[tier],0);
+        this.energyContainer = new EnergyContainerCreative(this,GTValues.V[tier]*64,GTValues.V[tier],0,GTValues.V[tier],0);
     }
     
     @Override

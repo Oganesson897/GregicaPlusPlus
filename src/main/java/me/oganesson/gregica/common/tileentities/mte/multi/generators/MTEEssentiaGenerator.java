@@ -24,7 +24,7 @@ import gregtech.common.ConfigHolder;
 import me.oganesson.gregica.api.predicate.EssentiaCellPredicate;
 import me.oganesson.gregica.api.predicate.TileEntityPredicate;
 import me.oganesson.gregica.client.GCTextures;
-import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
+import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.recipes.recipemap.EssentiaLogic;
 import me.oganesson.gregica.common.tileentities.EssentiaHatch;
 import me.oganesson.gregica.proxy.CommonProxy;

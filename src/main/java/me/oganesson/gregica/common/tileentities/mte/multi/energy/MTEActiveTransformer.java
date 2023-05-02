@@ -15,7 +15,7 @@ import gregtech.common.blocks.BlockFusionCasing;
 import gregtech.common.blocks.MetaBlocks;
 import me.oganesson.gregica.api.mte.energy.LongBufferLogic;
 import me.oganesson.gregica.client.GCTextures;
-import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
+import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
 import me.oganesson.gregica.common.tileentities.mte.multi.MultiblockWithUpdatable;
 import net.minecraft.client.resources.I18n;

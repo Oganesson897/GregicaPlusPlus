@@ -20,7 +20,7 @@ public class EnergyContainerCreative extends EnergyContainerHandler {
     
     @Override
     public long getEnergyStored() {
-        return Integer.MAX_VALUE;
+        return this.getOutputVoltage()*64;
     }
     
     @Override

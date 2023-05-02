@@ -1,9 +1,11 @@
 package me.oganesson.gregica;
 
+import me.oganesson.gregica.client.render.BlocksHighlightRenderer;
 import me.oganesson.gregica.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -66,6 +68,12 @@ public class Gregica {
         @SideOnly(Side.CLIENT)
         public static void modelRegistryEvent(ModelRegistryEvent event) {
             proxy.onModelRegister();
+        }
+    
+        @SubscribeEvent
+        @SideOnly(Side.CLIENT)
+        public static void onRenderWorldLast(RenderWorldLastEvent event) {
+            BlocksHighlightRenderer.renderWorldLastEvent(event);
         }
         
     }

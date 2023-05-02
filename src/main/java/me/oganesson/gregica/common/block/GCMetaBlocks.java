@@ -1,6 +1,7 @@
-package me.oganesson.gregica.common.block.metablock;
+package me.oganesson.gregica.common.block;
 
 import gregtech.common.blocks.MetaBlocks;
+import me.oganesson.gregica.common.block.metablock.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -16,10 +17,14 @@ import static gregtech.common.blocks.MetaBlocks.statePropertiesToString;
 public class GCMetaBlocks {
 
     public GCMetaBlocks(){}
+    
     public static final GCMetaCasing GC_BLOCK_CASING = new GCMetaCasing();
     public static final GCMetaCells GC_ESSENTIA_CELLS = new GCMetaCells();
     
     public static final GCLapotronicCasing GC_LAPOTRONIC_CASING = new GCLapotronicCasing();
+    
+    public static final GCMetaGlasses TRANSPARENT_CASING = new GCMetaGlasses("glasses_casing");
+    public static final GCMetaGlasses1 TRANSPARENT_CASING1 = new GCMetaGlasses1("glasses_casing1");
 
 
     public static boolean isEssentiaCell(IBlockState state) {
@@ -60,6 +65,8 @@ public class GCMetaBlocks {
         registerItemModel(GC_BLOCK_CASING);
         registerItemModel(GC_ESSENTIA_CELLS);
         registerItemModel(GC_LAPOTRONIC_CASING);
+        registerItemModel(TRANSPARENT_CASING);
+        registerItemModel(TRANSPARENT_CASING1);
     }
 
     @SideOnly(Side.CLIENT)

@@ -169,12 +169,15 @@ gregicaplusplus.multiblock.industrial_fisher.inv_full=Inventory Full
 
 gregica.multiblock.lapotronic_super_capacitor.stored=   Stored Energy: %s eu
 gregica.multiblock.lapotronic_super_capacitor.capacity=   Energy Capacity: %s eu
+gregica.multiblock.lapotronic_super_capacitor.passive_loss=   Passive Loss: %d eu/t
 
 gregica.multiblock.active_transformer.stored=   Stored Energy: %d eu
 gregica.multiblock.active_transformer.capacity=   Energy Capacity: %d eu
 gregica.multiblock.active_transformer.percent=   Storage Percentage: %.2f%%
 gregica.multiblock.active_transformer.tooltip1=Transform power up or down as your will.
 gregica.multiblock.active_transformer.tooltip2=Only 0.0002 loss!
+
+gregica.multiblock.data.remind=§cData will not update when the machine is disabled.
 
 #MixinGregtech
 gregica.mixin.gregtech.itemblock.multiblock_controller=§aThis is a multiblock controller.
@@ -186,6 +189,7 @@ gergica.mixin.parallel.banned=§4This hatch has been banned and limited to 64 pa
 gregica.mixin.gregtech.itemblock.nerfed=§cThis machine has nerfed.Press shift to show details.
 gregica.mixin.gregica=§bAdded by Gregica++
 gregica.mixin.info.steam=Current steam output %d l/s
+gregica.mixin.info.glass.tier=%s Tire Glass
 
 #Glasses
 tile.glasses_casing.ti_boron_silicate_glass_block.name=Ti Boron Silicate GLASS

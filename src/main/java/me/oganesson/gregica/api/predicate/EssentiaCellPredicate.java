@@ -3,7 +3,7 @@ package me.oganesson.gregica.api.predicate;
 import gregtech.api.pattern.PatternStringError;
 import gregtech.api.pattern.TraceabilityPredicate;
 import gregtech.api.util.BlockInfo;
-import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
+import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.block.metablock.GCMetaCells;
 import net.minecraft.block.state.IBlockState;
 

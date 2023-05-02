@@ -2,6 +2,7 @@ package me.oganesson.gregica.common.block.metablock;
 
 import gregtech.api.block.VariantBlock;
 import mcp.MethodsReturnNonnullByDefault;
+import me.oganesson.gregica.common.block.GCMetaBlocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -65,6 +66,10 @@ public class GCLapotronicCasing extends VariantBlock<GCLapotronicCasing.Lapotron
     
     public static boolean isLapotronicCasing(IBlockState state){
         return state.getBlock() == GCMetaBlocks.GC_LAPOTRONIC_CASING;
+    }
+    
+    public static boolean isCapacitor(IBlockState states){
+        return getType(states) != LapotronicCasingType.LapotronicSuperCapacitorCasing;
     }
     
     @Override

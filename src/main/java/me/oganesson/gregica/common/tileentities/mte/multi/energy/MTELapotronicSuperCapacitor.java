@@ -15,12 +15,16 @@ import gregtech.api.util.world.DummyWorld;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.common.blocks.BlockGlassCasing;
 import gregtech.common.blocks.MetaBlocks;
+import me.oganesson.gregica.api.blocks.ITiredGlass;
 import me.oganesson.gregica.api.mte.IMTEChangeableBattery;
 import me.oganesson.gregica.api.mte.energy.BigIntegerBufferLogic;
 import me.oganesson.gregica.client.GCTextures;
+import me.oganesson.gregica.client.render.BlocksHighlightRenderer;
 import me.oganesson.gregica.common.GCUtility;
 import me.oganesson.gregica.common.block.metablock.GCLapotronicCasing;
-import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
+import me.oganesson.gregica.common.block.GCMetaBlocks;
+import me.oganesson.gregica.common.block.metablock.GCMetaGlasses;
+import me.oganesson.gregica.common.block.metablock.GCMetaGlasses1;
 import me.oganesson.gregica.common.tileentities.mte.multi.MultiblockWithUpdatable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
@@ -54,6 +58,16 @@ public class MTELapotronicSuperCapacitor extends MultiblockWithUpdatable<BigInte
         if (!getWorld().isRemote){
             logic.update();
         }
+    }
+    
+    @Override
+    public void update() {
+        super.update();
+//        if(getWorld().isRemote && getOffsetTimer() % 500 == 0){
+//            for(BlockPos pos : getAllGlassAndCapacitor()){
+//                BlocksHighlightRenderer.renderBlockBoxHighLight(pos,10000);
+//            }
+//        }
     }
     
     @Override
@@ -104,7 +118,19 @@ public class MTELapotronicSuperCapacitor extends MultiblockWithUpdatable<BigInte
     
     private static TraceabilityPredicate glass(){
         return states(MetaBlocks.TRANSPARENT_CASING.getState(BlockGlassCasing.CasingType.FUSION_GLASS))
-                .or(states(MetaBlocks.TRANSPARENT_CASING.getState(BlockGlassCasing.CasingType.TEMPERED_GLASS)));
+                .or(states(MetaBlocks.TRANSPARENT_CASING.getState(BlockGlassCasing.CasingType.TEMPERED_GLASS)))
+                .or(states(MetaBlocks.TRANSPARENT_CASING.getState(BlockGlassCasing.CasingType.CLEANROOM_GLASS)))
+                .or(states(GCMetaBlocks.TRANSPARENT_CASING.getState(GCMetaGlasses.CasingType.TI_BORON_SILICATE_GLASS_BLOCK)))
+                .or(states(GCMetaBlocks.TRANSPARENT_CASING.getState(GCMetaGlasses.CasingType.W_BORON_SILICATE_GLASS_BLOCK)))
+                .or(states(GCMetaBlocks.TRANSPARENT_CASING.getState(GCMetaGlasses.CasingType.CThY_BORON_SILICATE_GLASS_BLOCK)))
+                .or(states(GCMetaBlocks.TRANSPARENT_CASING.getState(GCMetaGlasses.CasingType.CR_BORON_SILICATE_GLASS_BLOCK)))
+                .or(states(GCMetaBlocks.TRANSPARENT_CASING.getState(GCMetaGlasses.CasingType.IR_BORON_SILICATE_GLASS_BLOCK)))
+                .or(states(GCMetaBlocks.TRANSPARENT_CASING.getState(GCMetaGlasses.CasingType.OS_BORON_SILICATE_GLASS_BLOCK)))
+                .or(states(GCMetaBlocks.TRANSPARENT_CASING.getState(GCMetaGlasses.CasingType.NE_BORON_SILICATE_GLASS_BLOCK)))
+                .or(states(GCMetaBlocks.TRANSPARENT_CASING.getState(GCMetaGlasses.CasingType.SNE_BORON_SILICATE_GLASS_BLOCK)))
+                .or(states(GCMetaBlocks.TRANSPARENT_CASING1.getState(GCMetaGlasses1.CasingType.AVA_BORON_SILICATE_GLASS_BLOCK)))
+                .or(states(GCMetaBlocks.TRANSPARENT_CASING1.getState(GCMetaGlasses1.CasingType.TL_BORON_SILICATE_GLASS_BLOCK)))
+                ;
     }
     
     
@@ -123,7 +149,7 @@ public class MTELapotronicSuperCapacitor extends MultiblockWithUpdatable<BigInte
                     if(GCLapotronicCasing.isLapotronicCasing(state)){
                         GCLapotronicCasing.LapotronicCasingType type = GCLapotronicCasing.getType(state);
                         if(type == GCLapotronicCasing.LapotronicCasingType.LapotronicCapacitorEmpty) emptyCount++;
-                        capacitorCount++;
+                        if(type != GCLapotronicCasing.LapotronicCasingType.LapotronicSuperCapacitorCasing) capacitorCount++;
                         maxCapacitorTier = Math.max(maxCapacitorTier,type.ordinal()-1);
                     }
                     if(isGlass(state)){
@@ -146,13 +172,14 @@ public class MTELapotronicSuperCapacitor extends MultiblockWithUpdatable<BigInte
     }
     
     public static int getGlassTier(IBlockState state){
-        return 1;
+        return ITiredGlass.getGlassTier(state);
     }
     @Override
     protected void addDisplayText(List<ITextComponent> textList) {
         super.addDisplayText(textList);
         textList.add(new TextComponentTranslation("gregica.multiblock.lapotronic_super_capacitor.stored",getLogic().getStored().toString()));
         textList.add(new TextComponentTranslation("gregica.multiblock.lapotronic_super_capacitor.capacity",getCapacity().toString()));
+        textList.add(new TextComponentTranslation("gregica.multiblock.lapotronic_super_capacitor.passive_loss",getPassiveLoss()));
         textList.add(new TextComponentTranslation("gregica.multiblock.active_transformer.percent",
                 getCapacity().equals(BigInteger.ZERO) ? 0 : getLogic().getStored().divide(getCapacity()).floatValue()*100f));
     }
@@ -214,7 +241,7 @@ public class MTELapotronicSuperCapacitor extends MultiblockWithUpdatable<BigInte
         for(BlockPos pos : getAllCapacitors()){
             result = result + GCLapotronicCasing.getPassiveLoss(world.getBlockState(pos));
         }
-        return 0;
+        return result;
     }
     
     private Iterable<BlockPos.MutableBlockPos> getAllCapacitors(){

@@ -15,13 +15,11 @@ import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.items.MetaItems;
 import gregtech.common.metatileentities.MetaTileEntities;
-import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
-import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
+import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
 import me.oganesson.gregica.common.item.metaitems.GCMetaToolItems;
 import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
 import me.oganesson.gregica.common.unification.materials.GCMaterial;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import static gregtech.api.GTValues.*;

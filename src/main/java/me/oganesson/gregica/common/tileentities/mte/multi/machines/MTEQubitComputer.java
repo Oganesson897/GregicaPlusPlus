@@ -13,7 +13,7 @@ import me.oganesson.gregica.api.capability.GCCapabilities;
 import me.oganesson.gregica.api.capability.quantum.QubitRecipeMapMultiblockController;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
 import me.oganesson.gregica.client.GCTextures;
-import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
+import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
 import me.oganesson.gregica.common.recipes.recipemap.QubitProducerRecipeLogic;
 import net.minecraft.block.state.IBlockState;

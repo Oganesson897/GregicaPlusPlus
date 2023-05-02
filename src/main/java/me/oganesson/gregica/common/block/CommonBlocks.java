@@ -1,32 +1,24 @@
 package me.oganesson.gregica.common.block;
 
 import me.oganesson.gregica.api.GCValues;
-import me.oganesson.gregica.common.block.metablock.GCMetaGlasses;
-import me.oganesson.gregica.common.block.metablock.GCMetaGlasses1;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 
 public class CommonBlocks {
-
-    public static final TEBlock ESSENTIA_HATCH = new TEBlock("essentia_hatch", 1);
-    public static  GCMetaGlasses TRANSPARENT_CASING;
-    public static GCMetaGlasses1 TRANSPARENT_CASING1;
+    
 
     @SideOnly(Side.CLIENT)
     public static void registerItemModels() {
-
-        TRANSPARENT_CASING.onModelRegister();
-        TRANSPARENT_CASING1.onModelRegister();
         //registerItemModel(TRANSPARENT_CASING);
-
-        if(GCValues.IS_TC_LOADED) registerItemModel(ESSENTIA_HATCH);
+        if(GCValues.IS_TC_LOADED) registerItemModel(getEssentiaHatch());
     }
 
     @SideOnly(Side.CLIENT)
@@ -39,6 +31,14 @@ public class CommonBlocks {
                     new ModelResourceLocation(block.getRegistryName(), "inventory"));
         }
     }
-
+    
+    @Optional.Method(modid = "thaumcraft")
+    public static TEBlock getEssentiaHatch(){
+        return Holder.ESSENTIA_HATCH;
+    }
+    
+    private static class Holder{
+        public static final TEBlock ESSENTIA_HATCH = new TEBlock("essentia_hatch", 1);
+    }
 
 }

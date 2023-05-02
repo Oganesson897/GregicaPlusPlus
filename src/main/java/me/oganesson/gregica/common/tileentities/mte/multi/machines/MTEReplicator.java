@@ -13,7 +13,7 @@ import gregtech.common.blocks.BlockFusionCasing;
 import gregtech.common.blocks.BlockGlassCasing;
 import gregtech.common.blocks.MetaBlocks;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
-import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
+import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
 import net.minecraft.util.ResourceLocation;
 import org.jetbrains.annotations.NotNull;

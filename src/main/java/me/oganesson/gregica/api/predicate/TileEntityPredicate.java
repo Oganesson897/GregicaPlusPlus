@@ -22,7 +22,7 @@ public class TileEntityPredicate extends TraceabilityPredicate {
             return false;
         }, () -> Arrays.stream(GCMetaCasing.MetalCasingType.values())
                 .sorted(Comparator.comparing(GCMetaCasing.MetalCasingType::getName))
-                .map(type -> new BlockInfo(CommonBlocks.ESSENTIA_HATCH.getDefaultState(), null))
+                .map(type -> new BlockInfo(CommonBlocks.getEssentiaHatch().getDefaultState(), null))
                 .toArray(BlockInfo[]::new));
     }
 
