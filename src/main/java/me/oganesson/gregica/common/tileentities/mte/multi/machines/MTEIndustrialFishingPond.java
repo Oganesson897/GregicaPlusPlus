@@ -109,8 +109,8 @@ public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implemen
     @Override
     public void addToolUsages(ItemStack stack, @Nullable World world, List<String> tooltip, boolean advanced) {
         tooltip.add(I18n.format("gregtech.tool_action.screwdriver.toggle_mode_covers"));
-        tooltip.add(I18n.format("gregtech.tool_action.wrench.set_facing"));
-        super.addToolUsages(stack, world, tooltip, advanced);
+        tooltip.add(net.minecraft.util.text.translation.I18n.translateToLocal("gregtech.tool_action.wrench.set_facing"));
+        tooltip.add(net.minecraft.client.resources.I18n.format("gregtech.tool_action.crowbar", new Object[0]));
     }
 
     public boolean fillChest(ItemStack stack, boolean simulate) {

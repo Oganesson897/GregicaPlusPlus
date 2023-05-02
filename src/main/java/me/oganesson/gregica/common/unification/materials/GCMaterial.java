@@ -21,7 +21,7 @@ public class GCMaterial {
     public static Material Tiberium;
     public static Material NeutronsFlow;
     public static Material ProtonFlow;
-
+public static Material BismuthLeadAlloy;
     public static void register() {
         FirstDegreeMaterials.register();
         SecondDegreeMaterials.register();

@@ -1,6 +1,8 @@
 package me.oganesson.gregica.common.recipes;
 
+import gregicality.multiblocks.api.recipes.GCYMRecipeMaps;
 import gregicality.multiblocks.api.unification.GCYMMaterials;
+import gregtech.api.metatileentity.multiblock.CleanroomType;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.Material;
@@ -14,11 +16,16 @@ import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.items.MetaItems;
 import gregtech.common.metatileentities.MetaTileEntities;
 import me.oganesson.gregica.common.block.metablock.GCMetaBlocks;
+import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
 import me.oganesson.gregica.common.item.metaitems.GCMetaToolItems;
 import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
+import me.oganesson.gregica.common.unification.materials.GCMaterial;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import static gregtech.api.GTValues.*;
+import static gregtech.api.recipes.RecipeMaps.ASSEMBLER_RECIPES;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.loaders.recipe.handlers.ToolRecipeHandler.addToolRecipe;
 
@@ -26,6 +33,7 @@ public class GCRecipes {
 
     public static void register(){
         workbenchRecipe();
+        gcMachineRecipes();
     }
 
     public static void registerTool(){
@@ -145,5 +153,53 @@ public class GCRecipes {
                 }
             }
         }
+    }
+
+    private static void gcMachineRecipes(){
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .inputs(MetaTileEntities.TRANSFORMER[6].getStackForm())
+                .input(GCMetaItems.ADVANCED_PROCESS_CIRCUIT)
+                .input(wireGtSingle, Materials.IndiumTinBariumTitaniumCuprate, 16)
+                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT)
+                .fluidInputs(Materials.TungstenSteel.getFluid(576))
+                .outputs(GCMetaEntities.ACTIVE_TRANSFORMER.getStackForm())
+                .EUt(VA[LuV]).duration(400)
+                .buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(MetaItems.ELITE_CIRCUIT_BOARD)
+                .input(circuit, MarkerMaterials.Tier.ZPM, 2)
+                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 4)
+                .input(MetaItems.NANO_CENTRAL_PROCESSING_UNIT, 2)
+                .input(MetaItems.QUBIT_CENTRAL_PROCESSING_UNIT, 2)
+                .input(wireGtSingle, Materials.UraniumRhodiumDinaquadide, 64)
+                .fluidInputs(GCMaterial.BismuthLeadAlloy.getFluid(288))
+                .output(GCMetaItems.ADVANCED_PROCESS_CIRCUIT)
+                .EUt(VA[IV]).duration(2400).cleanroom(CleanroomType.CLEANROOM)
+                .buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(frameGt, Materials.Iridium)
+                .input(plateDouble, Materials.Iridium, 6)
+                .input(circuit, MarkerMaterials.Tier.LuV)
+                .input(wireFine, Materials.Cobalt, 16)
+                .input(wireFine, Materials.Copper, 16)
+                .input(wireGtSingle, Materials.NiobiumTitanium, 2)
+                .fluidInputs(Materials.TungstenSteel.getFluid(576))
+                .outputs(new ItemStack(GCMetaBlocks.GC_BLOCK_CASING, 1, 6))
+                .EUt(VA[LuV]).duration(100)
+                .buildAndRegister();
+
+        GCYMRecipeMaps.ALLOY_BLAST_RECIPES.recipeBuilder()
+                .input(dust, Materials.Bismuth, 47)
+                .input(dust, Materials.Lead, 25)
+                .input(dust, Materials.Tin, 13)
+                .input(dust, Materials.Cadmium, 10)
+                .input(dust, Materials.Indium, 5)
+                .circuitMeta(5)
+                .blastFurnaceTemp(5475)
+                .EUt(VA[IV]).duration(800)
+                .fluidOutputs(GCMaterial.BismuthLeadAlloy.getFluid(14000))
+                .buildAndRegister();
     }
 }

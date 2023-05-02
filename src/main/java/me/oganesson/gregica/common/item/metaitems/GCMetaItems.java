@@ -34,6 +34,7 @@ public class GCMetaItems {
     public static MetaItem<?>.MetaValueItem MAX_EMITTER;
     public static MetaItem<?>.MetaValueItem MAX_SENSOR;
     public static MetaItem<?>.MetaValueItem MAX_FIELD_GENERATOR;
+    public static MetaItem<?>.MetaValueItem ADVANCED_PROCESS_CIRCUIT;
     public static void initMetaItems() {
         metaItem1 = new StandardMetaItem();
         metaItem1.setRegistryName("meta_item_gc");
@@ -56,6 +57,7 @@ public class GCMetaItems {
         GOLD_ALGAE = metaItem1.addItem(14,"algae.gold").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         T_ALGAE = metaItem1.addItem(15,"algae.t").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         tierItems();
+        ADVANCED_PROCESS_CIRCUIT = metaItem1.addItem(38, "item.advanced_circuit").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
     }
 
     private static void tierItems() {
@@ -96,11 +98,5 @@ public class GCMetaItems {
         MAX_EMITTER = metaItem1.addItem(35, "cover.emitter.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         MAX_SENSOR = metaItem1.addItem(36, "cover.sensor.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         MAX_FIELD_GENERATOR = metaItem1.addItem(37, "cover.field_generator.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
-    }
-    private static StandardMetaItem onItemsHandler(String name)
-    {
-        StandardMetaItem item = new StandardMetaItem();
-        item.setRegistryName(name);
-        return  item;
     }
 }

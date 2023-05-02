@@ -1,6 +1,7 @@
 package me.oganesson.gregica.common.unification.materials.material;
 
 import gregtech.api.fluids.fluidType.FluidTypes;
+import gregtech.api.unification.Elements;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.info.MaterialIconSet;
@@ -27,6 +28,14 @@ public class SecondDegreeMaterials {
                 .color(16448250)
                 .build();
 
+        GCMaterial.BismuthLeadAlloy = new Material.Builder(26104, "bismuth_lead_alloy")
+                .fluid().dust()
+                .color(0x800080)
+                .fluidTemp(5475)
+                .components(new Object[]{Materials.Bismuth, 47, Materials.Lead, 25, Materials.Tin, 13, Materials.Cadmium, 10, Materials.Indium, 5})
+                .build();
+
         Materials.Potin.addFlags("generate_rotor", "generate_small_gear");
+        Materials.Iridium.addFlags("generate_frame");
     }
 }
