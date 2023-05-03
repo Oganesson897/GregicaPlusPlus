@@ -22,11 +22,13 @@ import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
 import me.oganesson.gregica.common.item.metaitems.GCMetaToolItems;
 import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
 import me.oganesson.gregica.common.unification.materials.GCMaterial;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
+import static gregtech.api.unification.material.Materials.Obsidian;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.loaders.recipe.handlers.ToolRecipeHandler.addToolRecipe;
 
@@ -188,6 +190,12 @@ public class GCRecipes {
     }
 
     private static void gcMachineRecipes(){
+        CANNER_RECIPES.recipeBuilder().duration(233).EUt(VA[ULV])
+                .input(Items.BREAD)
+                .fluidInputs(Materials.Lead.getFluid(144))
+                .output(GCMetaItems.BAGUETTE_SWORD)
+                .buildAndRegister();
+
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(MetaTileEntities.TRANSFORMER[6].getStackForm())
                 .input(GCMetaItems.ADVANCED_PROCESS_CIRCUIT)
