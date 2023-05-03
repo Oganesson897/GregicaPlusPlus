@@ -1,4 +1,4 @@
-package me.oganesson.gregica.mixin;
+package me.oganesson.gregica.mixin.gregtech;
 
 import gregtech.common.metatileentities.steam.boiler.SteamBoiler;
 import org.spongepowered.asm.mixin.Mixin;

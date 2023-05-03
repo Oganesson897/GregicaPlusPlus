@@ -23,7 +23,15 @@ public class BigIntegerBufferLogic<T extends MultiblockWithUpdatable<?> & IMTECh
     
     private BigInteger capacity = BigInteger.ZERO;
     
-    private int passiveLoss;
+    private long passiveLoss;
+    
+    private long input;
+    
+    private long output;
+    
+    private long lastInput;
+    
+    private long lastOutput;
     
     private boolean workingEnable;
     
@@ -34,9 +42,8 @@ public class BigIntegerBufferLogic<T extends MultiblockWithUpdatable<?> & IMTECh
     @Override
     public void update() {
         BigInteger passiveLoss = BigInteger.valueOf(getPassiveLoss());
-        if(stored.compareTo(passiveLoss)>0){
-            stored = stored.subtract(passiveLoss);
-        }
+            stored = stored.subtract(stored.min(passiveLoss));
+        
         if (!this.workingEnable)
             return;
         if(metaTileEntity.getOffsetTimer()%5 == 0){
@@ -47,6 +54,12 @@ public class BigIntegerBufferLogic<T extends MultiblockWithUpdatable<?> & IMTECh
             updateLeftCapacity();
             tryInputEnergy(input);
             tryOutputEnergy(output);
+        }
+        if(metaTileEntity.getOffsetTimer()%20 == 0){
+            lastInput = input;
+            lastOutput =output;
+            input = 0;
+            output = 0;
         }
         if(this.getCapacity().equals(BigInteger.ZERO) || this.metaTileEntity.getOffsetTimer()%1200 == 0){
            this.capacity = metaTileEntity.updateCapacity();
@@ -61,6 +74,7 @@ public class BigIntegerBufferLogic<T extends MultiblockWithUpdatable<?> & IMTECh
                 this.stored = this.stored.add(toAdd);
                 //this.stored = this.stored - (long) (toAdd*(1-getLossRate()));
                 energyContainer.removeEnergy(toAdd.longValue());
+                this.input = this.input + toAdd.longValue();
                 updateLeftCapacity();
             }
         }
@@ -71,6 +85,7 @@ public class BigIntegerBufferLogic<T extends MultiblockWithUpdatable<?> & IMTECh
             BigInteger outputValue = stored.min(BigInteger.valueOf(energyContainer.getEnergyCanBeInserted()));
             this.stored = this.stored.subtract(outputValue);
             energyContainer.addEnergy(outputValue.longValue());
+            this.output = this.output + outputValue.longValue();
             updateLeftCapacity();
         }
     }
@@ -80,7 +95,7 @@ public class BigIntegerBufferLogic<T extends MultiblockWithUpdatable<?> & IMTECh
         data.setString("stored",this.stored.toString());
         data.setString("capacity",this.capacity.toString());
         data.setBoolean("workable",this.workingEnable);
-        data.setInteger("passive_loss",this.passiveLoss);
+        data.setLong("passive_loss",this.passiveLoss);
         return data;
     }
     
@@ -89,7 +104,7 @@ public class BigIntegerBufferLogic<T extends MultiblockWithUpdatable<?> & IMTECh
         this.stored = new BigInteger(data.getString("stored"));
         this.capacity = new BigInteger(data.getString("capacity"));
         this.workingEnable = data.getBoolean("workable");
-        this.passiveLoss = data.getInteger("passive_loss");
+        this.passiveLoss = data.getLong("passive_loss");
         updateLeftCapacity();
     }
     
@@ -98,7 +113,7 @@ public class BigIntegerBufferLogic<T extends MultiblockWithUpdatable<?> & IMTECh
         buf.writeString(stored.toString());
         buf.writeString(capacity.toString());
         buf.writeBoolean(this.workingEnable);
-        buf.writeInt(passiveLoss);
+        buf.writeLong(passiveLoss);
     }
     
     @Override
@@ -106,7 +121,7 @@ public class BigIntegerBufferLogic<T extends MultiblockWithUpdatable<?> & IMTECh
         this.stored = new BigInteger(buf.readString(Integer.MAX_VALUE/5));
         this.capacity = new BigInteger(buf.readString(Integer.MAX_VALUE/5));
         this.workingEnable = buf.readBoolean();
-        this.passiveLoss = buf.readInt();
+        this.passiveLoss = buf.readLong();
         updateLeftCapacity();
     }
     
@@ -153,7 +168,17 @@ public class BigIntegerBufferLogic<T extends MultiblockWithUpdatable<?> & IMTECh
         return 1;
     }
     
-    public int getPassiveLoss(){
+    public long getPassiveLoss(){
         return passiveLoss;
+    }
+    
+    @Override
+    public long getLastInput() {
+        return lastInput;
+    }
+    
+    @Override
+    public long getLastOutput() {
+        return lastOutput;
     }
 }

@@ -1,4 +1,4 @@
-package me.oganesson.gregica.mixin;
+package me.oganesson.gregica.mixin.gregtech;
 
 import gregtech.common.blocks.BlockGlassCasing;
 import me.oganesson.gregica.api.blocks.ITiredGlass;
@@ -18,11 +18,11 @@ public abstract class MixinGTGlassCasingType implements IStringSerializable,  IT
     public int getTier() {
         switch (getName()){
             case("tempered_glass"):
-                return 4;
+                return 3;
             case("fusion_glass"):
                 return 9;
             case("laminated_glass"):
-                return 5;
+                return 4;
         }
         return 3;
     }

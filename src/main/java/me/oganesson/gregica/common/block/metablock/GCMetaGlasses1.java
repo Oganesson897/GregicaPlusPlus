@@ -95,7 +95,7 @@ public class GCMetaGlasses1 extends VariantActiveBlock<GCMetaGlasses1.CasingType
         private final String name;
         private final int tier;
 
-        private CasingType(String name,int tier) {
+        CasingType(String name,int tier) {
             this.name = name;
             this.tier = tier;
         }
@@ -108,7 +108,7 @@ public class GCMetaGlasses1 extends VariantActiveBlock<GCMetaGlasses1.CasingType
     
         @Override
         public int getTier() {
-            return 0;
+            return tier;
         }
     }
 

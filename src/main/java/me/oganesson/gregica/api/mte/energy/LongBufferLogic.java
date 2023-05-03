@@ -21,6 +21,14 @@ public class LongBufferLogic implements IEnergyBufferLogic<Long>, IUpdatable {
     
     private long capacity;
     
+    private long input;
+    
+    private long output;
+    
+    private long lastInput;
+    
+    private long lastOutput;
+    
     private boolean workingEnable;
     
     public LongBufferLogic(MultiblockWithUpdatable<?> metaTileEntity) {
@@ -53,7 +61,7 @@ public class LongBufferLogic implements IEnergyBufferLogic<Long>, IUpdatable {
     public void update() {
         if (!this.workingEnable)
             return;
-        if(metaTileEntity.getOffsetTimer()%5==0) {
+        if(metaTileEntity.getOffsetTimer() % 5 == 0) {
             List<IEnergyContainer> input = metaTileEntity.getAbilities(MultiblockAbility.INPUT_ENERGY);
             List<IEnergyContainer> output = metaTileEntity.getAbilities(MultiblockAbility.OUTPUT_ENERGY);
             this.capacity = updateCapacity(input, output);
@@ -61,6 +69,12 @@ public class LongBufferLogic implements IEnergyBufferLogic<Long>, IUpdatable {
             updateLeftCapacity();
             tryInputEnergy(input);
             tryOutputEnergy(output);
+        }
+        if(metaTileEntity.getOffsetTimer()%20 == 0){
+            lastInput = input;
+            lastOutput = output;
+            input = 0;
+            output = 0;
         }
     }
     
@@ -71,6 +85,7 @@ public class LongBufferLogic implements IEnergyBufferLogic<Long>, IUpdatable {
                 this.stored = this.stored + toAdd;
                 this.stored = this.stored - (long) (toAdd*(1-getLossRate()));
                 energyContainer.removeEnergy(toAdd);
+                this.input = this.input+toAdd;
                 updateLeftCapacity();
             }
         }
@@ -81,6 +96,7 @@ public class LongBufferLogic implements IEnergyBufferLogic<Long>, IUpdatable {
             long outputValue =  Math.min(stored,energyContainer.getEnergyCanBeInserted());
             this.stored = this.stored - outputValue;
             energyContainer.addEnergy(outputValue);
+            this.output = this.output + outputValue;
             updateLeftCapacity();
         }
     }
@@ -153,4 +169,13 @@ public class LongBufferLogic implements IEnergyBufferLogic<Long>, IUpdatable {
         return capacity;
     }
     
+    @Override
+    public long getLastInput() {
+        return lastInput;
+    }
+    
+    @Override
+    public long getLastOutput() {
+        return lastOutput;
+    }
 }

@@ -1,4 +1,4 @@
-package me.oganesson.gregica.mixin;
+package me.oganesson.gregica.mixin.gregtech;
 
 import gregtech.api.block.machines.MachineItemBlock;
 import gregtech.api.capability.IMultiblockController;
