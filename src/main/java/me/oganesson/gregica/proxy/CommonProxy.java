@@ -89,8 +89,8 @@ public class CommonProxy {
     public void registerBlocks(RegistryEvent.Register<Block> event) {
         GC_BLOCK_CASING.setCreativeTab(Tab);
         GC_ESSENTIA_CELLS.setCreativeTab(Tab);
-        TRANSPARENT_CASING.setCreativeTab(Tab);
         TRANSPARENT_CASING1.setCreativeTab(Tab);
+        TRANSPARENT_CASING.setCreativeTab(Tab);
         GC_LAPOTRONIC_CASING.setCreativeTab(Tab);
         
         if(GCValues.IS_TC_LOADED){

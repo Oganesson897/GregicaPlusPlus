@@ -11,7 +11,7 @@ import net.minecraft.util.EnumFacing;
 public class EnergyContainerCreative extends EnergyContainerHandler {
     
     public EnergyContainerCreative(MetaTileEntity tileEntity, long maxOutputVoltage) {
-        this(tileEntity,Integer.MAX_VALUE, 0, 0, maxOutputVoltage, 64);
+        this(tileEntity,maxOutputVoltage*64, 0, 0, maxOutputVoltage, 64);
     }
     
     public EnergyContainerCreative(MetaTileEntity tileEntity,long maxCapacity,long maxInputVoltage,long maxInputAmperage, long maxOutputVoltage,long maxOutputAmperage) {
