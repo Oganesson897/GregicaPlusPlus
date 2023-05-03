@@ -153,12 +153,19 @@ gregicaplusplus.multiblock.industrial_fisher.inv_full=物品栏已满
 gregica.multiblock.lapotronic_super_capacitor.stored=   储存能量: %s eu
 gregica.multiblock.lapotronic_super_capacitor.capacity=   能量容量: %s eu
 gregica.multiblock.lapotronic_super_capacitor.passive_loss=   被动损失: %d eu/t
+gregica.multiblock.lapotronic_super_capacitor.tooltip1=§3帮你存储能量,存一会儿
+gregica.multiblock.lapotronic_super_capacitor.press_shift=结构太复杂了,按下shift查看更多信息
+gregica.multiblock.lapotronic_super_capacitor.press_shift.tooltip1=允许使用所有种类的电容,但是空电容数量不能超过总数一半
+gregica.multiblock.lapotronic_super_capacitor.press_shift.tooltip2=允许使用所有种类的玻璃,但是最低的玻璃等级必须不低于最大的电容等级-1
+gregica.multiblock.lapotronic_super_capacitor.press_shift.tooltip3=被动能量损耗仅由每个电容的损耗决定,与主方块无关
 
 gregica.multiblock.active_transformer.stored=   储存能量: %d eu
 gregica.multiblock.active_transformer.capacity=   能量容量: %d eu
 gregica.multiblock.active_transformer.percent=   百分比: %.2f%%
 gregica.multiblock.active_transformer.tooltip1=允许你随意变压
 gregica.multiblock.active_transformer.tooltip2=仅有 0.0002 损耗!
+gregica.multiblock.active_transformer.current.input=   当前输入: %d eu/t
+gregica.multiblock.active_transformer.current.output=   当前输出: %d eu/t
 
 gregica.multiblock.data.remind=§c未开机机器不会更新数据!
 
@@ -172,7 +179,7 @@ gergica.mixin.parallel.banned=§4该并行仓已经被禁,将只有64并行
 gregica.mixin.gregtech.itemblock.nerfed=§c该机器被nerf啦,按下shift显示详细信息
 gregica.mixin.gregica=§b由Gregica++添加
 gregica.mixin.info.steam=当前蒸汽输出: %d l/s
-gregica.mixin.info.glass.tier=%s 等级玻璃
+gregica.mixin.info.glass.tier=%s §f等级玻璃
 
 #Glasses
 tile.glasses_casing.ti_boron_silicate_glass_block.name=钛强化硅酸盐硼玻璃

@@ -36,6 +36,10 @@ public class GCConfig {
         @Config.Comment({"Enable nerf the steam solar boiler.The output will decrease to 1/3 as time goes on."})
         @Config.RequiresMcRestart
         public static boolean enableNerfSteamSolarBoiler = true;
+    
+        @Config.Comment({"Enable nerf the parallel hatch,limit the max parallel to 64."})
+        @Config.RequiresMcRestart
+        public static boolean enableNerfGCYMParallelHatch = true;
         
     }
 }

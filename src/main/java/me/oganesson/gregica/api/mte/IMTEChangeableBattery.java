@@ -7,9 +7,9 @@ import java.math.BigInteger;
 public interface IMTEChangeableBattery<T extends MetaTileEntity> {
     
     BigInteger getCapacity();
-    int getPassiveLoss();
+    long getPassiveLoss();
     
     BigInteger updateCapacity();
     
-    int updatePassiveLoss();
+    long updatePassiveLoss();
 }

@@ -15,4 +15,8 @@ public interface IEnergyBufferLogic<T extends Number> {
     
     float getLossRate();
     
+    long getLastInput();
+    
+    long getLastOutput();
+    
 }
