@@ -13,7 +13,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nonnull;
 
 public class CommonBlocks {
-    
 
     @SideOnly(Side.CLIENT)
     public static void registerItemModels() {

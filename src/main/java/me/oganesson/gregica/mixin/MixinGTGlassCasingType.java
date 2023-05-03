@@ -20,7 +20,7 @@ public abstract class MixinGTGlassCasingType implements IStringSerializable,  IT
             case("tempered_glass"):
                 return 4;
             case("fusion_glass"):
-                return 10;
+                return 9;
             case("laminated_glass"):
                 return 5;
         }
