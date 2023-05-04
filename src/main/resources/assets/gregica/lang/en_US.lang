@@ -210,3 +210,4 @@ tile.glasses_casing.sne_boron_silicate_glass_block.name=SpaceNE Boron Silicate G
 tile.glasses_casing.ava_boron_silicate_glass_block.name=AVA Boron Silicate GLASS
 tile.glasses_casing.tl_boron_silicate_glass_block.name=TL Boron Silicate GLASS
 
+recipemap.log_create.name=Log Create
