@@ -109,8 +109,8 @@ dependencies {
 
     compileOnly 'curse.maven:AdvancedRocketry-236542:3801020'
 
-    compileOnly (files("libs/EnderCore-1.12.2-0.5.76-core.jar"))
-
+    implementation fg.deobf("curse.maven:endercore-231868:2972849")
+    implementation fg.deobf("curse.maven:ender-io-64578:3328811")
 
     implementation 'org.spongepowered:mixin:0.8.2'
     annotationProcessor 'org.spongepowered:mixin:0.8.2:processor'
