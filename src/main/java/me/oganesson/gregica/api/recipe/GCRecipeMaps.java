@@ -50,4 +50,6 @@ public class GCRecipeMaps {
 
     public static final RecipeMap<SimpleRecipeBuilder> REPLICATOR = new RecipeMap<>("replication",
             1, 1, 4, 1, new SimpleRecipeBuilder(), false);
+    public static final RecipeMap<SimpleRecipeBuilder> LOGS_CREATE = new RecipeMap<>("log_create",
+            2, 8, 1, 0, new SimpleRecipeBuilder(), false);
 }

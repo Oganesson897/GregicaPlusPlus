@@ -35,6 +35,7 @@ public class GCRecipes {
     public static void register(){
         workbenchRecipe();
         gcMachineRecipes();
+        GCRecipeManager.init();
     }
 
     public static void registerTool(){
