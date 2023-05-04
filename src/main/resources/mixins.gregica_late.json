@@ -4,14 +4,14 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "mixins.gregica.refmap.json",
   "mixins": [
-    "MixinMTEParallelHatch",
-    "MixinSolarBoiler",
-    "MixinSteamBoilerAccess",
-    "MixinGTGlassCasingType"
+    "gcym.MixinMTEParallelHatch",
+    "gregtech.MixinSolarBoiler",
+    "gregtech.MixinSteamBoilerAccess",
+    "gregtech.MixinGTGlassCasingType"
   ],
   "client": [
-    "MixinMachineItemBlock",
-    "MixinBlockGlassCasing"
+    "gregtech.MixinMachineItemBlock",
+    "gregtech.MixinBlockGlassCasing"
   ],
   "server": [
   ],

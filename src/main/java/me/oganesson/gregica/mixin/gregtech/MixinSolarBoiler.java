@@ -1,4 +1,4 @@
-package me.oganesson.gregica.mixin;
+package me.oganesson.gregica.mixin.gregtech;
 
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.common.metatileentities.steam.boiler.SteamBoiler;
@@ -50,7 +50,7 @@ public abstract class MixinSolarBoiler extends SteamBoiler implements INerfed {
     
     @Override
     public boolean isNerfed() {
-        return true;
+        return GCConfig.Nerf.enableNerfSteamSolarBoiler;
     }
     
     @Override

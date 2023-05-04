@@ -77,12 +77,4 @@ public class Gregica {
         }
         
     }
-    @Mod.EventBusSubscriber
-    @SideOnly(Side.CLIENT)
-    public static class ClientEventRegister{
-//        @SubscribeEvent
-//        public static void onCustomResourcePack(CustomResourcePackEvent event){
-//            ((ClientProxy)proxy).onCustomResourcePack(event);
-//        }
-    }
 }

@@ -1,4 +1,4 @@
-package me.oganesson.gregica.mixin;
+package me.oganesson.gregica.mixin.gregtech;
 
 import gregtech.api.GTValues;
 import gregtech.api.block.VariantActiveBlock;

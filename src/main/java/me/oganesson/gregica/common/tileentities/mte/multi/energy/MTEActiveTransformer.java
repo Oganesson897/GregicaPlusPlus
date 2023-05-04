@@ -90,6 +90,8 @@ public class MTEActiveTransformer extends MultiblockWithUpdatable<LongBufferLogi
         textList.add(new TextComponentTranslation("gregica.multiblock.active_transformer.capacity",getLogic().getBuffedCapacity()));
         textList.add(new TextComponentTranslation("gregica.multiblock.active_transformer.percent",
                 ((float) getLogic().getStored()/(float) getLogic().getBuffedCapacity())*100f));
+        textList.add(new TextComponentTranslation("gregica.multiblock.active_transformer.current.input",getLogic().getLastInput()/20));
+        textList.add(new TextComponentTranslation("gregica.multiblock.active_transformer.current.output",getLogic().getLastOutput()/20));
     }
     
     @Override

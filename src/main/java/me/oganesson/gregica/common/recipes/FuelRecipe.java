@@ -70,12 +70,6 @@ public class FuelRecipe {
         registerQubitGeneratorFuel(circuit, MarkerMaterials.Tier.OpV,            25_600, UV, 32);
         registerQubitGeneratorFuel(circuit, MarkerMaterials.Tier.MAX,            51_200, UV, 64);
 
-        CANNER_RECIPES.recipeBuilder().duration(999).EUt(VA[ULV])
-                .input(Items.BREAD)
-                .input(dust, Obsidian, 64)
-                .output(GCMetaItems.BAGUETTE_SWORD)
-                .buildAndRegister();
-
         registerResearchStationResearch(new ItemStack(Items.BREAD), 99, IV, 1, "baguette_sword");
     }
 }
