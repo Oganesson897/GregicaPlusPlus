@@ -4,8 +4,6 @@ import gregtech.client.renderer.ICubeRenderer;
 import gregtech.common.metatileentities.steam.boiler.SteamBoiler;
 import gregtech.common.metatileentities.steam.boiler.SteamSolarBoiler;
 import me.oganesson.gregica.GCConfig;
-import me.oganesson.gregica.api.nerf.INerfed;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
@@ -22,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Mixin(SteamSolarBoiler.class)
-public abstract class MixinSolarBoiler extends SteamBoiler implements INerfed {
+public abstract class MixinSolarBoilerServer extends SteamBoiler  {
     
     private long timer = 0;
     
@@ -30,7 +28,7 @@ public abstract class MixinSolarBoiler extends SteamBoiler implements INerfed {
     @Shadow(remap = false) protected abstract int getBaseSteamOutput();
     
     
-    public MixinSolarBoiler(ResourceLocation metaTileEntityId, boolean isHighPressure, ICubeRenderer renderer) {
+    public MixinSolarBoilerServer(ResourceLocation metaTileEntityId, boolean isHighPressure, ICubeRenderer renderer) {
         super(metaTileEntityId, isHighPressure, renderer);
     }
     
@@ -46,16 +44,6 @@ public abstract class MixinSolarBoiler extends SteamBoiler implements INerfed {
                 cir.cancel();
             }
         }
-    }
-    
-    @Override
-    public boolean isNerfed() {
-        return GCConfig.Nerf.enableNerfSteamSolarBoiler;
-    }
-    
-    @Override
-    public void details(List<String> tooltip) {
-        tooltip.add("   "+I18n.format("gregica.mixin.nerf.steam.solar.detail"));
     }
     
     @NotNull

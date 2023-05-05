@@ -6,5 +6,7 @@ public interface INerfed {
     
     boolean isNerfed();
     
-    void details(List<String> tooltip);
+    default void details(List<String> tooltip){
+    
+    }
 }

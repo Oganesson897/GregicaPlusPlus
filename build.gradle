@@ -25,7 +25,9 @@ apply plugin: 'org.spongepowered.mixin'
 
 
 group = 'me.oganesson'
-version = '1.0-SNAPSHOT'
+version = "${project.current_version}-${project.current_state}"
+
+archivesBaseName = "${project.archives_base_name}-${project.minecraft_version}"
 
 java {
     archivesBaseName = 'gregica'
@@ -112,7 +114,7 @@ dependencies {
     compileOnly (files("libs/EnderCore-1.12.2-0.5.76-core.jar"))
 
 
-    implementation 'org.spongepowered:mixin:0.8.2'
+    //implementation 'org.spongepowered:mixin:0.8.2'
     annotationProcessor 'org.spongepowered:mixin:0.8.2:processor'
 
     // Examples using mod jars from ./libs
@@ -138,11 +140,11 @@ fancyGradle {
 jar {
     manifest {
         attributes([
-//                "TweakClass": "org.spongepowered.asm.launch.MixinTweaker",
 //                "TweakOrder": "0",
                 'FMLCorePluginContainsFMLMod': true,
                 'FMLCorePlugin': 'me.oganesson.gregica.mixininit.EarlyMixinInit',
-                "ForceLoadAsMod": "true",
+                "ForceLoadAsMod": true,
+                //"TweakClass": "org.spongepowered.asm.launch.MixinTweaker",
                 "Specification-Title"     : "gregica",
                 "Specification-Vendor"    : "Oganesson897",
                 "Specification-Version"   : "1", // We are version 1 of ourselves

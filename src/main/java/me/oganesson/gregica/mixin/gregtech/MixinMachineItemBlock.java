@@ -27,8 +27,7 @@ public abstract class MixinMachineItemBlock {
                     shift = At.Shift.AFTER,
                     target = "Lgregtech/api/metatileentity/MetaTileEntity;addInformation(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Ljava/util/List;Z)V",
                     remap = false)},
-            locals = LocalCapture.CAPTURE_FAILSOFT,
-            remap = false)
+            locals = LocalCapture.CAPTURE_FAILSOFT)
     public void gcppOnAddInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn,
                                      CallbackInfo ci,MetaTileEntity metaTileEntity){
         if(metaTileEntity instanceof IMultiblockController){
