@@ -15,11 +15,14 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 
 import static me.oganesson.gregica.common.tileentities.mte.GCMetaEntities.LASER_PIPES;
 
+@SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
 
     public void preInit( FMLPreInitializationEvent event ) {
