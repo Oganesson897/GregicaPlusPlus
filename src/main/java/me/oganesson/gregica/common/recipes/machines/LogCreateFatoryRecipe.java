@@ -1,5 +1,6 @@
 package me.oganesson.gregica.common.recipes.machines;
 
+import me.oganesson.gregica.api.GCValues;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Optional;
@@ -16,7 +17,9 @@ public class LogCreateFatoryRecipe {
         for (int i = 0; i < 2; i++) {
             addLog2Create(1920,200,20,i);
         }
-        addThaumcraftLog();
+
+        if (GCValues.IS_TC_LOADED) addThaumcraftLog();
+
         LOGS_CREATE.recipeBuilder()
                 .notConsumable(new ItemStack(RUBBER_SAPLING))
                 .outputs(new ItemStack(RUBBER_LOG,20))
