@@ -16,6 +16,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -45,6 +47,7 @@ public class GCLapotronicCasing extends VariantBlock<GCLapotronicCasing.Lapotron
     }
     
     @Override
+    @SideOnly(Side.Client)
     public void addInformation(@NotNull ItemStack stack, @Nullable World player, List<String> tooltip, @NotNull ITooltipFlag advanced) {
         super.addInformation(stack, player, tooltip, advanced);
         LapotronicCasingType type = getState(stack);
