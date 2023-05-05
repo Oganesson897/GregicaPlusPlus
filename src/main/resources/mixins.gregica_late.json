@@ -7,7 +7,9 @@
   "refmap": "mixins.gregica.refmap.json",
   "mixins": [
     "gregtech.MixinSteamBoilerAccess",
-    "gregtech.MixinGTGlassCasingType"
+    "gregtech.MixinGTGlassCasingType",
+    "gcym.MixinMTEParallelHatchServer",
+    "gregtech.MixinSolarBoilerServer"
   ],
   "client": [
     "gregtech.MixinMachineItemBlock",
@@ -16,8 +18,7 @@
     "gcym.MixinMTEParallelHatchClient"
   ],
   "server": [
-    "gcym.MixinMTEParallelHatchServer",
-    "gregtech.MixinSolarBoilerServer"
+
   ],
   "injectors": {
     "defaultRequire": 1

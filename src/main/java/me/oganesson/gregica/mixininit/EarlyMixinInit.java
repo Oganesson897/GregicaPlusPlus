@@ -19,7 +19,7 @@ public class EarlyMixinInit implements IFMLLoadingPlugin,IEarlyMixinLoader{
     public static final boolean isClient = FMLLaunchHandler.side() == Side.CLIENT;
     @Override
     public List<String> getMixinConfigs() {
-            return isClient? Collections.singletonList("mixins.gregica_early.json") : Collections.emptyList();
+            return Collections.singletonList("mixins.gregica_early.json");
     }
     
     @Override
