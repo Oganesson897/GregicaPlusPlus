@@ -47,7 +47,7 @@ public class GCLapotronicCasing extends VariantBlock<GCLapotronicCasing.Lapotron
     }
     
     @Override
-    @SideOnly(Side.Client)
+    @SideOnly(Side.CLIENT)
     public void addInformation(@NotNull ItemStack stack, @Nullable World player, List<String> tooltip, @NotNull ITooltipFlag advanced) {
         super.addInformation(stack, player, tooltip, advanced);
         LapotronicCasingType type = getState(stack);
