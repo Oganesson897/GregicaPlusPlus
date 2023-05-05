@@ -33,7 +33,7 @@ public class GCMetaEntities {
     public static MTEResearchStation RESEARCH_STATION;
     public static MTEAlgaeFarm ALGAE_FARM;
 
-    //public static MTEALogCreateFactory LOG_CREATE_FACTORY;
+    public static MTELogCreateFactory LOG_CREATE_FACTORY;
     public static final SimpleGeneratorMetaTileEntity[] SEMI_FLUID_GENERATOR = new SimpleGeneratorMetaTileEntity[3];
 
     public static MTEActiveTransformer ACTIVE_TRANSFORMER;
@@ -94,7 +94,7 @@ public class GCMetaEntities {
         simpleTiredInit(CREATIVE_ENERGY_HATCHES,
                 (i) -> new MTECreativeEnergyHatch(gcID("creative_energy_hatch."+GTValues.VN[i].toLowerCase()),i));
 
-        //LOG_CREATE_FACTORY = registerMetaTileEntity(nextID(),new MTEALogCreateFactory(gcID("log_create_factory")));
+        LOG_CREATE_FACTORY = registerMetaTileEntity(nextID(),new MTELogCreateFactory(gcID("log_create_factory")));
     }
 
     private static ResourceLocation gcID(String name) {

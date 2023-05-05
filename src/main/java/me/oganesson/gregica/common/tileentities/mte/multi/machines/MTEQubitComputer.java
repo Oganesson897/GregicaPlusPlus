@@ -39,7 +39,12 @@ public class MTEQubitComputer extends QubitRecipeMapMultiblockController impleme
                 .aisle("CCCC", "CCCC", "CCCC", "CCCC")
                 .aisle("CCCC", "CSCC", "CCCC", "CCCC")
                 .where('S', selfPredicate())
-                .where('C', states(getCasingState()).setMinGlobalLimited(24).or(abilities(MultiblockAbility.INPUT_ENERGY).setMinGlobalLimited(1)).or(abilities(MultiblockAbility.IMPORT_ITEMS).setMinGlobalLimited(1)).or(abilities(MultiblockAbility.EXPORT_ITEMS).setExactLimit(1)).or(abilities(GCCapabilities.OUTPUT_QBIT).setExactLimit(1)).or(abilities( MultiblockAbility.MAINTENANCE_HATCH).setExactLimit(1)))
+                .where('C', states(getCasingState()).setMinGlobalLimited(24)
+                        .or(abilities(MultiblockAbility.INPUT_ENERGY).setMinGlobalLimited(1))
+                        .or(abilities(MultiblockAbility.IMPORT_ITEMS).setMinGlobalLimited(1))
+                        .or(abilities(MultiblockAbility.EXPORT_ITEMS).setExactLimit(1))
+                        .or(abilities(GCCapabilities.OUTPUT_QBIT).setExactLimit(1))
+                        .or(abilities( MultiblockAbility.MAINTENANCE_HATCH).setExactLimit(1)))
                 .build();
     }
 
