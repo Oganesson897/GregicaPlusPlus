@@ -6,6 +6,7 @@ import gregtech.api.gui.widgets.ProgressWidget;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.builders.FuelRecipeBuilder;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
+import me.oganesson.gregica.api.capability.ChemicalPlantBuilder;
 import me.oganesson.gregica.api.capability.quantum.QubitConsumerRecipeBuilder;
 import me.oganesson.gregica.api.capability.quantum.QubitProducerRecipeBuilder;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -52,4 +53,7 @@ public class GCRecipeMaps {
             1, 1, 4, 1, new SimpleRecipeBuilder(), false);
     public static final RecipeMap<SimpleRecipeBuilder> LOGS_CREATE = new RecipeMap<>("log_create",
             2, 8, 1, 0, new SimpleRecipeBuilder(), false);
+
+    public static final RecipeMap<ChemicalPlantBuilder> CHEMICAL_PLANT = new RecipeMap<>("chemical_plant",
+            3, 2, 3, 2, new ChemicalPlantBuilder(), false);
 }

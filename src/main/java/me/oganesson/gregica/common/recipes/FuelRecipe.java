@@ -71,5 +71,13 @@ public class FuelRecipe {
         registerQubitGeneratorFuel(circuit, MarkerMaterials.Tier.MAX,            51_200, UV, 64);
 
         registerResearchStationResearch(new ItemStack(Items.BREAD), 99, IV, 1, "baguette_sword");
+
+        GCRecipeMaps.CHEMICAL_PLANT.recipeBuilder()
+                .recipeLevel(2)
+                .inputs(new ItemStack(Items.FISH))
+                .EUt(300)
+                .duration(233)
+                .outputs(new ItemStack(Items.COOKED_FISH))
+                .buildAndRegister();
     }
 }

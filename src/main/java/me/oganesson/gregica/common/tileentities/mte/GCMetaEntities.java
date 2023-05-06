@@ -36,6 +36,8 @@ public class GCMetaEntities {
     public static MTELogCreateFactory LOG_CREATE_FACTORY;
     public static final SimpleGeneratorMetaTileEntity[] SEMI_FLUID_GENERATOR = new SimpleGeneratorMetaTileEntity[3];
 
+    public static MTEChemicalPlant CHEMICAL_PLANT;
+
     public static MTEActiveTransformer ACTIVE_TRANSFORMER;
     public static MTEReplicator REPLICATOR;
 
@@ -95,6 +97,8 @@ public class GCMetaEntities {
                 (i) -> new MTECreativeEnergyHatch(gcID("creative_energy_hatch."+GTValues.VN[i].toLowerCase()),i));
 
         LOG_CREATE_FACTORY = registerMetaTileEntity(nextID(),new MTELogCreateFactory(gcID("log_create_factory")));
+
+        CHEMICAL_PLANT = registerMetaTileEntity(nextID(),new MTEChemicalPlant(gcID("chemical_plant")));
     }
 
     private static ResourceLocation gcID(String name) {
