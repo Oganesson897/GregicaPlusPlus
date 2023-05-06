@@ -215,7 +215,7 @@ public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implemen
 
     public int getEnergyTier() {
         if (energyContainer == null) return GTValues.IV;
-        return Math.max(GTValues.LV, GTUtility.getFloorTierByVoltage(energyContainer.getInputVoltage()));
+        return Math.max(GTValues.IV, GTUtility.getFloorTierByVoltage(energyContainer.getInputVoltage()));
     }
 
     public boolean drainEnergy(boolean simulate) {
