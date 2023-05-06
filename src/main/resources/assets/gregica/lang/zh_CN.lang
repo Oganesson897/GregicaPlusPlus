@@ -119,6 +119,8 @@ gregica.machine.creative_generator.opv.name=创造模式发电机 OPV
 gregica.machine.creative_generator.max.name=创造模式发电机 MAX
 gregica.machine.creative_generator.amperage=能量输出 %d A
 
+gregica.machine.catalyst_hatch.name=催化剂仓
+
 gregica.laser.pipe.name=激光管道
 gregica.casing.lapotronic.capacity=容量: %d eu
 gregica.casing.lapotronic.passive_loss=(每个)在超级兰波顿能量电容中造成被动损耗: %d eu/t
@@ -168,6 +170,8 @@ gregica.multiblock.active_transformer.current.input=   当前输入: %d eu/t
 gregica.multiblock.active_transformer.current.output=   当前输出: %d eu/t
 
 gregica.multiblock.data.remind=§c未开机机器不会更新数据!
+
+gregica.multipart.catalyst.only=仅能放入催化剂
 
 #MixinGregtech
 gregica.mixin.gregtech.itemblock.multiblock_controller=§a多方块结构控制器

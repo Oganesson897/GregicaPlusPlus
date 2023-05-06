@@ -20,6 +20,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -39,6 +41,7 @@ public class MTECreativeEnergyHatch extends MetaTileEntityMultiblockPart impleme
     }
     
     @Override
+    @SideOnly(Side.CLIENT)
     public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
         super.renderMetaTileEntity(renderState,translation,pipeline);
         Textures.CREATIVE_CONTAINER_OVERLAY.renderSided(getFrontFacing(),renderState,translation,pipeline);
@@ -66,6 +69,7 @@ public class MTECreativeEnergyHatch extends MetaTileEntityMultiblockPart impleme
     }
     
     @Override
+    @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
         String tierName = GTValues.VNF[getTier()];
         
@@ -77,6 +81,7 @@ public class MTECreativeEnergyHatch extends MetaTileEntityMultiblockPart impleme
     }
     
     @Override
+    @SideOnly(Side.CLIENT)
     public void addToolUsages(ItemStack stack, @Nullable World world, List<String> tooltip, boolean advanced) {
         tooltip.add(I18n.format("gregtech.tool_action.screwdriver.access_covers"));
         tooltip.add(I18n.format("gregtech.tool_action.wrench.set_facing"));
