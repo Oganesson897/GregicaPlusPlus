@@ -135,6 +135,8 @@ gregica.machine.creative_generator.uxv.name=CreativeGenerator UXU
 gregica.machine.creative_generator.opv.name=CreativeGenerator OPV
 gregica.machine.creative_generator.max.name=CreativeGenerator MAX
 
+gregica.machine.catalyst_hatch.name=Catalyst Hatch
+
 gregica.machine.creative_energy_hatch.amperage=Output Amperage %d A
 
 gregica.laser.pipe.name=Laser Pipe
@@ -185,6 +187,7 @@ gregica.multiblock.active_transformer.current.input=   Current input: %d eu/t
 gregica.multiblock.active_transformer.current.output=   Current output: %d eu/t
 
 gregica.multiblock.data.remind=§cData will not update when the machine is disabled.
+gregica.multipart.catalyst.only=Only Catalysts
 
 #MixinGregtech
 gregica.mixin.gregtech.itemblock.multiblock_controller=§aThis is a multiblock controller.

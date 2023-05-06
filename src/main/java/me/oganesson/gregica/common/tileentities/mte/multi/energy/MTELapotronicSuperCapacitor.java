@@ -189,12 +189,13 @@ public class MTELapotronicSuperCapacitor extends MultiblockWithUpdatable<BigInte
         textList.add(new TextComponentTranslation("gregica.multiblock.lapotronic_super_capacitor.capacity",getCapacity().toString()));
         textList.add(new TextComponentTranslation("gregica.multiblock.lapotronic_super_capacitor.passive_loss",getPassiveLoss()));
         textList.add(new TextComponentTranslation("gregica.multiblock.active_transformer.percent",
-                getCapacity().equals(BigInteger.ZERO) ? 0 : new BigDecimal(getLogic().getStored()).divide(new BigDecimal(getCapacity()),4, RoundingMode.HALF_DOWN).floatValue()*100f));
+                getCapacity().equals(BigInteger.ZERO) ? 0 : new BigDecimal(getLogic().getStored()).divide(new BigDecimal(getCapacity()),6, RoundingMode.HALF_DOWN).floatValue()*100f));
         textList.add(new TextComponentTranslation("gregica.multiblock.active_transformer.current.input",getLogic().getLastInput()/20));
         textList.add(new TextComponentTranslation("gregica.multiblock.active_transformer.current.output",getLogic().getLastOutput()/20));
     }
     
     @Override
+    @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @org.jetbrains.annotations.Nullable World world, @NotNull List<String> tooltip, boolean advanced) {
         super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(I18n.format("gregica.multiblock.lapotronic_super_capacitor.tooltip1"));

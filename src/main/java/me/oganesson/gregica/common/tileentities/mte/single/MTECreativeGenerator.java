@@ -34,6 +34,8 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
@@ -107,6 +109,8 @@ public class MTECreativeGenerator extends TieredMetaTileEntity implements IContr
         
     }
     
+    @Override
+    @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
         String tierName = GTValues.VNF[this.getTier()];
         tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_in_out", GTValues.V[getTier()], tierName));
@@ -114,6 +118,8 @@ public class MTECreativeGenerator extends TieredMetaTileEntity implements IContr
         tooltip.add(I18n.format("gregtech.universal.tooltip.amperage_out_till", this.getMaxInputOutputAmperage()));
     }
     
+    @Override
+    @SideOnly(Side.CLIENT)
     public void addToolUsages(ItemStack stack, @Nullable World world, List<String> tooltip, boolean advanced) {
         tooltip.add(I18n.format("gregtech.tool_action.screwdriver.set_output_amperage"));
         tooltip.add(I18n.format("gregtech.tool_action.wrench.set_facing"));
