@@ -71,9 +71,12 @@ public class CommonProxy {
     }
 
     public void init( FMLInitializationEvent event ) {
-        registerCasingTier(1, Materials.Bronze.getLocalizedName());
-        registerCasingTier(2, Materials.Steel.getLocalizedName());
-        registerCasingTier(3, Materials.Aluminium.getLocalizedName());
+        registerCasingTier(0, "Bronze");
+        registerCasingTier(1, "Steel");
+        registerCasingTier(2, "Aluminum");
+        registerCasingTier(3, "StainlessSteel");
+        registerCasingTier(4, "Titanium");
+        registerCasingTier(5, "TungstenSteel");
 
         FuelRecipe.init();
         if (GCValues.IS_TOP_LOADED) {

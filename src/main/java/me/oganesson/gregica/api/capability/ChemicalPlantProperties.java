@@ -46,9 +46,6 @@ public class ChemicalPlantProperties extends RecipeProperty<Integer> {
 
     public static void registerCasingTier(int tier, String shortName) {
         Validate.notNull(shortName);
-        for(int i = 0; i < tier;i++) {
-            registeredCasingTiers.put(i, shortName);
-        }
-
+        registeredCasingTiers.put(tier, shortName);
     }
 }
