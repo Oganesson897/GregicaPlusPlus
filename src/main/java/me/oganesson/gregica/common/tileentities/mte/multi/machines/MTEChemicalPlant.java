@@ -17,6 +17,7 @@ import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.common.blocks.*;
 import me.oganesson.gregica.api.capability.ChemicalPlantProperties;
+import me.oganesson.gregica.api.capability.GCCapabilities;
 import me.oganesson.gregica.api.predicate.AlgaeFarmPredicate;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
 import net.minecraft.block.state.IBlockState;
@@ -55,7 +56,7 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
                         .or(abilities(MultiblockAbility.EXPORT_FLUIDS).setMinGlobalLimited(1).setPreviewCount(1))
                         .or(abilities(MultiblockAbility.EXPORT_ITEMS).setMinGlobalLimited(1).setPreviewCount(1))
                         .or(abilities(MultiblockAbility.IMPORT_ITEMS).setMinGlobalLimited(1).setPreviewCount(1))
-                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setMinGlobalLimited(1).setExactLimit(1))
+                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setMinGlobalLimited(1).setPreviewCount(1))
                         .or(abilities(MultiblockAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(2).setPreviewCount(1)))
                 .where('C', casing())
                 .where('X', heatingCoils())
@@ -118,17 +119,9 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
             checkTubeTier();
         }
 
-        public double getProgressPercent() {
-            return this.getMaxProgress() == 0 ? 0.0D : (double)this.getProgress() / ((double)this.getMaxProgress() * 1.0D);
-        }
-
         public void setMaxProgress(int maxProgress) {
             this.maxProgressTime = maxProgress / (2 * coilLevel);
             this.metaTileEntity.markDirty();
-        }
-
-        public int getMaxProgress() {
-            return this.maxProgressTime / (2 * coilLevel);
         }
 
         protected long getMaxVoltage() {
