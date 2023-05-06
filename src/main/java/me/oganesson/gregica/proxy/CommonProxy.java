@@ -1,6 +1,8 @@
 package me.oganesson.gregica.proxy;
 
 import gregtech.api.block.VariantItemBlock;
+import gregtech.api.recipes.recipeproperties.FusionEUToStartProperty;
+import gregtech.api.unification.material.Materials;
 import gregtech.common.blocks.BlockMachineCasing;
 import gregtech.common.blocks.MetaBlocks;
 import me.oganesson.gregica.Gregica;
@@ -37,6 +39,7 @@ import javax.annotation.Nonnull;
 import java.util.Objects;
 import java.util.function.Function;
 
+import static me.oganesson.gregica.api.capability.ChemicalPlantProperties.registerCasingTier;
 import static me.oganesson.gregica.common.block.CommonBlocks.getEssentiaHatch;
 import static me.oganesson.gregica.common.block.GCMetaBlocks.*;
 import static me.oganesson.gregica.common.tileentities.mte.GCMetaEntities.LASER_PIPES;
@@ -68,6 +71,10 @@ public class CommonProxy {
     }
 
     public void init( FMLInitializationEvent event ) {
+        registerCasingTier(1, Materials.Bronze.getLocalizedName());
+        registerCasingTier(2, Materials.Steel.getLocalizedName());
+        registerCasingTier(3, Materials.Aluminium.getLocalizedName());
+
         FuelRecipe.init();
         if (GCValues.IS_TOP_LOADED) {
             GCLog.logger.info("TheOneProbe found. Enabling integration...");

@@ -3,6 +3,7 @@ package me.oganesson.gregica.common.recipes.recipemap;
 import gregtech.api.capability.IMultiblockController;
 import gregtech.api.capability.impl.MultiblockRecipeLogic;
 import gregtech.api.recipes.Recipe;
+import gregtech.api.recipes.recipeproperties.FusionEUToStartProperty;
 import gregtech.common.ConfigHolder;
 import gregtech.common.blocks.BlockBoilerCasing;
 import gregtech.common.blocks.BlockMachineCasing;
@@ -14,6 +15,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import javax.annotation.Nonnull;
 
 import static gregtech.api.GTValues.V;
 import static gregtech.api.GTValues.VA;
@@ -56,21 +59,15 @@ public class ChemicalPlantLogic extends MultiblockRecipeLogic {
     }
 
     @Override
-    protected void updateRecipeProgress() {
-        if (V[this.CasingTier] < this.recipeEUt) {
-            return;
-        }
-        boolean drawEnergy = drawEnergy(recipeEUt, false);
-        if (drawEnergy || (recipeEUt < 0)) {
-            if (++progressTime >= maxProgressTime) {
-                completeRecipe();
-            }
-        } else if (recipeEUt > 0) {
-            //only set hasNotEnoughEnergy if this recipe is consuming recipe
-            //generators always have enough energy
-            this.hasNotEnoughEnergy = true;
-            progressTime = 0;
-        }
+    public boolean checkRecipe(@Nonnull Recipe recipe) {
+        if (!super.checkRecipe(recipe))
+            return false;
+
+        // if the reactor is not able to hold enough energy for it, do not run the recipe
+        if (recipe.getProperty(ChemicalPlantProperties.getInstance(), 0) > this.CasingTier)
+            return false;
+
+        return true;
     }
 
     @Override

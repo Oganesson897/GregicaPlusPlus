@@ -3,7 +3,6 @@ package me.oganesson.gregica.api.capability;
 import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeBuilder;
 import gregtech.api.recipes.RecipeMap;
-import gregtech.api.recipes.recipeproperties.TemperatureProperty;
 import gregtech.api.util.EnumValidationResult;
 import gregtech.api.util.GTLog;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -48,7 +47,7 @@ public class ChemicalPlantBuilder extends RecipeBuilder<ChemicalPlantBuilder> {
             GTLog.logger.error("Blast Furnace Temperature cannot be less than or equal to 0", new IllegalArgumentException());
             recipeStatus = EnumValidationResult.INVALID;
         }
-        this.applyProperty(TemperatureProperty.getInstance(), level);
+        this.applyProperty(ChemicalPlantProperties.getInstance(), level);
         return this;
     }
 
