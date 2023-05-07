@@ -1,5 +1,6 @@
 package me.oganesson.gregica;
 
+import gregtech.api.unification.OreDictUnifier;
 import me.oganesson.gregica.client.render.BlocksHighlightRenderer;
 import me.oganesson.gregica.proxy.CommonProxy;
 import net.minecraft.block.Block;
@@ -10,6 +11,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -36,6 +38,14 @@ public class Gregica {
 
     @SidedProxy(clientSide = "me.oganesson.gregica.proxy.ClientProxy", serverSide = "me.oganesson.gregica.proxy.CommonProxy")
     public static CommonProxy proxy;
+
+    @EventHandler
+    public void onModConstruction(FMLConstructionEvent event) {
+        OreDictUnifier.getAllItemInfos().forEach(entry -> {
+            System.out.println(entry.getKey().toString());
+            System.out.println(entry.getValue().toString());
+        });
+    }
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {

@@ -81,7 +81,7 @@ public class CommonProxy {
     
 
     public void registerItems(RegistryEvent.Register<Item> event) {
-        GCMetaItems.initSubitems();
+        GCMetaItems.initMetaItems();
 
         Upgrades.setCreativeTab(Tab);
         event.getRegistry().register(Upgrades);

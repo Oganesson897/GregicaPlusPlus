@@ -1,0 +1,9 @@
+
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tjcore:items/metaitems/boron_doped_silicon_wafer",
+    "layer1": "tjcore:items/metaitems/default_layered",
+    "layer2": "tjcore:items/metaitems/default_prepared"
+  }
+}

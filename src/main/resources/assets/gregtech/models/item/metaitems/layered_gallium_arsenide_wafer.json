@@ -1,0 +1,8 @@
+
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tjcore:items/metaitems/gallium_arsenide_wafer",
+    "layer1": "tjcore:items/metaitems/default_layered"
+  }
+}

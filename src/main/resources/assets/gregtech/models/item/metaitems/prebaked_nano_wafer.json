@@ -1,0 +1,11 @@
+
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tjcore:items/metaitems/boron_doped_silicon_wafer",
+    "layer1": "tjcore:items/metaitems/default_layered",
+    "layer2": "tjcore:items/metaitems/default_prepared",
+    "layer3": "tjcore:items/metaitems/nano_hard_mask",
+    "layer4": "tjcore:items/metaitems/default_prebaked"
+  }
+}

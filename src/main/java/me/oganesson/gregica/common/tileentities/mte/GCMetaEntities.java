@@ -12,6 +12,7 @@ import gregtech.common.metatileentities.MetaTileEntities;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
+import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.LaserPipeType;
 import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTEActiveTransformer;
@@ -35,6 +36,7 @@ public class GCMetaEntities {
     public static final MTELightningRod[] LIGHTNING_ROD = new MTELightningRod[4];
     public static final MTECreativeGenerator[] CREATIVE_GENERATORS = new MTECreativeGenerator[GTValues.V.length];
     public static SimpleMachineMetaTileEntity[] LAMINATOR = new SimpleMachineMetaTileEntity[GTValues.MAX];
+    public static SimpleMachineMetaTileEntity[] DRYER = new SimpleMachineMetaTileEntity[GTValues.MAX];
 
     //Multi
     public static MTEEssentiaGenerator ESSENTIA_GENERATOR;
@@ -70,6 +72,7 @@ public class GCMetaEntities {
                 (i) -> new MTECreativeGenerator(gcID("creative_generator."+GTValues.VN[i].toLowerCase()),i));
 
         registerSimpleMetaTileEntity(LAMINATOR, 12070, "laminator", GCRecipeMaps.LAMINATOR_RECIPES, Textures.BENDER_OVERLAY, true);
+        registerSimpleMetaTileEntity(DRYER, 12085, "dryer", GCRecipeMaps.DRYER_RECIPES, GCTextures.DRYER_OVERLAY, true);
 
         //Multiblock Controller
         if(GCValues.IS_TC_LOADED)

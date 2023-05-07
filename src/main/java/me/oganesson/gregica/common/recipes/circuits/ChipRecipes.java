@@ -21,6 +21,7 @@ import static me.oganesson.gregica.common.unification.materials.GCMaterials.*;
 import static me.oganesson.gregica.api.recipe.GCRecipeMaps.*;
 
 public class ChipRecipes {
+
     // Lithography Arrays
 
     static MetaItem<?>.MetaValueItem[] boule = {SILICON_BOULE, ANTIMONY_DOPED_SILICON_BOULE, BORON_DOPED_SILICON_BOULE, GALLIUM_ARSENIDE_BOULE, SILVER_GALLIUM_SELENIDE_BOULE};
@@ -315,6 +316,8 @@ public class ChipRecipes {
         }
 
          */
+
+
 
         //Wafer generation for each type
         for (int i = 0; i < boule.length; i++) {

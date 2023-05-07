@@ -56,6 +56,8 @@ public class GCTextures {
     public static final SimpleOverlayRenderer RESEARCH_DATA_HATCH = new SimpleOverlayRenderer("overlay/machine/overlay_data_hatch");
     public static final SimpleOverlayRenderer CREATIVE_RESEARCH_DATA_HATCH = new SimpleOverlayRenderer("overlay/machine/overlay_data_hatch_creative");
 
+    public static OrientedOverlayRenderer DRYER_OVERLAY;
+
     public static void preInit() {
         MAGIC_CASING = new SimpleOverlayRenderer("magic_machine_casing");
         FISHING_CASING = new SimpleOverlayRenderer("fishing_machine_casing");
@@ -77,6 +79,7 @@ public class GCTextures {
         RESEARCH_STATION_OVERLAY= new OrientedOverlayRenderer("multiblock/research_station");
         ALGAE_FARM= new OrientedOverlayRenderer("multiblock/algae_farm");
         ACTIVE_TRANSFORMER= new OrientedOverlayRenderer("multiblock/active_transformer");
+        DRYER_OVERLAY = new OrientedOverlayRenderer("machines/dryer");
     }
 
 }
