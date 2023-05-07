@@ -41,10 +41,6 @@ public class Gregica {
 
     @EventHandler
     public void onModConstruction(FMLConstructionEvent event) {
-        OreDictUnifier.getAllItemInfos().forEach(entry -> {
-            System.out.println(entry.getKey().toString());
-            System.out.println(entry.getValue().toString());
-        });
     }
 
     @EventHandler
