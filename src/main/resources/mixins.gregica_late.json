@@ -6,16 +6,16 @@
   "target": "@env(DEFAULT)",
   "refmap": "mixins.gregica.refmap.json",
   "mixins": [
-    "gregtech.MixinSteamBoilerAccess",
-    "gregtech.MixinGTGlassCasingType",
     "gcym.MixinMTEParallelHatchServer",
-    "gregtech.MixinSolarBoilerServer"
+    "gregtech.MixinGTGlassCasingType",
+    "gregtech.MixinSolarBoilerServer",
+    "gregtech.MixinSteamBoilerAccess"
   ],
   "client": [
-    "gregtech.MixinMachineItemBlock",
+    "gcym.MixinMTEParallelHatchClient",
     "gregtech.MixinBlockGlassCasing",
-    "gregtech.MixinSolarBoilerClient",
-    "gcym.MixinMTEParallelHatchClient"
+    "gregtech.MixinMachineItemBlock",
+    "gregtech.MixinSolarBoilerClient"
   ],
   "server": [
 

@@ -1,7 +1,5 @@
 package me.oganesson.gregica.api.predicate;
 
-import gregtech.api.GregTechAPI;
-import gregtech.api.block.IHeatingCoilBlockStats;
 import gregtech.api.pattern.PatternStringError;
 import gregtech.api.pattern.TraceabilityPredicate;
 import gregtech.api.util.BlockInfo;

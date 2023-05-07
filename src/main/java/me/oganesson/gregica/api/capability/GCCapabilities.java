@@ -1,11 +1,11 @@
 package me.oganesson.gregica.api.capability;
 
-        import gregtech.api.capability.SimpleCapabilityManager;
-        import gregtech.api.metatileentity.multiblock.MultiblockAbility;
-        import me.oganesson.gregica.api.capability.quantum.IQubitContainer;
-        import me.oganesson.gregica.api.item.ICatalyst;
-        import net.minecraftforge.common.capabilities.Capability;
-        import net.minecraftforge.common.capabilities.CapabilityInject;
+import gregtech.api.capability.SimpleCapabilityManager;
+import gregtech.api.metatileentity.multiblock.MultiblockAbility;
+import me.oganesson.gregica.api.capability.quantum.IQubitContainer;
+import me.oganesson.gregica.api.item.ICatalyst;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.CapabilityInject;
 
 @SuppressWarnings("InstantiationOfUtilityClass")
 public class GCCapabilities {

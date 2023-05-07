@@ -1,8 +1,6 @@
 package me.oganesson.gregica.proxy;
 
 import gregtech.api.block.VariantItemBlock;
-import gregtech.api.recipes.recipeproperties.FusionEUToStartProperty;
-import gregtech.api.unification.material.Materials;
 import gregtech.common.blocks.BlockMachineCasing;
 import gregtech.common.blocks.MetaBlocks;
 import me.oganesson.gregica.Gregica;
@@ -23,7 +21,6 @@ import me.oganesson.gregica.common.recipes.GCRecipes;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
 import me.oganesson.gregica.common.tileentities.EssentiaHatch;
 import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
-import me.oganesson.gregica.common.unification.materials.ore.GCOres;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -105,7 +102,7 @@ public class CommonProxy {
     }
 
     public void registerBlocks(RegistryEvent.Register<Block> event) {
-        GCOres.registerSpecialOres();
+     //   GCOres.registerSpecialOres();
 
         GC_BLOCK_CASING.setCreativeTab(Tab);
         GC_ESSENTIA_CELLS.setCreativeTab(Tab);

@@ -13,5 +13,6 @@ public class GCRecipeManager {
         NaquadahReactorRecipes.init();
         ReplicatorRecipes.init();
         LogCreateFatoryRecipe.init();
+        GCBiologyRecipe.init();
     }
 }
