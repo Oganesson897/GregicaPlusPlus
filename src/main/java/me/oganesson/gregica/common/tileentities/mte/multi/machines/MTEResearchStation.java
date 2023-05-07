@@ -18,6 +18,7 @@ import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
@@ -34,7 +35,7 @@ public class MTEResearchStation extends QubitRecipeMapMultiblockController imple
     }
 
     @Override
-    protected BlockPattern createStructurePattern() {
+    protected @NotNull BlockPattern createStructurePattern() {
         return FactoryBlockPattern.start()
                 .aisle("CCC", "DDD", "BBB", "BBB", "BBB", "DDD", "CCC")
                 .aisle("CCC", "DCD", "DCD", "DCD", "DCD", "DCD", "CCC")

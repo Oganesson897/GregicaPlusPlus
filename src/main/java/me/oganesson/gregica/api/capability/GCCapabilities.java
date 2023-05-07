@@ -16,4 +16,6 @@ public class GCCapabilities {
 
     public static final MultiblockAbility<IQubitContainer> INPUT_QBIT = new MultiblockAbility("input_qubit");
     public static final MultiblockAbility<IQubitContainer> OUTPUT_QBIT = new MultiblockAbility("output_qubit");
+
+    public static final MultiblockAbility<IResearchDataHatch> RESEARCH_DATA = new MultiblockAbility<>("data_hatch");
 }

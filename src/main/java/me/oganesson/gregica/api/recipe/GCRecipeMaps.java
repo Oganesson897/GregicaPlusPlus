@@ -5,7 +5,9 @@ import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.widgets.ProgressWidget;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.builders.FuelRecipeBuilder;
+import gregtech.api.recipes.builders.IntCircuitRecipeBuilder;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
+import gregtech.core.sound.GTSoundEvents;
 import me.oganesson.gregica.api.capability.quantum.QubitConsumerRecipeBuilder;
 import me.oganesson.gregica.api.capability.quantum.QubitProducerRecipeBuilder;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -48,8 +50,16 @@ public class GCRecipeMaps {
             .setSlotOverlay(true, false, GuiTextures.BOX_OVERLAY)
             .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL);
 
+    public static final RecipeMap<QubitConsumerRecipeBuilder> ASSEMBLY_LINE_RECIPES = new RecipeMap<>("assembly_line_recipes",
+            16, false, 1, false, 4, false, 0, false, new QubitConsumerRecipeBuilder(), false)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL)
+            .setSound(GTSoundEvents.ASSEMBLER);
+
     public static final RecipeMap<SimpleRecipeBuilder> REPLICATOR = new RecipeMap<>("replication",
             1, 1, 4, 1, new SimpleRecipeBuilder(), false);
     public static final RecipeMap<SimpleRecipeBuilder> LOGS_CREATE = new RecipeMap<>("log_create",
             2, 8, 1, 0, new SimpleRecipeBuilder(), false);
+
+    //TJ and GCYS
+    public static final RecipeMap<SimpleRecipeBuilder> LAMINATOR_RECIPES = new RecipeMap<>("laminator", 1, 6, 1, 2, 0, 2, 0, 0, new SimpleRecipeBuilder(), false).setSound(GTSoundEvents.ASSEMBLER);
 }
