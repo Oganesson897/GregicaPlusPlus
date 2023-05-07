@@ -23,6 +23,7 @@ import me.oganesson.gregica.common.recipes.GCRecipes;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
 import me.oganesson.gregica.common.tileentities.EssentiaHatch;
 import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
+import me.oganesson.gregica.common.unification.materials.ore.GCOres;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -104,6 +105,8 @@ public class CommonProxy {
     }
 
     public void registerBlocks(RegistryEvent.Register<Block> event) {
+        GCOres.registerSpecialOres();
+
         GC_BLOCK_CASING.setCreativeTab(Tab);
         GC_ESSENTIA_CELLS.setCreativeTab(Tab);
         TRANSPARENT_CASING1.setCreativeTab(Tab);

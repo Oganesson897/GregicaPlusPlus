@@ -51,6 +51,11 @@ public class GCTextures {
     
     public static final ModelResourceLocation LASER_PIPE_MODEL = new ModelResourceLocation(new ResourceLocation(Gregica.MOD_ID, "laser_pipe_normal"), "normal");
 
+    public static final SimpleOverlayRenderer GRATE_CASING = new SimpleOverlayRenderer("casings/pipe/machine_casing_grate");
+
+    public static final SimpleOverlayRenderer RESEARCH_DATA_HATCH = new SimpleOverlayRenderer("overlay/machine/overlay_data_hatch");
+    public static final SimpleOverlayRenderer CREATIVE_RESEARCH_DATA_HATCH = new SimpleOverlayRenderer("overlay/machine/overlay_data_hatch_creative");
+
     public static void preInit() {
         MAGIC_CASING = new SimpleOverlayRenderer("magic_machine_casing");
         FISHING_CASING = new SimpleOverlayRenderer("fishing_machine_casing");

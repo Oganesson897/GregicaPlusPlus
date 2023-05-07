@@ -15,6 +15,17 @@ public class GCElements {
 
     public static final Element Tr = add(123L, 123L, -1L, null, "Tiberium", "Tr", false);
 
+    public static final Element Co60 = add(27L, 33L, -1L, null, "Cobalt-60", "Co-60", true);
+
+    public static final Element Li6 = add(3, 3, -1, null, "Lithium-6", "Li-6", true);
+    public static final Element Li7 = add(3, 4, -1, null, "Lithium-7", "Li-7", true);
+    public static final Element Be7 = add(4, 3, -1, null, "Beryllium-7", "Be-7", true);
+
+    public static final Element Or = add(130, 200, -1, null, "Orichalcum", "Or", false);
+    public static final Element Vb = add(152, 226, -1, null, "Vibranium", "Vb", false);
+    public static final Element Ad = add(222, 580, -1, null, "Adamantium", "Ad", false);
+    public static final Element Tn = add(321, 478, -1, null, "Taranium", "Tn", false);
+
     private GCElements() {}
 
     public static Element add(long protons, long neutrons, long halfLifeSeconds, String decayTo, String name, String symbol, boolean isIsotope) {

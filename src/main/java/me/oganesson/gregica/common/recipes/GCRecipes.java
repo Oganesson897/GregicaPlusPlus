@@ -21,14 +21,13 @@ import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
 import me.oganesson.gregica.common.item.metaitems.GCMetaToolItems;
 import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
-import me.oganesson.gregica.common.unification.materials.GCMaterial;
+import me.oganesson.gregica.common.unification.materials.GCMaterials;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
-import static gregtech.api.unification.material.Materials.Obsidian;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.loaders.recipe.handlers.ToolRecipeHandler.addToolRecipe;
 
@@ -214,7 +213,7 @@ public class GCRecipes {
                 .input(MetaItems.NANO_CENTRAL_PROCESSING_UNIT, 2)
                 .input(MetaItems.QUBIT_CENTRAL_PROCESSING_UNIT, 2)
                 .input(wireGtSingle, Materials.UraniumRhodiumDinaquadide, 64)
-                .fluidInputs(GCMaterial.BismuthLeadAlloy.getFluid(288))
+                .fluidInputs(GCMaterials.BismuthLeadAlloy.getFluid(288))
                 .output(GCMetaItems.ADVANCED_PROCESS_CIRCUIT)
                 .EUt(VA[IV]).duration(2400).cleanroom(CleanroomType.CLEANROOM)
                 .buildAndRegister();
@@ -240,7 +239,7 @@ public class GCRecipes {
                 .circuitMeta(5)
                 .blastFurnaceTemp(5475)
                 .EUt(VA[IV]).duration(800)
-                .fluidOutputs(GCMaterial.BismuthLeadAlloy.getFluid(14000))
+                .fluidOutputs(GCMaterials.BismuthLeadAlloy.getFluid(14000))
                 .buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
