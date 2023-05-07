@@ -46,6 +46,10 @@ public class GCMetaEntities {
 
     public static MTELogCreateFactory LOG_CREATE_FACTORY;
 
+    public static final SimpleGeneratorMetaTileEntity[] SEMI_FLUID_GENERATOR = new SimpleGeneratorMetaTileEntity[3];
+
+    public static MTEChemicalPlant CHEMICAL_PLANT;
+
     public static MTEActiveTransformer ACTIVE_TRANSFORMER;
     public static MTEReplicator REPLICATOR;
     public static MTELapotronicSuperCapacitor LAPOTRONIC_SUPER_CAPACITOR;
@@ -94,6 +98,8 @@ public class GCMetaEntities {
 
         LOG_CREATE_FACTORY = registerMetaTileEntity(nextID(),new MTELogCreateFactory(gcID("log_create_factory")));
 
+ CHEMICAL_PLANT = registerMetaTileEntity(nextID(),new MTEChemicalPlant(gcID("chemical_plant")));
+ 
         //Multipart
         QBIT_INPUT_HATCH[0] = registerMetaTileEntity(nextID(), new MTEQubitHatch(gcID("qubit_hatch.input.16"), 0, 16, false));
         QBIT_OUTPUT_HATCH[0] = registerMetaTileEntity(nextID(), new MTEQubitHatch(gcID("qubit_hatch.output.1"), 0, 16, true));
@@ -117,6 +123,7 @@ public class GCMetaEntities {
                 (i) -> new MTECreativeGenerator(gcID("creative_generator."+GTValues.VN[i].toLowerCase()),i));
         simpleTiredInit(CREATIVE_ENERGY_HATCHES,
                 (i) -> new MTECreativeEnergyHatch(gcID("creative_energy_hatch."+GTValues.VN[i].toLowerCase()),i));
+                
     }
 
     private static ResourceLocation gcID(String name) {
