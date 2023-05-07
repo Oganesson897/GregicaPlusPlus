@@ -26,6 +26,7 @@ import gregtech.api.util.GTTransferUtils;
 import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
+import mcp.MethodsReturnNonnullByDefault;
 import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
@@ -45,14 +46,20 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.IItemHandler;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
 public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implements IWorkable, IDataInfoProvider {
 
     private final FishPondLogic logic;
@@ -107,17 +114,20 @@ public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implemen
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public void addToolUsages(ItemStack stack, @Nullable World world, List<String> tooltip, boolean advanced) {
         tooltip.add(I18n.format("gregtech.tool_action.screwdriver.toggle_mode_covers"));
-        tooltip.add(net.minecraft.util.text.translation.I18n.translateToLocal("gregtech.tool_action.wrench.set_facing"));
-        tooltip.add(net.minecraft.client.resources.I18n.format("gregtech.tool_action.crowbar", new Object[0]));
+        tooltip.add(I18n.format("gregtech.tool_action.wrench.set_facing"));
+        tooltip.add(I18n.format("gregtech.tool_action.crowbar"));
     }
 
     public boolean fillChest(ItemStack stack, boolean simulate) {
         return GTTransferUtils.addItemsToItemHandler(outputItemInventory, simulate, Collections.singletonList(stack));
     }
 
+    @SuppressWarnings("SpellCheckingInspection")
     @Override
+    @NotNull
     protected BlockPattern createStructurePattern() {
         return FactoryBlockPattern.start()
                 .aisle("EEEEEEEEE", "XXXXXXXXX", "XXXXXXXXX")
@@ -215,7 +225,7 @@ public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implemen
 
     public int getEnergyTier() {
         if (energyContainer == null) return GTValues.IV;
-        return Math.max(GTValues.LV, GTUtility.getFloorTierByVoltage(energyContainer.getInputVoltage()));
+        return Math.max(GTValues.IV, GTUtility.getFloorTierByVoltage(energyContainer.getInputVoltage()));
     }
 
     public boolean drainEnergy(boolean simulate) {
@@ -322,6 +332,9 @@ public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implemen
         this.logic.receiveCustomData(dataId, buf);
     }
 
+    
+    @Override
+    @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
         super.addInformation(stack, player, tooltip, advanced);
             tooltip.add(net.minecraft.client.resources.I18n.format("gregica.tooltip.warning"));

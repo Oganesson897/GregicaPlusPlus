@@ -31,7 +31,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.util.List;
 
 import static me.oganesson.gregica.client.GCTextures.ACTIVE_TRANSFORMER;
@@ -95,15 +94,11 @@ public class MTEActiveTransformer extends MultiblockWithUpdatable<LongBufferLogi
     }
     
     @Override
+    @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @org.jetbrains.annotations.Nullable World world, @NotNull List<String> tooltip, boolean advanced) {
         super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(I18n.format("gregica.multiblock.active_transformer.tooltip1"));
         tooltip.add(I18n.format("gregica.multiblock.active_transformer.tooltip2"));
-    }
-    
-    @Override
-    public void addToolUsages(ItemStack stack, @Nullable World world, List<String> tooltip, boolean advanced) {
-        super.addToolUsages(stack, world, tooltip, advanced);
     }
 
     @Override

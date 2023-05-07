@@ -1,11 +1,14 @@
 package me.oganesson.gregica.proxy;
 
 import gregtech.api.block.VariantItemBlock;
+import gregtech.common.blocks.BlockMachineCasing;
+import gregtech.common.blocks.MetaBlocks;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCLog;
 import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.api.capability.GCCapabilities;
 import me.oganesson.gregica.api.capability.GCCapabilityProvider;
+import me.oganesson.gregica.api.predicate.AlgaeFarmPredicate;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.ItemBlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.tile.TileEntityLaserPipe;
@@ -59,6 +62,10 @@ public class CommonProxy {
         if(GCValues.IS_TC_LOADED) LargeEssentiaEnergyData.processEssentiaData();
         GCRecipes.registerTool();
         GCLog.init(LogManager.getLogger(Gregica.MOD_ID));
+
+        for (BlockMachineCasing.MachineCasingType type : BlockMachineCasing.MachineCasingType.values()) {
+            AlgaeFarmPredicate.IMACHINECASING.put(MetaBlocks.MACHINE_CASING.getState(type), type);
+        }
     }
 
     public void init( FMLInitializationEvent event ) {

@@ -33,6 +33,8 @@ public class GCTextures {
     
     public static SimpleOverlayRenderer HIGH_POWER_CASING;
     
+    public static SimpleOverlayRenderer CATALYST_HATCH;
+    
     public static SimpleSidedCubeRenderer LAPOTRONIC_CASING;
     
     public static OrientedOverlayRenderer LAPOTRONIC_CAPACITOR;
@@ -61,19 +63,20 @@ public class GCTextures {
         QUANTUM_CASING = new SimpleOverlayRenderer("computer_machine_casing");
         QUBIT_GENERATOR_CASING = new SimpleOverlayRenderer("quantum_generator_machine_casing");
         HIGH_POWER_CASING = new SimpleOverlayRenderer("casings/high_power_casing");
+        CATALYST_HATCH = new SimpleOverlayRenderer("multipart/overlay_catalysts");
         LAPOTRONIC_CASING = new SimpleSidedCubeRenderer("casings/lapotronic");
         LAPOTRONIC_CAPACITOR = new OrientedOverlayRenderer("casings/lapotronic/capacitor");
-        LARGE_ESSENTIA_GENERATOR = new OrientedOverlayRenderer("multiblock/large_essentia_generator", OrientedOverlayRenderer.OverlayFace.FRONT);
+        LARGE_ESSENTIA_GENERATOR = new OrientedOverlayRenderer("multiblock/large_essentia_generator");
         LIGHTNING_ROD_HV = new SimpleSidedCubeRenderer("casings/lightning_rod_hv/normal");
         LIGHTNING_ROD_ACTIVE_HV = new SimpleSidedCubeRenderer("casings/lightning_rod_hv/active");
         LIGHTNING_ROD_EV = new SimpleSidedCubeRenderer("casings/lightning_rod_ev/normal");
         LIGHTNING_ROD_ACTIVE_EV = new SimpleSidedCubeRenderer("casings/lightning_rod_ev/active");
         LIGHTNING_ROD_IV = new SimpleSidedCubeRenderer("casings/lightning_rod_iv/normal");
         LIGHTNING_ROD_ACTIVE_IV = new SimpleSidedCubeRenderer("casings/lightning_rod_iv/active");
-        QUBIT_COMPUTER_OVERLAY = new OrientedOverlayRenderer("multiblock/qubit_computer", OrientedOverlayRenderer.OverlayFace.FRONT);
-        RESEARCH_STATION_OVERLAY= new OrientedOverlayRenderer("multiblock/research_station", OrientedOverlayRenderer.OverlayFace.FRONT);
-        ALGAE_FARM= new OrientedOverlayRenderer("multiblock/algae_farm", OrientedOverlayRenderer.OverlayFace.FRONT);
-        ACTIVE_TRANSFORMER= new OrientedOverlayRenderer("multiblock/active_transformer", OrientedOverlayRenderer.OverlayFace.FRONT);
+        QUBIT_COMPUTER_OVERLAY = new OrientedOverlayRenderer("multiblock/qubit_computer");
+        RESEARCH_STATION_OVERLAY= new OrientedOverlayRenderer("multiblock/research_station");
+        ALGAE_FARM= new OrientedOverlayRenderer("multiblock/algae_farm");
+        ACTIVE_TRANSFORMER= new OrientedOverlayRenderer("multiblock/active_transformer");
     }
 
 }
