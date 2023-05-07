@@ -20,7 +20,7 @@ import me.oganesson.gregica.api.blocks.ITiredGlass;
 import me.oganesson.gregica.api.mte.IMTEChangeableBattery;
 import me.oganesson.gregica.api.mte.energy.BigIntegerBufferLogic;
 import me.oganesson.gregica.client.GCTextures;
-import me.oganesson.gregica.common.GCUtility;
+import me.oganesson.gregica.common.GCUtil;
 import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.block.metablock.GCLapotronicCasing;
 import me.oganesson.gregica.common.block.metablock.GCMetaGlasses;
@@ -274,7 +274,7 @@ public class MTELapotronicSuperCapacitor extends MultiblockWithUpdatable<BigInte
         World world = this.getWorld();
         BlockPos pos = this.getPos();
         EnumFacing facing = this.getFrontFacing().getOpposite();
-        BlockPos startPos = pos.offset(facing,1).offset(GCUtility.getCounterClockWise(facing)).offset(EnumFacing.UP,2);
+        BlockPos startPos = pos.offset(facing,1).offset(GCUtil.getCounterClockWise(facing)).offset(EnumFacing.UP,2);
         BlockPos searchPos = new BlockPos.MutableBlockPos(startPos);
         int height = 0;
         while (height <= 50){
@@ -285,7 +285,7 @@ public class MTELapotronicSuperCapacitor extends MultiblockWithUpdatable<BigInte
             }
             break;
         }
-        BlockPos endPos = searchPos.offset(facing,2).offset(GCUtility.getClockWise(facing),2).toImmutable();
+        BlockPos endPos = searchPos.offset(facing,2).offset(GCUtil.getClockWise(facing),2).toImmutable();
         return BlockPos.getAllInBoxMutable(startPos,endPos);
     }
     
@@ -293,9 +293,9 @@ public class MTELapotronicSuperCapacitor extends MultiblockWithUpdatable<BigInte
         World world = this.getWorld();
         BlockPos pos = this.getPos();
         EnumFacing facing = this.getFrontFacing().getOpposite();
-        BlockPos startPos = pos.offset(facing,1).offset(GCUtility.getCounterClockWise(facing)).offset(EnumFacing.UP,2);
+        BlockPos startPos = pos.offset(facing,1).offset(GCUtil.getCounterClockWise(facing)).offset(EnumFacing.UP,2);
         BlockPos searchPos = new BlockPos.MutableBlockPos(startPos);
-        startPos = pos.offset(GCUtility.getClockWise(facing),2).offset(EnumFacing.UP,2);
+        startPos = pos.offset(GCUtil.getClockWise(facing),2).offset(EnumFacing.UP,2);
         int height = 0;
         while (height <= 50){
             if(GCLapotronicCasing.isLapotronicCasing(world.getBlockState(searchPos))){
@@ -305,7 +305,7 @@ public class MTELapotronicSuperCapacitor extends MultiblockWithUpdatable<BigInte
             }
             break;
         }
-        BlockPos endPos = searchPos.offset(facing,3).offset(GCUtility.getCounterClockWise(facing),3).toImmutable();
+        BlockPos endPos = searchPos.offset(facing,3).offset(GCUtil.getCounterClockWise(facing),3).toImmutable();
         return BlockPos.getAllInBoxMutable(startPos,endPos);
     }
     

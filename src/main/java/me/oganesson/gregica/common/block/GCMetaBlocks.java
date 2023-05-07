@@ -25,37 +25,11 @@ public class GCMetaBlocks {
     
     public static final GCMetaGlasses TRANSPARENT_CASING = new GCMetaGlasses("glasses_casing");
     public static final GCMetaGlasses1 TRANSPARENT_CASING1 = new GCMetaGlasses1("glasses_casing1");
-
-
-    public static boolean isEssentiaCell(IBlockState state) {
-        if (!state.getBlock().equals(GC_ESSENTIA_CELLS)) {
-            return false;
-        }
-        if (state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T1))) {
-            return true;
-        } else if (state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T2))) {
-            return true;
-        } else if (state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T3))) {
-            return true;
-        } else return state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T4));
-    }
+    
     public static boolean isMachineCasing(IBlockState state) {
         return state.getBlock().equals(MetaBlocks.MACHINE_CASING);
     }
-
-    public static int getCellTier(IBlockState state) {
-        if (state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T1))) {
-            return 1;
-        } else if (state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T2))) {
-            return 2;
-        } else if (state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T3))) {
-            return 3;
-        } else if (state.equals(GC_ESSENTIA_CELLS.getState(GCMetaCells.MetalCellType.ESSENTIA_CELL_T4))) {
-            return 4;
-        }
-        return -1;
-    }
-
+    
     public static GCMetaCasing.MetalCasingType getType(IBlockState state){
         return GC_BLOCK_CASING.getState(state);
     }

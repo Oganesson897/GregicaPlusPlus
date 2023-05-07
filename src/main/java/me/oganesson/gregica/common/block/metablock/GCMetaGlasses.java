@@ -49,7 +49,7 @@ public class GCMetaGlasses extends VariantActiveBlock<GCMetaGlasses.CasingType> 
     @Override
     public void addInformation(@NotNull ItemStack stack, @Nullable World player, List<String> tooltip, @NotNull ITooltipFlag advanced) {
         super.addInformation(stack, player, tooltip, advanced);
-        int tier = getState(stack).getTier();
+        int tier = getState(stack).getGlassTier();
         tooltip.add(I18n.format("gregica.mixin.info.glass.tier", GTValues.VNF[tier]));
     }
     
@@ -101,7 +101,7 @@ public class GCMetaGlasses extends VariantActiveBlock<GCMetaGlasses.CasingType> 
         private final String name;
         private final int tier;
 
-        private CasingType(String name, int tier) {
+        CasingType(String name, int tier) {
             this.name = name;
             this.tier = tier;
         }
@@ -113,7 +113,7 @@ public class GCMetaGlasses extends VariantActiveBlock<GCMetaGlasses.CasingType> 
         }
     
         @Override
-        public int getTier() {
+        public int getGlassTier() {
             return tier;
         }
     }

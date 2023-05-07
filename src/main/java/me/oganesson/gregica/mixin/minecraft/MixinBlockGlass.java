@@ -27,11 +27,11 @@ public abstract class MixinBlockGlass extends BlockBreakable implements ITiredGl
     @Override
     public void addInformation(@NotNull ItemStack stack, @Nullable World player, List<String> tooltip, @NotNull ITooltipFlag advanced) {
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(I18n.format("gregica.mixin.info.glass.tier", GTValues.VNF[getTier()]));
+        tooltip.add(I18n.format("gregica.mixin.info.glass.tier", GTValues.VNF[getGlassTier()]));
     }
     
     @Override
-    public int getTier() {
+    public int getGlassTier() {
         return 3;
     }
 }

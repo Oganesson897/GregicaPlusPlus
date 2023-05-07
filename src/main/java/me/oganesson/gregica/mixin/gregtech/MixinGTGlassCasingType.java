@@ -15,7 +15,7 @@ public abstract class MixinGTGlassCasingType implements IStringSerializable,  IT
     @Shadow(remap = false) @Nonnull public abstract String getName();
     
     @Override
-    public int getTier() {
+    public int getGlassTier() {
         switch (getName()){
             case("tempered_glass"):
                 return 3;
