@@ -6,8 +6,8 @@ import gregtech.api.unification.ore.OrePrefix;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
 
 import static gregtech.api.unification.material.Materials.*;
-import static me.oganesson.gregica.common.unification.materials.GCMaterial.NeutronsFlow;
-import static me.oganesson.gregica.common.unification.materials.GCMaterial.ProtonFlow;
+import static me.oganesson.gregica.common.unification.materials.GCMaterials.NeutronsFlow;
+import static me.oganesson.gregica.common.unification.materials.GCMaterials.ProtonFlow;
 
 public class ReplicatorRecipes {
     public static void init() {

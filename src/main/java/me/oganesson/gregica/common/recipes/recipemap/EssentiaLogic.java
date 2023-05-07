@@ -9,7 +9,7 @@ import gregtech.common.ConfigHolder;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
 import me.oganesson.gregica.common.tileentities.EssentiaHatch;
 import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEEssentiaGenerator;
-import me.oganesson.gregica.common.unification.materials.GCMaterial;
+import me.oganesson.gregica.common.unification.materials.GCMaterials;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.math.BlockPos;
@@ -279,11 +279,11 @@ public class EssentiaLogic {
         long baseValue = LargeEssentiaEnergyData.getAspectFuelValue(aspect);
         double ceoOutput = 0;
         int ceoInput = (int) LargeEssentiaEnergyData.getAspectCeo(aspect) * 2;
-        if (depleteInput(GCMaterial.SuperCoolant.getFluid(ceoInput))) {
+        if (depleteInput(GCMaterials.SuperCoolant.getFluid(ceoInput))) {
             ceoOutput = 9.0D;
-        } else if (depleteInput(GCMaterial.Cryotheum.getFluid(ceoInput))) {
+        } else if (depleteInput(GCMaterials.Cryotheum.getFluid(ceoInput))) {
             ceoOutput = 5.0D;
-        } else if (depleteInput(GCMaterial.Coolant.getFluid(ceoInput))) {
+        } else if (depleteInput(GCMaterials.Coolant.getFluid(ceoInput))) {
             ceoOutput = 1.5D;
         } else if (depleteInput(Materials.Ice.getFluid(ceoInput))) {
             ceoOutput = 1.2D;
@@ -319,7 +319,7 @@ public class EssentiaLogic {
         long baseValue = LargeEssentiaEnergyData.getAspectFuelValue(aspect);
         double ceoOutput = 1.0D;
         int ceoInput = (int) LargeEssentiaEnergyData.getAspectCeo(aspect) * 18;
-        if (depleteInput(GCMaterial.XPJuice.getFluid(ceoInput))) {
+        if (depleteInput(GCMaterials.XPJuice.getFluid(ceoInput))) {
             ceoOutput = 2.0D;
         } else if (depleteInput(FluidRegistry.getFluidStack("lifeessence", ceoInput))) {
             ceoOutput = 6.0D;
@@ -366,9 +366,9 @@ public class EssentiaLogic {
         long baseValue = LargeEssentiaEnergyData.getAspectFuelValue(aspect);
         double ceoOutput = 1.0D;
         int ceoInput = (int) LargeEssentiaEnergyData.getAspectCeo(aspect) * 2;
-        if (depleteInput(GCMaterial.Spirit.getFluid(ceoInput))) {
+        if (depleteInput(GCMaterials.Spirit.getFluid(ceoInput))) {
             ceoOutput = 10D * (1 + mStableValue / 100D);
-        } else if (depleteInput(GCMaterial.Hollowtears.getFluid(ceoInput))) {
+        } else if (depleteInput(GCMaterials.Hollowtears.getFluid(ceoInput))) {
             ceoOutput = 15D * (1 + 100D / mStableValue);
         }
         return (long) (baseValue * ceoOutput);
@@ -384,7 +384,7 @@ public class EssentiaLogic {
             ceoOutput = 3.0D;
         } else if (depleteInput(Materials.Naquadah.getFluid(ceoInput))) {
             ceoOutput = 4.0D;
-        } else if (depleteInput(GCMaterial.AtomicSeparationCatalyst.getFluid(ceoInput))) {
+        } else if (depleteInput(GCMaterials.AtomicSeparationCatalyst.getFluid(ceoInput))) {
             ceoOutput = 16.0D;
         }
         return (long) (baseValue * ceoOutput);
