@@ -1,6 +1,10 @@
 package me.oganesson.gregica.common.recipes;
 
+import gregtech.api.recipes.ModHandler;
+import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.Materials;
+import gregtech.api.unification.ore.OrePrefix;
+import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.items.MetaItems;
 import me.oganesson.gregica.api.item.IntCircuitIngredientBiology;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
@@ -22,6 +26,8 @@ public class GCBiologyRecipe {
     }
 
     public static void init() {
+        ModHandler.addShapelessRecipe("integrated_circuit_biology", IntCircuitIngredientBiology.getIntegratedCircuit(0), new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.ULV));
+
 //Common Algae Usage
         GCRecipeMaps.CHEMICAL_PLANT.recipeBuilder()
                 .recipeLevel(1)
@@ -306,9 +312,9 @@ public class GCBiologyRecipe {
         GCRecipeMaps.CHEMICAL_PLANT.recipeBuilder()
                 .recipeLevel(1)
                 .input(gem, Materials.Coke, 1)
-                .input(gem, Materials.SodaAsh, 6)
+                .input(dust, Materials.SodaAsh, 6)
                 .input(GCMetaItems.ALUMINUM_PELLETS)
-                .output(gem, GCMaterials.SodiumAluminate, 8)
+                .output(dust, GCMaterials.SodiumAluminate, 8)
                 .notConsumable(getBiologyCircuitData(18))
                 .EUt(120)
                 .duration(2400)
@@ -317,9 +323,9 @@ public class GCBiologyRecipe {
         GCRecipeMaps.CHEMICAL_PLANT.recipeBuilder()
                 .recipeLevel(1)
                 .input(gem, Materials.Coal, 2)
-                .input(gem, Materials.SodaAsh, 6)
+                .input(dust, Materials.SodaAsh, 6)
                 .input(GCMetaItems.ALUMINUM_PELLETS)
-                .output(gem, GCMaterials.SodiumAluminate, 8)
+                .output(dust, GCMaterials.SodiumAluminate, 8)
                 .notConsumable(getBiologyCircuitData(18))
                 .EUt(120)
                 .duration(3600)
@@ -435,7 +441,7 @@ public class GCBiologyRecipe {
 
         EXTRUDER_RECIPES.recipeBuilder()
                 .notConsumable(GCMetaItems.PELLETS_MOULD)
-                .input(GCMetaItems.CELLULOSE_FIBER, 4)
+                .input(GCMetaItems.PURIFIED_ALUMINUM_MIXTURE, 4)
                 .output(GCMetaItems.ALUMINUM_PELLETS)
                 .EUt(64).duration(600)
                 .buildAndRegister();

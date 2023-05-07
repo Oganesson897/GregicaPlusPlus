@@ -67,7 +67,7 @@ public class SecondDegreeMaterials {
                 .color(0xB3BC88)
                 .build();
 
-        GCMaterials.SodiumAluminate = new Material.Builder(26110, "sodium_aluminum")
+        GCMaterials.SodiumAluminate = new Material.Builder(26110, "sodium_aluminate")
                 .dust()
                 .colorAverage()
                 .components(Sodium, 1, Aluminium, 1, Oxygen, 2)

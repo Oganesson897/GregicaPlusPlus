@@ -1,5 +1,8 @@
 package me.oganesson.gregica.common.tileentities.mte.multi.machines;
 
+import codechicken.lib.render.CCRenderState;
+import codechicken.lib.render.pipeline.IVertexOperation;
+import codechicken.lib.vec.Matrix4;
 import gregtech.api.block.IHeatingCoilBlockStats;
 import gregtech.api.capability.impl.MultiblockRecipeLogic;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -18,6 +21,7 @@ import me.oganesson.gregica.api.blocks.impl.WrappedIntTired;
 import me.oganesson.gregica.api.capability.ChemicalPlantProperties;
 import me.oganesson.gregica.api.predicate.TiredTraceabilityPredicate;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
+import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.GCUtil;
 import net.minecraft.util.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
@@ -70,7 +74,17 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
                 .where('A',air())
                 .build();
     }
-    
+
+    @Nonnull
+    @Override
+    protected ICubeRenderer getFrontOverlay() {
+        return GCTextures.CHEMICAL_PLANT;
+    }
+
+    public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
+        super.renderMetaTileEntity(renderState, translation, pipeline);
+        getFrontOverlay().renderOrientedState(renderState, translation, pipeline, getFrontFacing(), this.recipeMapWorkable.isActive(), this.recipeMapWorkable.isWorkingEnabled());
+    }
 
     @Override
     public ICubeRenderer getBaseTexture(IMultiblockPart iMultiblockPart) {

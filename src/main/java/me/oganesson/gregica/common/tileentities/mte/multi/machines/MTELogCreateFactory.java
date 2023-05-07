@@ -1,6 +1,9 @@
 package me.oganesson.gregica.common.tileentities.mte.multi.machines;
 
 
+import codechicken.lib.render.CCRenderState;
+import codechicken.lib.render.pipeline.IVertexOperation;
+import codechicken.lib.vec.Matrix4;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -16,6 +19,8 @@ import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nonnull;
 
 public class MTELogCreateFactory  extends RecipeMapMultiblockController {
     public MTELogCreateFactory(ResourceLocation metaTileEntityId) {
@@ -53,4 +58,16 @@ public class MTELogCreateFactory  extends RecipeMapMultiblockController {
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity iGregTechTileEntity) {
         return new MTELogCreateFactory(metaTileEntityId);
     }
+
+    @Nonnull
+    @Override
+    protected ICubeRenderer getFrontOverlay() {
+        return GCTextures.CHEMICAL_PLANT;
+    }
+
+    public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
+        super.renderMetaTileEntity(renderState, translation, pipeline);
+        getFrontOverlay().renderOrientedState(renderState, translation, pipeline, getFrontFacing(), this.recipeMapWorkable.isActive(), this.recipeMapWorkable.isWorkingEnabled());
+    }
+
 }
