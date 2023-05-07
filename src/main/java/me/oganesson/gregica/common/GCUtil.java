@@ -2,13 +2,20 @@ package me.oganesson.gregica.common;
 
 import net.minecraft.util.EnumFacing;
 
+import java.util.function.BooleanSupplier;
+import java.util.function.Supplier;
+
 import static net.minecraft.util.EnumFacing.*;
 
-public class GCUtility {
+public class GCUtil {
     public static int clamp(int value, int min, int max) {
         if (value < min)
             return min;
         return Math.min(value, max);
+    }
+    
+    public static <T> T getOrDefault(BooleanSupplier canGet, Supplier<T> getter, T defaultValue){
+        return canGet.getAsBoolean() ? getter.get() : defaultValue;
     }
     
     public static EnumFacing getCounterClockWise(EnumFacing self) {

@@ -24,7 +24,7 @@ public abstract class MixinBlockGlassCasing extends VariantActiveBlock<BlockGlas
     @Override
     public void addInformation(@NotNull ItemStack stack, @Nullable World player, List<String> tooltip, @NotNull ITooltipFlag advanced) {
         super.addInformation(stack, player, tooltip, advanced);
-        int tier = ((ITiredGlass)(Object)getState(stack)).getTier();
+        int tier = ((ITiredGlass)(Object)getState(stack)).getGlassTier();
         tooltip.add(I18n.format("gregica.mixin.info.glass.tier", GTValues.VNF[tier]));
     }
 }

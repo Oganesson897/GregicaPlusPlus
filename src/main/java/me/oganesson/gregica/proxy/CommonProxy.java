@@ -1,14 +1,11 @@
 package me.oganesson.gregica.proxy;
 
 import gregtech.api.block.VariantItemBlock;
-import gregtech.common.blocks.BlockMachineCasing;
-import gregtech.common.blocks.MetaBlocks;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCLog;
 import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.api.capability.GCCapabilities;
 import me.oganesson.gregica.api.capability.GCCapabilityProvider;
-import me.oganesson.gregica.api.predicate.AlgaeFarmPredicate;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.ItemBlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.tile.TileEntityLaserPipe;
@@ -21,6 +18,7 @@ import me.oganesson.gregica.common.recipes.GCRecipes;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
 import me.oganesson.gregica.common.tileentities.EssentiaHatch;
 import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
+import me.oganesson.gregica.common.unification.materials.ore.GCOres;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -62,10 +60,7 @@ public class CommonProxy {
         if(GCValues.IS_TC_LOADED) LargeEssentiaEnergyData.processEssentiaData();
         GCRecipes.registerTool();
         GCLog.init(LogManager.getLogger(Gregica.MOD_ID));
-
-        for (BlockMachineCasing.MachineCasingType type : BlockMachineCasing.MachineCasingType.values()) {
-            AlgaeFarmPredicate.IMACHINECASING.put(MetaBlocks.MACHINE_CASING.getState(type), type);
-        }
+        
     }
 
     public void init( FMLInitializationEvent event ) {
@@ -102,7 +97,7 @@ public class CommonProxy {
     }
 
     public void registerBlocks(RegistryEvent.Register<Block> event) {
-     //   GCOres.registerSpecialOres();
+        GCOres.registerSpecialOres();
 
         GC_BLOCK_CASING.setCreativeTab(Tab);
         GC_ESSENTIA_CELLS.setCreativeTab(Tab);
