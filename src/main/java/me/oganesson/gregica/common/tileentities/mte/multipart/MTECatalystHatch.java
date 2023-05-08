@@ -53,7 +53,8 @@ public class MTECatalystHatch extends MetaTileEntityMultiblockPart implements IM
         @Override
         protected void onContentsChanged(int slot) {
             needUpdate = true;
-            catalyst.update((ICatalyst)this.getStackInSlot(0).getItem());
+            ItemStack item = this.getStackInSlot(0);
+            catalyst.update(item.isEmpty() ? () -> Optional.of("") : (ICatalyst)item.getItem() );
         }
     };
     private final WrappedCatalyst catalyst = new WrappedCatalyst(Optional::empty){
@@ -110,8 +111,10 @@ public class MTECatalystHatch extends MetaTileEntityMultiblockPart implements IM
     @SideOnly(Side.CLIENT)
     public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
         super.renderMetaTileEntity(renderState, translation, pipeline);
-        if (this.shouldRenderOverlay())
-        GCTextures.CATALYST_HATCH.renderSided(getFrontFacing(), renderState, translation, pipeline);
+        if (this.shouldRenderOverlay()){
+            GCTextures.CATALYST_HATCH.renderSided(getFrontFacing(), renderState, translation, pipeline);
+        }
+       
     }
     
     @Override

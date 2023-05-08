@@ -6,7 +6,7 @@ import net.minecraftforge.common.config.Config;
 public class GCConfig {
 
     @Config.Comment("Config options of miscellaneous features")
-    public static Misc Misc = new Misc();
+    public static Misc Miscs = new Misc();
 
     @Config.Comment("Config options for modification of GTCEu Processing Chains")
     @Config.Name("Processing Chain Override Options")

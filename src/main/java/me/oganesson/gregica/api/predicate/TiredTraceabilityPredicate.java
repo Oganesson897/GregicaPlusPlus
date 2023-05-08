@@ -13,7 +13,6 @@ import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import me.oganesson.gregica.api.blocks.ITired;
 import me.oganesson.gregica.api.blocks.ITiredGlass;
 import me.oganesson.gregica.api.blocks.impl.WrappedIntTired;
-import me.oganesson.gregica.api.blocks.impl.WrappedTired;
 import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.block.metablock.GCMetaCells;
 import me.oganesson.gregica.common.block.metablock.GCMetaGlasses;
@@ -41,7 +40,7 @@ public class TiredTraceabilityPredicate extends TraceabilityPredicate {
         MAP_CP_TUBE = new Object2ObjectOpenHashMap<>();
         
         for (BlockMachineCasing.MachineCasingType type : Arrays.stream(BlockMachineCasing.MachineCasingType.values()).filter((c)-> c.ordinal()<10).collect(Collectors.toList())) {
-            TiredTraceabilityPredicate.MAP_MACHINE_CASING.put(MetaBlocks.MACHINE_CASING.getState(type),new WrappedTired(type));
+            TiredTraceabilityPredicate.MAP_MACHINE_CASING.put(MetaBlocks.MACHINE_CASING.getState(type),new WrappedIntTired(type,type.ordinal()));
         }
         for(GCMetaCells.MetalCellType type : GCMetaCells.MetalCellType.values()){
             TiredTraceabilityPredicate.MAP_ESSENTIA_CELLS.put(GCMetaBlocks.GC_ESSENTIA_CELLS.getState(type),type);

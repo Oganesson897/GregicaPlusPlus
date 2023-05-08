@@ -19,14 +19,19 @@ import gregtech.client.renderer.texture.Textures;
 import gregtech.common.blocks.BlockWireCoil;
 import me.oganesson.gregica.api.blocks.impl.WrappedIntTired;
 import me.oganesson.gregica.api.capability.ChemicalPlantProperties;
+import me.oganesson.gregica.api.capability.GCCapabilities;
 import me.oganesson.gregica.api.predicate.TiredTraceabilityPredicate;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
 import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.GCUtil;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
+
+import java.util.List;
 
 import static gregtech.api.GTValues.VA;
 
@@ -34,8 +39,9 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
 
     private int coilLevel;
     private int casingTier;
-    
     private int tubeTier;
+    
+    private int voltageTier;
     
     private int tier;
 
@@ -65,6 +71,7 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
                         .or(abilities(MultiblockAbility.EXPORT_ITEMS).setMinGlobalLimited(1).setPreviewCount(1))
                         .or(abilities(MultiblockAbility.IMPORT_ITEMS).setMinGlobalLimited(1).setPreviewCount(1))
                         .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setMinGlobalLimited(1).setPreviewCount(1))
+                        .or(abilities(GCCapabilities.CATALYST).setMaxGlobalLimited(2).setPreviewCount(1))
                         .or(abilities(MultiblockAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(2).setPreviewCount(1)))
                 .where('C',TiredTraceabilityPredicate.CP_CASING)
                 .where('X', heatingCoils())
@@ -74,7 +81,12 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
                 .where('A',air())
                 .build();
     }
-
+    
+    @Override
+    protected boolean shouldShowVoidingModeButton() {
+        return false;
+    }
+    
     @Nonnull
     @Override
     protected ICubeRenderer getFrontOverlay() {
@@ -88,9 +100,37 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
 
     @Override
     public ICubeRenderer getBaseTexture(IMultiblockPart iMultiblockPart) {
-        return Textures.BRONZE_PLATED_BRICKS;
+        switch (casingTier){
+            case (2):{
+                return Textures.SOLID_STEEL_CASING;
+            }
+            case (3):{
+                return Textures.FROST_PROOF_CASING;
+            }
+            case (4):{
+                return Textures.CLEAN_STAINLESS_STEEL_CASING;
+            }
+            case (5):{
+                return Textures.STABLE_TITANIUM_CASING;
+            }
+            case (6):{
+                return Textures.ROBUST_TUNGSTENSTEEL_CASING;
+            }
+            default:{
+                return Textures.BRONZE_PLATED_BRICKS;
+            }
+        }
     }
-
+    
+    @Override
+    protected void addDisplayText(List<ITextComponent> textList) {
+        super.addDisplayText(textList);
+        textList.add(new TextComponentString(String.format("coilTire: %d",coilLevel)));
+        textList.add(new TextComponentString(String.format("casingTire: %d",casingTier)));
+        textList.add(new TextComponentString(String.format("tubeTire: %d",tubeTier)));
+        textList.add(new TextComponentString(String.format("tire: %d",tier)));
+    }
+    
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity iGregTechTileEntity) {
         return new MTEChemicalPlant(metaTileEntityId);
@@ -102,6 +142,7 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
         Object coilType = context.get("CoilType");
         Object casingTier = context.get("ChemicalPlantCasingTiredStats");
         Object tubeTier = context.get("ChemicalPlantTubeTiredStats");
+        Object voltageTier = context.get("MachineCasingTypeTiredStats");
         this.coilLevel = GCUtil.getOrDefault(() -> coilType instanceof IHeatingCoilBlockStats,
                 () ->  ((IHeatingCoilBlockStats) coilType).getLevel(),
                 BlockWireCoil.CoilType.CUPRONICKEL.getLevel());
@@ -111,6 +152,10 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
         this.tubeTier = GCUtil.getOrDefault(() -> tubeTier instanceof WrappedIntTired,
                 () -> ((WrappedIntTired)tubeTier).getIntTier(),
                 0);
+        this.voltageTier = GCUtil.getOrDefault(() -> voltageTier instanceof WrappedIntTired,
+                () -> ((WrappedIntTired)voltageTier).getIntTier(),
+                0);
+        
         this.tier = Math.min(this.casingTier,this.tubeTier);
     }
 
@@ -134,7 +179,7 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
         }
 
         protected long getMaxVoltage() {
-            return Math.min(super.getMaxVoltage(), VA[casingTier]);
+            return Math.min(super.getMaxVoltage(), VA[voltageTier]);
         }
 
         @Override
