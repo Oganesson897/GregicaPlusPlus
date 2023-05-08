@@ -1,0 +1,43 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "block/cube_all",
+    "textures": {
+      "all": "gregtech:blocks/rendering_error"
+    }
+  },
+  "variants": {
+    "variant": {
+      "substrate": {
+        "model": "minecraft:cube_bottom_top",
+        "textures": {
+          "top": "gregtech:blocks/casings/solid/substrate_top",
+          "side": "gregtech:blocks/casings/solid/substrate_side",
+          "bottom": "#side"
+        }
+      },
+      "advanced_substrate": {
+        "model": "minecraft:cube_bottom_top",
+        "textures": {
+          "top": "gregtech:blocks/casings/solid/advanced_substrate_top",
+          "side": "gregtech:blocks/casings/solid/substrate_side",
+          "bottom": "#side"
+        }
+      },
+      "drill_head": {
+        "model": "minecraft:cube_bottom_top",
+        "textures": {
+          "top": "gregtech:blocks/casings/gearbox/machine_casing_gearbox_steel",
+          "side": "gregtech:blocks/casings/solid/machine_casing_solid_steel",
+          "bottom": "gregtech:blocks/casings/solid/drill_head_bottom"
+        }
+      },
+      "suprachronal_casing": {
+        "model": "cube_all",
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/suprachronal_casing"
+        }
+      }
+    }
+  }
+}

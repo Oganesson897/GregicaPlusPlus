@@ -1,5 +1,6 @@
 package me.oganesson.gregica.proxy;
 
+import gregicality.science.common.block.GCYSMetaBlocks;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.client.GCTextures;
@@ -37,6 +38,7 @@ public class ClientProxy extends CommonProxy {
 
     public void onModelRegister() {
         GCMetaBlocks.registerItemModels();
+        GCYSMetaBlocks.registerItemModels();
         if(GCValues.IS_TC_LOADED) CommonBlocks.registerItemModels();
         for (BlockLaserPipe pipe : LASER_PIPES) {
             ModelLoader.setCustomStateMapper(pipe, new DefaultStateMapper() {
