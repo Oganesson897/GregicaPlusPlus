@@ -5,7 +5,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Optional;
 import thaumcraft.api.blocks.BlocksTC;
-import static gregtech.common.blocks.MetaBlocks.*;
+
+import static gregtech.common.blocks.MetaBlocks.RUBBER_LOG;
+import static gregtech.common.blocks.MetaBlocks.RUBBER_SAPLING;
 import static me.oganesson.gregica.api.recipe.GCRecipeMaps.LOGS_CREATE;
 
 public class LogCreateFatoryRecipe {

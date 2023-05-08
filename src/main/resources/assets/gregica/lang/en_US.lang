@@ -46,6 +46,19 @@ metaitem.algae.gold.name=Gold Algae
 metaitem.algae.brown.name=Brown Algae
 metaitem.algae.t.name=T Algae
 
+metaitem.item.biology_integrated_circuit.name=Biological Integrated Circuit
+metaitem.item.biology_resin.name=Biology Risen
+metaitem.item.cellulose_fiber_yellow.name=Fiber Cellulose
+metaitem.item.cellulose_fiber_red.name=Fiber Cellulose
+metaitem.item.cellulose_fiber_green.name=Fiber Cellulose
+metaitem.item.compost.name=Compost
+metaitem.item.aluminum_mixture.name=Aluminum Mixture
+metaitem.item.cellulose_pulp.name=Cellulose Pulp
+metaitem.item.algae_acid.name=Algae Acid
+metaitem.item.pellets_mould.name=Pellets Mould
+metaitem.item.wood_pellets.name=Wood Pellets
+metaitem.item.aluminum_pellets.name=Aluminum Pellets
+
 metaitem.cover.conveyor.ulv.name=ULV Conveyor Module
 metaitem.cover.emitter.ulv.name=ULV Emitter
 metaitem.cover.field_generator.ulv.name=ULV Field Generator
@@ -102,6 +115,7 @@ gregica.machine.log_create_factory.name=Log Create Factory
 gregica.machine.algae_farm.name=Algae Farm
 gregica.machine.active_transformer.name=Active Transformer
 gregica.machine.lapotronic_super_capacitor.name=Lapotronic Super Capacitor
+gregica.machine.chemical_plant.name=Chemical Plant
 
 gregica.machine.creative_energy_hatch.ulv.name=CreativeEnergyHatch ULV
 gregica.machine.creative_energy_hatch.lv.name=CreativeEnergyHatch LV
@@ -146,7 +160,14 @@ gregica.casing.lapotronic.part=§3Part of the Lapotronic Super Capacitor.
 
 #Fluid
 material.bismuth_lead_alloy=Bismuth-Lead-Alloy
-
+material.resin=Resin
+material.formaldehyde=Formaldehyde
+material.urea_mix=Urea Mixture
+material.propionic_acid=Propionic Acid
+material.red_mud=Red Mud
+material.calcium_carbonate=Calcium-Carbonate
+material.sodium_aluminate=Sodium Aluminate
+material.butanol=Butanol
 #Info
 gc.multiblock.pattern.error.essentia=Essentia cell tier doesn't match.
 essentiahatch.chat.0=Successfully locked to %s.
@@ -162,6 +183,7 @@ gregica.multiblock.not_enough_qubit=Not enough qubit
 
 recipemap.simple_qubit_generator.name=Qubit Generator
 recipemap.research_station.name=Research Station
+recipemap.chemical_plant.name=Chemical Plant
 
 gregicaplusplus.multiblock.industrial_fisher.mode0=Mode: Catching Fish
 gregicaplusplus.multiblock.industrial_fisher.mode1=Mode: Catching Trash

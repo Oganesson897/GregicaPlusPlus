@@ -20,7 +20,7 @@ import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.PatternMatchContext;
 import gregtech.api.util.GTTransferUtils;
 import gregtech.client.renderer.ICubeRenderer;
-import me.oganesson.gregica.api.predicate.AlgaeFarmPredicate;
+import me.oganesson.gregica.api.predicate.TiredTraceabilityPredicate;
 import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
@@ -117,7 +117,7 @@ public class MTEAlgaeFarm extends MultiblockWithDisplayBase implements IDataInfo
                 .aisle("EXXXXXXXE", "E#######E", "E#######E")
                 .aisle("EEEESEEEE", "EEEEEEEEE", "EEEEEEEEE")
                 .where('S', selfPredicate())
-                .where('X', AlgaeFarmPredicate.MACHINECASINGS)
+                .where('X', TiredTraceabilityPredicate.MACHINE_CASINGS)
                 .where('E', states(getCasingState()).setMinGlobalLimited(80)
                         .or(abilities(MultiblockAbility.EXPORT_ITEMS).setMinGlobalLimited(1).setPreviewCount(1))
                         .or(abilities(MultiblockAbility.IMPORT_ITEMS).setMinGlobalLimited(1).setPreviewCount(1))

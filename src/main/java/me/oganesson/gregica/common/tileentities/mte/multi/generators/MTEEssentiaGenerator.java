@@ -6,11 +6,7 @@ import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
 import com.google.common.collect.Lists;
 import gregtech.api.GTValues;
-import gregtech.api.capability.IWorkable;
-import gregtech.api.capability.IMultipleTankHandler;
-import gregtech.api.capability.GregtechTileCapabilities;
-import gregtech.api.capability.IEnergyContainer;
-import gregtech.api.capability.GregtechDataCodes;
+import gregtech.api.capability.*;
 import gregtech.api.capability.impl.EnergyContainerList;
 import gregtech.api.capability.impl.FluidTankList;
 import gregtech.api.metatileentity.IDataInfoProvider;
@@ -25,14 +21,15 @@ import gregtech.api.pattern.PatternMatchContext;
 import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.common.ConfigHolder;
-import me.oganesson.gregica.api.predicate.EssentiaCellPredicate;
 import me.oganesson.gregica.api.predicate.TileEntityPredicate;
+import me.oganesson.gregica.api.predicate.TiredTraceabilityPredicate;
 import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.recipes.recipemap.EssentiaLogic;
 import me.oganesson.gregica.common.tileentities.EssentiaHatch;
 import me.oganesson.gregica.proxy.CommonProxy;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -43,7 +40,6 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.*;
 import net.minecraft.util.text.event.HoverEvent;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fml.relauncher.Side;
@@ -136,7 +132,7 @@ public class MTEEssentiaGenerator extends MultiblockWithDisplayBase implements I
     }
 
     public int getProgressPercent() {
-        return (int) logic.getProgressPercent();
+        return logic.getProgressPercent();
     }
 
 
@@ -147,36 +143,36 @@ public class MTEEssentiaGenerator extends MultiblockWithDisplayBase implements I
 
     protected void addDisplayText(List<ITextComponent> textList) {
         if (!isStructureFormed()) {
-            TextComponentTranslation textComponentTranslation = new TextComponentTranslation("gregtech.multiblock.invalid_structure.tooltip", new Object[0]);
+            TextComponentTranslation textComponentTranslation = new TextComponentTranslation("gregtech.multiblock.invalid_structure.tooltip");
             textComponentTranslation.setStyle((new Style()).setColor(TextFormatting.GRAY));
-            textList.add((new TextComponentTranslation("gregtech.multiblock.invalid_structure", new Object[0]))
+            textList.add((new TextComponentTranslation("gregtech.multiblock.invalid_structure"))
                     .setStyle((new Style()).setColor(TextFormatting.RED)
-                            .setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, (ITextComponent)textComponentTranslation))));
+                            .setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, textComponentTranslation))));
         } else {
             if (ConfigHolder.machines.enableMaintenance && hasMaintenanceMechanics()) {
                 addMaintenanceText(textList);
             }
             if (hasMufflerMechanics() && !isMufflerFaceFree()) {
-                textList.add((new TextComponentTranslation("gregtech.multiblock.universal.muffler_obstructed", new Object[0]))
+                textList.add((new TextComponentTranslation("gregtech.multiblock.universal.muffler_obstructed"))
                         .setStyle((new Style()).setColor(TextFormatting.RED)
-                                .setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, (ITextComponent)new TextComponentTranslation("gregtech.multiblock.universal.muffler_obstructed.tooltip", new Object[0])))));
+                                .setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponentTranslation("gregtech.multiblock.universal.muffler_obstructed.tooltip")))));
             }
 
             IEnergyContainer energyContainer = this.energyContainer;
             if (energyContainer != null && energyContainer.getEnergyCapacity() > 0L) {
                 long maxVoltage = Math.max(energyContainer.getInputVoltage(), energyContainer.getOutputVoltage());
                 String voltageName = GTValues.VN[GTUtility.getFloorTierByVoltage(maxVoltage)];
-                textList.add(new TextComponentTranslation("gregtech.multiblock.max_energy_per_tick", new Object[] { Long.valueOf(maxVoltage), voltageName }));
+                textList.add(new TextComponentTranslation("gregtech.multiblock.max_energy_per_tick", maxVoltage, voltageName));
             }
 
             if (!this.isWorkingEnabled()) {
-                textList.add(new TextComponentTranslation("gregtech.multiblock.work_paused", new Object[0]));
+                textList.add(new TextComponentTranslation("gregtech.multiblock.work_paused"));
             } else if (this.isActive()) {
-                textList.add(new TextComponentTranslation("gregtech.multiblock.running", new Object[0]));
+                textList.add(new TextComponentTranslation("gregtech.multiblock.running"));
                 int currentProgress = getProgressPercent();
-                textList.add(new TextComponentTranslation("gregtech.multiblock.progress", new Object[] { Integer.valueOf(currentProgress) }));
+                textList.add(new TextComponentTranslation("gregtech.multiblock.progress", currentProgress));
             } else {
-                textList.add(new TextComponentTranslation("gregtech.multiblock.idling", new Object[0]));
+                textList.add(new TextComponentTranslation("gregtech.multiblock.idling"));
             }
         }
     }
@@ -185,13 +181,12 @@ public class MTEEssentiaGenerator extends MultiblockWithDisplayBase implements I
     public boolean onRightClick(EntityPlayer aPlayer, EnumHand hand, EnumFacing facing, CuboidRayTraceResult hitResult) {
         if (!getWorld().isRemote) {
             ItemStack tCurrentItem = aPlayer.inventory.getCurrentItem();
-            if (tCurrentItem != null
-                    && tCurrentItem.getItem().equals(CommonProxy.Upgrades)) {
+            if (tCurrentItem.getItem().equals(CommonProxy.Upgrades)) {
                 int tMeta = tCurrentItem.getItemDamage();
                 if ((logic.getUpgrade() & (1 << tMeta)) == 0 && tMeta != 0) {
                     aPlayer.sendMessage(new TextComponentString(
                             tCurrentItem.getDisplayName()
-                                    + I18n.translateToLocal("largeessentiagenerator.chat")));
+                                    + I18n.format("largeessentiagenerator.chat")));
                     tCurrentItem.setCount(tCurrentItem.getCount() - 1);
                     logic.setUpgrade(logic.getUpgrade() | (1 << tMeta));
                 }
@@ -230,6 +225,7 @@ public class MTEEssentiaGenerator extends MultiblockWithDisplayBase implements I
         return new LinkedList<>();
     }
 
+    @SuppressWarnings("SpellCheckingInspection")
     @Nonnull
     @Override
     protected BlockPattern createStructurePattern() {
@@ -247,7 +243,7 @@ public class MTEEssentiaGenerator extends MultiblockWithDisplayBase implements I
                 .where('T', blocks(BlocksTC.stoneArcaneBrick))
                 .where('A', blocks(BlocksTC.amberBrick))
                 .where('C', states(getCasing()))
-                .where('E', EssentiaCellPredicate.ESSENTIA_CELLS)
+                .where('E', TiredTraceabilityPredicate.ESSENTIA_CELLS)
                 .where('X',
                         abilities(MultiblockAbility.MAINTENANCE_HATCH).setExactLimit(1)
                                 .or(abilities(MultiblockAbility.OUTPUT_ENERGY).setExactLimit(1))

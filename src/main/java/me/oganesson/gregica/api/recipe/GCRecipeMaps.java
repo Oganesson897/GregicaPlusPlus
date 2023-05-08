@@ -5,10 +5,9 @@ import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.widgets.ProgressWidget;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.builders.FuelRecipeBuilder;
-import gregtech.api.recipes.builders.IntCircuitRecipeBuilder;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
-import me.oganesson.gregica.api.capability.ChemicalPlantBuilder;
 import gregtech.core.sound.GTSoundEvents;
+import me.oganesson.gregica.api.capability.ChemicalPlantBuilder;
 import me.oganesson.gregica.api.capability.quantum.QubitConsumerRecipeBuilder;
 import me.oganesson.gregica.api.capability.quantum.QubitProducerRecipeBuilder;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -61,6 +60,6 @@ public class GCRecipeMaps {
     public static final RecipeMap<SimpleRecipeBuilder> LOGS_CREATE = new RecipeMap<>("log_create",
             2, 8, 1, 0, new SimpleRecipeBuilder(), false);
     public static final RecipeMap<ChemicalPlantBuilder> CHEMICAL_PLANT = new RecipeMap<>("chemical_plant",
-            3, 2, 3, 2, new ChemicalPlantBuilder(), false);
+            4, 3, 3, 3, new ChemicalPlantBuilder(), false);
     public static final RecipeMap<SimpleRecipeBuilder> LAMINATOR_RECIPES = new RecipeMap<>("laminator", 1, 6, 1, 2, 0, 2, 0, 0, new SimpleRecipeBuilder(), false).setSound(GTSoundEvents.ASSEMBLER);
 }

@@ -1,11 +1,11 @@
 package me.oganesson.gregica.common.block.metablock;
 
 import gregtech.api.block.VariantBlock;
+import me.oganesson.gregica.api.blocks.ITired;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
@@ -28,7 +28,7 @@ public class GCMetaCells extends VariantBlock<GCMetaCells.MetalCellType> {
         return false;
     }
 
-    public enum MetalCellType implements IStringSerializable {
+    public enum MetalCellType implements ITired {
 
         ESSENTIA_CELL_T1("essentia_cell_1"),
         ESSENTIA_CELL_T2("essentia_cell_2"),
@@ -46,7 +46,12 @@ public class GCMetaCells extends VariantBlock<GCMetaCells.MetalCellType> {
         public String getName() {
             return this.name;
         }
-
+    
+    
+        @Override
+        public Object getTire() {
+            return this.ordinal() + 1;
+        }
     }
 
 }

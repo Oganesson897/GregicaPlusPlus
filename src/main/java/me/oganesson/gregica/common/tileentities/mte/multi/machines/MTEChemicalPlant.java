@@ -1,5 +1,8 @@
 package me.oganesson.gregica.common.tileentities.mte.multi.machines;
 
+import codechicken.lib.render.CCRenderState;
+import codechicken.lib.render.pipeline.IVertexOperation;
+import codechicken.lib.vec.Matrix4;
 import gregtech.api.block.IHeatingCoilBlockStats;
 import gregtech.api.capability.impl.MultiblockRecipeLogic;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -10,20 +13,17 @@ import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.PatternMatchContext;
-import gregtech.api.pattern.TraceabilityPredicate;
 import gregtech.api.recipes.Recipe;
-import gregtech.api.recipes.RecipeBuilder;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
-import gregtech.common.blocks.*;
+import gregtech.common.blocks.BlockWireCoil;
+import me.oganesson.gregica.api.blocks.impl.WrappedIntTired;
 import me.oganesson.gregica.api.capability.ChemicalPlantProperties;
-import me.oganesson.gregica.api.capability.GCCapabilities;
-import me.oganesson.gregica.api.predicate.AlgaeFarmPredicate;
+import me.oganesson.gregica.api.predicate.TiredTraceabilityPredicate;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.EnumFacing;
+import me.oganesson.gregica.client.GCTextures;
+import me.oganesson.gregica.common.GCUtil;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
@@ -33,12 +33,20 @@ import static gregtech.api.GTValues.VA;
 public class MTEChemicalPlant extends RecipeMapMultiblockController {
 
     private int coilLevel;
+    private int casingTier;
+    
+    private int tubeTier;
+    
+    private int tier;
 
     public MTEChemicalPlant(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GCRecipeMaps.CHEMICAL_PLANT);
         this.recipeMapWorkable = new ChemicalPlantLogic(this);
     }
+    
+    
 
+    @SuppressWarnings("SpellCheckingInspection")
     @NotNull
     @Override
     protected BlockPattern createStructurePattern() {
@@ -46,37 +54,36 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
                 .aisle("EEEEEEE", "C#####C", "C#####C", "C#####C", "C#####C", "C#####C", "CCCCCCC")
                 .aisle("EMMMMME", "#MMMMM#", "#######", "#######", "#######", "#MMMMM#", "CCCCCCC")
                 .aisle("EMMMMME", "#MXXXM#", "##TTT##", "##XXX##", "##TTT##", "#MXXXM#", "CCCCCCC")
-                .aisle("EMMMMME", "#MXXXM#", "##TTT##", "##XXX##", "##TTT##", "#MXXXM#", "CCCCCCC")
+                .aisle("EMMMMME", "#MXAXM#", "##TAT##", "##XAX##", "##TAT##", "#MXAXM#", "CCCCCCC")
                 .aisle("EMMMMME", "#MXXXM#", "##TTT##", "##XXX##", "##TTT##", "#MXXXM#", "CCCCCCC")
                 .aisle("EMMMMME", "#MMMMM#", "#######", "#######", "#######", "#MMMMM#", "CCCCCCC")
                 .aisle("EEESEEE", "C#####C", "C#####C", "C#####C", "C#####C", "C#####C", "CCCCCCC")
                 .where('S', selfPredicate())
-                .where('E', states(getBaseCasingState())
+                .where('E', TiredTraceabilityPredicate.CP_CASING
                         .or(abilities(MultiblockAbility.MAINTENANCE_HATCH).setExactLimit(1))
                         .or(abilities(MultiblockAbility.EXPORT_FLUIDS).setMinGlobalLimited(1).setPreviewCount(1))
                         .or(abilities(MultiblockAbility.EXPORT_ITEMS).setMinGlobalLimited(1).setPreviewCount(1))
                         .or(abilities(MultiblockAbility.IMPORT_ITEMS).setMinGlobalLimited(1).setPreviewCount(1))
                         .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setMinGlobalLimited(1).setPreviewCount(1))
                         .or(abilities(MultiblockAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(2).setPreviewCount(1)))
-                .where('C', casing())
+                .where('C',TiredTraceabilityPredicate.CP_CASING)
                 .where('X', heatingCoils())
-                .where('M', AlgaeFarmPredicate.MACHINECASINGS)
-                .where('T', states(MetaBlocks.BOILER_CASING.getState(BlockBoilerCasing.BoilerCasingType.BRONZE_PIPE)).or(states(MetaBlocks.BOILER_CASING.getState(BlockBoilerCasing.BoilerCasingType.STEEL_PIPE))).or(states(MetaBlocks.BOILER_CASING.getState(BlockBoilerCasing.BoilerCasingType.TITANIUM_PIPE))).or(states(MetaBlocks.BOILER_CASING.getState(BlockBoilerCasing.BoilerCasingType.TUNGSTENSTEEL_PIPE))))
+                .where('M', TiredTraceabilityPredicate.MACHINE_CASINGS)
+                .where('T',TiredTraceabilityPredicate.CP_TUBE)
                 .where('#', any())
+                .where('A',air())
                 .build();
     }
 
-    private TraceabilityPredicate casing(){
-        return states(MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.BRONZE_BRICKS))
-                .or(states(MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STEEL_SOLID)))
-                .or(states(MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.ALUMINIUM_FROSTPROOF)))
-                .or(states(MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STAINLESS_CLEAN)))
-                .or(states(MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.TITANIUM_STABLE)))
-                .or(states(MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.TUNGSTENSTEEL_ROBUST)));
+    @Nonnull
+    @Override
+    protected ICubeRenderer getFrontOverlay() {
+        return GCTextures.CHEMICAL_PLANT;
     }
 
-    protected IBlockState getBaseCasingState() {
-        return MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.BRONZE_BRICKS);
+    public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
+        super.renderMetaTileEntity(renderState, translation, pipeline);
+        getFrontOverlay().renderOrientedState(renderState, translation, pipeline, getFrontFacing(), this.recipeMapWorkable.isActive(), this.recipeMapWorkable.isWorkingEnabled());
     }
 
     @Override
@@ -93,30 +100,32 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
     protected void formStructure(PatternMatchContext context) {
         super.formStructure(context);
         Object coilType = context.get("CoilType");
-        if (coilType instanceof IHeatingCoilBlockStats) {
-            this.coilLevel = ((IHeatingCoilBlockStats) coilType).getLevel();
-        } else {
-            this.coilLevel = BlockWireCoil.CoilType.CUPRONICKEL.getLevel();
-        }
+        Object casingTier = context.get("ChemicalPlantCasingTiredStats");
+        Object tubeTier = context.get("ChemicalPlantTubeTiredStats");
+        this.coilLevel = GCUtil.getOrDefault(() -> coilType instanceof IHeatingCoilBlockStats,
+                () ->  ((IHeatingCoilBlockStats) coilType).getLevel(),
+                BlockWireCoil.CoilType.CUPRONICKEL.getLevel());
+        this.casingTier = GCUtil.getOrDefault(() -> casingTier instanceof WrappedIntTired,
+                () -> ((WrappedIntTired)casingTier).getIntTier(),
+                0);
+        this.tubeTier = GCUtil.getOrDefault(() -> tubeTier instanceof WrappedIntTired,
+                () -> ((WrappedIntTired)tubeTier).getIntTier(),
+                0);
+        this.tier = Math.min(this.casingTier,this.tubeTier);
     }
 
     protected class ChemicalPlantLogic extends MultiblockRecipeLogic {
-
-        private int CasingTier;
-        private int MachineTier;
-        private int tubeTier;
+        
 
         public ChemicalPlantLogic(RecipeMapMultiblockController tileEntity) {
             super(tileEntity);
         }
 
         public void update() {
-            if (metaTileEntity.getWorld().isRemote)
-                return;
-
-            checkCasingTier();
-            checkMachineTier();
-            checkTubeTier();
+            if (metaTileEntity.getWorld().isRemote) {
+            
+            }
+            
         }
 
         public void setMaxProgress(int maxProgress) {
@@ -125,18 +134,15 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
         }
 
         protected long getMaxVoltage() {
-            return Math.min(super.getMaxVoltage(), VA[CasingTier]);
+            return Math.min(super.getMaxVoltage(), VA[casingTier]);
         }
 
         @Override
         public boolean checkRecipe(@Nonnull Recipe recipe) {
             if (!super.checkRecipe(recipe))
                 return false;
-
-            if (recipe.getProperty(ChemicalPlantProperties.getInstance(), 0) > this.MachineTier)
-                return false;
-
-            return true;
+    
+            return recipe.getProperty(ChemicalPlantProperties.getInstance(), 0) <= tier;
         }
 
         @Override
@@ -144,99 +150,6 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
             return 2 * tubeTier;
         }
 
-        private void checkCasingTier() {
-            EnumFacing facing = metaTileEntity.getFrontFacing();
-            if (facing.getIndex() == 2) {
-                BlockPos pos = metaTileEntity.getPos().add(0, 0, 1);
-                getCasingTire(pos);
-            } else if (facing.getIndex() == 3) {
-                BlockPos pos = metaTileEntity.getPos().add(0, 0, -1);
-                getCasingTire(pos);
-            } else if (facing.getIndex() == 4) {
-                BlockPos pos = metaTileEntity.getPos().add(1, 0, 0);
-                getCasingTire(pos);
-            } else if (facing.getIndex() == 5) {
-                BlockPos pos = metaTileEntity.getPos().add(-1, 0, 0);
-                getCasingTire(pos);
-            } else
-                this.CasingTier = 0;
-        }
-
-        private void checkTubeTier() {
-            EnumFacing facing = metaTileEntity.getFrontFacing();
-            if (facing.getIndex() == 2) {
-                BlockPos pos = metaTileEntity.getPos().add(0, 2, 2);
-                getTubeTier(pos);
-            } else if (facing.getIndex() == 3) {
-                BlockPos pos = metaTileEntity.getPos().add(0, 2, -2);
-                getTubeTier(pos);
-            } else if (facing.getIndex() == 4) {
-                BlockPos pos = metaTileEntity.getPos().add(2, 2, 0);
-                getTubeTier(pos);
-            } else if (facing.getIndex() == 5) {
-                BlockPos pos = metaTileEntity.getPos().add(-2, 2, 0);
-                getTubeTier(pos);
-            } else
-                this.tubeTier = 0;
-        }
-
-        private void checkMachineTier() {
-            BlockPos pos = metaTileEntity.getPos().add(0, 6, 0);
-            getMachineTire(pos);
-        }
-
-        private void getCasingTire(BlockPos pos) {
-            if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.ULV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.CasingTier = 0;
-            } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.LV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.CasingTier = 1;
-            } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.MV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.CasingTier = 2;
-            } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.HV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.CasingTier = 3;
-            } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.EV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.CasingTier = 4;
-            } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.IV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.CasingTier = 5;
-            } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.LuV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.CasingTier = 6;
-            } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.ZPM).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.CasingTier = 7;
-            } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.UV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.CasingTier = 8;
-            } else if (MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.UHV).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.CasingTier = 9;
-            } else {
-                this.CasingTier = 9;
-            }
-        }
-
-        private void getTubeTier(BlockPos pos) {
-            if (MetaBlocks.BOILER_CASING.getState(BlockBoilerCasing.BoilerCasingType.STEEL_PIPE).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.tubeTier = 1;
-            } else if (MetaBlocks.BOILER_CASING.getState(BlockBoilerCasing.BoilerCasingType.TITANIUM_PIPE).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.tubeTier = 2;
-            } else if (MetaBlocks.BOILER_CASING.getState(BlockBoilerCasing.BoilerCasingType.TUNGSTENSTEEL_PIPE).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.tubeTier = 3;
-            } else {
-                this.tubeTier = 0;
-            }
-        }
-
-        private void getMachineTire(BlockPos pos) {
-            if (MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.BRONZE_BRICKS).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.MachineTier = 0;
-            } else if (MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STEEL_SOLID).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.MachineTier = 1;
-            } else if (MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.ALUMINIUM_FROSTPROOF).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.MachineTier = 2;
-            } else if (MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STAINLESS_CLEAN).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.MachineTier = 3;
-            } else if (MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.TITANIUM_STABLE).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.MachineTier = 4;
-            } else if (MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.TUNGSTENSTEEL_ROBUST).equals(metaTileEntity.getWorld().getBlockState(pos))) {
-                this.MachineTier = 5;
-            } else this.MachineTier = 6;
-        }
+        
     }
 }

@@ -6,17 +6,15 @@ import gregtech.api.unification.material.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.items.MetaItems;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
-import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 import javax.annotation.Nonnull;
 
-import static gregtech.api.GTValues.*;
-import static gregtech.api.recipes.RecipeMaps.CANNER_RECIPES;
+import static gregtech.api.GTValues.IV;
+import static gregtech.api.GTValues.UV;
 import static gregtech.api.unification.material.Materials.MetalMixture;
-import static gregtech.api.unification.material.Materials.Obsidian;
 import static gregtech.api.unification.ore.OrePrefix.circuit;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 
@@ -71,13 +69,5 @@ public class FuelRecipe {
         registerQubitGeneratorFuel(circuit, MarkerMaterials.Tier.MAX,            51_200, UV, 64);
 
         registerResearchStationResearch(new ItemStack(Items.BREAD), 99, IV, 1, "baguette_sword");
-
-        GCRecipeMaps.CHEMICAL_PLANT.recipeBuilder()
-                .recipeLevel(2)
-                .inputs(new ItemStack(Items.FISH))
-                .EUt(300)
-                .duration(233)
-                .outputs(new ItemStack(Items.COOKED_FISH))
-                .buildAndRegister();
     }
 }

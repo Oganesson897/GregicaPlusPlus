@@ -1,7 +1,6 @@
 package me.oganesson.gregica.common.unification.materials.ore;
 
 import gregtech.api.unification.material.Material;
-import gregtech.api.unification.material.info.MaterialIconType;
 import gregtech.api.unification.ore.OrePrefix;
 import me.oganesson.gregica.common.unification.materials.info.GCMaterialIconTypes;
 
