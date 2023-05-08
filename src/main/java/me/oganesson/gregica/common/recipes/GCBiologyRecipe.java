@@ -158,7 +158,7 @@ public class GCBiologyRecipe {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .notConsumable(getBiologyCircuitData(16))
                 .input(GCMetaItems.RED_ALGAE, 2)
-                .output(GCMetaItems.CELLULOSE_FIBER_YELLOW)
+                .output(GCMetaItems.CELLULOSE_FIBER_RED)
                 .EUt(240).duration(30)
                 .buildAndRegister();
 

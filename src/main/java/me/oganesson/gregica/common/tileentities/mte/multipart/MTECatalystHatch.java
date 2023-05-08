@@ -110,7 +110,8 @@ public class MTECatalystHatch extends MetaTileEntityMultiblockPart implements IM
     @SideOnly(Side.CLIENT)
     public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
         super.renderMetaTileEntity(renderState, translation, pipeline);
-        GCTextures.CATALYST_HATCH.renderSided(getFrontFacing(),renderState,translation,pipeline);
+        if (this.shouldRenderOverlay())
+        GCTextures.CATALYST_HATCH.renderSided(getFrontFacing(), renderState, translation, pipeline);
     }
     
     @Override
@@ -168,7 +169,7 @@ public class MTECatalystHatch extends MetaTileEntityMultiblockPart implements IM
         if (data.hasKey("item")) {
             itemStack.deserializeNBT(data.getCompoundTag("item"));
         }
-        
+
     }
     
     @Override
@@ -180,7 +181,7 @@ public class MTECatalystHatch extends MetaTileEntityMultiblockPart implements IM
     protected boolean shouldSerializeInventories() {
         return false;
     }
-    
+
     @Override
     public <T> T getCapability(Capability<T> capability, EnumFacing side) {
         return capability== CapabilityItemHandler.ITEM_HANDLER_CAPABILITY ?
@@ -192,5 +193,13 @@ public class MTECatalystHatch extends MetaTileEntityMultiblockPart implements IM
     public void addInformation(ItemStack stack, @Nullable World world, @NotNull List<String> tooltip, boolean advanced) {
         super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(I18n.format("gregica.multipart.catalyst.only"));
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addToolUsages(ItemStack stack, @javax.annotation.Nullable World world, List<String> tooltip, boolean advanced) {
+        tooltip.add(I18n.format("gregtech.tool_action.screwdriver.access_covers"));
+        tooltip.add(I18n.format("gregtech.tool_action.wrench.set_facing"));
+        super.addToolUsages(stack, world, tooltip, advanced);
     }
 }

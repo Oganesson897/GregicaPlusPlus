@@ -69,7 +69,7 @@ public class GCTextures {
         LAPOTRONIC_CASING = new SimpleSidedCubeRenderer("casings/lapotronic");
         LAPOTRONIC_CAPACITOR = new OrientedOverlayRenderer("casings/lapotronic/capacitor");
         LARGE_ESSENTIA_GENERATOR = new OrientedOverlayRenderer("multiblock/large_essentia_generator");
-        CHEMICAL_PLANT = new OrientedOverlayRenderer("multiblock/chemical_plant");
+        CHEMICAL_PLANT = new OrientedOverlayRenderer("multiblock/gc_chemical_plant");
         LIGHTNING_ROD_HV = new SimpleSidedCubeRenderer("casings/lightning_rod_hv/normal");
         LIGHTNING_ROD_ACTIVE_HV = new SimpleSidedCubeRenderer("casings/lightning_rod_hv/active");
         LIGHTNING_ROD_EV = new SimpleSidedCubeRenderer("casings/lightning_rod_ev/normal");
