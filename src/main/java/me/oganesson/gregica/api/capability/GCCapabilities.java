@@ -3,6 +3,7 @@ package me.oganesson.gregica.api.capability;
 import gregtech.api.capability.SimpleCapabilityManager;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import me.oganesson.gregica.api.capability.quantum.IQubitContainer;
+import me.oganesson.gregica.api.item.IBall;
 import me.oganesson.gregica.api.item.ICatalyst;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
@@ -21,6 +22,7 @@ public class GCCapabilities {
     public static final MultiblockAbility<IQubitContainer> OUTPUT_QBIT = new MultiblockAbility<>("output_qubit");
 
     public static final MultiblockAbility<ICatalyst> CATALYST = new MultiblockAbility<>("catalyst");
+    public static final MultiblockAbility<IBall> GRINDBALL = new MultiblockAbility<>("ball");
 
     public static final MultiblockAbility<IResearchDataHatch> RESEARCH_DATA = new MultiblockAbility<>("data_hatch");
 }

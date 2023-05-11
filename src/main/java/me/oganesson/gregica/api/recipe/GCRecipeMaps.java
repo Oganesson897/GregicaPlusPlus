@@ -62,4 +62,6 @@ public class GCRecipeMaps {
     public static final RecipeMap<ChemicalPlantBuilder> CHEMICAL_PLANT = new RecipeMap<>("chemical_plant",
             4, 3, 3, 3, new ChemicalPlantBuilder(), false);
     public static final RecipeMap<SimpleRecipeBuilder> LAMINATOR_RECIPES = new RecipeMap<>("laminator", 1, 6, 1, 2, 0, 2, 0, 0, new SimpleRecipeBuilder(), false).setSound(GTSoundEvents.ASSEMBLER);
+    public static final RecipeMap<ChemicalPlantBuilder> ISAMILL_GRINDER = new RecipeMap<>("isa_mill",
+            3, 3, 0, 0, new ChemicalPlantBuilder(), false);
 }

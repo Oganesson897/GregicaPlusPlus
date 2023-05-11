@@ -20,7 +20,8 @@ public class GCMetaBlocks {
     
     public static final GCMetaCasing GC_BLOCK_CASING = new GCMetaCasing();
     public static final GCMetaCells GC_ESSENTIA_CELLS = new GCMetaCells();
-    
+    public static final GCMetaGearBox GC_META_GEAR_BOX = new GCMetaGearBox();
+
     public static final GCLapotronicCasing GC_LAPOTRONIC_CASING = new GCLapotronicCasing();
     
     public static final GCMetaGlasses TRANSPARENT_CASING = new GCMetaGlasses("glasses_casing");
@@ -38,6 +39,7 @@ public class GCMetaBlocks {
     public static void registerItemModels() {
         registerItemModel(GC_BLOCK_CASING);
         registerItemModel(GC_ESSENTIA_CELLS);
+        registerItemModel(GC_META_GEAR_BOX);
         registerItemModel(GC_LAPOTRONIC_CASING);
         registerItemModel(TRANSPARENT_CASING);
         registerItemModel(TRANSPARENT_CASING1);

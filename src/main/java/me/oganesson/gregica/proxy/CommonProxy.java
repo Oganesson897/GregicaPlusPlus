@@ -89,6 +89,7 @@ public class CommonProxy {
         event.getRegistry().register(Upgrades);
         event.getRegistry().register(createItemBlock(GC_BLOCK_CASING, VariantItemBlock::new));
         event.getRegistry().register(createItemBlock(GC_ESSENTIA_CELLS, VariantItemBlock::new));
+        event.getRegistry().register(createItemBlock(GC_META_GEAR_BOX, VariantItemBlock::new));
         event.getRegistry().register(createItemBlock(GC_LAPOTRONIC_CASING, VariantItemBlock::new));
         event.getRegistry().register(createItemBlock(TRANSPARENT_CASING,  VariantItemBlock::new));
         event.getRegistry().register(createItemBlock(TRANSPARENT_CASING1,  VariantItemBlock::new));
@@ -101,6 +102,7 @@ public class CommonProxy {
 
         GC_BLOCK_CASING.setCreativeTab(Tab);
         GC_ESSENTIA_CELLS.setCreativeTab(Tab);
+        GC_META_GEAR_BOX.setCreativeTab(Tab);
         TRANSPARENT_CASING1.setCreativeTab(Tab);
         TRANSPARENT_CASING.setCreativeTab(Tab);
         GC_LAPOTRONIC_CASING.setCreativeTab(Tab);
@@ -112,6 +114,7 @@ public class CommonProxy {
         }
         event.getRegistry().register(GC_BLOCK_CASING);
         event.getRegistry().register(GC_ESSENTIA_CELLS);
+        event.getRegistry().register(GC_META_GEAR_BOX);
         event.getRegistry().register(GC_LAPOTRONIC_CASING);
         event.getRegistry().register(TRANSPARENT_CASING);
         event.getRegistry().register(TRANSPARENT_CASING1);

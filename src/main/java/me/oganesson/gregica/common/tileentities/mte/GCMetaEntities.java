@@ -18,6 +18,7 @@ import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTEActiveTransf
 import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTELapotronicSuperCapacitor;
 import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEEssentiaGenerator;
 import me.oganesson.gregica.common.tileentities.mte.multi.machines.*;
+import me.oganesson.gregica.common.tileentities.mte.multipart.MTEBallHatch;
 import me.oganesson.gregica.common.tileentities.mte.multipart.MTECatalystHatch;
 import me.oganesson.gregica.common.tileentities.mte.multipart.MTECreativeEnergyHatch;
 import me.oganesson.gregica.common.tileentities.mte.multipart.MTEQubitHatch;
@@ -53,12 +54,14 @@ public class GCMetaEntities {
     public static MTEActiveTransformer ACTIVE_TRANSFORMER;
     public static MTEReplicator REPLICATOR;
     public static MTELapotronicSuperCapacitor LAPOTRONIC_SUPER_CAPACITOR;
+    public static MTEIsaMill ISA_MILL;
 
     //Part
     public static MTEQubitHatch[] QBIT_INPUT_HATCH = new MTEQubitHatch[GCValues.QUBIT.length];
     public static MTEQubitHatch[] QBIT_OUTPUT_HATCH = new MTEQubitHatch[GCValues.QUBIT.length];
 
     public static MTECatalystHatch CATALYST_HATCH;
+    public static MTEBallHatch GRIND_BALL_HATCH;
 
     public static final MTECreativeEnergyHatch[] CREATIVE_ENERGY_HATCHES = new MTECreativeEnergyHatch[GTValues.V.length];
 
@@ -98,6 +101,8 @@ public class GCMetaEntities {
 
         LOG_CREATE_FACTORY = registerMetaTileEntity(nextID(),new MTELogCreateFactory(gcID("log_create_factory")));
 
+        ISA_MILL = registerMetaTileEntity(nextID(),new MTEIsaMill(gcID("isa_mill")));
+
  CHEMICAL_PLANT = registerMetaTileEntity(nextID(),new MTEChemicalPlant(gcID("chemical_plant")));
  
         //Multipart
@@ -105,6 +110,7 @@ public class GCMetaEntities {
         QBIT_OUTPUT_HATCH[0] = registerMetaTileEntity(nextID(), new MTEQubitHatch(gcID("qubit_hatch.output.1"), 0, 16, true));
 
         CATALYST_HATCH = registerMetaTileEntity(nextID(),new MTECatalystHatch(gcID("catalyst_hatch")));
+        GRIND_BALL_HATCH = registerMetaTileEntity(nextID(),new MTEBallHatch(gcID("ball_hatch")));
 
         for (LaserPipeType type : LaserPipeType.values()) {
             LASER_PIPES[type.ordinal()] = new BlockLaserPipe();

@@ -11,17 +11,17 @@ import net.minecraft.world.IBlockAccess;
 
 import javax.annotation.Nonnull;
 
-public class GCMetaCasing extends VariantBlock<GCMetaCasing.MetalCasingType> {
+public class GCMetaGearBox extends VariantBlock<GCMetaGearBox.GearBoxType> {
 
-    public GCMetaCasing() {
+    public GCMetaGearBox() {
         super(Material.IRON);
-        setTranslationKey("gc_machine_casing");
+        setTranslationKey("gc_meta_gearbox");
         setHardness(2.0f);
         setResistance(5.0f);
         setSoundType(SoundType.METAL);
         setHarvestLevel("wrench", 2);
-        setDefaultState(getState(MetalCasingType.MAGIC_CASING));
-        setRegistryName("gc_machine_casing");
+        setDefaultState(getState(GearBoxType.ISA_MILL_GEARBOX));
+        setRegistryName("gc_meta_gearbox");
     }
 
     @Override
@@ -29,19 +29,13 @@ public class GCMetaCasing extends VariantBlock<GCMetaCasing.MetalCasingType> {
         return false;
     }
 
-    public enum MetalCasingType implements IStringSerializable {
+    public enum GearBoxType implements IStringSerializable {
 
-        MAGIC_CASING("magic_machine_casing"),
-        FISHING_CASING("fishing_machine_casing"),
-        QUANTUM_CASING("quantum_machine_casing"),
-        QUANTUM_GENERATOR_CASING("quantum_generator_machine_casing"),
-        HIGH_POWER_CASING("high_power_casing"),
-        ASEPTIC_FARM_CASING("aseptic_farm_machine_casing"),
-        MATTER_FABRICATION_CPU("matter_fabrication_cpu"),
-        ISA_MILL_CASING("isa_machine_casing");
+        ISA_MILL_GEARBOX("isa_gear_casing");
+
         private final String name;
 
-        MetalCasingType(String name) {
+        GearBoxType(String name) {
             this.name = name;
         }
 
