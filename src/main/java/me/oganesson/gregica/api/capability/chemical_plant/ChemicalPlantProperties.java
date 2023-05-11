@@ -1,4 +1,4 @@
-package me.oganesson.gregica.api.capability;
+package me.oganesson.gregica.api.capability.chemical_plant;
 
 import gregtech.api.recipes.recipeproperties.RecipeProperty;
 import gregtech.api.util.TextFormattingUtil;

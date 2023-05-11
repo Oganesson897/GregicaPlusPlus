@@ -35,7 +35,7 @@ import javax.annotation.Nonnull;
 import java.util.Objects;
 import java.util.function.Function;
 
-import static me.oganesson.gregica.api.capability.ChemicalPlantProperties.registerCasingTier;
+import static me.oganesson.gregica.api.capability.chemical_plant.ChemicalPlantProperties.registerCasingTier;
 import static me.oganesson.gregica.common.block.CommonBlocks.getEssentiaHatch;
 import static me.oganesson.gregica.common.block.GCMetaBlocks.*;
 import static me.oganesson.gregica.common.tileentities.mte.GCMetaEntities.LASER_PIPES;

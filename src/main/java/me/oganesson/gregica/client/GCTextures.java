@@ -3,7 +3,6 @@ package me.oganesson.gregica.client;
 import gregtech.client.renderer.texture.cube.OrientedOverlayRenderer;
 import gregtech.client.renderer.texture.cube.SimpleOverlayRenderer;
 import gregtech.client.renderer.texture.cube.SimpleSidedCubeRenderer;
-import gregtech.client.renderer.texture.custom.LargeTurbineRenderer;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.client.render.IsaMillRenderer;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;

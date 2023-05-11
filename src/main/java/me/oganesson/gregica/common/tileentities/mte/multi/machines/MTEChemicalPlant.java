@@ -18,8 +18,8 @@ import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.common.blocks.BlockWireCoil;
 import me.oganesson.gregica.api.blocks.impl.WrappedIntTired;
-import me.oganesson.gregica.api.capability.ChemicalPlantProperties;
 import me.oganesson.gregica.api.capability.GCCapabilities;
+import me.oganesson.gregica.api.capability.chemical_plant.ChemicalPlantProperties;
 import me.oganesson.gregica.api.predicate.TiredTraceabilityPredicate;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
 import me.oganesson.gregica.client.GCTextures;
@@ -30,7 +30,6 @@ import net.minecraft.util.text.TextComponentString;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
-
 import java.util.List;
 
 import static gregtech.api.GTValues.VA;

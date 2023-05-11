@@ -3,6 +3,7 @@ package me.oganesson.gregica.common.tileentities.mte.multipart;
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
+import gregtech.api.GTValues;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.ModularUI;
 import gregtech.api.gui.widgets.LabelWidget;
@@ -12,7 +13,6 @@ import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockAbilityPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityMultiblockPart;
-import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityRotorHolder;
 import me.oganesson.gregica.api.capability.GCCapabilities;
 import me.oganesson.gregica.api.item.IBall;
 import me.oganesson.gregica.client.GCTextures;
@@ -108,7 +108,7 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
 
         MTEIsaMill controller = (MTEIsaMill) getController();
 
-        if (controller != null && controller.isActive()) {
+        if (controller != null && controller.isActive() && GTValues.RNG.nextInt(20) == 0) {
                 damageRotor(1 + controller.getNumMaintenanceProblems());
         }
     }

@@ -1,7 +1,6 @@
 package me.oganesson.gregica;
 
 import gregtech.api.GregTechAPI;
-import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.common.unification.materials.GCMaterials;
 import me.oganesson.gregica.common.unification.ore.OrePrefixGCPP;
 import net.minecraftforge.fml.common.Mod;

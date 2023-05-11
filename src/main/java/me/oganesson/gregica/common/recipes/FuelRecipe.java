@@ -3,11 +3,9 @@ package me.oganesson.gregica.common.recipes;
 import gregtech.api.GTValues;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.Material;
-import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.items.MetaItems;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
-import me.oganesson.gregica.common.unification.ore.GCOrePrefix;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -20,6 +18,7 @@ import static gregtech.api.unification.material.Materials.MetalMixture;
 import static gregtech.api.unification.ore.OrePrefix.circuit;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 
+//Test Recipe(测试配方用，在制作成后会移出)
 public class FuelRecipe {
     public static void registerQubitGeneratorFuel(OrePrefix prefix, Material material, int duration, int tier, int qubit) {
         GCRecipeMaps.SIMPLE_QUBIT_GENERATOR.recipeBuilder()
@@ -58,14 +57,6 @@ public class FuelRecipe {
     }
 
     public static void init(){
-
-        GCRecipeMaps.ISAMILL_GRINDER.recipeBuilder()
-                .input(OrePrefix.ore, Materials.Monazite, 16)
-                .circuitMeta(11)
-                .duration(3000)
-                .EUt(7680)
-                .output(GCOrePrefix.oreMilled, Materials.Monazite, 48)
-                .buildAndRegister();
 
         registerQubitGeneratorFuel(circuit, MarkerMaterials.Tier.IV,          100, UV, 1);
         registerQubitGeneratorFuel(circuit, MarkerMaterials.Tier.LuV,         200, UV, 2);
