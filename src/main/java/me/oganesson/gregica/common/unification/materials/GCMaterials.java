@@ -11,9 +11,6 @@ public class GCMaterials {
     public static Material SuperCoolant;
     public static Material Cryotheum;
     public static Material XPJuice;
-    public static Material Blood;
-    public static Material Pure;
-    public static Material Death;
     public static Material Spirit;
     public static Material Hollowtears;
     public static Material AtomicSeparationCatalyst;

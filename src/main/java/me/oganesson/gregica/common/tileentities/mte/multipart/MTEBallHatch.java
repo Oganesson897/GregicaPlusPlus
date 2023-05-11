@@ -12,10 +12,12 @@ import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockAbilityPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityMultiblockPart;
+import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityRotorHolder;
 import me.oganesson.gregica.api.capability.GCCapabilities;
-import me.oganesson.gregica.api.capability.impl.WrappedBall;
 import me.oganesson.gregica.api.item.IBall;
 import me.oganesson.gregica.client.GCTextures;
+import me.oganesson.gregica.common.item.behavior.MillBallBehavior;
+import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEIsaMill;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -35,14 +37,48 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
-public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMultiblockAbilityPart<IBall> {
-    
-    private final ItemStackHandler itemStack = new ItemStackHandler(1){
+public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMultiblockAbilityPart<IBall>, IBall {
+
+    private final InventoryBallHolder inventory;
+
+    public MTEBallHatch(ResourceLocation metaTileEntityId) {
+        super(metaTileEntityId, 4);
+        this.inventory = new InventoryBallHolder();
+    }
+
+    @Override
+    public boolean hasBall() {
+        return !this.inventory.getStackInSlot(0).isEmpty();
+    }
+
+    private class InventoryBallHolder extends ItemStackHandler{
+        @javax.annotation.Nullable
+        private MillBallBehavior getBallBehavior() {
+            ItemStack stack = getStackInSlot(0);
+            if (stack.isEmpty()) return null;
+
+            return MillBallBehavior.getInstanceFor(stack);
+        }
+
+        @Override
+        public int getSlotLimit(int slot) {
+            return 1;
+        }
+
+        private boolean hasBall() {
+            return getBallBehavior() != null;
+        }
+
+        private void damageBall(int damageAmount) {
+            if (!hasBall()) return;
+            //noinspection ConstantConditions
+            getBallBehavior().applyBallDamage(getStackInSlot(0), damageAmount);
+        }
+
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-            return stack.getItem() instanceof IBall;
+            return MillBallBehavior.getInstanceFor(stack) != null && super.isItemValid(slot, stack);
         }
     
         @Override
@@ -53,34 +89,14 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
         @Override
         protected void onContentsChanged(int slot) {
             needUpdate = true;
-            ItemStack item = this.getStackInSlot(0);
-            catalyst.update(item.isEmpty() ? () -> Optional.of("") : (IBall)item.getItem() );
         }
-    };
-    private final WrappedBall catalyst = new WrappedBall(Optional::empty){
-        @Override
-        public void consumeBall(int amount) {
-            ItemStack item = itemStack.getStackInSlot(0);
-            if(!item.isEmpty() && item.isItemStackDamageable()){
-                int left = item.getMaxDamage() - item.getItemDamage();
-                if(left>amount){
-                    item.setItemDamage(item.getItemDamage()+amount);
-                }
-                else {
-                    item.shrink(1);
-                }
-            }
-           
-        }
-    };
-    
-    private boolean needUpdate = false;
-    
-    
-    public MTEBallHatch(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, 4);
     }
-    
+
+    public void damageRotor(int amount) {
+        inventory.damageBall(amount);
+    }
+
+    private boolean needUpdate = false;
 
     @Override
     public void update() {
@@ -88,6 +104,12 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
         if(needUpdate){
             needUpdate = false;
             this.markDirty();
+        }
+
+        MTEIsaMill controller = (MTEIsaMill) getController();
+
+        if (controller != null && controller.isActive()) {
+                damageRotor(1 + controller.getNumMaintenanceProblems());
         }
     }
     
@@ -121,10 +143,10 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
     protected ModularUI createUI(EntityPlayer entityPlayer) {
         ModularUI.Builder builder = ModularUI.builder(GuiTextures.BACKGROUND, 176, 209)
                 .bindPlayerInventory(entityPlayer.inventory, 126)
-                .widget(new SlotWidget(this.itemStack,0, 88-9,50,true,true,true)
+                .widget(new SlotWidget(this.inventory,0, 88-9,50,true,true,true)
                         .setBackgroundTexture(GuiTextures.SLOT)
                         .setChangeListener(this::markDirty))
-                .widget(new LabelWidget(88,20,"gregica.multipart.catalyst.only")
+                .widget(new LabelWidget(88,20,"gregica.multipart.ball.only")
                         .setXCentered(true));
         
         return builder.build(this.getHolder(),entityPlayer);
@@ -137,20 +159,20 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
     
     @Override
     public void registerAbilities(List<IBall> list) {
-         list.add(catalyst);
+         list.add(this);
     }
     
     public void writeInitialSyncData(PacketBuffer buf) {
         super.writeInitialSyncData(buf);
         buf.writeBoolean(this.needUpdate);
-        buf.writeCompoundTag(itemStack.serializeNBT());
+        buf.writeCompoundTag(inventory.serializeNBT());
     }
     
     public void receiveInitialSyncData(PacketBuffer buf) {
         super.receiveInitialSyncData(buf);
         this.needUpdate = buf.readBoolean();
         try {
-            itemStack.deserializeNBT(buf.readCompoundTag());
+            inventory.deserializeNBT(buf.readCompoundTag());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -159,7 +181,7 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
     public NBTTagCompound writeToNBT(NBTTagCompound data) {
         super.writeToNBT(data);
         data.setBoolean("needUpdate", this.needUpdate);
-        data.setTag("item", this.itemStack.serializeNBT());
+        data.setTag("item", this.inventory.serializeNBT());
         return data;
     }
     
@@ -170,14 +192,14 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
         }
         
         if (data.hasKey("item")) {
-            itemStack.deserializeNBT(data.getCompoundTag("item"));
+            inventory.deserializeNBT(data.getCompoundTag("item"));
         }
 
     }
     
     @Override
     public void clearMachineInventory(NonNullList<ItemStack> itemBuffer) {
-        clearInventory(itemBuffer, this.itemStack);
+        clearInventory(itemBuffer, this.inventory);
     }
     
     @Override
@@ -188,14 +210,14 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
     @Override
     public <T> T getCapability(Capability<T> capability, EnumFacing side) {
         return capability== CapabilityItemHandler.ITEM_HANDLER_CAPABILITY ?
-                CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(itemStack) : super.getCapability(capability, side);
+                CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(inventory) : super.getCapability(capability, side);
     }
     
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World world, @NotNull List<String> tooltip, boolean advanced) {
         super.addInformation(stack, world, tooltip, advanced);
-        tooltip.add(I18n.format("gregica.multipart.catalyst.only"));
+        tooltip.add(I18n.format("gregica.multipart.ball.only"));
     }
 
     @Override

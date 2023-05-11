@@ -4,6 +4,9 @@ package me.oganesson.gregica.common.tileentities.mte.multi.machines;
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
+import gregtech.api.capability.IMultiblockController;
+import gregtech.api.capability.IRotorHolder;
+import gregtech.api.capability.impl.MultiblockRecipeLogic;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -11,9 +14,11 @@ import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
+import gregtech.api.pattern.PatternMatchContext;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import me.oganesson.gregica.api.capability.GCCapabilities;
+import me.oganesson.gregica.api.item.IBall;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
 import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.block.GCMetaBlocks;
@@ -23,9 +28,12 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 public class MTEIsaMill extends RecipeMapMultiblockController {
     public MTEIsaMill(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GCRecipeMaps.ISAMILL_GRINDER);
+        this.recipeMapWorkable = new MTEIsaMill.IsaMillLogic(this);
     }
 
     protected IBlockState getCasingState() {
@@ -60,6 +68,13 @@ public class MTEIsaMill extends RecipeMapMultiblockController {
                 .build();
     }
 
+    public IBall getBallHolder() {
+        List<IBall> abilities = getAbilities(GCCapabilities.GRINDBALL);
+        if (abilities.isEmpty())
+            return null;
+        return abilities.get(0);
+    }
+
     @Override
     public ICubeRenderer getBaseTexture(IMultiblockPart sourcePart) {
         return GCTextures.ISA_MILL_CASING;
@@ -77,4 +92,17 @@ public class MTEIsaMill extends RecipeMapMultiblockController {
         GCTextures.ISA_MILL.renderSided(renderState, translation, pipeline, getFrontFacing(), isStructureFormed(), this.getRecipeLogic().isActive());
     }
 
+    public static class IsaMillLogic extends MultiblockRecipeLogic{
+
+        private final MTEIsaMill metaTileEntity;
+
+        public IsaMillLogic(MTEIsaMill tileEntity) {
+            super(tileEntity);
+            this.metaTileEntity = tileEntity;
+        }
+
+        protected boolean canProgressRecipe() {
+            return (super.canProgressRecipe() && !((IMultiblockController)this.metaTileEntity).isStructureObstructed() && this.metaTileEntity.getBallHolder().hasBall());
+        }
+    }
 }

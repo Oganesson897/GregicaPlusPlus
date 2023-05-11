@@ -5,6 +5,7 @@ import gregtech.api.items.metaitem.StandardMetaItem;
 import gregtech.common.items.behaviors.TooltipBehavior;
 import me.oganesson.gregica.common.item.behavior.BaguetteBehavior;
 import me.oganesson.gregica.common.item.behavior.IntBcircuitBehavior;
+import me.oganesson.gregica.common.item.behavior.MillBallBehavior;
 import me.oganesson.gregica.proxy.CommonProxy;
 import net.minecraft.client.resources.I18n;
 
@@ -54,6 +55,9 @@ public class GCMetaItems {
     public static MetaItem<?>.MetaValueItem PELLETS_MOULD;
     public static MetaItem<?>.MetaValueItem ALUMINUM_PELLETS;
 
+    public static MetaItem<?>.MetaValueItem GRINDBALL_SOAPSTONE;
+    public static MetaItem<?>.MetaValueItem GRINDBALL_ALUMINIUM;
+
     public static void initMetaItems() {
         metaItem1 = new StandardMetaItem();
         metaItem1.setRegistryName("meta_item_gc");
@@ -94,6 +98,8 @@ public class GCMetaItems {
         PELLETS_MOULD=metaItem1.addItem(52, "item.pellets_mould").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         ALUMINUM_PELLETS=metaItem1.addItem(53, "item.aluminum_pellets").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
 
+        GRINDBALL_SOAPSTONE=metaItem1.addItem(54, "item.soapstone.ball").setMaxStackSize(1).setCreativeTabs(CommonProxy.Tab).addComponents(new MillBallBehavior());
+        GRINDBALL_ALUMINIUM=metaItem1.addItem(55, "item.aluminium.ball").setMaxStackSize(1).setCreativeTabs(CommonProxy.Tab).addComponents(new MillBallBehavior());
     }
 
     private static void tierItems() {

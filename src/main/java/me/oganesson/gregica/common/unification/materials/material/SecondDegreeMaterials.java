@@ -9,6 +9,7 @@ import me.oganesson.gregica.common.unification.materials.GCMaterials;
 
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.material.info.MaterialFlags.DISABLE_DECOMPOSITION;
+import static me.oganesson.gregica.common.unification.ore.GCMaterialFlags.GENERATE_MILLED;
 
 public class SecondDegreeMaterials {
 
@@ -102,5 +103,15 @@ public class SecondDegreeMaterials {
         Materials.Darmstadtium.addFlags("generate_frame");
         Materials.Cobalt.addFlags("generate_fine_wire");
         Materials.Lapis.addFlags("generate_bolt_screw");
+        Almandine.addFlags(GENERATE_MILLED);
+        Chalcopyrite.addFlags(GENERATE_MILLED);
+        Grossular.addFlags(GENERATE_MILLED);
+        Monazite.addFlags(GENERATE_MILLED);
+        Nickel.addFlags(GENERATE_MILLED);
+        Platinum.addFlags(GENERATE_MILLED);
+        Pyrope.addFlags(GENERATE_MILLED);
+        Redstone.addFlags(GENERATE_MILLED);
+        Spessartine.addFlags(GENERATE_MILLED);
+        Sphalerite.addFlags(GENERATE_MILLED);
     }
 }
