@@ -9,6 +9,16 @@
         "textures": {
           "all": "gregica:blocks/isa_gear_casing"
         }
+      },
+      "inconel_casing": {
+        "textures": {
+          "all": "gregica:blocks/inconel_casing"
+        }
+      },
+      "flotation_cell": {
+        "textures": {
+          "all": "gregica:blocks/flotation_cell"
+        }
       }
     }
   }

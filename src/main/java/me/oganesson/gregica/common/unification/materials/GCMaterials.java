@@ -27,6 +27,20 @@ public class GCMaterials {
     public static Material RedMud;
     public static Material Butanol;
     public static Material Formaldehyde;
+    public static Material CarbenDisulfide;
+    public static Material PineOil;
+
+    public static Material AlmandineFront;
+    public static Material PentlanditeFront;
+    public static Material ChalcopyriteFront;
+    public static Material GrossularFront;
+    public static Material MonaziteFront;
+    public static Material NickelFront;
+    public static Material PlatinumFront;
+    public static Material PyropeFront;
+    public static Material RedstoneFront;
+    public static Material SpessartineFront;
+    public static Material SphaleriteFront;
 
     public static void register() {
         FirstDegreeMaterials.register();

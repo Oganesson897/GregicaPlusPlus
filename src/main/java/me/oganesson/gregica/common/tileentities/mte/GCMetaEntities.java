@@ -50,7 +50,7 @@ public class GCMetaEntities {
     public static final SimpleGeneratorMetaTileEntity[] SEMI_FLUID_GENERATOR = new SimpleGeneratorMetaTileEntity[3];
 
     public static MTEChemicalPlant CHEMICAL_PLANT;
-
+    public static MTEFlotationCellRegulator FLOTATION_CELL_REGULATOR;
     public static MTEActiveTransformer ACTIVE_TRANSFORMER;
     public static MTEReplicator REPLICATOR;
     public static MTELapotronicSuperCapacitor LAPOTRONIC_SUPER_CAPACITOR;
@@ -103,8 +103,10 @@ public class GCMetaEntities {
 
         ISA_MILL = registerMetaTileEntity(nextID(),new MTEIsaMill(gcID("isa_mill")));
 
- CHEMICAL_PLANT = registerMetaTileEntity(nextID(),new MTEChemicalPlant(gcID("chemical_plant")));
- 
+        CHEMICAL_PLANT = registerMetaTileEntity(nextID(),new MTEChemicalPlant(gcID("chemical_plant")));
+
+        FLOTATION_CELL_REGULATOR = registerMetaTileEntity(nextID(),new MTEFlotationCellRegulator(gcID("flotation_cell_regulator")));
+
         //Multipart
         QBIT_INPUT_HATCH[0] = registerMetaTileEntity(nextID(), new MTEQubitHatch(gcID("qubit_hatch.input.16"), 0, 16, false));
         QBIT_OUTPUT_HATCH[0] = registerMetaTileEntity(nextID(), new MTEQubitHatch(gcID("qubit_hatch.output.1"), 0, 16, true));

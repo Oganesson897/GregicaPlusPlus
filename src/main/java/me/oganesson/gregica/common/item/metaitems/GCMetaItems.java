@@ -58,6 +58,12 @@ public class GCMetaItems {
     public static MetaItem<?>.MetaValueItem GRINDBALL_SOAPSTONE;
     public static MetaItem<?>.MetaValueItem GRINDBALL_ALUMINIUM;
 
+    public static MetaItem<?>.MetaValueItem SODIUM_ETHYLATE;
+    public static MetaItem<?>.MetaValueItem POTASSIUM_ETHYLATE;
+
+    public static MetaItem<?>.MetaValueItem SODIUM_ETHYLXANTHATE;
+    public static MetaItem<?>.MetaValueItem POTASSIUM_ETHYLXANTHATE;
+
     public static void initMetaItems() {
         metaItem1 = new StandardMetaItem();
         metaItem1.setRegistryName("meta_item_gc");
@@ -100,6 +106,14 @@ public class GCMetaItems {
 
         GRINDBALL_SOAPSTONE=metaItem1.addItem(54, "item.soapstone.ball").setMaxStackSize(1).setCreativeTabs(CommonProxy.Tab).addComponents(new MillBallBehavior());
         GRINDBALL_ALUMINIUM=metaItem1.addItem(55, "item.aluminium.ball").setMaxStackSize(1).setCreativeTabs(CommonProxy.Tab).addComponents(new MillBallBehavior());
+
+        SODIUM_ETHYLATE=metaItem1.addItem(56, "item.sodium.ethylate").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
+        SODIUM_ETHYLXANTHATE=metaItem1.addItem(57, "item.sodium.ethylxanthate").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
+
+        POTASSIUM_ETHYLATE=metaItem1.addItem(58, "item.potassium.ethylate").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
+        POTASSIUM_ETHYLXANTHATE=metaItem1.addItem(59, "item.potassium.ethylxanthate").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
+
+
     }
 
     private static void tierItems() {

@@ -31,7 +31,9 @@ public class GCMetaGearBox extends VariantBlock<GCMetaGearBox.GearBoxType> {
 
     public enum GearBoxType implements IStringSerializable {
 
-        ISA_MILL_GEARBOX("isa_gear_casing");
+        ISA_MILL_GEARBOX("isa_gear_casing"),
+        INCONEL_CASING("inconel_casing"),
+        FLOTATION_CALL("flotation_cell");
 
         private final String name;
 

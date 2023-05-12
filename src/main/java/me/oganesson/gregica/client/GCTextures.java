@@ -57,6 +57,8 @@ public class GCTextures {
 
     public static OrientedOverlayRenderer CHEMICAL_PLANT;
 
+    public static SimpleOverlayRenderer FLOTATION_CELL_REGULATOR;
+
     public static final IsaMillRenderer ISA_MILL = new IsaMillRenderer();
 
     public static final ModelResourceLocation LASER_PIPE_MODEL = new ModelResourceLocation(new ResourceLocation(Gregica.MOD_ID, "laser_pipe_normal"), "normal");
@@ -90,6 +92,7 @@ public class GCTextures {
         ALGAE_FARM= new OrientedOverlayRenderer("multiblock/algae_farm");
         ACTIVE_TRANSFORMER= new OrientedOverlayRenderer("multiblock/active_transformer");
         ISA_MILL_CASING= new SimpleOverlayRenderer("isa_machine_casing");
+        FLOTATION_CELL_REGULATOR= new SimpleOverlayRenderer("flotation_casing");
     }
 
 }
