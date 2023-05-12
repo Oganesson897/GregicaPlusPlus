@@ -101,26 +101,26 @@ public class SecondDegreeMaterials {
 
         CarbenDisulfide  = new Material.Builder(26114, "carbon_disulfide")
                 .fluid()
-                .color(0x95A13A)//todo
+                .colorAverage()
                 .components(Carbon, 1, Sulfur, 2)
                 .build();
 
         GCMaterials.PineOil  = new Material.Builder(26115, "pine_oil")
                 .fluid()
-                .color(0x95A13A)//todo
+                .color(0xd6ac37)
                 .build();
 
         GCMaterials.AlmandineFront  = new Material.Builder(26116, "almandine_front").fluid().color(0xD70505).build();
-        GCMaterials.PentlanditeFront  = new Material.Builder(26117, "pentlandite_front").fluid().color(0x95A13A).build();
+        GCMaterials.PentlanditeFront  = new Material.Builder(26117, "pentlandite_front").fluid().color(0x8c800a).build();
         GCMaterials.ChalcopyriteFront  = new Material.Builder(26118, "chalcopyrite_front").fluid().color(0x896826).build();
-        GCMaterials.GrossularFront  = new Material.Builder(26119, "grossular_front").fluid().color(0x95A13A).build();
-        GCMaterials.MonaziteFront  = new Material.Builder(26120, "monazite_front").fluid().color(0x95A13A).build();
+        GCMaterials.GrossularFront  = new Material.Builder(26119, "grossular_front").fluid().color(0xab5860).build();
+        GCMaterials.MonaziteFront  = new Material.Builder(26120, "monazite_front").fluid().color(0x2e3f2e).build();
         GCMaterials.NickelFront  = new Material.Builder(26121, "nickel_front").fluid().color(0xABABD5).build();
-        GCMaterials.PlatinumFront  = new Material.Builder(26122, "platinum_front").fluid().color(0x95A13A).build();
+        GCMaterials.PlatinumFront  = new Material.Builder(26122, "platinum_front").fluid().color(0xe2e2b2).build();
         GCMaterials.PyropeFront  = new Material.Builder(26123, "pyrope_front").fluid().color(0x682E57).build();
         GCMaterials.RedstoneFront  = new Material.Builder(26124, "redstone_front").fluid().color(0xAC0505).build();
-        GCMaterials.SpessartineFront  = new Material.Builder(26125, "spessartine_front").fluid().color(0x95A13A).build();
-        GCMaterials.SphaleriteFront  = new Material.Builder(26126, "sphalerite_front").fluid().color(0x95A13A).build();
+        GCMaterials.SpessartineFront  = new Material.Builder(26125, "spessartine_front").fluid().color(0XDF5A5A).build();
+        GCMaterials.SphaleriteFront  = new Material.Builder(26126, "sphalerite_front").fluid().color(0xD9D9D9).build();
 
         Materials.Potin.addFlags("generate_rotor", "generate_small_gear");
         Materials.Iridium.addFlags("generate_frame");

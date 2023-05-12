@@ -220,7 +220,7 @@ public class GCIsaProcessLine {
                 .EUt(1920).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(8000))
                 .fluidOutputs(GCMaterials.PyropeFront.getFluid(1000))
-                .build();
+                .buildAndRegister();
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.SODIUM_ETHYLXANTHATE.getStackForm(32))
@@ -231,7 +231,7 @@ public class GCIsaProcessLine {
                 .EUt(1920).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(8000))
                 .fluidOutputs(GCMaterials.PyropeFront.getFluid(1000))
-                .build();
+                .buildAndRegister();
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.POTASSIUM_ETHYLXANTHATE.getStackForm(32))
@@ -242,7 +242,7 @@ public class GCIsaProcessLine {
                 .EUt(7680).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(12000))
                 .fluidOutputs(GCMaterials.ChalcopyriteFront.getFluid(1000))
-                .build();
+                .buildAndRegister();
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.SODIUM_ETHYLXANTHATE.getStackForm(32))
@@ -253,7 +253,7 @@ public class GCIsaProcessLine {
                 .EUt(7680).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(13000))
                 .fluidOutputs(GCMaterials.RedstoneFront.getFluid(1000))
-                .build();
+                .buildAndRegister();
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.POTASSIUM_ETHYLXANTHATE.getStackForm(32))
@@ -264,7 +264,7 @@ public class GCIsaProcessLine {
                 .EUt(7680).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(25000))
                 .fluidOutputs(GCMaterials.NickelFront.getFluid(1000))
-                .build();
+                .buildAndRegister();
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.SODIUM_ETHYLXANTHATE.getStackForm(32))
@@ -275,7 +275,7 @@ public class GCIsaProcessLine {
                 .EUt(7680).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(18000))
                 .fluidOutputs(GCMaterials.AlmandineFront.getFluid(1000))
-                .build();
+                .buildAndRegister();
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.POTASSIUM_ETHYLXANTHATE.getStackForm(32))
@@ -286,7 +286,7 @@ public class GCIsaProcessLine {
                 .EUt(30720).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(35000))
                 .fluidOutputs(GCMaterials.SpessartineFront.getFluid(1000))
-                .build();
+                .buildAndRegister();
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.SODIUM_ETHYLXANTHATE.getStackForm(32))
@@ -297,7 +297,7 @@ public class GCIsaProcessLine {
                 .EUt(30720).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(14000))
                 .fluidOutputs(GCMaterials.SphaleriteFront.getFluid(1000))
-                .build();
+                .buildAndRegister();
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.POTASSIUM_ETHYLXANTHATE.getStackForm(32))
@@ -308,7 +308,7 @@ public class GCIsaProcessLine {
                 .EUt(30720).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(14000))
                 .fluidOutputs(GCMaterials.PentlanditeFront.getFluid(1000))
-                .build();
+                .buildAndRegister();
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.SODIUM_ETHYLXANTHATE.getStackForm(32))
@@ -319,7 +319,7 @@ public class GCIsaProcessLine {
                 .EUt(30720).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(35000))
                 .fluidOutputs(GCMaterials.PlatinumFront.getFluid(1000))
-                .build();
+                .buildAndRegister();
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.POTASSIUM_ETHYLXANTHATE.getStackForm(32))
@@ -330,7 +330,7 @@ public class GCIsaProcessLine {
                 .EUt(30720).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(28000))
                 .fluidOutputs(GCMaterials.GrossularFront.getFluid(1000))
-                .build();
+                .buildAndRegister();
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.SODIUM_ETHYLXANTHATE.getStackForm(32))
@@ -341,7 +341,7 @@ public class GCIsaProcessLine {
                 .EUt(30720).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(30000))
                 .fluidOutputs(GCMaterials.MonaziteFront.getFluid(1000))
-                .build();
+                .buildAndRegister();
 
     }
 }
