@@ -6,6 +6,7 @@ import me.oganesson.gregica.api.GCLog;
 import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.api.capability.GCCapabilities;
 import me.oganesson.gregica.api.capability.GCCapabilityProvider;
+import me.oganesson.gregica.common.block.GCYSMetaBlocks;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.ItemBlockLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.tile.TileEntityLaserPipe;
@@ -16,6 +17,7 @@ import me.oganesson.gregica.common.item.metaitems.GCMetaToolItems;
 import me.oganesson.gregica.common.recipes.FuelRecipe;
 import me.oganesson.gregica.common.recipes.GCIsaProcessLine;
 import me.oganesson.gregica.common.recipes.GCRecipes;
+import me.oganesson.gregica.common.recipes.GCYSRecipeLoader;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
 import me.oganesson.gregica.common.tileentities.EssentiaHatch;
 import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
@@ -30,6 +32,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 
 import javax.annotation.Nonnull;
@@ -63,7 +66,10 @@ public class CommonProxy {
         GCRecipes.registerTool();
         GCIsaProcessLine.register();
         GCLog.init(LogManager.getLogger(Gregica.MOD_ID));
-        
+
+        //GCYS
+        GCYSMetaBlocks.init();
+        GCYSRecipeLoader.initHandlers();
     }
 
     public void init( FMLInitializationEvent event ) {
@@ -84,7 +90,9 @@ public class CommonProxy {
         }
         GCRecipes.register();
         GCCoverBehaviors.init();
-        
+
+        //GCYS
+        GCYSRecipeLoader.init();
     }
     
 
@@ -104,6 +112,12 @@ public class CommonProxy {
         event.getRegistry().register(createItemBlock(PINE_LEAVES, ItemBlock::new));
         if(GCValues.IS_TC_LOADED) event.getRegistry().register(createItemBlock(getEssentiaHatch(), ItemBlock::new));
         for(BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(createItemBlock(pipe, ItemBlockLaserPipe::new));
+
+        IForgeRegistry<Item> registry = event.getRegistry();
+        registry.register(createItemBlock(GCYSMetaBlocks.CRUCIBLE, VariantItemBlock::new));
+        registry.register(createItemBlock(GCYSMetaBlocks.MULTIBLOCK_CASING, VariantItemBlock::new));
+        registry.register(createItemBlock(GCYSMetaBlocks.MULTIBLOCK_CASING_ACTIVE, VariantItemBlock::new));
+        registry.register(createItemBlock(GCYSMetaBlocks.TRANSPARENT_CASING, VariantItemBlock::new));
     }
 
     public void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -135,6 +149,11 @@ public class CommonProxy {
         event.getRegistry().register(PINE_LEAVES);
         for (BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(pipe);
         GameRegistry.registerTileEntity(TileEntityLaserPipe.class, new ResourceLocation(Gregica.MOD_ID, "laser_pipe"));
+
+        event.getRegistry().register(GCYSMetaBlocks.CRUCIBLE);
+        event.getRegistry().register(GCYSMetaBlocks.MULTIBLOCK_CASING);
+        event.getRegistry().register(GCYSMetaBlocks.MULTIBLOCK_CASING_ACTIVE);
+        event.getRegistry().register(GCYSMetaBlocks.TRANSPARENT_CASING);
     }
 
     public void onModelRegister() {

@@ -3,9 +3,10 @@ package me.oganesson.gregica.proxy;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.client.GCTextures;
-import me.oganesson.gregica.client.LaserPipeRenderer;
+import me.oganesson.gregica.client.render.pipe.LaserPipeRenderer;
 import me.oganesson.gregica.common.block.CommonBlocks;
 import me.oganesson.gregica.common.block.GCMetaBlocks;
+import me.oganesson.gregica.common.block.GCYSMetaBlocks;
 import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
 import me.oganesson.gregica.common.item.itemUpgrades;
 import net.minecraft.block.state.IBlockState;
@@ -38,6 +39,7 @@ public class ClientProxy extends CommonProxy {
 
     public void onModelRegister() {
         GCMetaBlocks.registerItemModels();
+        GCYSMetaBlocks.registerItemModels();
         if(GCValues.IS_TC_LOADED) CommonBlocks.registerItemModels();
         for (BlockLaserPipe pipe : LASER_PIPES) {
             ModelLoader.setCustomStateMapper(pipe, new DefaultStateMapper() {

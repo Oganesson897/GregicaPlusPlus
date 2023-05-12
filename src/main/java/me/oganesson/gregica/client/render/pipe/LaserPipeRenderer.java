@@ -1,4 +1,4 @@
-package me.oganesson.gregica.client;
+package me.oganesson.gregica.client.render.pipe;
 
 import codechicken.lib.texture.TextureUtils;
 import codechicken.lib.vec.uv.IconTransformation;
@@ -8,6 +8,7 @@ import gregtech.api.pipenet.tile.IPipeTile;
 import gregtech.api.unification.material.Material;
 import gregtech.client.renderer.pipe.PipeRenderer;
 import me.oganesson.gregica.Gregica;
+import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.block.laserpipe.LaserPipeType;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;

@@ -2,7 +2,6 @@ package me.oganesson.gregica.common.block.wood;
 
 import com.google.common.collect.Lists;
 import gregtech.api.GTValues;
-import gregtech.api.GregTechAPI;
 import gregtech.core.CoreModule;
 import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
@@ -24,8 +23,6 @@ import net.minecraft.world.World;
 import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Random;
-
-import static me.oganesson.gregica.common.block.wood.BlockPineLog.NATURAL;
 
 public class BlockPineLeaves extends BlockLeaves {
 

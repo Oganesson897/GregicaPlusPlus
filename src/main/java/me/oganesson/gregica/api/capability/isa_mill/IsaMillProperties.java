@@ -1,9 +1,7 @@
 package me.oganesson.gregica.api.capability.isa_mill;
 
 import gregtech.api.recipes.recipeproperties.RecipeProperty;
-import gregtech.api.util.TextFormattingUtil;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.I18n;
 import org.apache.commons.lang3.Validate;
 
 import java.util.Map;

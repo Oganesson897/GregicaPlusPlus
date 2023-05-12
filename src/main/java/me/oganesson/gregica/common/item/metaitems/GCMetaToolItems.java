@@ -2,7 +2,6 @@ package me.oganesson.gregica.common.item.metaitems;
 
 import gregtech.api.items.toolitem.IGTTool;
 import gregtech.api.items.toolitem.ToolOreDict;
-import gregtech.api.items.toolitem.behavior.IToolBehavior;
 import gregtech.common.items.tool.BlockRotatingBehavior;
 import gregtech.common.items.tool.EntityDamageBehavior;
 import me.oganesson.gregica.Gregica;

@@ -240,3 +240,754 @@ tile.glasses_casing.ava_boron_silicate_glass_block.name=AVA Boron Silicate GLASS
 tile.glasses_casing.tl_boron_silicate_glass_block.name=TL Boron Silicate GLASS
 
 recipemap.log_create.name=Log Create
+
+
+#GCYS
+
+
+# Materials
+
+# Element Materials
+material.lithium_6=Lithium-6
+material.lithium_7=Lithium-7
+material.beryllium_7=Beryllium-7
+material.orichalcum=Orichalcum
+material.vibranium=Vibranium
+material.adamantium=Adamantium
+material.taranium=Taranium
+
+
+# First Degree Materials
+material.lanthanum_oxide=Lanthanum Oxide
+material.praseodymium_oxide=Praseodymium Oxide
+material.neodymium_oxide=Neodymium Oxide
+material.cerium_oxide=Cerium Oxide
+material.scandium_oxide=Scandium Oxide
+material.europium_oxide=Europium Oxide
+material.gadolinium_oxide=Gadolinium Oxide
+material.samarium_oxide=Samarium Oxide
+material.yttrium_oxide=Yttrium Oxide
+material.terbium_oxide=Terbium Oxide
+material.dysprosium_oxide=Dysprosium Oxide
+material.holmium_oxide=Holmium Oxide
+material.erbium_oxide=Erbium Oxide
+material.thulium_oxide=Thulium Oxide
+material.ytterbium_oxide=Ytterbium Oxide
+material.lutetium_oxide=Lutetium Oxide
+material.purified_platinum_group_concentrate=Purified Platinum Group Concentrate
+material.ammonium_hexachloroplatinate=Ammonium Hexachloroplatinate
+material.ammonium_hexachloropalladate=Ammonium Hexachloropalladate
+material.sodium_nitrate=Sodium Nitrate
+material.potassium_hydroxide=Potassium Hydroxide
+material.carbon_tetrachloride=Carbon Tetrachloride
+material.ruthenium_chloride=Ruthenium Chloride
+material.sodium_peroxide=Sodium Peroxide
+material.rhodium_oxide=Rhodium Oxide
+material.sodium_chlorate=Sodium Chlorate
+material.sulfur_dichloride=Sulfur Dichloride
+material.thionyl_chloride=Thionyl Chloride
+material.osmium_tetrachloride=Osmium Tetrachloride
+material.potassium_bromate=Potassium Bromate
+material.tungsten_trioxide=Tungsten Trioxide
+material.hydrogen_peroxide=Hydrogen Peroxide
+material.hydrazine=Hydrazine
+material.beryllium_oxide=Beryllium Oxide
+material.tantalum_pentoxide=Tantalum Pentoxide
+material.niobium_pentoxide=Niobium Pentoxide
+material.calcium_difluoride=Calcium Difluoride
+material.manganese_difluoride=Manganese Difluoride
+material.calcium_carbide=Calcium Carbide
+material.calcium_hydroxide=Calcium Hydroxide
+material.sodium_cyanide=Sodium Cyanide
+material.chlorosulfuric_acid=Chlorosulfuric Acid
+material.cubic_zirconia=Cubic Zirconia
+material.molybdenum_trioxide=Molybdenum Trioxide
+material.lead_chloride=Lead Chloride
+material.sodium_tellurite=Sodium Tellurite
+material.tellurium_dioxide=Tellurium Dioxide
+material.selenium_dioxide=Selenium Dioxide
+material.selenous_acid=Selenous Acid
+material.boric_acid=Boric Acid
+material.boron_trioxide=Boron Trioxide
+material.boron_trifluoride=Boron Trifluoride
+material.lithium_tetrafluoroborate=Lithium Tetrafluoroborate
+material.diborane=Diborane
+material.borazine=Borazine
+material.boron_trichloride=Boron Trichloride
+material.trichloroborazine=Trichloroborazine
+material.hexagonal_boron_nitride=Hexagonal Boron Nitride
+material.cubic_boron_nitride=Cubic Boron Nitride
+material.amorphous_boron_nitride=Amorphous Boron Nitride
+material.heterodiamond=Heterodiamond
+material.cubic_heterodiamond=Cubic Heterodiamond
+material.lithium_hydride=Lithium Hydride
+material.hydrobromic_acid=Hydrobromic Acid
+material.white_phosphorus=White Phosphorus
+material.red_phosphorus=Red Phosphorus
+material.violet_phosphorus=Violet Phosphorus
+material.black_phosphorus=Black Phosphorus
+material.blue_phosphorus=Blue Phosphorus
+material.phosphorene=Phosphorene
+material.phosphorus_trichloride=Phosphorus Trichloride
+material.phosphoryl_chloride=Phosphoryl Chloride
+material.zinc_oxide=Zinc Oxide
+material.germanium_tetrachloride=Germanium Tetrachloride
+material.germanium_dioxide=Germanium Dioxide
+material.silicon_tetrachloride=Silicon Tetrachloride
+material.gst_glass=GST Glass
+material.zblan_glass=ZBLAN Glass
+material.helium_neon=Helium-Neon
+material.aluminium_hydroxide=Aluminium Hydroxide
+material.aluminium_trichloride=Aluminium Trichloride
+material.gallium_trichloride=Gallium Trichloride
+material.gallium_trioxide=Gallium Trioxide
+material.gallium_nitride=Gallium Nitride
+material.cadmium_bromide=Cadmium Bromide
+material.magnesium_bromide=Magnesium Bromide
+material.cadmium_sulfide=Cadmium Sulfide
+material.cadmium_selenide=Cadmium Selenide
+material.phosphine=Phosphine
+material.plutonium_trihydride=Plutonium Trihydride
+material.plutonium_phosphide=Plutonium Phosphide
+material.carbon_nanotube=Carbon Nanotube
+item.carbon_nanotube.dustSmall=Small Pile of Carbon Nanotubes
+item.carbon_nanotube.dustTiny=Tiny Pile of Carbon Nanotubes
+material.lithium_amalgam=Lithium Amalgam
+material.lithium_hydroxide=Lithium Hydroxide
+material.lithium_7_hydroxide=Lithium-7 Hydroxide
+material.neptunium_aluminide=Neptunium Aluminide
+material.bismuth_trioxide=Bismuth Trioxide
+material.ferric_oxide=Ferric Oxide
+material.bismuth_chalcogenide=Bismuth Chalcogenide
+material.mercury_cadmium_telluride=Mercury Cadmium Telluride
+material.aluminium_selenide=Aluminium Selenide
+material.hydrogen_selenide=Hydrogen Selenide
+material.palladium_nitrate=Palladium Nitrate
+material.fullerene=Fullerene
+item.fullerene.ingot=Fullerite
+item.fullerene.dust=Buckminsterfullerene
+item.fullerene.dustSmall=Small Buckminsterfullerene
+item.fullerene.dustTiny=Tiny Buckminsterfullerene
+material.thallium_copper_chloride=Thallium Copper Chloride
+material.perrhenic_acid=Perrhenic Acid
+material.ammonium_perrhenate=Ammonium Perrhenate
+material.thallium_sulfate=Thallium Sulfate
+material.heavy_taranium_fuel=Heavy Taranium Fuel
+material.medium_taranium_fuel=Medium Taranium Fuel
+material.light_taranium_fuel=Light Taranium Fuel
+material.heavy_enriched_taranium_fuel=Heavy Enriched Taranium Fuel
+material.medium_enriched_taranium_fuel=Medium Enriched Taranium Fuel
+material.light_enriched_taranium_fuel=Light Enriched Taranium Fuel
+material.adamantite=Adamantite
+material.adamantium_unstable=Unstable Adamantium
+material.orichalcum_energized=Energized Orichalcum
+material.adamantium_enriched=Enriched Adamantium
+material.deep_iron=Deep Iron
+material.vibranium_unstable=Unstable Vibranium
+material.silicon_carbide=Silicon Carbide
+material.cgt=Chromium Germanium Telluride
+material.kovar=Kovar
+material.stannic_chloride=Stannic Chloride
+material.rubidium_chlorostannate=Rubidium Chlorostannate
+material.caesium_chlorostannate=Caesium Chlorostannate
+material.hra_magnesium=Highly Reactive Activated Magnesium
+
+
+# Second Degree Materials
+material.la_pr_nd_ce_oxides_solution=La-Pr-Nd-Ce Oxides Solution
+material.sc_eu_gd_sm_oxides_solution=Sc-Eu-Gd-Sm Oxides Solution
+material.y_tb_dy_ho_oxides_solution=Y-Tb-Dy-Ho Oxides Solution
+material.er_tm_yb_lu_oxides_solution=Er-Tm-Yb-Lu Oxides Solution
+material.platinum_group_concentrate=Platinum Group Concentrate
+material.platinum_group_residue=Platinum Group Residue
+item.platinum_group_residue.dust=Platinum Group Residue
+item.platinum_group_residue.dustSmall=Small Pile of Platinum Group Residue
+item.platinum_group_residue.dustTiny=Tiny Pile of Platinum Group Residue
+material.graphene_oxide=Graphene Oxide
+material.ammonium_nitrate=Ammonium Nitrate
+material.wollastonite=Wollastonite
+material.roasted_sphalerite=Roasted Sphalerite
+material.waelz_oxide=Waelz Oxide
+item.waelz_oxide.dust=Waelz Oxide
+item.waelz_oxide.dustSmall=Small Pile of Waelz Oxide
+item.waelz_oxide.dustTiny=Tiny Pile of Waelz Oxide
+material.waelz_slag=Waelz Slag
+item.waelz_slag.dust=Waelz Slag
+item.waelz_slag.dustSmall=Small Pile of Waelz Slag
+item.waelz_slag.dustTiny=Tiny Pile of Waelz Slag
+material.impure_germanium_dioxide=Impure Germanium Dioxide
+material.erbium_doped_zblan_glass=Erbium-Doped ZBLAN Glass
+material.praseodymium_doped_zblan_glass=Praseodymium-Doped ZBLAN Glass
+material.nd_yag=Nd:YAG
+material.bismuth_ferrite=Bismuth Ferrite
+material.cgt_magnetic=Magnetic Chromium Germanium Telluride
+material.heavy_alkali_chloride_solution=Heavy Alkali Chloride Solution
+
+
+# Third Degree Materials
+material.zinc_rich_sphalerite=Zinc-Rich Sphalerite
+
+
+# Organic Chemistry Materials
+material.tetrahydrofuran=Tetrahydrofuran
+material.ethylhexanol=2-Ethylhexanol
+material.diethylhexyl_phosphoric_acid=Di-(2-ethylhexyl)phosphoric Acid
+material.butanol=Butanol
+material.methyl_formate=Methyl Formate
+material.formic_acid=Formic Acid
+material.phthalic_anhydride=Phthalic Anhydride
+material.ethylanthraquinone=2-Ethylanthraquinone
+material.ethylanthrahydroquinone=2-Ethylanthrahydroquinone
+material.formaldehyde=Formaldehyde
+material.acetylene=Acetylene
+material.turpentine=Turpentine
+material.dichloroethane=1,2-Dichloroethane
+material.trichloroethylene=Trichloroethylene
+material.chloroacetic_acid=Chloroacetic Acid
+material.ethylenediamine=Ethylenediamine
+material.hydrogen_cyanide=Hydrogen Cyanide
+material.tetrasodium_edta=Tetrasodium EDTA
+material.ethylenediaminetetraacetic_acid=Ethylenediaminetetraacetic Acid
+material.aniline=Aniline
+material.acetic_anhydride=Acetic Anhydride
+material.para_xylene=Para-Xylene
+material.durene=Durene
+material.pyromellitic_dianhydride=Pyromellitic Dianhydride
+material.aminophenol=4-Aminophenol
+material.dimethylformamide=Dimethylformamide
+material.oxydianiline=4,4'-Oxydianiline
+material.kapton_k=Kapton K
+material.biphenyl_tetracarboxylic_acid_dianhydride=Biphenyl-Tetracarboxylic Acid Dianhydride
+material.nitroaniline=4-Nitroaniline
+material.para_phenylenediamine=Para-Phenylenediamine
+material.kapton_e=Kapton E
+material.methylamine=Methylamine
+material.trimethylamine=Trimethylamine
+material.bistrichloromethylbenzene=1,4-Bis(trichloromethyl)benzene
+material.tetrabromoethane=Tetrabromoethane
+material.terephthalic_acid=Terephthalic Acid
+material.terephthaloyl_chloride=Terephthaloyl Chloride
+material.butanediol=Butanediol
+material.gamma_butyrolactone=Gamma-Butyrolactone
+material.n_methyl_pyrrolidone=N-Methyl-2-Pyrrolidone
+material.kevlar=Kevlar
+material.malonic_acid=Malonic Acid
+material.tetramethylammonium_chloride=Tetramethylammonium Chloride
+material.tetramethylammonium_hydroxide=Tetramethylammonium Hydroxide
+material.pyrocatechol=Pyrocatechol
+material.ethylene_oxide=Ethylene Oxide
+material.ethylene_glycol=Ethylene Glycol
+material.diacetyl=Diacetyl
+material.acetone_cyanohydrin=Acetone Cyanohydrin
+material.polymethylmethacrylate=Polymethylmethacrylate (PMMA)
+material.trimethylaluminium=Trimethylaluminium
+material.trimethylgallium=Trimethylgallium
+material.ethylene_dibromide=Ethylene Dibromide
+material.dimethylcadmium=Dimethylcadmium
+material.grignard_reagent=Grignard Reagent
+material.diethyl_sulfide=Diethyl Sulfide
+material.cycloparaphenylene=Cycloparaphenylene
+material.indene=Indene
+material.indanone=1-Indanone
+material.truxene=Truxene
+material.bromomethane=Bromomethane
+material.bromo_bromomethyl_naphthalene=1-Bromo-2-(bromomethyl)naphthalene
+material.bromobutane=1-Bromobutane
+material.butyllithium=n-Butyllithium
+material.palladium_acetate=Palladium Acetate
+material.geodesic_polyarene=Geodesic Polyarene
+material.edot=3,4-Ethylenedioxythiophene (EDOT)
+material.polystyrene=Polystyrene
+material.polystyrene_sulfonate=Polystyrene Sulfonate
+material.pedot_pss=PEDOT:PSS
+material.pedot_tma=PEDOT-TMA
+
+
+# Unknown Composition Materials
+material.rare_earth_hydroxides_solution=Rare Earth Hydroxides Solution
+material.rare_earth_chlorides_solution=Rare Earth Chlorides Solution
+material.leached_turpentine=Leached Turpentine
+material.steamcracked_turpentine=Steam-Cracked Turpentine
+material.bz_medium=BZ Medium
+material.rich_nitrogen_mixture=Rich Nitrogen Mixture
+material.rich_ammonia_mixture=Rich Ammonia Mixture
+material.brine=Brine
+material.chlorinated_brine=Chlorinated Brine
+material.chalcogen_anode_mud=Chalcogen Anode Mud
+item.chalcogen_anode_mud.dust=Chalcogen Anode Mud
+item.chalcogen_anode_mud.dustSmall=Small Pile of Chalcogen Anode Mud
+item.chalcogen_anode_mud.dustTiny=Tiny Pile of Chalcogen Anode Mud
+material.methylamine_mixture=Methylamine Mixture
+material.edp=EDP Etching Solution
+material.phosphorene_solution=Phosphorene Exfoliation Solution
+material.sodio_indene=Sodio-Indene
+material.steam_cracked_sodio_indene=Steam-Cracked Sodio-Indene
+material.molybdenum_flue=Molybdenum Flue Gas
+material.trace_rhenium_flue=Trace Rhenium Flue Gas
+material.fracturing_fluid=Fracturing Fluid
+material.bedrock_smoke=Bedrock Smoke
+material.bedrock=Bedrock
+material.bedrock_soot_solution=Bedrock Soot Solution
+material.clean_bedrock_solution=Clean Bedrock Solution
+material.heavy_bedrock_smoke=Heavy Bedrock Smoke
+material.medium_bedrock_smoke=Medium Bedrock Smoke
+material.light_bedrock_smoke=Light Bedrock Smoke
+material.ultralight_bedrock_smoke=Ultralight Bedrock Smoke
+material.heavy_taranium_gas=Heavy Taranium Gas
+material.medium_taranium_gas=Medium Taranium Gas
+material.light_taranium_gas=Light Taranium Gas
+material.bedrock_gas=Bedrock Gas
+material.cracked_heavy_taranium=Fluorine-Cracked Heavy Taranium
+material.cracked_medium_taranium=Fluorine-Cracked Medium Taranium
+material.cracked_light_taranium=Fluorine-Cracked Light Taranium
+material.enriched_bedrock_soot_solution=Enriched Bedrock Soot Solution
+material.clean_enriched_bedrock_solution=Clean Enriched Bedrock Solution
+material.heavy_enriched_bedrock_smoke=Heavy Enriched Bedrock Smoke
+material.medium_enriched_bedrock_smoke=Medium Enriched Bedrock Smoke
+material.light_enriched_bedrock_smoke=Light Enriched Bedrock Smoke
+material.heavy_enriched_taranium_gas=Heavy Enriched Taranium Gas
+material.medium_enriched_taranium_gas=Medium Enriched Taranium Gas
+material.light_enriched_taranium_gas=Light Enriched Taranium Gas
+material.cracked_heavy_enriched_taranium=Radon-Cracked Heavy Enriched Taranium
+material.cracked_medium_enriched_taranium=Radon-Cracked Medium Enriched Taranium
+material.cracked_light_enriched_taranium=Radon-Cracked Light Enriched Taranium
+material.energetic_naquadria=Energetic Naquadria
+material.light_hyper_fuel=Light Hyper Fuel
+material.medium_hyper_fuel=Medium Hyper Fuel
+material.heavy_hyper_fuel=Heavy Hyper Fuel
+material.qcd_confined_matter=Quantumchromodynamically Confined Matter
+material.reissner_nordstrom_matrix=Reissner-Nordstrom Matrix
+material.sentient_metal=Sentient Metal
+
+
+# Tricorder Info
+behavior.tricorder.current_pressure=Current Pressure: %s Pa
+behavior.tricorder.min_pressure=Minimum Pressure: %s Pa
+behavior.tricorder.max_pressure=Maximum Pressure: %s Pa
+
+
+# Generic Pressure Info
+gcys.universal.tooltip.pressure.minimum=Minimum Pressure Capacity: §a%sPa (§r%s§a)
+gcys.universal.tooltip.pressure.maximum=Maximum Pressure Capacity: §a%sPa (§r%s§a)
+gcys.universal.tooltip.pressure.target=Pressure Target
+
+
+# Single Block Machines
+
+# Infinite Pressure Pump
+gregica.machine.infinite_pressure_pump.name=Infinite Pressure Pump
+gregica.machine.infinite_pressure_pump.tooltip=§8You just need §o§5C§dr§4e§ca§et§ai§bv§3e §7m§1o§5d§de§r§8 to use this
+
+# Multi Block Hatches
+gregica.machine.pressure_hatch.ivv.name=Intergalactic Void Vacuum Hatch
+gregica.machine.pressure_hatch.csv.name=Close-Space Vacuum Hatch
+gregica.machine.pressure_hatch.ehv.name=Extremely High Vacuum Hatch
+gregica.machine.pressure_hatch.uhv.name=Ultra High Vacuum Hatch
+gregica.machine.pressure_hatch.hv.name=High Vacuum Hatch
+gregica.machine.pressure_hatch.mv.name=Medium Vacuum Hatch
+gregica.machine.pressure_hatch.lv.name=Low Vacuum Hatch
+gregica.machine.pressure_hatch.lp.name=Low Pressure Hatch
+gregica.machine.pressure_hatch.mp.name=Medium Pressure Hatch
+gregica.machine.pressure_hatch.hp.name=High Pressure Hatch
+gregica.machine.pressure_hatch.uhp.name=Ultra High Pressure Hatch
+gregica.machine.pressure_hatch.edp.name=Electron Degeneracy Pressure Hatch
+gregica.machine.pressure_hatch.wdp.name=White Dwarf Pressure Hatch
+gregica.machine.pressure_hatch.nsp.name=Neutron Star Pressure Hatch
+
+# Multi Block Machines
+
+# Crystallizer
+gregica.machine.crystallization_crucible.name=Crystallization Crucible
+
+# Roaster
+gregica.machine.roaster.name=Roaster
+gregica.multiblock.roaster.tooltip.1=Bronze Firebox: §c1000K
+gregica.multiblock.roaster.tooltip.2=Steel Firebox: §c1500K
+gregica.multiblock.roaster.tooltip.3=Titanium Firebox: §c2000K
+gregica.multiblock.roaster.tooltip.4=Tungstensteel Firebox: §c2500K
+# Burner Reactor
+gregica.machine.burner_reactor.name=Burner Reactor
+
+# Cryogenic Reactor
+gregica.machine.cryogenic_reactor.name=Cryogenic Reaction Chamber
+
+# Nanoscale Fabricator
+gregica.machine.nanoscale_fabricator.name=Nanoscale Fabricator
+gregica.multiblock.nanoscale_fabricator.tooltip.1=Average Crucible heat cannot exceed the target by more than §c250K§7.
+
+# CVD Unit
+gregica.machine.cvd_unit.name=CVD Unit
+
+# Fracking Machine
+gregica.machine.fracker.name=Hydraulic Fracker
+gregica.multiblock.fracker.tooltip.1=Uses 1000L of Fracturing Fluid to replenish veins under bedrock.
+gregica.multiblock.fracker.tooltip.2=Consumes §a%s EU/t§7.
+
+# Sonicator
+gregica.machine.sonicator.name=Sonicator
+
+# Catalytic Reformer
+gregica.machine.catalytic_reformer.name=Catalytic Reformer
+
+# Industrial Drill
+gregica.machine.industrial_drill.name=Industrial Drilling Rig
+gregica.multiblock.industrial_drill.tooltip.1=Drills the block placed beneath the Drill Head.
+gregica.multiblock.industrial_drill.tooltip.2=The target block is not broken when non-consumable.
+
+# Axial Compressors
+gregica.machine.axial_compressor.subsonic.name=Subsonic Axial Compressor
+gregica.machine.axial_compressor.supersonic.name=Supersonic Axial Compressor
+gregica.multiblock.axial_compressor.tooltip.1=Increases pressure by §b%sPa/s§7 up to §a%sPa (§r%s§a).
+gregica.multiblock.axial_compressor.tooltip.2=Consumes §e%sL/s§7 Lubricant when increasing pressure.
+gregica.multiblock.axial_compressor.tooltip.3=Uses %s§7 power. Does not overclock.
+
+# Turbomolecular Pumps
+gregica.machine.turbomolecular_pump.low_power.name=Low-Power Turbomolecular Pump
+gregica.machine.turbomolecular_pump.high_power.name=High-Power Turbomolecular Pump
+gregica.multiblock.turbomolecular_pump.tooltip.1=Decreases pressure by §b%sPa/s§7 up to §a%sPa (§r%s§a).
+gregica.multiblock.turbomolecular_pump.tooltip.2=Consumes §e%sL/s§7 Lubricant when decreasing pressure.
+gregica.multiblock.turbomolecular_pump.tooltip.3=Uses %s§7 power. Does not overclock.
+
+# Supra-Chronal Assembler
+gregica.machine.suprachronal_assembler.name=Supra-Chronal Assembler
+
+# Single Block Machines
+
+gregica.machine.dryer.lv.name=Basic Dryer
+gregica.machine.dryer.lv.tooltip=Not for Hair
+gregica.machine.dryer.mv.name=Advanced Dryer
+gregica.machine.dryer.mv.tooltip=Not for Hair
+gregica.machine.dryer.hv.name=Advanced Dryer II
+gregica.machine.dryer.hv.tooltip=Not for Hair
+gregica.machine.dryer.ev.name=Advanced Dryer III
+gregica.machine.dryer.ev.tooltip=Not for Hair
+gregica.machine.dryer.iv.name=Elite Dryer
+gregica.machine.dryer.iv.tooltip=Not for Clothing
+gregica.machine.dryer.luv.name=Elite Dryer II
+gregica.machine.dryer.luv.tooltip=Not for Clothing
+gregica.machine.dryer.zpm.name=Elite Dryer III
+gregica.machine.dryer.zpm.tooltip=Not for Clothing
+gregica.machine.dryer.uv.name=Ultimate Dryer
+gregica.machine.dryer.uv.tooltip=Moisture Remover
+gregica.machine.dryer.uhv.name=Epic Dryer
+gregica.machine.dryer.uhv.tooltip=Moisture Remover
+gregica.machine.dryer.uev.name=Epic Dryer II
+gregica.machine.dryer.uev.tooltip=Moisture Remover
+gregica.machine.dryer.uiv.name=Epic Dryer III
+gregica.machine.dryer.uiv.tooltip=Moisture Remover
+gregica.machine.dryer.uxv.name=Epic Dryer IV
+gregica.machine.dryer.uxv.tooltip=Moisture Remover
+gregica.machine.dryer.opv.name=Legendary Dryer
+gregica.machine.dryer.opv.tooltip=Moisture Remover
+
+# Pipes
+gregica.pipe.pressure_pipe_low_vacuum.name=Low Vacuum Pipe
+gregica.pipe.pressure_pipe_medium_vacuum.name=Medium Vacuum Pipe
+gregica.pipe.pressure_pipe_high_vacuum.name=High Vacuum Pipe
+gregica.pipe.pressure_pipe_ultra_high_vacuum.name=Ultra High Vacuum Pipe
+gregica.pipe.pressure_pipe_extremely_high_vacuum.name=Extremely High Vacuum Pipe
+gregica.pipe.pressure_pipe_close_space_vacuum.name=Close-Space Vacuum Pipe
+gregica.pipe.pressure_pipe_intergalactic_void_vacuum.name=Intergalactic Void Vacuum Pipe
+gregica.pipe.pressure_pipe_low_pressure.name=Low Pressure Pipe
+gregica.pipe.pressure_pipe_medium_pressure.name=Medium Pressure Pipe
+gregica.pipe.pressure_pipe_high_pressure.name=High Pressure Pipe
+gregica.pipe.pressure_pipe_ultra_high_pressure.name=Ultra High Pressure Pipe
+gregica.pipe.pressure_pipe_electron_degeneracy_pressure.name=Electron Degeneracy Pressure Pipe
+gregica.pipe.pressure_pipe_white_dwarf_pressure.name=White Dwarf Pressure Pipe
+gregica.pipe.pressure_pipe_neutron_star_pressure.name=Neutron Star Pressure Pipe
+
+gregica.pipe.pressure.tooltip.volume=Volume: §a%sL
+
+
+# Blocks
+tile.crucible.quartz.name=Quartz Crucible
+tile.crucible.tungsten.name=Tungsten Crucible
+tile.crucible.graphite.name=Graphite Crucible
+tile.crucible.boron_nitride.name=Boron Nitride Crucible
+
+tile.multiblock_casing.substrate.name=Substrate Casing
+tile.multiblock_casing.advanced_substrate.name=Advanced Substrate Casing
+tile.multiblock_casing.drill_head.name=Drill Head
+tile.multiblock_casing.suprachronal_casing.name=Supra-Chronal Assembler Casing
+
+tile.multiblock_casing_active.airfoil.name=Airfoil Chamber
+tile.multiblock_casing_active.advanced_airfoil.name=Advanced Airfoil Chamber
+
+tile.transparent_casing.pmma.name=PMMA Glass
+
+
+# Vacuums
+gcys.vacuum_level.none=No Vacuum
+gcys.vacuum_level.low=Low Vacuum
+gcys.vacuum_level.medium=Medium Vacuum
+gcys.vacuum_level.high=High Vacuum
+gcys.vacuum_level.ultra_high=Ultra High Vacuum
+gcys.vacuum_level.extremely_high=Extremely High Vacuum
+gcys.vacuum_level.perfect=Perfect Vacuum
+
+# Ore Prefixes
+item.material.oreprefix.seedCrystal=%s Seed Crystal
+item.material.oreprefix.boule=%s Boule
+
+# Metaitems
+
+# Primitive Stuff
+metaitem.vacuum_tube.components.name=Vacuum Tube Components
+metaitem.vacuum_tube.components.tooltip=You hope it won't burn out
+
+# Crystal Stuff
+metaitem.boule.cubic_zirconia.europium.name=Europium-doped Monocrystalline Cubic Zirconia Boule
+metaitem.boule.cubic_zirconia.europium.tooltip=Raw Crystal
+metaitem.wafer.cubic_zirconia.europium.name=Europium-doped Cubic Zirconia Wafer
+metaitem.wafer.cubic_zirconia.europium.tooltip=Raw Crystal
+metaitem.wafer.crystal.interface.name=Crystal Interface Wafer
+metaitem.wafer.crystal.interface.tooltip=Raw Crystal Interface
+metaitem.plate.crystal.interface.name=Crystal Interface Chip
+metaitem.plate.crystal.interface.tooltip=Crystal Interface
+metaitem.engraved.crystal_chip.ruby.name=Engraved Ruby Crystal Chip
+metaitem.engraved.crystal_chip.ruby.tooltip=Control Ruby
+metaitem.engraved.crystal_chip.sapphire.name=Engraved Sapphire Crystal Chip
+metaitem.engraved.crystal_chip.sapphire.tooltip=Conversion Sapphire
+metaitem.engraved.crystal_chip.diamond.name=Engraved Diamond Crystal Chip
+metaitem.engraved.crystal_chip.diamond.tooltip=Logic Diamond
+metaitem.crystal.modulator.ruby.name=Ruby Crystal Modulator
+metaitem.crystal.modulator.ruby.tooltip=Control Processing Circuit
+metaitem.crystal.modulator.sapphire.name=Sapphire Crystal Modulator
+metaitem.crystal.modulator.sapphire.tooltip=Conversion Processing Circuit
+metaitem.crystal.modulator.diamond.name=Diamond Crystal Modulator
+metaitem.crystal.modulator.diamond.tooltip=Logic Processing Circuit
+metaitem.crystal.system_on_chip.socket.name=Crystal SOC Socket
+metaitem.crystal.system_on_chip.socket.tooltip=Bridging Crystal and Circuit
+
+# Wetware Stuff
+metaitem.magnetron.name=Magnetron
+
+
+# Optical Stuff
+metaitem.plate.phase_change_memory.name=PRAM
+metaitem.plate.phase_change_memory.tooltip=Phase-change Memory
+metaitem.optical_fiber.name=Optical Fiber
+metaitem.optical_fiber.tooltip=Light-transmitting Glass
+metaitem.dielectric_mirror.name=Dielectric Mirror
+metaitem.dielectric_mirror.tooltip=Bragg Mirror
+metaitem.laser.assembly.empty.name=Empty Laser Assembly
+metaitem.laser.assembly.empty.tooltip=Fill this with some Laser Medium
+metaitem.laser.helium_neon.name=Helium-Neon Laser
+metaitem.laser.helium_neon.tooltip=Purpose: Weak Optical Appliances
+metaitem.laser.nd_yag.name=Nd:YAG Laser
+metaitem.laser.nd_yag.tooltip=Purpose: Strong Optical Appliances
+
+
+# Spintronic Stuff
+metaitem.plate.spin_transfer_torque_memory.name=STTRAM
+metaitem.plate.spin_transfer_torque_memory.tooltip=Spin-Transfer Torque Memory
+metaitem.tube.topological_insulator.name=Topological Insulator Tube
+metaitem.tube.topological_insulator.tooltip=Conductive Surface States
+metaitem.containment_unit.bose_einstein_condensate.name=Bose-Einstein Condensate Containment Unit
+metaitem.containment_unit.bose_einstein_condensate.tooltip=Magnetic Evaporative Cooling
+metaitem.bose_einstein_condensate.name=Bose-Einstein Condensate
+metaitem.bose_einstein_condensate.tooltip=2,000 §cRb-87§7 Atoms at §b170nK§7!
+
+# Supra-Causal Stuff
+metaitem.eigenfolded.kerr.manifold.name=Eigenfolded Kerr Manifold
+
+# Supra-Chronal Stuff
+metaitem.hyperdimensional.drone.name=Hyperdimensional Drone
+
+# Power Components
+metaitem.wafer.nano_power_integrated_circuit.name=NPIC Wafer
+metaitem.wafer.nano_power_integrated_circuit.tooltip=Raw Nano Power Circuit
+metaitem.wafer.pico_power_integrated_circuit.name=PPIC Wafer
+metaitem.wafer.pico_power_integrated_circuit.tooltip=Raw Pico Power Circuit
+metaitem.wafer.femto_power_integrated_circuit.name=FPIC Wafer
+metaitem.wafer.femto_power_integrated_circuit.tooltip=Raw Femto Power Circuit
+metaitem.plate.nano_power_integrated_circuit.name=NPIC
+metaitem.plate.nano_power_integrated_circuit.tooltip=Nano Power Integrated Circuit
+metaitem.plate.pico_power_integrated_circuit.name=PPIC
+metaitem.plate.pico_power_integrated_circuit.tooltip=Pico Power Integrated Circuit
+metaitem.plate.femto_power_integrated_circuit.name=FPIC
+metaitem.plate.femto_power_integrated_circuit.tooltip=Femto Power Integrated Circuit
+
+
+# Item Behaviors
+metaitem.behavior.held_item_destroy.message=Holding the %s damaged it!
+
+
+# Nanotube Stuff
+metaitem.mixture.carbon_allotrope.name=Carbon Allotrope Mixture
+metaitem.cnt.graphene_aligned.name=Graphene-Aligned Carbon Nanotube
+
+# Crafting Components
+metaitem.component.grinder.boron_nitride.name=Boron Nitride Grinding Head
+
+# Circuit Boards
+metaitem.board.gooware.name=Kapton Circuit Board
+metaitem.board.gooware.tooltip=A Super Board
+metaitem.board.optical.name=Gallium Nitride Circuit Board
+metaitem.board.optical.tooltip=An Ultimate Board
+metaitem.board.spintronic.name=Carbon Nanotube Circuit Board
+metaitem.board.spintronic.tooltip=An Infinite Board
+metaitem.circuit_board.gooware.name=Super Circuit Board
+metaitem.circuit_board.gooware.tooltip=The Board that performs Reactions
+metaitem.circuit_board.optical.name=Ultimate Circuit Board
+metaitem.circuit_board.optical.tooltip=The Board that transmits Light
+metaitem.circuit_board.spintronic.name=Infinite Circuit Board
+metaitem.circuit_board.spintronic.tooltip=The Board that directs Spin
+
+# SMDs
+metaitem.component.optical_smd.capacitor.name=Optical Integrator
+metaitem.component.optical_smd.capacitor.tooltip=Optoelectronic Capacitor
+metaitem.component.optical_smd.diode.name=Optical Isolator
+metaitem.component.optical_smd.diode.tooltip=Optoelectronic Diode
+metaitem.component.optical_smd.resistor.name=Photoresistor
+metaitem.component.optical_smd.resistor.tooltip=Optoelectronic Resistor
+metaitem.component.optical_smd.transistor.name=Optical Transistor
+metaitem.component.optical_smd.transistor.tooltip=Optoelectronic Transistor
+metaitem.component.optical_smd.inductor.name=Optical Polarizer
+metaitem.component.optical_smd.inductor.tooltip=Optoelectronic Inductor
+metaitem.component.spintronic_smd.capacitor.name=Supercapacitor
+metaitem.component.spintronic_smd.capacitor.tooltip=Spin-Electronic Capacitor
+metaitem.component.spintronic_smd.diode.name=Schottky Diode
+metaitem.component.spintronic_smd.diode.tooltip=Spin-Electronic Diode
+metaitem.component.spintronic_smd.resistor.name=Magnetorestrictor
+metaitem.component.spintronic_smd.resistor.tooltip=Spin-Electronic Resistor
+metaitem.component.spintronic_smd.transistor.name=Spin MOSFET
+metaitem.component.spintronic_smd.transistor.tooltip=Spin-Electronic Transistor
+metaitem.component.spintronic_smd.inductor.name=Spin Polarizer
+metaitem.component.spintronic_smd.inductor.tooltip=Spin-Electronic Inductor
+
+# Processing Units
+metaitem.reaction_chamber.bz.name=Belousov-Zhabotinsky Reaction Chamber
+metaitem.nonlinear_chemical_oscillator.name=Nonlinear Chemical Oscillator
+metaitem.nonlinear_chemical_oscillator.tooltip=Non-equilibrium Thermodynamics!
+metaitem.optical_laser_control_unit.name=Optical Laser Control Unit
+metaitem.optical_laser_control_unit.tooltip=Laser Information Transmission
+metaitem.esr_computation_unit.name=ESR Computation Unit
+metaitem.esr_computation_unit.tooltip=Electron Spin Resonance Quantum Computation!
+
+# Circuits
+# Gooware
+metaitem.circuit.gooware_processor.name=Gooware Processor
+metaitem.circuit.gooware_processor.tooltip=Reaction-Diffusion Computation/n§2ZPM-tier Circuit
+metaitem.circuit.gooware_assembly.name=Gooware Assembly
+metaitem.circuit.gooware_assembly.tooltip=Cyclic Concentration/n§2UV-tier Circuit
+metaitem.circuit.gooware_computer.name=Gooware Supercomputer
+metaitem.circuit.gooware_computer.tooltip=Complex Wave Phenomena!/n§2UHV-tier Circuit
+metaitem.circuit.gooware_mainframe.name=Gooware Mainframe
+metaitem.circuit.gooware_mainframe.tooltip=Spiraling Colored Waves!/n§2UEV-tier Circuit
+
+# Optical
+metaitem.circuit.optical_processor.name=Optical Processor
+metaitem.circuit.optical_processor.tooltip=Lightspeed Computing/n§6UV-tier Circuit
+metaitem.circuit.optical_assembly.name=Optical Assembly
+metaitem.circuit.optical_assembly.tooltip=With the Power of Lasers!/n§6UHV-tier Circuit
+metaitem.circuit.optical_computer.name=Optical Supercomputer
+metaitem.circuit.optical_computer.tooltip=In the Blink of an Eye/n§6UEV-tier Circuit
+metaitem.circuit.optical_mainframe.name=Optical Mainframe
+metaitem.circuit.optical_mainframe.tooltip=Could Anything be faster?/n§6UIV-tier Circuit
+
+# Spintronic
+metaitem.circuit.spintronic_processor.name=Spintronic Processor
+metaitem.circuit.spintronic_processor.tooltip=Spinning Electrons/n§5UHV-tier Circuit
+metaitem.circuit.spintronic_assembly.name=Spintronic Assembly
+metaitem.circuit.spintronic_assembly.tooltip=Discrete Quantum Walks/n§5UEV-tier Circuit
+metaitem.circuit.spintronic_computer.name=Spintronic Supercomputer
+metaitem.circuit.spintronic_computer.tooltip=Ballistic Spin Filtration/n§5UIV-tier Circuit
+metaitem.circuit.spintronic_mainframe.name=Spintronic Mainframe
+metaitem.circuit.spintronic_mainframe.tooltip=Spin-Wave Logic!/n§5UXV-tier Circuit
+
+
+# Cosmic
+metaitem.circuit.cosmic_processor.name=Cosmic Processor
+metaitem.circuit.cosmic_processor.tooltip=Phenomenal cosmic powers!/n§8UEV-tier Circuit
+metaitem.circuit.cosmic_assembly.name=Cosmic Assembly
+metaitem.circuit.cosmic_assembly.tooltip=Phenomenal cosmic powers!/n§8UIV-tier Circuit
+metaitem.circuit.cosmic_computer.name=Cosmic Supercomputer
+metaitem.circuit.cosmic_computer.tooltip=Phenomenal cosmic powers!/n§8UXV-tier Circuit
+metaitem.circuit.cosmic_mainframe.name=Cosmic Mainframe
+metaitem.circuit.cosmic_mainframe.tooltip=Phenomenal cosmic powers!/n§8OpV-tier Circuit
+
+# Supracausal
+metaitem.circuit.supracausal_processor.name=Supra-Causal Processor
+metaitem.circuit.supracausal_processor.tooltip=With the Power of Black Holes/n§fUIV-tier Circuit
+metaitem.circuit.supracausal_assembly.name=Supra-Causal Assembly
+metaitem.circuit.supracausal_assembly.tooltip=Singularities on an Epic scale/n§fUXV-tier Circuit
+metaitem.circuit.supracausal_computer.name=Supra-Causal Supercomputer
+metaitem.circuit.supracausal_computer.tooltip=Using Wormholes to our Advantage/n§fOpV-tier Circuit
+metaitem.circuit.supracausal_mainframe.name=Supra-Causal Mainframe
+metaitem.circuit.supracausal_mainframe.tooltip=Answers before questions/n§fMAX-tier Circuit
+
+# Suprachronal
+metaitem.circuit.suprachronal.ulv.name=Supra-Chronal Circuit (ULV)
+metaitem.circuit.suprachronal.ulv.tooltip=Full control over spacetime/n§fULV-tier Circuit
+metaitem.circuit.suprachronal.lv.name=Supra-Chronal Circuit (LV)
+metaitem.circuit.suprachronal.lv.tooltip=Full control over spacetime/n§fLV-tier Circuit
+metaitem.circuit.suprachronal.mv.name=Supra-Chronal Circuit (MV)
+metaitem.circuit.suprachronal.mv.tooltip=Full control over spacetime/n§fMV-tier Circuit
+metaitem.circuit.suprachronal.hv.name=Supra-Chronal Circuit (HV)
+metaitem.circuit.suprachronal.hv.tooltip=Full control over spacetime/n§fHV-tier Circuit
+metaitem.circuit.suprachronal.ev.name=Supra-Chronal Circuit (EV)
+metaitem.circuit.suprachronal.ev.tooltip=Full control over spacetime/n§fEV-tier Circuit
+metaitem.circuit.suprachronal.iv.name=Supra-Chronal Circuit (IV)
+metaitem.circuit.suprachronal.iv.tooltip=Full control over spacetime/n§fIV-tier Circuit
+metaitem.circuit.suprachronal.luv.name=Supra-Chronal Circuit (LuV)
+metaitem.circuit.suprachronal.luv.tooltip=Full control over spacetime/n§fLuV-tier Circuit
+metaitem.circuit.suprachronal.zpm.name=Supra-Chronal Circuit (ZPM)
+metaitem.circuit.suprachronal.zpm.tooltip=Full control over spacetime/n§fZPM-tier Circuit
+metaitem.circuit.suprachronal.uv.name=Supra-Chronal Circuit (UV)
+metaitem.circuit.suprachronal.uv.tooltip=Full control over spacetime/n§fUV-tier Circuit
+metaitem.circuit.suprachronal.uhv.name=Supra-Chronal Circuit (UHV)
+metaitem.circuit.suprachronal.uhv.tooltip=Full control over spacetime/n§fUHV-tier Circuit
+metaitem.circuit.suprachronal.uev.name=Supra-Chronal Circuit (UEV)
+metaitem.circuit.suprachronal.uev.tooltip=Full control over spacetime/n§fUEV-tier Circuit
+metaitem.circuit.suprachronal.uiv.name=Supra-Chronal Circuit (UIV)
+metaitem.circuit.suprachronal.uiv.tooltip=Full control over spacetime/n§fUIV-tier
+metaitem.circuit.suprachronal.uxv.name=Supra-Chronal Circuit (UXV)
+metaitem.circuit.suprachronal.uxv.tooltip=Full control over spacetime/n§fUXV-tier Circuit
+metaitem.circuit.suprachronal.opv.name=Supra-Chronal Circuit (OpV)
+metaitem.circuit.suprachronal.opv.tooltip=Full control over spacetime/n§fOpV-tier Circuit
+metaitem.circuit.suprachronal.max.name=Supra-Chronal Circuit (MAX)
+metaitem.circuit.suprachronal.max.tooltip=Full control over spacetime/n§fMAX-tier Circuit
+
+# RecipeMaps
+# Machines
+recipemap.dryer_recipes.name=Drying
+recipemap.pressure_chamber_recipes.name=Pressure Chamber
+recipemap.catalytic_reformer_recipes.name=Catalytic Reformation
+recipemap.crystallization_recipes.name=Crystallization
+recipemap.roaster_recipes.name=Roasting
+recipemap.burner_reactor_recipes.name=High Temperature Reactions
+recipemap.cryogenic_reactor_recipes.name=Cryogenic Reactions
+recipemap.molecular_beam_recipes.name=Molecular Beam Epitaxy
+recipemap.cvd_recipes.name=Chemical Vapor Deposition
+recipemap.plasma_cvd_recipes.name=Plasma Enhanced CVD
+recipemap.sonication_recipes.name=Sonication
+recipemap.ion_implanter_recipes.name=Ion Implantation
+recipemap.superheavy_reactor_recipes.name=Superheavy Reactions
+recipemap.drill_recipes.name=Drilling
+recipemap.suprachronal_assembler_recipes.name=Supra-Chronal Assembler
+
+# Generators
+recipemap.taranium_reactor_mk1_recipes.name=Taranium Reactor Mk.1
+recipemap.taranium_reactor_mk2_recipes.name=Taranium Reactor Mk.2
+recipemap.taranium_reactor_mk3_recipes.name=Taranium Hyper Reactor Mk.3
+
+
+# Recipe Properties
+gregica.recipe.temperature=Temperature: %,dK
+gregica.recipe.pressure=Pressure: %sPa
+gregica.recipe.vacuum=Vacuum: %sPa
+
+#fix
+material.blue_vitriol=Blue Vitriol
+material.green_vitriol=Green Vitriol
+material.red_vitriol=Red Vitriol
+material.pink_vitriol=Pink Vitriol
+material.cyan_vitriol=Cyan Vitriol
+material.white_vitriol=White Vitriol
+material.gray_vitriol=Gray Vitriol
+material.clay_vitriol=Clay Vitriol
+material.chloroauric_acid=Chloroauric Acid
+material.chloroplatinic_acid=Chloroplatinic Acid
+material.alumina=Alumina
+material.hematite=Hematite

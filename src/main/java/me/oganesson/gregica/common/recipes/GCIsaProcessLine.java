@@ -8,7 +8,6 @@ import gregtech.api.unification.material.properties.OreProperty;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.ConfigHolder;
-import gregtech.common.items.MetaItems;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
 import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;

@@ -5,7 +5,7 @@ import gregtech.api.pipenet.block.simple.EmptyNodeData;
 import gregtech.api.pipenet.tile.IPipeTile;
 import gregtech.api.pipenet.tile.TileEntityPipeBase;
 import me.oganesson.gregica.api.capability.GCCapabilities;
-import me.oganesson.gregica.client.LaserPipeRenderer;
+import me.oganesson.gregica.client.render.pipe.LaserPipeRenderer;
 import me.oganesson.gregica.common.block.laserpipe.net.WorldLaserNet;
 import me.oganesson.gregica.common.block.laserpipe.tile.TileEntityLaserPipe;
 import me.oganesson.gregica.common.block.laserpipe.tile.TileEntityLaserPipeTickable;

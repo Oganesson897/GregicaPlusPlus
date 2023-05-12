@@ -16,7 +16,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 
-import static gregtech.client.ClientProxy.*;
+import static gregtech.client.ClientProxy.RUBBER_LEAVES_BLOCK_COLOR;
+import static gregtech.client.ClientProxy.RUBBER_LEAVES_ITEM_COLOR;
 import static gregtech.common.blocks.MetaBlocks.statePropertiesToString;
 
 public class GCMetaBlocks {
