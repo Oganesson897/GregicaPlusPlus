@@ -14,6 +14,7 @@ import me.oganesson.gregica.common.item.itemUpgrades;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
 import me.oganesson.gregica.common.item.metaitems.GCMetaToolItems;
 import me.oganesson.gregica.common.recipes.FuelRecipe;
+import me.oganesson.gregica.common.recipes.GCIsaProcessLine;
 import me.oganesson.gregica.common.recipes.GCRecipes;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
 import me.oganesson.gregica.common.tileentities.EssentiaHatch;
@@ -35,7 +36,8 @@ import javax.annotation.Nonnull;
 import java.util.Objects;
 import java.util.function.Function;
 
-import static me.oganesson.gregica.api.capability.ChemicalPlantProperties.registerCasingTier;
+import static me.oganesson.gregica.api.capability.chemical_plant.ChemicalPlantProperties.registerCasingTier;
+import static me.oganesson.gregica.api.capability.isa_mill.IsaMillProperties.registerBallTier;
 import static me.oganesson.gregica.common.block.CommonBlocks.getEssentiaHatch;
 import static me.oganesson.gregica.common.block.GCMetaBlocks.*;
 import static me.oganesson.gregica.common.tileentities.mte.GCMetaEntities.LASER_PIPES;
@@ -59,6 +61,7 @@ public class CommonProxy {
         GCCapabilities.init();
         if(GCValues.IS_TC_LOADED) LargeEssentiaEnergyData.processEssentiaData();
         GCRecipes.registerTool();
+        GCIsaProcessLine.register();
         GCLog.init(LogManager.getLogger(Gregica.MOD_ID));
         
     }
@@ -70,6 +73,9 @@ public class CommonProxy {
         registerCasingTier(3, "StainlessSteel");
         registerCasingTier(4, "Titanium");
         registerCasingTier(5, "TungstenSteel");
+
+        registerBallTier(1, "SoapStone");
+        registerBallTier(2, "Aluminium");
 
         FuelRecipe.init();
         if (GCValues.IS_TOP_LOADED) {
@@ -89,9 +95,13 @@ public class CommonProxy {
         event.getRegistry().register(Upgrades);
         event.getRegistry().register(createItemBlock(GC_BLOCK_CASING, VariantItemBlock::new));
         event.getRegistry().register(createItemBlock(GC_ESSENTIA_CELLS, VariantItemBlock::new));
+        event.getRegistry().register(createItemBlock(GC_META_GEAR_BOX, VariantItemBlock::new));
         event.getRegistry().register(createItemBlock(GC_LAPOTRONIC_CASING, VariantItemBlock::new));
         event.getRegistry().register(createItemBlock(TRANSPARENT_CASING,  VariantItemBlock::new));
         event.getRegistry().register(createItemBlock(TRANSPARENT_CASING1,  VariantItemBlock::new));
+        event.getRegistry().register(createItemBlock(PINE_LOG, ItemBlock::new));
+        event.getRegistry().register(createItemBlock(PINE_SAPLING, ItemBlock::new));
+        event.getRegistry().register(createItemBlock(PINE_LEAVES, ItemBlock::new));
         if(GCValues.IS_TC_LOADED) event.getRegistry().register(createItemBlock(getEssentiaHatch(), ItemBlock::new));
         for(BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(createItemBlock(pipe, ItemBlockLaserPipe::new));
     }
@@ -101,10 +111,14 @@ public class CommonProxy {
 
         GC_BLOCK_CASING.setCreativeTab(Tab);
         GC_ESSENTIA_CELLS.setCreativeTab(Tab);
+        GC_META_GEAR_BOX.setCreativeTab(Tab);
         TRANSPARENT_CASING1.setCreativeTab(Tab);
         TRANSPARENT_CASING.setCreativeTab(Tab);
         GC_LAPOTRONIC_CASING.setCreativeTab(Tab);
-        
+        PINE_LOG.setCreativeTab(Tab);
+        PINE_SAPLING.setCreativeTab(Tab);
+        PINE_LEAVES.setCreativeTab(Tab);
+
         if(GCValues.IS_TC_LOADED){
             getEssentiaHatch().setCreativeTab(Tab);
             event.getRegistry().register(getEssentiaHatch());
@@ -112,9 +126,13 @@ public class CommonProxy {
         }
         event.getRegistry().register(GC_BLOCK_CASING);
         event.getRegistry().register(GC_ESSENTIA_CELLS);
+        event.getRegistry().register(GC_META_GEAR_BOX);
         event.getRegistry().register(GC_LAPOTRONIC_CASING);
         event.getRegistry().register(TRANSPARENT_CASING);
         event.getRegistry().register(TRANSPARENT_CASING1);
+        event.getRegistry().register(PINE_LOG);
+        event.getRegistry().register(PINE_SAPLING);
+        event.getRegistry().register(PINE_LEAVES);
         for (BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(pipe);
         GameRegistry.registerTileEntity(TileEntityLaserPipe.class, new ResourceLocation(Gregica.MOD_ID, "laser_pipe"));
     }

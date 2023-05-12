@@ -34,6 +34,11 @@
         "textures": {
           "all": "gregica:blocks/high_power_casing"
         }
+      },
+      "isa_machine_casing": {
+        "textures": {
+          "all": "gregica:blocks/isa_machine_casing"
+        }
       }
     }
   }

@@ -1,0 +1,19 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "leaves",
+    "textures": {
+      "all": "gregica:blocks/trees/leaves/leaves_pine"
+    }
+  },
+  "variants": {
+    "check_decay": {
+      "false": {},
+      "true": {}
+    },
+    "decayable": {
+      "false": {},
+      "true": {}
+    }
+  }
+}

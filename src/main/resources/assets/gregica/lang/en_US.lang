@@ -78,6 +78,10 @@ metaitem.cover.sensor.max.name=MAX Sensor
 metaitem.cover.pump.max.name=MAX Electric Pump
 
 metaitem.item.advanced_circuit.name=High Power Circuit
+
+# Ore Prefixes
+item.material.oreprefix.milled=%s Milled Ore
+
 #Blocks
 tile.gc_machine_casing.magic_machine_casing.name=Magic Casing
 tile.gc_essentia_cell.essentia_cell_1.name=Novice Essentia Diffusion Cell

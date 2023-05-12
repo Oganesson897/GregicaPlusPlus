@@ -18,6 +18,7 @@ import static gregtech.api.unification.material.Materials.MetalMixture;
 import static gregtech.api.unification.ore.OrePrefix.circuit;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 
+//Test Recipe(测试配方用，在制作成后会移出)
 public class FuelRecipe {
     public static void registerQubitGeneratorFuel(OrePrefix prefix, Material material, int duration, int tier, int qubit) {
         GCRecipeMaps.SIMPLE_QUBIT_GENERATOR.recipeBuilder()

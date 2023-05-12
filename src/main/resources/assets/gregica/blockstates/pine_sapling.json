@@ -1,0 +1,7 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "stage=0": { "model": "gregica:pine_sapling" },
+    "stage=1": { "model": "gregica:pine_sapling" }
+  }
+}

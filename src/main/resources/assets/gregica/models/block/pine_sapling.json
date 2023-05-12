@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "gregica:blocks/trees/saplings/sapling_pine"
+  }
+}

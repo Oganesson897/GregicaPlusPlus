@@ -1,4 +1,4 @@
-package me.oganesson.gregica.api.capability;
+package me.oganesson.gregica.api.capability.isa_mill;
 
 import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeBuilder;
@@ -9,45 +9,45 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.annotation.Nonnull;
 
-public class ChemicalPlantBuilder extends RecipeBuilder<ChemicalPlantBuilder> {
+public class IsaMillBuilder extends RecipeBuilder<IsaMillBuilder> {
 
-    public ChemicalPlantBuilder() {
+    public IsaMillBuilder() {
 
     }
 
-    public ChemicalPlantBuilder(Recipe recipe, RecipeMap<ChemicalPlantBuilder> recipeMap) {
+    public IsaMillBuilder(Recipe recipe, RecipeMap<IsaMillBuilder> recipeMap) {
         super(recipe, recipeMap);
     }
 
-    public ChemicalPlantBuilder(RecipeBuilder<ChemicalPlantBuilder> recipeBuilder) {
+    public IsaMillBuilder(RecipeBuilder<IsaMillBuilder> recipeBuilder) {
         super(recipeBuilder);
     }
 
     @Override
-    public ChemicalPlantBuilder copy() {
-        return new ChemicalPlantBuilder(this);
+    public IsaMillBuilder copy() {
+        return new IsaMillBuilder(this);
     }
 
     public int getLevel() {
         return this.recipePropertyStorage == null ? 0 :
-                this.recipePropertyStorage.getRecipePropertyValue(ChemicalPlantProperties.getInstance(), 0);
+                this.recipePropertyStorage.getRecipePropertyValue(IsaMillProperties.getInstance(), 0);
     }
 
     @Override
     public boolean applyProperty(@Nonnull String key, Object value) {
-        if (key.equals(ChemicalPlantProperties.KEY)) {
-            this.recipeLevel(((Number) value).intValue());
+        if (key.equals(IsaMillProperties.KEY)) {
+            this.getTier(((Number) value).intValue());
             return true;
         }
         return super.applyProperty(key, value);
     }
 
-    public ChemicalPlantBuilder recipeLevel(int level) {
+    public IsaMillBuilder getTier(int level) {
         if (level <= 0) {
             GTLog.logger.error("Blast Furnace Temperature cannot be less than or equal to 0", new IllegalArgumentException());
             recipeStatus = EnumValidationResult.INVALID;
         }
-        this.applyProperty(ChemicalPlantProperties.getInstance(), level);
+        this.applyProperty(IsaMillProperties.getInstance(), level);
         return this;
     }
 
@@ -55,7 +55,7 @@ public class ChemicalPlantBuilder extends RecipeBuilder<ChemicalPlantBuilder> {
     public String toString() {
         return new ToStringBuilder(this)
                 .appendSuper(super.toString())
-                .append(ChemicalPlantProperties.getInstance().getKey(), getLevel())
+                .append(IsaMillProperties.getInstance().getKey(), getLevel())
                 .toString();
     }
 }

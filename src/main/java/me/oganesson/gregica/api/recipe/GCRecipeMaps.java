@@ -7,7 +7,8 @@ import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.builders.FuelRecipeBuilder;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.core.sound.GTSoundEvents;
-import me.oganesson.gregica.api.capability.ChemicalPlantBuilder;
+import me.oganesson.gregica.api.capability.chemical_plant.ChemicalPlantBuilder;
+import me.oganesson.gregica.api.capability.isa_mill.IsaMillBuilder;
 import me.oganesson.gregica.api.capability.quantum.QubitConsumerRecipeBuilder;
 import me.oganesson.gregica.api.capability.quantum.QubitProducerRecipeBuilder;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -18,7 +19,7 @@ import stanhebben.zenscript.annotations.ZenClass;
 public class GCRecipeMaps {
 
     public static final RecipeMap<QubitProducerRecipeBuilder> SIMPLE_QUBIT_GENERATOR = new RecipeMap<>("simple_qubit_generator",
-            1, 1, 0, 0, new QubitProducerRecipeBuilder(), false);
+            1, 0, 0, 0, new QubitProducerRecipeBuilder(), false);
 
     public static final RecipeMap<QubitConsumerRecipeBuilder> RESEARCH_STATION = new RecipeMap<>("research_station",
             2, 1, 0, 0, new QubitConsumerRecipeBuilder(), false);
@@ -60,6 +61,10 @@ public class GCRecipeMaps {
     public static final RecipeMap<SimpleRecipeBuilder> LOGS_CREATE = new RecipeMap<>("log_create",
             2, 8, 1, 0, new SimpleRecipeBuilder(), false);
     public static final RecipeMap<ChemicalPlantBuilder> CHEMICAL_PLANT = new RecipeMap<>("chemical_plant",
-            4, 3, 3, 3, new ChemicalPlantBuilder(), false);
+            4, 4, 3, 3, new ChemicalPlantBuilder(), false);
     public static final RecipeMap<SimpleRecipeBuilder> LAMINATOR_RECIPES = new RecipeMap<>("laminator", 1, 6, 1, 2, 0, 2, 0, 0, new SimpleRecipeBuilder(), false).setSound(GTSoundEvents.ASSEMBLER);
+    public static final RecipeMap<IsaMillBuilder> ISAMILL_GRINDER = new RecipeMap<>("isa_mill",
+            3, 3, 0, 0, new IsaMillBuilder(), false);
+    public static final RecipeMap<SimpleRecipeBuilder> FLOTATION_CELL_REGULATOR = new RecipeMap<>("flotation_cell_regulator",
+            6, 0, 1, 1, new SimpleRecipeBuilder(), false);
 }
