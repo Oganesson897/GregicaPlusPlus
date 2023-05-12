@@ -14,6 +14,7 @@ import me.oganesson.gregica.common.item.itemUpgrades;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
 import me.oganesson.gregica.common.item.metaitems.GCMetaToolItems;
 import me.oganesson.gregica.common.recipes.FuelRecipe;
+import me.oganesson.gregica.common.recipes.GCIsaProcessLine;
 import me.oganesson.gregica.common.recipes.GCRecipes;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
 import me.oganesson.gregica.common.tileentities.EssentiaHatch;
@@ -36,6 +37,7 @@ import java.util.Objects;
 import java.util.function.Function;
 
 import static me.oganesson.gregica.api.capability.chemical_plant.ChemicalPlantProperties.registerCasingTier;
+import static me.oganesson.gregica.api.capability.isa_mill.IsaMillProperties.registerBallTier;
 import static me.oganesson.gregica.common.block.CommonBlocks.getEssentiaHatch;
 import static me.oganesson.gregica.common.block.GCMetaBlocks.*;
 import static me.oganesson.gregica.common.tileentities.mte.GCMetaEntities.LASER_PIPES;
@@ -59,6 +61,7 @@ public class CommonProxy {
         GCCapabilities.init();
         if(GCValues.IS_TC_LOADED) LargeEssentiaEnergyData.processEssentiaData();
         GCRecipes.registerTool();
+        GCIsaProcessLine.register();
         GCLog.init(LogManager.getLogger(Gregica.MOD_ID));
         
     }
@@ -70,6 +73,9 @@ public class CommonProxy {
         registerCasingTier(3, "StainlessSteel");
         registerCasingTier(4, "Titanium");
         registerCasingTier(5, "TungstenSteel");
+
+        registerBallTier(1, "SoapStone");
+        registerBallTier(2, "Aluminium");
 
         FuelRecipe.init();
         if (GCValues.IS_TOP_LOADED) {

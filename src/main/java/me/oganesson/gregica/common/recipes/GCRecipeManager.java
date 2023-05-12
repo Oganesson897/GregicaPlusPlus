@@ -14,6 +14,5 @@ public class GCRecipeManager {
         ReplicatorRecipes.init();
         LogCreateFatoryRecipe.init();
         GCBiologyRecipe.init();
-        GCIsaProcessLine.register();
     }
 }

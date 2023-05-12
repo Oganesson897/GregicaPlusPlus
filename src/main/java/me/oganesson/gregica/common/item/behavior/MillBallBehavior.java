@@ -5,6 +5,8 @@ import gregtech.api.items.metaitem.stats.IItemDurabilityManager;
 import gregtech.api.items.metaitem.stats.IItemMaxStackSizeProvider;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
+import gregtech.api.unification.material.properties.PropertyKey;
+import gregtech.api.unification.material.properties.RotorProperty;
 import gregtech.common.items.behaviors.AbstractMaterialPartBehavior;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
 import net.minecraft.client.resources.I18n;
@@ -19,9 +21,9 @@ public class MillBallBehavior extends AbstractMaterialPartBehavior implements II
     @Override
     public int getPartMaxDurability(ItemStack itemStack) {
         if(GCMetaItems.GRINDBALL_SOAPSTONE.isItemEqual(itemStack))
-            return 1000;
+            return 50;
         else
-            return 2000;
+            return 100;
     }
 
     public int getRotorDurabilityPercent(ItemStack itemStack) {

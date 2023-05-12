@@ -17,6 +17,7 @@ import me.oganesson.gregica.api.capability.GCCapabilities;
 import me.oganesson.gregica.api.item.IBall;
 import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.item.behavior.MillBallBehavior;
+import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
 import me.oganesson.gregica.common.tileentities.mte.multi.machines.MTEIsaMill;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
@@ -76,24 +77,42 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
             getBallBehavior().applyBallDamage(getStackInSlot(0), damageAmount);
         }
 
+        @javax.annotation.Nullable
+        private ItemStack getBallStack() {
+            if (!hasBall())
+                return null;
+            return getStackInSlot(0);
+        }
+
+        private int getBallTier(){
+            if(getBallStack() == null)
+                return 0;
+            else
+            return GCMetaItems.GRINDBALL_SOAPSTONE.isItemEqual(getBallStack()) ? 1 : 2;
+        }
+
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack) {
             return MillBallBehavior.getInstanceFor(stack) != null && super.isItemValid(slot, stack);
         }
-    
+
         @Override
         protected void onLoad() {
             onContentsChanged(0);
         }
-    
+
         @Override
         protected void onContentsChanged(int slot) {
             needUpdate = true;
         }
     }
 
-    public void damageRotor(int amount) {
+    public void damageGrinder(int amount) {
         inventory.damageBall(amount);
+    }
+
+    protected boolean openGUIOnRightClick() {
+        return !getController().isActive();
     }
 
     private boolean needUpdate = false;
@@ -108,16 +127,18 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
 
         MTEIsaMill controller = (MTEIsaMill) getController();
 
-        if (controller != null && controller.isActive() && GTValues.RNG.nextInt(20) == 0) {
-                damageRotor(1 + controller.getNumMaintenanceProblems());
+        if(controller != null && controller.getRecipeLogic() != null)
+        if (controller.getRecipeLogic().getMaxProgress() > 0)
+        if (controller.isActive() && controller.getRecipeLogic().getProgress()/controller.getRecipeLogic().getMaxProgress() == 1) {
+            damageGrinder(1 + controller.getNumMaintenanceProblems());
         }
     }
-    
+
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity iGregTechTileEntity) {
         return new MTEBallHatch(this.metaTileEntityId);
     }
-    
+
 //    @Override
 //    public void addToMultiBlock(MultiblockControllerBase controllerBase) {
 //        super.addToMultiBlock(controllerBase);
@@ -128,7 +149,7 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
 //        super.removeFromMultiBlock(controllerBase);
 //
 //    }
-    
+
     @Override
     @SideOnly(Side.CLIENT)
     public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
@@ -136,9 +157,9 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
         if (this.shouldRenderOverlay()){
             GCTextures.BALL_HATCH.renderSided(getFrontFacing(), renderState, translation, pipeline);
         }
-       
+
     }
-    
+
     @Override
     protected ModularUI createUI(EntityPlayer entityPlayer) {
         ModularUI.Builder builder = ModularUI.builder(GuiTextures.BACKGROUND, 176, 209)
@@ -148,10 +169,14 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
                         .setChangeListener(this::markDirty))
                 .widget(new LabelWidget(88,20,"gregica.multipart.ball.only")
                         .setXCentered(true));
-        
+
         return builder.build(this.getHolder(),entityPlayer);
     }
-    
+
+    public int getGrinderTier(){
+        return inventory.getBallTier();
+    }
+
     @Override
     public MultiblockAbility<IBall> getAbility() {
         return GCCapabilities.GRINDBALL;

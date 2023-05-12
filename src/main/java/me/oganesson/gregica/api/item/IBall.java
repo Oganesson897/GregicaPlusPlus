@@ -4,7 +4,5 @@ public interface IBall {
 
     boolean hasBall();
 
-    default void consumeBall(int amount){
-
-    }
+    int getGrinderTier();
 }
