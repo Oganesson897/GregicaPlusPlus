@@ -2,8 +2,12 @@ package me.oganesson.gregica.common.block;
 
 import gregtech.common.blocks.MetaBlocks;
 import me.oganesson.gregica.common.block.metablock.*;
+import me.oganesson.gregica.common.block.wood.BlockPineLeaves;
+import me.oganesson.gregica.common.block.wood.BlockPineLog;
+import me.oganesson.gregica.common.block.wood.BlockPineSapling;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
@@ -12,6 +16,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 
+import static gregtech.client.ClientProxy.*;
 import static gregtech.common.blocks.MetaBlocks.statePropertiesToString;
 
 public class GCMetaBlocks {
@@ -21,6 +26,9 @@ public class GCMetaBlocks {
     public static final GCMetaCasing GC_BLOCK_CASING = new GCMetaCasing();
     public static final GCMetaCells GC_ESSENTIA_CELLS = new GCMetaCells();
     public static final GCMetaGearBox GC_META_GEAR_BOX = new GCMetaGearBox();
+    public static final BlockPineLeaves PINE_LEAVES = new BlockPineLeaves();
+    public static final BlockPineLog PINE_LOG = new BlockPineLog();
+    public static final BlockPineSapling PINE_SAPLING = new BlockPineSapling();
 
     public static final GCLapotronicCasing GC_LAPOTRONIC_CASING = new GCLapotronicCasing();
     
@@ -43,9 +51,18 @@ public class GCMetaBlocks {
         registerItemModel(GC_LAPOTRONIC_CASING);
         registerItemModel(TRANSPARENT_CASING);
         registerItemModel(TRANSPARENT_CASING1);
+        registerItemModel(PINE_LEAVES);
+        registerItemModel(PINE_LOG);
+        registerItemModel(PINE_SAPLING);
     }
 
     @SideOnly(Side.CLIENT)
+    public static void registerColors() {
+        Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(RUBBER_LEAVES_BLOCK_COLOR, PINE_LEAVES);
+        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(RUBBER_LEAVES_ITEM_COLOR, PINE_LEAVES);
+    }
+
+        @SideOnly(Side.CLIENT)
     private static void registerItemModel(@Nonnull Block block) {
         for (IBlockState state : block.getBlockState().getValidStates()) {
             //noinspection ConstantConditions

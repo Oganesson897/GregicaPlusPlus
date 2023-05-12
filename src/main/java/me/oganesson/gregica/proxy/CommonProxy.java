@@ -99,6 +99,9 @@ public class CommonProxy {
         event.getRegistry().register(createItemBlock(GC_LAPOTRONIC_CASING, VariantItemBlock::new));
         event.getRegistry().register(createItemBlock(TRANSPARENT_CASING,  VariantItemBlock::new));
         event.getRegistry().register(createItemBlock(TRANSPARENT_CASING1,  VariantItemBlock::new));
+        event.getRegistry().register(createItemBlock(PINE_LOG, ItemBlock::new));
+        event.getRegistry().register(createItemBlock(PINE_SAPLING, ItemBlock::new));
+        event.getRegistry().register(createItemBlock(PINE_LEAVES, ItemBlock::new));
         if(GCValues.IS_TC_LOADED) event.getRegistry().register(createItemBlock(getEssentiaHatch(), ItemBlock::new));
         for(BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(createItemBlock(pipe, ItemBlockLaserPipe::new));
     }
@@ -112,7 +115,10 @@ public class CommonProxy {
         TRANSPARENT_CASING1.setCreativeTab(Tab);
         TRANSPARENT_CASING.setCreativeTab(Tab);
         GC_LAPOTRONIC_CASING.setCreativeTab(Tab);
-        
+        PINE_LOG.setCreativeTab(Tab);
+        PINE_SAPLING.setCreativeTab(Tab);
+        PINE_LEAVES.setCreativeTab(Tab);
+
         if(GCValues.IS_TC_LOADED){
             getEssentiaHatch().setCreativeTab(Tab);
             event.getRegistry().register(getEssentiaHatch());
@@ -124,6 +130,9 @@ public class CommonProxy {
         event.getRegistry().register(GC_LAPOTRONIC_CASING);
         event.getRegistry().register(TRANSPARENT_CASING);
         event.getRegistry().register(TRANSPARENT_CASING1);
+        event.getRegistry().register(PINE_LOG);
+        event.getRegistry().register(PINE_SAPLING);
+        event.getRegistry().register(PINE_LEAVES);
         for (BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(pipe);
         GameRegistry.registerTileEntity(TileEntityLaserPipe.class, new ResourceLocation(Gregica.MOD_ID, "laser_pipe"));
     }
