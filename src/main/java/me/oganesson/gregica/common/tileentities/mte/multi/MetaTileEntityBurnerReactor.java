@@ -8,13 +8,13 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
+import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.MetaBlocks;
-import me.oganesson.gregica.api.mte.PressureMultiblockController;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
 import me.oganesson.gregica.client.GCTextures;
 import net.minecraft.client.resources.I18n;
@@ -26,7 +26,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class MetaTileEntityBurnerReactor extends PressureMultiblockController {
+public class MetaTileEntityBurnerReactor extends RecipeMapMultiblockController {
 
     public MetaTileEntityBurnerReactor(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GCRecipeMaps.BURNER_REACTOR_RECIPES);

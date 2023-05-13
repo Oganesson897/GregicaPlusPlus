@@ -6,13 +6,13 @@ import gregicality.multiblocks.common.block.blocks.BlockLargeMultiblockCasing;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
+import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.cube.OrientedOverlayRenderer;
 import gregtech.common.blocks.BlockGlassCasing;
 import gregtech.common.blocks.MetaBlocks;
-import me.oganesson.gregica.api.mte.PressureMultiblockController;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
 import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.block.GCYSMetaBlocks;
@@ -22,7 +22,7 @@ import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.Nonnull;
 
-public class MetaTileEntityCVDUnit extends PressureMultiblockController {
+public class MetaTileEntityCVDUnit extends RecipeMapMultiblockController {
 
     public MetaTileEntityCVDUnit(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GCRecipeMaps.CVD_RECIPES);

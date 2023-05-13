@@ -14,8 +14,6 @@ import me.oganesson.gregica.api.capability.isa_mill.IsaMillBuilder;
 import me.oganesson.gregica.api.capability.quantum.QubitConsumerRecipeBuilder;
 import me.oganesson.gregica.api.capability.quantum.QubitProducerRecipeBuilder;
 import me.oganesson.gregica.api.recipe.builders.NoCoilTemperatureRecipeBuilder;
-import me.oganesson.gregica.api.recipe.builders.PressureRecipeBuilder;
-import me.oganesson.gregica.api.recipe.builders.TemperaturePressureRecipeBuilder;
 import me.oganesson.gregica.api.recipe.machines.RecipeMapSuprachronalAssembler;
 import me.oganesson.gregica.client.render.GCYSGuiTextures;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -74,6 +72,7 @@ public class GCRecipeMaps {
             3, 3, 0, 0, new IsaMillBuilder(), false);
     public static final RecipeMap<SimpleRecipeBuilder> FLOTATION_CELL_REGULATOR = new RecipeMap<>("flotation_cell_regulator",
             6, 0, 1, 1, new SimpleRecipeBuilder(), false);
+    public static final RecipeMap<BlastRecipeBuilder> VACUUM_FURNACE = new RecipeMap<>("alloy_blast_smelter", 1, 9, 0, 0, 0, 3, 1, 1, new BlastRecipeBuilder(), false).setSlotOverlay(false, false, false, GuiTextures.FURNACE_OVERLAY_1).setSlotOverlay(false, false, true, GuiTextures.FURNACE_OVERLAY_1).setSlotOverlay(false, true, false, GuiTextures.FURNACE_OVERLAY_2).setSlotOverlay(false, true, true, GuiTextures.FURNACE_OVERLAY_2).setSlotOverlay(true, true, false, GuiTextures.FURNACE_OVERLAY_2).setSlotOverlay(true, true, true, GuiTextures.FURNACE_OVERLAY_2).setSound(GTSoundEvents.FURNACE);
 
     //GCYS
 
@@ -92,15 +91,12 @@ public class GCRecipeMaps {
             .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL)
             .setSound(GTSoundEvents.FURNACE);
 
-    public static final RecipeMap<PressureRecipeBuilder> PRESSURE_CHAMBER_RECIPES = new RecipeMap<>("pressure_chamber_recipes", 1, 4, 1, 1, 0, 0, 0, 0, new PressureRecipeBuilder(), false)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_COMPRESS, ProgressWidget.MoveType.HORIZONTAL)
-            .setSound(GTSoundEvents.COMPRESSOR);
 
     public static final RecipeMap<SimpleRecipeBuilder> CATALYTIC_REFORMER_RECIPES = new RecipeMap<>("catalytic_reformer_recipes", 1, 1, 0, 0, 1, 1, 1, 4, new SimpleRecipeBuilder(), false)
             .setProgressBar(GuiTextures.PROGRESS_BAR_CRACKING, ProgressWidget.MoveType.HORIZONTAL)
             .setSound(GTSoundEvents.FURNACE);
 
-    public static final RecipeMap<TemperaturePressureRecipeBuilder> BURNER_REACTOR_RECIPES = new RecipeMap<>("burner_reactor_recipes", 0, 3, 0, 2, 0, 3, 0, 3, new TemperaturePressureRecipeBuilder(), false)
+    public static final RecipeMap<NoCoilTemperatureRecipeBuilder> BURNER_REACTOR_RECIPES = new RecipeMap<>("burner_reactor_recipes", 0, 3, 0, 2, 0, 3, 0, 3, new NoCoilTemperatureRecipeBuilder(), false)
             .setProgressBar(GuiTextures.PROGRESS_BAR_ARC_FURNACE, ProgressWidget.MoveType.HORIZONTAL)
             .setSound(GTSoundEvents.ARC);
 
@@ -108,11 +104,11 @@ public class GCRecipeMaps {
             .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL)
             .setSound(GTSoundEvents.COOLING);
 
-    public static final RecipeMap<TemperaturePressureRecipeBuilder> CVD_RECIPES = new RecipeMap<>("cvd_recipes", 0, 2, 0, 2, 0, 3, 0, 3, new TemperaturePressureRecipeBuilder(), false)
+    public static final RecipeMap<NoCoilTemperatureRecipeBuilder> CVD_RECIPES = new RecipeMap<>("cvd_recipes", 0, 2, 0, 2, 0, 3, 0, 3, new NoCoilTemperatureRecipeBuilder(), false)
             .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW_MULTIPLE, ProgressWidget.MoveType.HORIZONTAL)
             .setSound(GTSoundEvents.COOLING);
 
-    public static final RecipeMap<TemperaturePressureRecipeBuilder> PLASMA_CVD_RECIPES = new RecipeMap<>("plasma_cvd_recipes", 0, 2, 0, 2, 0, 4, 0, 4, new TemperaturePressureRecipeBuilder(), false)
+    public static final RecipeMap<NoCoilTemperatureRecipeBuilder> PLASMA_CVD_RECIPES = new RecipeMap<>("plasma_cvd_recipes", 0, 2, 0, 2, 0, 4, 0, 4, new NoCoilTemperatureRecipeBuilder(), false)
             .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW_MULTIPLE, ProgressWidget.MoveType.HORIZONTAL)
             .setSound(GTSoundEvents.COOLING);
 

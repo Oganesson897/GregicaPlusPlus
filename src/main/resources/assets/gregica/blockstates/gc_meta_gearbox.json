@@ -19,6 +19,11 @@
         "textures": {
           "all": "gregica:blocks/flotation_cell"
         }
+      },
+      "vacuum_casing": {
+        "textures": {
+          "all": "gregica:blocks/vacuum_casing"
+        }
       }
     }
   }

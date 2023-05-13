@@ -585,40 +585,7 @@ material.qcd_confined_matter=Quantumchromodynamically Confined Matter
 material.reissner_nordstrom_matrix=Reissner-Nordstrom Matrix
 material.sentient_metal=Sentient Metal
 
-
-# Tricorder Info
-behavior.tricorder.current_pressure=Current Pressure: %s Pa
-behavior.tricorder.min_pressure=Minimum Pressure: %s Pa
-behavior.tricorder.max_pressure=Maximum Pressure: %s Pa
-
-
-# Generic Pressure Info
-gcys.universal.tooltip.pressure.minimum=Minimum Pressure Capacity: §a%sPa (§r%s§a)
-gcys.universal.tooltip.pressure.maximum=Maximum Pressure Capacity: §a%sPa (§r%s§a)
-gcys.universal.tooltip.pressure.target=Pressure Target
-
-
 # Single Block Machines
-
-# Infinite Pressure Pump
-gregica.machine.infinite_pressure_pump.name=Infinite Pressure Pump
-gregica.machine.infinite_pressure_pump.tooltip=§8You just need §o§5C§dr§4e§ca§et§ai§bv§3e §7m§1o§5d§de§r§8 to use this
-
-# Multi Block Hatches
-gregica.machine.pressure_hatch.ivv.name=Intergalactic Void Vacuum Hatch
-gregica.machine.pressure_hatch.csv.name=Close-Space Vacuum Hatch
-gregica.machine.pressure_hatch.ehv.name=Extremely High Vacuum Hatch
-gregica.machine.pressure_hatch.uhv.name=Ultra High Vacuum Hatch
-gregica.machine.pressure_hatch.hv.name=High Vacuum Hatch
-gregica.machine.pressure_hatch.mv.name=Medium Vacuum Hatch
-gregica.machine.pressure_hatch.lv.name=Low Vacuum Hatch
-gregica.machine.pressure_hatch.lp.name=Low Pressure Hatch
-gregica.machine.pressure_hatch.mp.name=Medium Pressure Hatch
-gregica.machine.pressure_hatch.hp.name=High Pressure Hatch
-gregica.machine.pressure_hatch.uhp.name=Ultra High Pressure Hatch
-gregica.machine.pressure_hatch.edp.name=Electron Degeneracy Pressure Hatch
-gregica.machine.pressure_hatch.wdp.name=White Dwarf Pressure Hatch
-gregica.machine.pressure_hatch.nsp.name=Neutron Star Pressure Hatch
 
 # Multi Block Machines
 
@@ -660,20 +627,6 @@ gregica.machine.industrial_drill.name=Industrial Drilling Rig
 gregica.multiblock.industrial_drill.tooltip.1=Drills the block placed beneath the Drill Head.
 gregica.multiblock.industrial_drill.tooltip.2=The target block is not broken when non-consumable.
 
-# Axial Compressors
-gregica.machine.axial_compressor.subsonic.name=Subsonic Axial Compressor
-gregica.machine.axial_compressor.supersonic.name=Supersonic Axial Compressor
-gregica.multiblock.axial_compressor.tooltip.1=Increases pressure by §b%sPa/s§7 up to §a%sPa (§r%s§a).
-gregica.multiblock.axial_compressor.tooltip.2=Consumes §e%sL/s§7 Lubricant when increasing pressure.
-gregica.multiblock.axial_compressor.tooltip.3=Uses %s§7 power. Does not overclock.
-
-# Turbomolecular Pumps
-gregica.machine.turbomolecular_pump.low_power.name=Low-Power Turbomolecular Pump
-gregica.machine.turbomolecular_pump.high_power.name=High-Power Turbomolecular Pump
-gregica.multiblock.turbomolecular_pump.tooltip.1=Decreases pressure by §b%sPa/s§7 up to §a%sPa (§r%s§a).
-gregica.multiblock.turbomolecular_pump.tooltip.2=Consumes §e%sL/s§7 Lubricant when decreasing pressure.
-gregica.multiblock.turbomolecular_pump.tooltip.3=Uses %s§7 power. Does not overclock.
-
 # Supra-Chronal Assembler
 gregica.machine.suprachronal_assembler.name=Supra-Chronal Assembler
 
@@ -705,24 +658,6 @@ gregica.machine.dryer.uxv.name=Epic Dryer IV
 gregica.machine.dryer.uxv.tooltip=Moisture Remover
 gregica.machine.dryer.opv.name=Legendary Dryer
 gregica.machine.dryer.opv.tooltip=Moisture Remover
-
-# Pipes
-gregica.pipe.pressure_pipe_low_vacuum.name=Low Vacuum Pipe
-gregica.pipe.pressure_pipe_medium_vacuum.name=Medium Vacuum Pipe
-gregica.pipe.pressure_pipe_high_vacuum.name=High Vacuum Pipe
-gregica.pipe.pressure_pipe_ultra_high_vacuum.name=Ultra High Vacuum Pipe
-gregica.pipe.pressure_pipe_extremely_high_vacuum.name=Extremely High Vacuum Pipe
-gregica.pipe.pressure_pipe_close_space_vacuum.name=Close-Space Vacuum Pipe
-gregica.pipe.pressure_pipe_intergalactic_void_vacuum.name=Intergalactic Void Vacuum Pipe
-gregica.pipe.pressure_pipe_low_pressure.name=Low Pressure Pipe
-gregica.pipe.pressure_pipe_medium_pressure.name=Medium Pressure Pipe
-gregica.pipe.pressure_pipe_high_pressure.name=High Pressure Pipe
-gregica.pipe.pressure_pipe_ultra_high_pressure.name=Ultra High Pressure Pipe
-gregica.pipe.pressure_pipe_electron_degeneracy_pressure.name=Electron Degeneracy Pressure Pipe
-gregica.pipe.pressure_pipe_white_dwarf_pressure.name=White Dwarf Pressure Pipe
-gregica.pipe.pressure_pipe_neutron_star_pressure.name=Neutron Star Pressure Pipe
-
-gregica.pipe.pressure.tooltip.volume=Volume: §a%sL
 
 
 # Blocks
@@ -978,7 +913,6 @@ metaitem.circuit.suprachronal.max.tooltip=Full control over spacetime/n§fMAX-ti
 # RecipeMaps
 # Machines
 recipemap.dryer_recipes.name=Drying
-recipemap.pressure_chamber_recipes.name=Pressure Chamber
 recipemap.catalytic_reformer_recipes.name=Catalytic Reformation
 recipemap.crystallization_recipes.name=Crystallization
 recipemap.roaster_recipes.name=Roasting
@@ -1001,8 +935,6 @@ recipemap.taranium_reactor_mk3_recipes.name=Taranium Hyper Reactor Mk.3
 
 # Recipe Properties
 gregica.recipe.temperature=Temperature: %,dK
-gregica.recipe.pressure=Pressure: %sPa
-gregica.recipe.vacuum=Vacuum: %sPa
 
 #fix
 material.blue_vitriol=Blue Vitriol

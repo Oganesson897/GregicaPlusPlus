@@ -121,7 +121,6 @@ public class BoronNitrideChain {
                 .fluidOutputs(Water.getFluid(3000))
                 .duration(400)
                 .EUt(VA[UV])
-                .pressure(0.0000125D)
                 .temperature(1300)
                 .buildAndRegister();
 
@@ -143,7 +142,6 @@ public class BoronNitrideChain {
                 .output(gem, CubicBoronNitride)
                 .duration(100)
                 .EUt(VA[UV])
-                .pressure(18_000_000_000D)
                 .temperature(3501)
                 .buildAndRegister();
 
@@ -184,7 +182,6 @@ public class BoronNitrideChain {
                 .output(gem, CubicHeterodiamond)
                 .duration(400)
                 .EUt(VA[UHV])
-                .pressure(18_000_000_000D)
                 .temperature(2200)
                 .buildAndRegister();
     }

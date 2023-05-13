@@ -180,7 +180,7 @@ public class PlatinumGroupProcessing {
                 .fluidInputs(Water.getFluid(1000))
                 .fluidOutputs(FormicAcid.getFluid(1000))
                 .fluidOutputs(Methanol.getFluid(1000))
-                .pressure(4.053E+6).temperature(353)
+                .temperature(353)
                 .duration(50).EUt(VA[LV]).buildAndRegister();
 
         // PdCl2 + HCOOH -> Pd + 2HCl + CO2

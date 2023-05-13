@@ -33,7 +33,8 @@ public class GCMetaGearBox extends VariantBlock<GCMetaGearBox.GearBoxType> {
 
         ISA_MILL_GEARBOX("isa_gear_casing"),
         INCONEL_CASING("inconel_casing"),
-        FLOTATION_CALL("flotation_cell");
+        FLOTATION_CALL("flotation_cell"),
+        VACUUM_CASING("vacuum_casing");
 
         private final String name;
 
