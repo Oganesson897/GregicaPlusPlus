@@ -9,9 +9,9 @@ import net.minecraftforge.fml.relauncher.Side;
         value = {Side.CLIENT}
 )
 public class GCMaterialIconTypes {
-    public static final MaterialIconType orePoor = new MaterialIconType("orePoor");
+    public static final MaterialIconType orePoor = new MaterialIconType("ore_poor");
 
-    public static final MaterialIconType oreRich = new MaterialIconType("oreRich");
+    public static final MaterialIconType oreRich = new MaterialIconType("ore_rich");
 
     public static final MaterialIconType nanoWireIcon = new MaterialIconType("nanowire");
     public static final MaterialIconType nanoFoilIcon = new MaterialIconType("nanofoil");

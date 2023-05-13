@@ -126,6 +126,37 @@ gregica.casing.lapotronic.capacity=容量: %d eu
 gregica.casing.lapotronic.passive_loss=(每个)在超级兰波顿能量电容中造成被动损耗: %d eu/t
 gregica.casing.lapotronic.part=§3兰波顿超级电容库的组成部分
 
+#OrePrefix
+item.material.oreprefix.oreRichBlackgranite=富集黑花岗岩%s矿石
+item.material.oreprefix.oreRichRedgranite=富集红花岗岩%s矿石
+item.material.oreprefix.oreRichMarble=富集大理石%s矿石
+item.material.oreprefix.oreRichBasalt=富集玄武岩%s矿石
+item.material.oreprefix.oreRichSand=富集沙子%s矿石
+item.material.oreprefix.oreRichRedSand=富集红沙%s矿石
+item.material.oreprefix.oreRichNetherrack=富集地狱岩%s矿石
+item.material.oreprefix.oreRichNether=富集下界%s矿石
+item.material.oreprefix.oreRichEndstone=富集末地石%s矿石
+item.material.oreprefix.oreRichEnd=富集末地%s矿石
+item.material.oreprefix.oreRich=富集%s矿石
+item.material.oreprefix.oreRichGranite=富集花岗岩%s矿石
+item.material.oreprefix.oreRichDiorite=富集闪长岩%s矿石
+item.material.oreprefix.oreRichAndesite=富集安山岩%s矿石
+
+item.material.oreprefix.orePoorBlackgranite=贫瘠黑花岗岩%s矿石
+item.material.oreprefix.orePoorRedgranite=贫瘠红花岗岩%s矿石
+item.material.oreprefix.orePoorMarble=贫瘠大理石%s矿石
+item.material.oreprefix.orePoorBasalt=贫瘠玄武岩%s矿石
+item.material.oreprefix.orePoorSand=贫瘠沙子%s矿石
+item.material.oreprefix.orePoorRedSand=贫瘠红沙%s矿石
+item.material.oreprefix.orePoorNetherrack=贫瘠地狱岩%s矿石
+item.material.oreprefix.orePoorNether=贫瘠下界%s矿石
+item.material.oreprefix.orePoorEndstone=贫瘠末地石%s矿石
+item.material.oreprefix.orePoorEnd=贫瘠末地%s矿石
+item.material.oreprefix.orePoor=贫瘠%s矿石
+item.material.oreprefix.orePoorGranite=贫瘠花岗岩%s矿石
+item.material.oreprefix.orePoorDiorite=贫瘠闪长岩%s矿石
+item.material.oreprefix.orePoorAndesite=贫瘠安山岩%s矿石
+
 #Fluid
 material.bismuth_lead_alloy=铅铋合金
 

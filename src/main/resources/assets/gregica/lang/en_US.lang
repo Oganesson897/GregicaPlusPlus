@@ -82,6 +82,32 @@ metaitem.item.advanced_circuit.name=High Power Circuit
 # Ore Prefixes
 item.material.oreprefix.milled=%s Milled Ore
 
+item.material.oreprefix.oreRichBlackgranite=Rich Granite %s Ore
+item.material.oreprefix.oreRichRedgranite=Rich Granite %s Ore
+item.material.oreprefix.oreRichMarble=Rich Marble %s Ore
+item.material.oreprefix.oreRichBasalt=Rich Basalt %s Ore
+item.material.oreprefix.oreRichSand=Rich Sand %s Ore
+item.material.oreprefix.oreRichRedSand=Rich Red Sand %s Ore
+item.material.oreprefix.oreRichNetherrack=Rich Nether %s Ore
+item.material.oreprefix.oreRichEndstone=Rich End %s Ore
+item.material.oreprefix.oreRich=Rich %s Ore
+item.material.oreprefix.oreRichGranite=Rich Granite %s Ore
+item.material.oreprefix.oreRichDiorite=Rich Diorite %s Ore
+item.material.oreprefix.oreRichAndesite=Rich Andesite %s Ore
+
+item.material.oreprefix.orePoorBlackgranite=Poor Granite %s Ore
+item.material.oreprefix.orePoorRedgranite=Poor Granite %s Ore
+item.material.oreprefix.orePoorMarble=Poor Marble %s Ore
+item.material.oreprefix.orePoorBasalt=Poor Basalt %s Ore
+item.material.oreprefix.orePoorSand=Poor Sand %s Ore
+item.material.oreprefix.orePoorRedSand=Poor Red Sand %s Ore
+item.material.oreprefix.orePoorNetherrack=Poor Nether %s Ore
+item.material.oreprefix.orePoorEndstone=Poor End %s Ore
+item.material.oreprefix.orePoor=Poor %s Ore
+item.material.oreprefix.orePoorGranite=Poor Granite %s Ore
+item.material.oreprefix.orePoorDiorite=Poor Diorite %s Ore
+item.material.oreprefix.orePoorAndesite=Poor Andesite %s Ore
+
 #Blocks
 tile.gc_machine_casing.magic_machine_casing.name=Magic Casing
 tile.gc_essentia_cell.essentia_cell_1.name=Novice Essentia Diffusion Cell
