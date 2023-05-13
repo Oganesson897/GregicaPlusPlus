@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "gregica:items/material_sets/quartz/seed_crystal",
+    "layer1": "gregica:items/material_sets/quartz/seed_crystal_overlay"
+  }
+}

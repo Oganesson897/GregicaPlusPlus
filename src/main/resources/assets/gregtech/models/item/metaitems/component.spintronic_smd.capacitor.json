@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "import me.oganesson.gregica.GCConfig;:items/metaitems/component.spintronic_smd.capacitor"
+  }
+}

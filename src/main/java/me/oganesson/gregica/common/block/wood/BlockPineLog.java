@@ -1,19 +1,11 @@
 package me.oganesson.gregica.common.block.wood;
 
-import gregtech.api.GregTechAPI;
-import gregtech.common.items.MetaItems;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
-import java.util.Random;
 
 public class BlockPineLog extends BlockLog {
 

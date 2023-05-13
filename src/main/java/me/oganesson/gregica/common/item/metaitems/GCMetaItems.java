@@ -2,12 +2,19 @@ package me.oganesson.gregica.common.item.metaitems;
 
 import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.items.metaitem.StandardMetaItem;
+import gregtech.api.unification.material.MarkerMaterials;
+import gregtech.api.unification.ore.OrePrefix;
+import gregtech.api.unification.stack.ItemMaterialInfo;
+import gregtech.api.unification.stack.MaterialStack;
 import gregtech.common.items.behaviors.TooltipBehavior;
+import me.oganesson.gregica.api.unification.materials.GCYSMaterials;
 import me.oganesson.gregica.common.item.behavior.BaguetteBehavior;
 import me.oganesson.gregica.common.item.behavior.IntBcircuitBehavior;
 import me.oganesson.gregica.common.item.behavior.MillBallBehavior;
 import me.oganesson.gregica.proxy.CommonProxy;
 import net.minecraft.client.resources.I18n;
+
+import static gregtech.api.GTValues.M;
 
 public class GCMetaItems {
     private static StandardMetaItem metaItem1;
@@ -64,13 +71,152 @@ public class GCMetaItems {
     public static MetaItem<?>.MetaValueItem SODIUM_ETHYLXANTHATE;
     public static MetaItem<?>.MetaValueItem POTASSIUM_ETHYLXANTHATE;
 
+    //GCYS Items
+    public static MetaItem<?>.MetaValueItem GOOWARE_PROCESSOR;
+    public static MetaItem<?>.MetaValueItem GOOWARE_ASSEMBLY;
+    public static MetaItem<?>.MetaValueItem GOOWARE_COMPUTER;
+    public static MetaItem<?>.MetaValueItem GOOWARE_MAINFRAME;
+
+    // Optical
+    public static MetaItem<?>.MetaValueItem OPTICAL_PROCESSOR;
+    public static MetaItem<?>.MetaValueItem OPTICAL_ASSEMBLY;
+    public static MetaItem<?>.MetaValueItem OPTICAL_COMPUTER;
+    public static MetaItem<?>.MetaValueItem OPTICAL_MAINFRAME;
+
+    // Spintronic
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_PROCESSOR;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_ASSEMBLY;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_COMPUTER;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_MAINFRAME;
+
+    // Cosmic, name TBD
+    public static MetaItem<?>.MetaValueItem COSMIC_PROCESSOR;
+    public static MetaItem<?>.MetaValueItem COSMIC_ASSEMBLY;
+    public static MetaItem<?>.MetaValueItem COSMIC_COMPUTER;
+    public static MetaItem<?>.MetaValueItem COSMIC_MAINFRAME;
+
+    // Supra-causal
+    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_PROCESSOR;
+    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_ASSEMBLY;
+    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_COMPUTER;
+    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_MAINFRAME;
+
+    // Supra-chronal
+    public static MetaItem<?>.MetaValueItem SUPRACHRONAL_ULV;
+    public static MetaItem<?>.MetaValueItem SUPRACHRONAL_LV;
+    public static MetaItem<?>.MetaValueItem SUPRACHRONAL_MV;
+    public static MetaItem<?>.MetaValueItem SUPRACHRONAL_HV;
+    public static MetaItem<?>.MetaValueItem SUPRACHRONAL_EV;
+    public static MetaItem<?>.MetaValueItem SUPRACHRONAL_IV;
+    public static MetaItem<?>.MetaValueItem SUPRACHRONAL_LuV;
+    public static MetaItem<?>.MetaValueItem SUPRACHRONAL_ZPM;
+    public static MetaItem<?>.MetaValueItem SUPRACHRONAL_UV;
+    public static MetaItem<?>.MetaValueItem SUPRACHRONAL_UHV;
+    public static MetaItem<?>.MetaValueItem SUPRACHRONAL_UEV;
+    public static MetaItem<?>.MetaValueItem SUPRACHRONAL_UIV;
+    public static MetaItem<?>.MetaValueItem SUPRACHRONAL_UXV;
+    public static MetaItem<?>.MetaValueItem SUPRACHRONAL_OpV;
+    public static MetaItem<?>.MetaValueItem SUPRACHRONAL_MAX;
+
+    // Primitive Circuit Components
+    public static MetaItem<?>.MetaValueItem VACUUM_TUBE_COMPONENTS;
+
+    // Crystal Circuit Components
+    public static MetaItem<?>.MetaValueItem EU_DOPED_CUBIC_ZIRCONIA_BOULE;
+    public static MetaItem<?>.MetaValueItem EU_DOPED_CUBIC_ZIRCONIA_WAFER;
+    public static MetaItem<?>.MetaValueItem CRYSTAL_INTERFACE_WAFER;
+    public static MetaItem<?>.MetaValueItem CRYSTAL_INTERFACE_CHIP;
+    public static MetaItem<?>.MetaValueItem ENGRAVED_RUBY_CRYSTAL_CHIP;
+    public static MetaItem<?>.MetaValueItem ENGRAVED_SAPPHIRE_CRYSTAL_CHIP;
+    public static MetaItem<?>.MetaValueItem ENGRAVED_DIAMOND_CRYSTAL_CHIP;
+    public static MetaItem<?>.MetaValueItem CRYSTAL_MODULATOR_RUBY;
+    public static MetaItem<?>.MetaValueItem CRYSTAL_MODULATOR_DIAMOND;
+    public static MetaItem<?>.MetaValueItem CRYSTAL_MODULATOR_SAPPHIRE;
+    public static MetaItem<?>.MetaValueItem CRYSTAL_SYSTEM_ON_CHIP_SOCKET;
+
+    // Gooware Circuit Components
+    public static MetaItem<?>.MetaValueItem BZ_REACTION_CHAMBER;
+    public static MetaItem<?>.MetaValueItem NONLINEAR_CHEMICAL_OSCILLATOR;
+
+    // Optical Circuit Components
+    public static MetaItem<?>.MetaValueItem PHASE_CHANGE_MEMORY;
+    public static MetaItem<?>.MetaValueItem OPTICAL_FIBER;
+    public static MetaItem<?>.MetaValueItem DIELECTRIC_MIRROR;
+    public static MetaItem<?>.MetaValueItem EMPTY_LASER_ASSEMBLY;
+    public static MetaItem<?>.MetaValueItem HELIUM_NEON_LASER;
+    public static MetaItem<?>.MetaValueItem ND_YAG_LASER;
+    public static MetaItem<?>.MetaValueItem OPTICAL_LASER_CONTROL_UNIT;
+
+    // Spintronic Circuit Components
+    public static MetaItem<?>.MetaValueItem SPIN_TRANSFER_TORQUE_MEMORY;
+    public static MetaItem<?>.MetaValueItem TOPOLOGICAL_INSULATOR_TUBE;
+    public static MetaItem<?>.MetaValueItem BOSE_EINSTEIN_CONDENSATE_CONTAINMENT_UNIT;
+    public static MetaItem<?>.MetaValueItem BOSE_EINSTEIN_CONDENSATE;
+    public static MetaItem<?>.MetaValueItem ESR_COMPUTATION_UNIT;
+
+    // Supra-Causal Circuit Components
+    public static MetaItem<?>.MetaValueItem EIGENFOLDED_KERR_MANIFOLD;
+
+    // Supra-Chronal Circuit Components
+    public static MetaItem<?>.MetaValueItem HYPERDIMENSIONAL_DRONE;
+
+    // Voltage Coils
+    public static MetaItem<?>.MetaValueItem VOLTAGE_COIL_UHV;
+    public static MetaItem<?>.MetaValueItem VOLTAGE_COIL_UEV;
+    public static MetaItem<?>.MetaValueItem VOLTAGE_COIL_UIV;
+    public static MetaItem<?>.MetaValueItem VOLTAGE_COIL_UXV;
+    public static MetaItem<?>.MetaValueItem VOLTAGE_COIL_OpV;
+    public static MetaItem<?>.MetaValueItem VOLTAGE_COIL_MAX;
+
+    // Power Components
+    public static MetaItem<?>.MetaValueItem NANO_POWER_IC_WAFER;
+    public static MetaItem<?>.MetaValueItem PICO_POWER_IC_WAFER;
+    public static MetaItem<?>.MetaValueItem FEMTO_POWER_IC_WAFER;
+    public static MetaItem<?>.MetaValueItem NANO_POWER_IC;
+    public static MetaItem<?>.MetaValueItem PICO_POWER_IC;
+    public static MetaItem<?>.MetaValueItem FEMTO_POWER_IC;
+
+    // Circuit Boards
+    public static MetaItem<?>.MetaValueItem GOOWARE_BOARD;
+    public static MetaItem<?>.MetaValueItem OPTICAL_BOARD;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_BOARD;
+    public static MetaItem<?>.MetaValueItem GOOWARE_CIRCUIT_BOARD;
+    public static MetaItem<?>.MetaValueItem OPTICAL_CIRCUIT_BOARD;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_CIRCUIT_BOARD;
+
+    // SMDs
+    public static MetaItem<?>.MetaValueItem OPTICAL_CAPACITOR;
+    public static MetaItem<?>.MetaValueItem OPTICAL_DIODE;
+    public static MetaItem<?>.MetaValueItem OPTICAL_RESISTOR;
+    public static MetaItem<?>.MetaValueItem OPTICAL_TRANSISTOR;
+    public static MetaItem<?>.MetaValueItem OPTICAL_INDUCTOR;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_CAPACITOR;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_DIODE;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_RESISTOR;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_TRANSISTOR;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_INDUCTOR;
+
+    // Crafting Components
+    public static MetaItem<?>.MetaValueItem COMPONENT_GRINDER_BORON_NITRIDE;
+
+    // Process-Specific Components
+    public static MetaItem<?>.MetaValueItem MAGNETRON;
+
+    // Process Intermediary Items
+    // Nanotubes
+    public static MetaItem<?>.MetaValueItem CARBON_ALLOTROPE_MIXTURE;
+    public static MetaItem<?>.MetaValueItem GRAPHENE_ALIGNED_CNT;
+
     public static void initMetaItems() {
         metaItem1 = new StandardMetaItem();
         metaItem1.setRegistryName("meta_item_gc");
+        metaItem2 = new StandardMetaItem();
+        metaItem2.setRegistryName("meta_item_gcys");
     }
 
     public static void initSubitems() {
         initMetaItem1();
+        GCYSItems();
     }
 
     private static void initMetaItem1() {
@@ -154,5 +300,154 @@ public class GCMetaItems {
         MAX_EMITTER = metaItem1.addItem(35, "cover.emitter.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         MAX_SENSOR = metaItem1.addItem(36, "cover.sensor.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         MAX_FIELD_GENERATOR = metaItem1.addItem(37, "cover.field_generator.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
+    }
+
+    public static void GCYSItems(){
+        GOOWARE_PROCESSOR = metaItem2.addItem(0, "circuit.gooware_processor").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.ZPM);
+        GOOWARE_ASSEMBLY = metaItem2.addItem(1, "circuit.gooware_assembly").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UV);
+        GOOWARE_COMPUTER = metaItem2.addItem(2, "circuit.gooware_computer").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UHV);
+        GOOWARE_MAINFRAME = metaItem2.addItem(3, "circuit.gooware_mainframe").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UEV);
+
+        OPTICAL_PROCESSOR = metaItem2.addItem(4,"circuit.optical_processor").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UV);
+        OPTICAL_ASSEMBLY = metaItem2.addItem(5,"circuit.optical_assembly").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UHV);
+        OPTICAL_COMPUTER = metaItem2.addItem(6,"circuit.optical_computer").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UEV);
+        OPTICAL_MAINFRAME = metaItem2.addItem(7,"circuit.optical_mainframe").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UIV);
+
+        SPINTRONIC_PROCESSOR = metaItem2.addItem(8, "circuit.spintronic_processor").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UHV);
+        SPINTRONIC_ASSEMBLY = metaItem2.addItem(9, "circuit.spintronic_assembly").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UEV);
+        SPINTRONIC_COMPUTER = metaItem2.addItem(10, "circuit.spintronic_computer").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UIV);
+        SPINTRONIC_MAINFRAME = metaItem2.addItem(11, "circuit.spintronic_mainframe").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UXV);
+
+        COSMIC_PROCESSOR = metaItem2.addItem(12, "circuit.cosmic_processor").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UEV);
+        COSMIC_ASSEMBLY = metaItem2.addItem(13, "circuit.cosmic_assembly").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UIV);
+        COSMIC_COMPUTER = metaItem2.addItem(14, "circuit.cosmic_computer").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UXV);
+        COSMIC_MAINFRAME = metaItem2.addItem(15, "circuit.cosmic_mainframe").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.OpV);
+
+        SUPRACAUSAL_PROCESSOR = metaItem2.addItem(16, "circuit.supracausal_processor").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UIV);
+        SUPRACAUSAL_ASSEMBLY = metaItem2.addItem(17, "circuit.supracausal_assembly").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UXV);
+        SUPRACAUSAL_COMPUTER = metaItem2.addItem(18, "circuit.supracausal_computer").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.OpV);
+        SUPRACAUSAL_MAINFRAME = metaItem2.addItem(19, "circuit.supracausal_mainframe").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.MAX);
+
+        SUPRACHRONAL_ULV = metaItem2.addItem(20, "circuit.suprachronal.ulv").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.ULV);
+        SUPRACHRONAL_LV = metaItem2.addItem(21, "circuit.suprachronal.lv").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.LV);
+        SUPRACHRONAL_MV = metaItem2.addItem(22, "circuit.suprachronal.mv").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.MV);
+        SUPRACHRONAL_HV = metaItem2.addItem(23, "circuit.suprachronal.hv").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.HV);
+        SUPRACHRONAL_EV = metaItem2.addItem(24, "circuit.suprachronal.ev").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.EV);
+        SUPRACHRONAL_IV = metaItem2.addItem(25, "circuit.suprachronal.iv").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.IV);
+        SUPRACHRONAL_LuV = metaItem2.addItem(26, "circuit.suprachronal.luv").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.LuV);
+        SUPRACHRONAL_ZPM = metaItem2.addItem(27, "circuit.suprachronal.zpm").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.ZPM);
+        SUPRACHRONAL_UV = metaItem2.addItem(28, "circuit.suprachronal.uv").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UV);
+        SUPRACHRONAL_UHV = metaItem2.addItem(29, "circuit.suprachronal.uhv").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UHV);
+        SUPRACHRONAL_UEV = metaItem2.addItem(30, "circuit.suprachronal.uev").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UEV);
+        SUPRACHRONAL_UIV = metaItem2.addItem(31, "circuit.suprachronal.uiv").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UIV);
+        SUPRACHRONAL_UXV = metaItem2.addItem(32, "circuit.suprachronal.uxv").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UXV);
+        SUPRACHRONAL_OpV = metaItem2.addItem(33, "circuit.suprachronal.opv").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.OpV);
+        SUPRACHRONAL_MAX = metaItem2.addItem(34, "circuit.suprachronal.max").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.MAX);
+        // Electronic Circuit Components: ID 60-69
+
+
+        // Micro Circuit Components: ID 70-89
+
+
+        // Nano Circuit Components: ID 90-109
+
+
+        // Quantum Circuit Components: ID 110-129
+
+
+        // Crystal Circuit Components: ID 130-159
+        EU_DOPED_CUBIC_ZIRCONIA_BOULE = metaItem2.addItem(130, "boule.cubic_zirconia.europium");
+        EU_DOPED_CUBIC_ZIRCONIA_WAFER = metaItem2.addItem(131, "wafer.cubic_zirconia.europium");
+        CRYSTAL_INTERFACE_WAFER = metaItem2.addItem(132, "wafer.crystal.interface");
+        CRYSTAL_INTERFACE_CHIP = metaItem2.addItem(133, "plate.crystal.interface");
+        ENGRAVED_RUBY_CRYSTAL_CHIP = metaItem2.addItem(134, "engraved.crystal_chip.ruby");
+        ENGRAVED_SAPPHIRE_CRYSTAL_CHIP = metaItem2.addItem(135, "engraved.crystal_chip.sapphire");
+        ENGRAVED_DIAMOND_CRYSTAL_CHIP = metaItem2.addItem(136, "engraved.crystal_chip.diamond");
+        CRYSTAL_MODULATOR_RUBY = metaItem2.addItem(137, "crystal.modulator.ruby");
+        CRYSTAL_MODULATOR_SAPPHIRE = metaItem2.addItem(138, "crystal.modulator.sapphire");
+        CRYSTAL_MODULATOR_DIAMOND = metaItem2.addItem(139, "crystal.modulator.diamond");
+        CRYSTAL_SYSTEM_ON_CHIP_SOCKET = metaItem2.addItem(140, "crystal.system_on_chip.socket");
+
+        // Wetware Circuit Components: ID 160-179
+
+
+        // Gooware Circuit Components: ID 180-199
+        BZ_REACTION_CHAMBER = metaItem2.addItem(180, "reaction_chamber.bz");
+        NONLINEAR_CHEMICAL_OSCILLATOR = metaItem2.addItem(181, "nonlinear_chemical_oscillator");
+
+        // Optical Circuit Components: ID 200-219
+        PHASE_CHANGE_MEMORY = metaItem2.addItem(200, "plate.phase_change_memory");
+        OPTICAL_FIBER = metaItem2.addItem(201, "optical_fiber");
+        DIELECTRIC_MIRROR = metaItem2.addItem(202, "dielectric_mirror");
+        EMPTY_LASER_ASSEMBLY = metaItem2.addItem(203, "laser.assembly.empty");
+        HELIUM_NEON_LASER = metaItem2.addItem(204, "laser.helium_neon");
+        ND_YAG_LASER = metaItem2.addItem(205, "laser.nd_yag");
+        OPTICAL_LASER_CONTROL_UNIT = metaItem2.addItem(206, "optical_laser_control_unit");
+
+        // Spintronic Circuit Components: ID 220-239
+        SPIN_TRANSFER_TORQUE_MEMORY = metaItem2.addItem(220, "plate.spin_transfer_torque_memory");
+        TOPOLOGICAL_INSULATOR_TUBE = metaItem2.addItem(221, "tube.topological_insulator");
+        BOSE_EINSTEIN_CONDENSATE_CONTAINMENT_UNIT = metaItem2.addItem(222, "containment_unit.bose_einstein_condensate");
+        BOSE_EINSTEIN_CONDENSATE = metaItem2.addItem(223, "bose_einstein_condensate");
+        ESR_COMPUTATION_UNIT = metaItem2.addItem(224, "esr_computation_unit");
+
+        // Cosmic Circuit Components: ID 240-259
+
+
+        // Supra-Causal Circuit Components: ID 260-299
+        EIGENFOLDED_KERR_MANIFOLD = metaItem2.addItem(260, "eigenfolded.kerr.manifold");
+
+
+        // Supra-Chronal Circuit Components: ID 300-349
+        HYPERDIMENSIONAL_DRONE = metaItem2.addItem(300, "hyperdimensional.drone");
+
+
+        // Voltage Coils: ID 350-355
+        VOLTAGE_COIL_UHV = metaItem2.addItem(350, "voltage_coil.uhv").setMaterialInfo(new ItemMaterialInfo(new MaterialStack(GCYSMaterials.MercuryCadmiumTelluride, M * 2), new MaterialStack(GCYSMaterials.ChromiumGermaniumTellurideMagnetic, M / 2)));
+        VOLTAGE_COIL_UEV = metaItem2.addItem(351, "voltage_coil.uev").setMaterialInfo(new ItemMaterialInfo(new MaterialStack(GCYSMaterials.MercuryCadmiumTelluride, M * 2), new MaterialStack(GCYSMaterials.ChromiumGermaniumTellurideMagnetic, M / 2)));
+        VOLTAGE_COIL_UIV = metaItem2.addItem(352, "voltage_coil.uiv").setMaterialInfo(new ItemMaterialInfo(new MaterialStack(GCYSMaterials.MercuryCadmiumTelluride, M * 2), new MaterialStack(GCYSMaterials.ChromiumGermaniumTellurideMagnetic, M / 2)));
+        VOLTAGE_COIL_UXV = metaItem2.addItem(353, "voltage_coil.uxv").setMaterialInfo(new ItemMaterialInfo(new MaterialStack(GCYSMaterials.MercuryCadmiumTelluride, M * 2), new MaterialStack(GCYSMaterials.ChromiumGermaniumTellurideMagnetic, M / 2)));
+        VOLTAGE_COIL_OpV = metaItem2.addItem(354, "voltage_coil.opv").setMaterialInfo(new ItemMaterialInfo(new MaterialStack(GCYSMaterials.MercuryCadmiumTelluride, M * 2), new MaterialStack(GCYSMaterials.ChromiumGermaniumTellurideMagnetic, M / 2)));
+        VOLTAGE_COIL_MAX = metaItem2.addItem(355, "voltage_coil.max").setMaterialInfo(new ItemMaterialInfo(new MaterialStack(GCYSMaterials.MercuryCadmiumTelluride, M * 2), new MaterialStack(GCYSMaterials.ChromiumGermaniumTellurideMagnetic, M / 2)));
+
+        // Power Components: ID 356-379
+        NANO_POWER_IC_WAFER = metaItem2.addItem(356, "wafer.nano_power_integrated_circuit");
+        PICO_POWER_IC_WAFER = metaItem2.addItem(357, "wafer.pico_power_integrated_circuit");
+        FEMTO_POWER_IC_WAFER = metaItem2.addItem(358, "wafer.femto_power_integrated_circuit");
+        NANO_POWER_IC = metaItem2.addItem(368, "plate.nano_power_integrated_circuit");
+        PICO_POWER_IC = metaItem2.addItem(369, "plate.pico_power_integrated_circuit");
+        FEMTO_POWER_IC = metaItem2.addItem(370, "plate.femto_power_integrated_circuit");
+
+        // Circuit Boards: ID 380-419
+        GOOWARE_BOARD = metaItem2.addItem(380, "board.gooware");
+        OPTICAL_BOARD = metaItem2.addItem(381, "board.optical");
+        SPINTRONIC_BOARD = metaItem2.addItem(382, "board.spintronic");
+        GOOWARE_CIRCUIT_BOARD = metaItem2.addItem(400, "circuit_board.gooware");
+        OPTICAL_CIRCUIT_BOARD = metaItem2.addItem(401, "circuit_board.optical");
+        SPINTRONIC_CIRCUIT_BOARD = metaItem2.addItem(402, "circuit_board.spintronic");
+
+        // SMDs: ID 420-479
+        OPTICAL_CAPACITOR = metaItem2.addItem(420, "component.optical_smd.capacitor");
+        OPTICAL_DIODE = metaItem2.addItem(421, "component.optical_smd.diode");
+        OPTICAL_RESISTOR = metaItem2.addItem(422, "component.optical_smd.resistor");
+        OPTICAL_TRANSISTOR = metaItem2.addItem(423, "component.optical_smd.transistor");
+        OPTICAL_INDUCTOR = metaItem2.addItem(424, "component.optical_smd.inductor");
+
+        SPINTRONIC_CAPACITOR = metaItem2.addItem(425, "component.spintronic_smd.capacitor");
+        SPINTRONIC_DIODE = metaItem2.addItem(426, "component.spintronic_smd.diode");
+        SPINTRONIC_RESISTOR = metaItem2.addItem(427, "component.spintronic_smd.resistor");
+        SPINTRONIC_TRANSISTOR = metaItem2.addItem(428, "component.spintronic_smd.transistor");
+        SPINTRONIC_INDUCTOR = metaItem2.addItem(429, "component.spintronic_smd.inductor");
+
+        // Simple Machine Crafting Components: ID 480-499
+        COMPONENT_GRINDER_BORON_NITRIDE = metaItem2.addItem(480, "component.grinder.boron_nitride")
+                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(GCYSMaterials.CubicBoronNitride, M * 4), new MaterialStack(GCYSMaterials.Vibranium, M * 8), new MaterialStack(GCYSMaterials.CubicHeterodiamond, M)));
+
+        // Process-Specific Components: ID 500-999
+        MAGNETRON = metaItem2.addItem(500, "magnetron");
+
+        // Process Intermediary Items: ID 1000-1999
+        CARBON_ALLOTROPE_MIXTURE = metaItem2.addItem(1000, "mixture.carbon_allotrope");
+        GRAPHENE_ALIGNED_CNT = metaItem2.addItem(1001, "cnt.graphene_aligned");
     }
 }

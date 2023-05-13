@@ -1,6 +1,5 @@
 package me.oganesson.gregica.common.block.wood;
 
-import gregtech.api.GregTechAPI;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;

@@ -13,6 +13,9 @@ public class GCCapabilities {
     @CapabilityInject(IQubitContainer.class)
     public static Capability<IQubitContainer> QBIT_CAPABILITY;
 
+    @CapabilityInject(IPressureContainer.class)
+    public static Capability<IPressureContainer> CAPABILITY_PRESSURE_CONTAINER = null;
+
     public static void init() {
         SimpleCapabilityManager.registerCapabilityWithNoDefault(IQubitContainer.class);
     }
@@ -25,4 +28,7 @@ public class GCCapabilities {
     public static final MultiblockAbility<IBall> GRINDBALL = new MultiblockAbility<>("ball");
 
     public static final MultiblockAbility<IResearchDataHatch> RESEARCH_DATA = new MultiblockAbility<>("data_hatch");
+    //GCYS
+    public static final MultiblockAbility<IPressureContainer> PRESSURE_CONTAINER = new MultiblockAbility<>("pressure_container");
+
 }

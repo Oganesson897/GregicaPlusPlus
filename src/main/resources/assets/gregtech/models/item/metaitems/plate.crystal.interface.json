@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "gregica:items/metaitems/plate.crystal.interface"
+  }
+}

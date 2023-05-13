@@ -1,0 +1,100 @@
+package me.oganesson.gregica.api.capability.impl;
+
+import gregtech.api.metatileentity.MTETrait;
+import gregtech.api.metatileentity.MetaTileEntity;
+import me.oganesson.gregica.api.GCValues;
+import me.oganesson.gregica.api.capability.GCCapabilities;
+import me.oganesson.gregica.api.capability.IPressureContainer;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.PacketBuffer;
+import net.minecraftforge.common.capabilities.Capability;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
+public class PressureContainer extends MTETrait implements IPressureContainer {
+
+    private final double minPressure;
+    private final double maxPressure;
+    private final double volume;
+
+    private double particles;
+
+    /**
+     * Default pressure container
+     * {@link IPressureContainer}
+     *
+     * @param volume the volume of the container, must be nonzero
+     */
+    public PressureContainer(MetaTileEntity metaTileEntity, double minPressure, double maxPressure, double volume) {
+        super(metaTileEntity);
+        this.minPressure = minPressure;
+        this.maxPressure = maxPressure;
+        this.volume = volume;
+        this.particles = volume * GCValues.EARTH_PRESSURE;
+    }
+
+    @Override
+    public double getMaxPressure() {
+        return this.maxPressure;
+    }
+
+    @Override
+    public double getParticles() {
+        return this.particles;
+    }
+
+    @Override
+    public double getVolume() {
+        return this.volume;
+    }
+
+    @Override
+    public void setParticles(double amount) {
+        this.particles = amount;
+        this.metaTileEntity.markDirty();
+    }
+
+    @Override
+    public double getMinPressure() {
+        return this.minPressure;
+    }
+
+    @Override
+    public NBTTagCompound serializeNBT() {
+        NBTTagCompound compound = new NBTTagCompound();
+        compound.setDouble("particles", this.particles);
+        return compound;
+    }
+
+    @Override
+    public void deserializeNBT(@Nonnull NBTTagCompound compound) {
+        this.particles = compound.getDouble("particles");
+    }
+
+    @Override
+    public void writeInitialData(PacketBuffer buffer) {
+        super.writeInitialData(buffer);
+        buffer.writeDouble(this.particles);
+    }
+
+    @Override
+    public void receiveInitialData(PacketBuffer buffer) {
+        super.receiveInitialData(buffer);
+        this.particles = buffer.readDouble();
+    }
+
+    @Override
+    public String getName() {
+        return "PressureContainer";
+    }
+
+    @Nullable
+    @Override
+    public <T> T getCapability(Capability<T> capability) {
+        if (capability == GCCapabilities.CAPABILITY_PRESSURE_CONTAINER) {
+            return GCCapabilities.CAPABILITY_PRESSURE_CONTAINER.cast(this);
+        }
+        return null;
+    }
+}
