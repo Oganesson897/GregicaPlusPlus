@@ -72,7 +72,7 @@ public class GCRecipeMaps {
             3, 3, 0, 0, new IsaMillBuilder(), false);
     public static final RecipeMap<SimpleRecipeBuilder> FLOTATION_CELL_REGULATOR = new RecipeMap<>("flotation_cell_regulator",
             6, 0, 1, 1, new SimpleRecipeBuilder(), false);
-    public static final RecipeMap<BlastRecipeBuilder> VACUUM_FURNACE = new RecipeMap<>("alloy_blast_smelter", 1, 9, 0, 0, 0, 3, 1, 1, new BlastRecipeBuilder(), false).setSlotOverlay(false, false, false, GuiTextures.FURNACE_OVERLAY_1).setSlotOverlay(false, false, true, GuiTextures.FURNACE_OVERLAY_1).setSlotOverlay(false, true, false, GuiTextures.FURNACE_OVERLAY_2).setSlotOverlay(false, true, true, GuiTextures.FURNACE_OVERLAY_2).setSlotOverlay(true, true, false, GuiTextures.FURNACE_OVERLAY_2).setSlotOverlay(true, true, true, GuiTextures.FURNACE_OVERLAY_2).setSound(GTSoundEvents.FURNACE);
+    public static final RecipeMap<BlastRecipeBuilder> VACUUM_FURNACE = new RecipeMap<>("vacuum_furnace", 1, 9, 2, 3, new BlastRecipeBuilder(), false).setSlotOverlay(false, false, false, GuiTextures.FURNACE_OVERLAY_1).setSlotOverlay(false, false, true, GuiTextures.FURNACE_OVERLAY_1).setSlotOverlay(false, true, false, GuiTextures.FURNACE_OVERLAY_2).setSlotOverlay(false, true, true, GuiTextures.FURNACE_OVERLAY_2).setSlotOverlay(true, true, false, GuiTextures.FURNACE_OVERLAY_2).setSlotOverlay(true, true, true, GuiTextures.FURNACE_OVERLAY_2).setSound(GTSoundEvents.FURNACE);
 
     //GCYS
 
