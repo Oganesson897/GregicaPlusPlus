@@ -37,7 +37,6 @@ public class EDTAChain {
                 .fluidOutputs(VinylChloride.getFluid(1000))
                 .fluidOutputs(HydrochloricAcid.getFluid(1000))
                 .temperature(773)
-                .pressure(2_000_000)
                 .duration(40).EUt(VA[MV]).buildAndRegister();
 
         // C2H4Cl2 + 2NH3 -> C2H4(NH2)2 + 2HCl

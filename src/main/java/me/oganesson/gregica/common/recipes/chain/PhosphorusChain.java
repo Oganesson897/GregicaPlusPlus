@@ -51,7 +51,7 @@ public class PhosphorusChain {
         BURNER_REACTOR_RECIPES.recipeBuilder()
                 .input(gem, WhitePhosphorus)
                 .output(gem, BlackPhosphorus)
-                .pressure(1.2159E9).temperature(524)
+                .temperature(524)
                 .duration(100).EUt(VA[IV]).buildAndRegister();
 
         MOLECULAR_BEAM_RECIPES.recipeBuilder()

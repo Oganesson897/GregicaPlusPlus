@@ -68,7 +68,7 @@ public class GalliumNitrideChain {
                 .fluidInputs(Ammonia.getFluid(2000))
                 .output(plate, GalliumNitride, 4)
                 .fluidOutputs(Steam.getFluid(3000))
-                .temperature(1023).pressure(10_132_500)
+                .temperature(1023)
                 .duration(250).EUt(VA[LuV]).buildAndRegister();
     }
 }

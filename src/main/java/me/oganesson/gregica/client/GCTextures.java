@@ -64,6 +64,8 @@ public class GCTextures {
 
     public static SimpleOverlayRenderer FLOTATION_CELL_REGULATOR;
 
+    public static SimpleOverlayRenderer VACUUM_CASING;
+
     public static final IsaMillRenderer ISA_MILL = new IsaMillRenderer();
 
     public static final ModelResourceLocation LASER_PIPE_MODEL = new ModelResourceLocation(new ResourceLocation(Gregica.MOD_ID, "laser_pipe_normal"), "normal");
@@ -85,23 +87,10 @@ public class GCTextures {
     public static OrientedOverlayRenderer SONICATOR_OVERLAY = new OrientedOverlayRenderer("multiblock/sonicator", FRONT);
     public static OrientedOverlayRenderer CATALYTIC_REFORMER_OVERLAY = new OrientedOverlayRenderer("multiblock/catalytic_reformer", FRONT);
     public static OrientedOverlayRenderer INDUSTRIAL_DRILL_OVERLAY = new OrientedOverlayRenderer("multiblock/industrial_drill", FRONT);
-    public static OrientedOverlayRenderer SUBSONIC_AXIAL_COMPRESSOR_OVERLAY = new OrientedOverlayRenderer("multiblock/subsonic_axial_compressor", FRONT);
-    public static OrientedOverlayRenderer SUPERSONIC_AXIAL_COMPRESSOR_OVERLAY = new OrientedOverlayRenderer("multiblock/supersonic_axial_compressor", FRONT);
-    public static OrientedOverlayRenderer LOW_POWER_TURBOMOLECULAR_PUMP = new OrientedOverlayRenderer("multiblock/low_power_turbomolecular_pump", TOP);
-    public static OrientedOverlayRenderer HIGH_POWER_TURBOMOLECULAR_PUMP = new OrientedOverlayRenderer("multiblock/high_power_turbomolecular_pump", TOP);
     public static OrientedOverlayRenderer SUPRACHRONAL_OVERLAY = new OrientedOverlayRenderer("multiblock/suprachronal_assembler", FRONT);
 
     public static SimpleOverlayRenderer SUPRACHRONAL_CASING = new SimpleOverlayRenderer("casings/solid/suprachronal_casing");
 
-    public static TextureAtlasSprite PRESSURE_PIPE_SIDE;
-    public static TextureAtlasSprite PRESSURE_PIPE_OPEN;
-
-    @SideOnly(Side.CLIENT)
-    public static void register(TextureMap textureMap) {
-        PRESSURE_PIPE_SIDE = textureMap.registerSprite(new ResourceLocation(Gregica.MOD_ID, "blocks/pipe/pressure_pipe_side"));
-        PRESSURE_PIPE_OPEN = textureMap.registerSprite(new ResourceLocation(Gregica.MOD_ID, "blocks/pipe/pressure_pipe_open"));
-
-    }
 
     public static void preInit() {
         MAGIC_CASING = new SimpleOverlayRenderer("magic_machine_casing");
@@ -128,6 +117,7 @@ public class GCTextures {
         ACTIVE_TRANSFORMER= new OrientedOverlayRenderer("multiblock/active_transformer");
         ISA_MILL_CASING= new SimpleOverlayRenderer("isa_machine_casing");
         FLOTATION_CELL_REGULATOR= new SimpleOverlayRenderer("flotation_casing");
+        VACUUM_CASING= new SimpleOverlayRenderer("vacuum_casing");
     }
 
 }

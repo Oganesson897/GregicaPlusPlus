@@ -62,21 +62,4 @@ public class GCUtil {
         
         return direction;
     }
-
-
-    //GCYS
-    public static int getTierByPressure(double pressure) {
-        if (pressure == GCValues.EARTH_PRESSURE) return GCValues.EAP;
-        for (int i = 0; i < GCValues.P.length; i++) {
-            double p = GCValues.P[i];
-            if (pressure <= GCValues.EARTH_PRESSURE && p <= GCValues.EARTH_PRESSURE) {
-                if (p < pressure) continue;
-                else return i;
-            }
-            if (pressure >= GCValues.EARTH_PRESSURE && p > GCValues.EARTH_PRESSURE) {
-                if (p >= pressure) return i;
-            }
-        }
-        return 0;
-    }
 }

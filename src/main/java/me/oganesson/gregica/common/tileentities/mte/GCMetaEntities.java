@@ -20,13 +20,8 @@ import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTEActiveTransf
 import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTELapotronicSuperCapacitor;
 import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEEssentiaGenerator;
 import me.oganesson.gregica.common.tileentities.mte.multi.machines.*;
-import me.oganesson.gregica.common.tileentities.mte.multi.pressure.MetaTileEntityAxialCompressor;
-import me.oganesson.gregica.common.tileentities.mte.multi.pressure.MetaTileEntityTurbomolecularPump;
 import me.oganesson.gregica.common.tileentities.mte.multipart.*;
 import me.oganesson.gregica.common.tileentities.mte.single.MTECreativeGenerator;
-import me.oganesson.gregica.common.tileentities.mte.single.MetaTileEntityCreativePressurePump;
-import me.oganesson.gregica.common.tileentities.mte.single.MetaTileEntitySteamEjector;
-import me.oganesson.gregica.common.tileentities.mte.single.MetaTileEntitySteamVacuumChamber;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.function.Function;
@@ -59,6 +54,7 @@ public class GCMetaEntities {
     public static MTEReplicator REPLICATOR;
     public static MTELapotronicSuperCapacitor LAPOTRONIC_SUPER_CAPACITOR;
     public static MTEIsaMill ISA_MILL;
+    public static MTEVacuumFurnace VACUUM_FURNACE;
 
     //Part
     public static MTEQubitHatch[] QBIT_INPUT_HATCH = new MTEQubitHatch[GCValues.QUBIT.length];
@@ -71,16 +67,7 @@ public class GCMetaEntities {
 
     public static final BlockLaserPipe[] LASER_PIPES = new BlockLaserPipe[1];
 
-    
-    //GCYS
-
-    public static MetaTileEntitySteamEjector STEAM_EJECTOR;
-    public static MetaTileEntitySteamVacuumChamber SMALL_VACUUM_CHAMBER;
-    public static MetaTileEntityCreativePressurePump CREATIVE_PRESSURE;
-
     public static SimpleMachineMetaTileEntity[] DRYER = new SimpleMachineMetaTileEntity[GTValues.V.length - 1];
-
-    public static MetaTileEntityPressureHatch[] PRESSURE_HATCH = new MetaTileEntityPressureHatch[GCValues.P.length];
 
     public static MetaTileEntityCrystallizationCrucible CRYSTALLIZATION_CRUCIBLE;
     public static MetaTileEntityRoaster ROASTER;
@@ -92,10 +79,6 @@ public class GCMetaEntities {
     public static MetaTileEntitySonicator SONICATOR;
     public static MetaTileEntityCatalyticReformer CATALYTIC_REFORMER;
     public static MetaTileEntityIndustrialDrill INDUSTRIAL_DRILL;
-    public static MetaTileEntityAxialCompressor SUBSONIC_AXIAL_COMPRESSOR;
-    public static MetaTileEntityAxialCompressor SUPERSONIC_AXIAL_COMPRESSOR;
-    public static MetaTileEntityTurbomolecularPump LOW_POWER_TURBOMOLECULAR_PUMP;
-    public static MetaTileEntityTurbomolecularPump HIGH_POWER_TURBOMOLECULAR_PUMP;
     public static MetaTileEntitySuprachronalAssembler SUPRACHRONAL_ASSEMBLER;
     
     
@@ -139,6 +122,7 @@ public class GCMetaEntities {
 
         FLOTATION_CELL_REGULATOR = registerMetaTileEntity(nextID(),new MTEFlotationCellRegulator(gcID("flotation_cell_regulator")));
 
+        VACUUM_FURNACE = registerMetaTileEntity(nextID(), new MTEVacuumFurnace(gcID("vacuum_furnace")));
         //Multipart
         QBIT_INPUT_HATCH[0] = registerMetaTileEntity(nextID(), new MTEQubitHatch(gcID("qubit_hatch.input.16"), 0, 16, false));
         QBIT_OUTPUT_HATCH[0] = registerMetaTileEntity(nextID(), new MTEQubitHatch(gcID("qubit_hatch.output.1"), 0, 16, true));
@@ -160,28 +144,9 @@ public class GCMetaEntities {
         simpleTiredInit(CREATIVE_ENERGY_HATCHES,
                 (i) -> new MTECreativeEnergyHatch(gcID("creative_energy_hatch."+GTValues.VN[i].toLowerCase()),i));
 
-        STEAM_EJECTOR = registerMetaTileEntity(2100, new MetaTileEntitySteamEjector(gcID("steam_ejector")));
-        SMALL_VACUUM_CHAMBER = registerMetaTileEntity(2101, new MetaTileEntitySteamVacuumChamber(gcID("steam_vacuum_chamber")));
-        CREATIVE_PRESSURE = registerMetaTileEntity(2102, new MetaTileEntityCreativePressurePump(gcID("infinite_pressure_pump")));
-
-
         //GCYS
         // Simple Machines: ID 2300-3000+
         registerSimpleMetaTileEntity(DRYER, 2200, "dryer", GCRecipeMaps.DRYER_RECIPES, GCTextures.DRYER_OVERLAY, true, GTUtility.hvCappedTankSizeFunction);
-
-        // Multiblock Hatches: ID 3750-3899
-        int startId = 3750;
-        for (int i = 0; i < PRESSURE_HATCH.length; i++) {
-            double min = GCValues.P[GCValues.EAP];
-            double max = GCValues.P[GCValues.EAP];
-            if (i < GCValues.EAP) min = GCValues.P[i];
-            else if (i > GCValues.EAP) max = GCValues.P[i];
-            else continue;
-
-            //TODO change tiers to appropriate values
-            int tier = Math.abs(GCValues.EAP - i);
-            PRESSURE_HATCH[i] = registerMetaTileEntity(startId + i, new MetaTileEntityPressureHatch(gcID(String.format("pressure_hatch.%s", GCValues.PN[i].toLowerCase())), tier, min, max));
-        }
 
         // Multiblocks: Id 3900-3999
         INDUSTRIAL_DRILL = registerMetaTileEntity(3900, new MetaTileEntityIndustrialDrill(gcID("industrial_drill")));
@@ -194,10 +159,6 @@ public class GCMetaEntities {
         CVD_UNIT = registerMetaTileEntity(3908, new MetaTileEntityCVDUnit(gcID("cvd_unit")));
         BURNER_REACTOR = registerMetaTileEntity(3909, new MetaTileEntityBurnerReactor(gcID("burner_reactor")));
         CRYOGENIC_REACTOR = registerMetaTileEntity(3910, new MetaTileEntityCryoReactor(gcID("cryogenic_reactor")));
-        SUBSONIC_AXIAL_COMPRESSOR = registerMetaTileEntity(3911, new MetaTileEntityAxialCompressor(gcID("axial_compressor.subsonic"), GTValues.EV, 5E6, 10_000.0));
-        SUPERSONIC_AXIAL_COMPRESSOR = registerMetaTileEntity(3912, new MetaTileEntityAxialCompressor(gcID("axial_compressor.supersonic"), GTValues.LuV, 18E9, 50_000.0));
-        LOW_POWER_TURBOMOLECULAR_PUMP = registerMetaTileEntity(3913, new MetaTileEntityTurbomolecularPump(gcID("turbomolecular_pump.low_power"), GTValues.EV, 1E-4, 10_000.0));
-        HIGH_POWER_TURBOMOLECULAR_PUMP = registerMetaTileEntity(3914, new MetaTileEntityTurbomolecularPump(gcID("turbomolecular_pump.high_power"), GTValues.LuV, 1E-7, 50_000.0));
         SUPRACHRONAL_ASSEMBLER = registerMetaTileEntity(3915, new MetaTileEntitySuprachronalAssembler(gcID("suprachronal_assembler")));
 
     }
