@@ -67,7 +67,7 @@ public class MTEIsaMill extends RecipeMapMultiblockController {
                 .aisle("EEE", "EGE", "EEE")
                 .aisle("CCC", "CSC", "CCC")
                 .where('S', selfPredicate())
-                .where('E', states(getCasingState()))
+                .where('C', states(getCasingState()))
                 .where('E', states(getCasingState()).setMinGlobalLimited(31)
                         .or(abilities(MultiblockAbility.MUFFLER_HATCH).setExactLimit(1))
                         .or(abilities(MultiblockAbility.MAINTENANCE_HATCH).setExactLimit(1))
