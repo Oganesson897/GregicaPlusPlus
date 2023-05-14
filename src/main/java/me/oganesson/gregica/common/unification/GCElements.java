@@ -3,6 +3,7 @@ package me.oganesson.gregica.common.unification;
 import com.google.common.base.CaseFormat;
 import crafttweaker.annotations.ZenRegister;
 import gregtech.api.unification.Element;
+import net.minecraft.util.text.TextFormatting;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -25,6 +26,7 @@ public class GCElements {
     public static final Element Vb = add(152, 226, -1, null, "Vibranium", "Vb", false);
     public static final Element Ad = add(222, 580, -1, null, "Adamantium", "Ad", false);
     public static final Element Tn = add(321, 478, -1, null, "Taranium", "Tn", false);
+    public static final Element Void = add(1, 1, -1, null, "Void", TextFormatting.OBFUSCATED + "☯", false);
 
     private GCElements() {}
 

@@ -1,5 +1,6 @@
 package me.oganesson.gregica.common.unification.materials.material;
 
+import gregicality.multiblocks.api.unification.GCYMMaterials;
 import gregtech.api.fluids.fluidType.FluidTypes;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
@@ -8,8 +9,7 @@ import me.oganesson.gregica.common.unification.GCElements;
 import me.oganesson.gregica.common.unification.materials.GCMaterials;
 
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.material.info.MaterialFlags.DISABLE_DECOMPOSITION;
-import static me.oganesson.gregica.common.unification.materials.GCMaterials.CarbenDisulfide;
+import static gregtech.api.unification.material.info.MaterialFlags.*;
 import static me.oganesson.gregica.common.unification.ore.GCMaterialFlags.GENERATE_MILLED;
 
 public class SecondDegreeMaterials {
@@ -99,7 +99,7 @@ public class SecondDegreeMaterials {
                 .components(Carbon, 1, Hydrogen, 2, Oxygen, 1)
                 .build();
 
-        CarbenDisulfide  = new Material.Builder(26114, "carbon_disulfide")
+        GCMaterials.CarbenDisulfide  = new Material.Builder(26114, "carbon_disulfide")
                 .fluid()
                 .colorAverage()
                 .components(Carbon, 1, Sulfur, 2)
@@ -122,11 +122,24 @@ public class SecondDegreeMaterials {
         GCMaterials.SpessartineFront  = new Material.Builder(26125, "spessartine_front").fluid().color(0XDF5A5A).build();
         GCMaterials.SphaleriteFront  = new Material.Builder(26126, "sphalerite_front").fluid().color(0xD9D9D9).build();
 
+        GCMaterials.Inconel625 = new Material.Builder(26127, "inconel_625")
+                .fluid()
+                .flags(GENERATE_RING, GENERATE_BOLT_SCREW, GENERATE_GEAR)
+                .fluidTemp(3700)
+                .color(0x3fcc60)
+                .fluidPipeProperties(5500, 64000, true, true, true, true)
+                .build();
+
         Materials.Potin.addFlags("generate_rotor", "generate_small_gear");
         Materials.Iridium.addFlags("generate_frame");
         Materials.Darmstadtium.addFlags("generate_frame");
         Materials.Cobalt.addFlags("generate_fine_wire");
         Materials.Lapis.addFlags("generate_bolt_screw");
+        Materials.HSSE.addFlags(GENERATE_SMALL_GEAR);
+
+        GCYMMaterials.Zeron100.addFlags("generate_rotor", "generate_bolt_screw");
+        GCYMMaterials.IncoloyMA956.addFlags("generate_rotor");
+
         Almandine.addFlags(GENERATE_MILLED);
         Pentlandite.addFlags(GENERATE_MILLED);
         Chalcopyrite.addFlags(GENERATE_MILLED);

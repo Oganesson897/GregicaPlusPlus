@@ -1,8 +1,10 @@
 package me.oganesson.gregica.common.unification.materials;
 
 import gregtech.api.unification.material.Material;
+import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.common.unification.materials.material.FirstDegreeMaterials;
 import me.oganesson.gregica.common.unification.materials.material.SecondDegreeMaterials;
+import me.oganesson.gregica.common.unification.materials.material.ThaumcraftMaterials;
 
 public class GCMaterials {
     //Material ID: 26000-27000
@@ -42,8 +44,15 @@ public class GCMaterials {
     public static Material SpessartineFront;
     public static Material SphaleriteFront;
 
+    public static Material Inconel625;
+
+
+    public static Material Thaumium;
+    public static Material VoidMetal;
     public static void register() {
         FirstDegreeMaterials.register();
         SecondDegreeMaterials.register();
+        if(GCValues.IS_TC_LOADED)
+            ThaumcraftMaterials.TCMaterials();
     }
 }

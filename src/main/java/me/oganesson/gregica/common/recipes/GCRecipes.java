@@ -30,6 +30,7 @@ import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.loaders.recipe.handlers.ToolRecipeHandler.addToolRecipe;
+import static me.oganesson.gregica.common.recipes.GCBiologyRecipe.getBiologyCircuitData;
 
 public class GCRecipes {
 
@@ -242,6 +243,18 @@ public class GCRecipes {
                 .fluidOutputs(GCMaterials.BismuthLeadAlloy.getFluid(14000))
                 .buildAndRegister();
 
+        GCYMRecipeMaps.ALLOY_BLAST_RECIPES.recipeBuilder()
+                .input(dust, Materials.Nickel, 3)
+                .input(dust, Materials.Chrome, 7)
+                .input(dust, Materials.Molybdenum, 10)
+                .input(dust, Materials.Invar, 10)
+                .input(dust, Materials.Nichrome, 13)
+                .circuitMeta(5)
+                .blastFurnaceTemp(3700)
+                .EUt(120).duration(400)
+                .fluidOutputs(GCMaterials.Inconel625.getFluid(6192))
+                .buildAndRegister();
+
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(MetaItems.ENERGY_LAPOTRONIC_ORB_CLUSTER)
                 .input(frameGt, Materials.TungstenSteel, 4)
@@ -406,5 +419,63 @@ public class GCRecipes {
                 .fluidInputs(Materials.Neutronium.getFluid(1152))
                 .outputs(new ItemStack(GCMetaBlocks.TRANSPARENT_CASING, 1, 6))
                 .buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .EUt(64).duration(200)
+                .input(plank, Materials.Wood, 8)
+                .input(MetaItems.PLANT_BALL, 4)
+                .input(MetaItems.VOLTAGE_COIL_MV)
+                .input(pipeTinyFluid, Materials.Steel)
+                .input(frameGt, Materials.Bronze)
+                .circuitMeta(2)
+                .fluidInputs(Materials.Water.getFluid(2000))
+                .outputs(new ItemStack(GCMetaBlocks.GC_BLOCK_CASING, 1, 5))
+                .buildAndRegister();
+
+        ModHandler.addShapedRecipe("tree_growther", GCMetaEntities.LOG_CREATE_FACTORY.getStackForm(),
+                "WTW", "NCN", "WFW",
+                'W', MetaItems.FIELD_GENERATOR_IV.getStackForm(),
+                'N', new UnificationEntry(plate, Materials.NiobiumTitanium),
+                'C', MetaTileEntities.HULL[IV].getStackForm(),
+                'T', new UnificationEntry(rotor, GCYMMaterials.IncoloyMA956),
+                'F', new UnificationEntry(pipeNormalFluid, GCMaterials.Inconel625)
+        );
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .EUt(120).duration(1200)
+                .input(dust, Materials.Redstone, 32)
+                .input(bolt, Materials.Steel, 16)
+                .input(plate, Materials.Wood, 32)
+                .input(stick, Materials.Aluminium, 12)
+                .inputs(MetaTileEntities.HULL[ULV].getStackForm(4))
+                .notConsumable(getBiologyCircuitData(21))
+                .fluidInputs(Materials.Potin.getFluid(1152))
+                .outputs(GCMetaEntities.ALGAE_FARM.getStackForm())
+                .buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .EUt(1920).duration(9600)
+                .input(plateDouble, GCMaterials.Inconel625, 4)
+                .input(ring, GCMaterials.Inconel625, 8)
+                .input(bolt, GCMaterials.Inconel625, 16)
+                .input(plate, Materials.HSSE, 8)
+                .inputs(MetaTileEntities.HULL[EV].getStackForm(2))
+                .circuitMeta(7)
+                .fluidInputs(Materials.Aluminium.getFluid(1152))
+                .outputs(new ItemStack(GCMetaBlocks.GC_BLOCK_CASING, 1, 7))
+                .buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .EUt(30720).duration(2400)
+                .input(gear, GCMaterials.Inconel625, 4)
+                .input(gearSmall, Materials.HSSE, 8)
+                .input(plate, GCMaterials.Inconel625, 8)
+                .input(bolt, GCYMMaterials.Zeron100, 16)
+                .inputs(new ItemStack(MetaBlocks.TURBINE_CASING, 2, 3))
+                .circuitMeta(7)
+                .fluidInputs(Materials.TungstenSteel.getFluid(1152))
+                .outputs(new ItemStack(GCMetaBlocks.GC_META_GEAR_BOX, 1))
+                .buildAndRegister();
+
     }
 }

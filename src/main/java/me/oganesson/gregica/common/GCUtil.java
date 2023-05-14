@@ -1,6 +1,5 @@
 package me.oganesson.gregica.common;
 
-import me.oganesson.gregica.api.GCValues;
 import net.minecraft.util.EnumFacing;
 
 import java.util.function.BooleanSupplier;

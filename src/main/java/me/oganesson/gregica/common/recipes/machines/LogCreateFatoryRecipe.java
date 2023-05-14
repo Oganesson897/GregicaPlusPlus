@@ -1,10 +1,7 @@
 package me.oganesson.gregica.common.recipes.machines;
 
-import me.oganesson.gregica.api.GCValues;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.Optional;
-import thaumcraft.api.blocks.BlocksTC;
 
 import static gregtech.common.blocks.MetaBlocks.RUBBER_LOG;
 import static gregtech.common.blocks.MetaBlocks.RUBBER_SAPLING;
@@ -19,8 +16,6 @@ public class LogCreateFatoryRecipe {
         for (int i = 0; i < 2; i++) {
             addLog2Create(1920,200,20,i);
         }
-
-        if (GCValues.IS_TC_LOADED) addThaumcraftLog();
 
         LOGS_CREATE.recipeBuilder()
                 .notConsumable(new ItemStack(RUBBER_SAPLING))
@@ -45,22 +40,6 @@ public class LogCreateFatoryRecipe {
                 .outputs(new ItemStack(Blocks.LOG2,outNum,meta))
                 .EUt(EUt)
                 .duration(tick)
-                .buildAndRegister();
-    }
-    @Optional.Method(modid = "thaumcraft")
-    private static void addThaumcraftLog()
-    {
-        LOGS_CREATE.recipeBuilder()
-                .notConsumable(new ItemStack(BlocksTC.saplingGreatwood,1))
-                .outputs(new ItemStack(BlocksTC.logGreatwood,16))
-                .EUt(1920)
-                .duration(300)
-                .buildAndRegister();
-        LOGS_CREATE.recipeBuilder()
-                .notConsumable(new ItemStack(BlocksTC.saplingSilverwood,1))
-                .outputs(new ItemStack(BlocksTC.logSilverwood,16))
-                .EUt(1920)
-                .duration(300)
                 .buildAndRegister();
     }
 }

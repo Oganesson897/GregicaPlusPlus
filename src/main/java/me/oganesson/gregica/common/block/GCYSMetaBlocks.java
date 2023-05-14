@@ -1,6 +1,5 @@
 package me.oganesson.gregica.common.block;
 
-import gregtech.client.model.SimpleStateMapper;
 import me.oganesson.gregica.common.block.gcysblocks.BlockCrucible;
 import me.oganesson.gregica.common.block.gcysblocks.BlockGCYSMultiblockCasing;
 import me.oganesson.gregica.common.block.gcysblocks.BlockGCYSMultiblockCasingActive;
@@ -9,7 +8,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
