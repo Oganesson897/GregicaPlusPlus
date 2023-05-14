@@ -15,7 +15,7 @@ Quantum Computer from GCYL: https://github.com/GregTechCEu/gregicality-legacy
 
 Lesar Pipe code from htmltech by htmlcsjs: https://github.com/htmlcsjs
 
-under LGPLv3 License  
+under AGPLv3 License  
 
 ALREADY LICENSED
 
