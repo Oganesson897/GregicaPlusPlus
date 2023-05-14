@@ -6,11 +6,7 @@ import gregtech.client.renderer.texture.cube.SimpleSidedCubeRenderer;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.client.render.IsaMillRenderer;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static gregtech.client.renderer.texture.cube.OrientedOverlayRenderer.OverlayFace.*;
 

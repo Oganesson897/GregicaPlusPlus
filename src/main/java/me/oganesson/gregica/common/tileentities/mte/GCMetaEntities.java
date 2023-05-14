@@ -20,7 +20,10 @@ import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTEActiveTransf
 import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTELapotronicSuperCapacitor;
 import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEEssentiaGenerator;
 import me.oganesson.gregica.common.tileentities.mte.multi.machines.*;
-import me.oganesson.gregica.common.tileentities.mte.multipart.*;
+import me.oganesson.gregica.common.tileentities.mte.multipart.MTEBallHatch;
+import me.oganesson.gregica.common.tileentities.mte.multipart.MTECatalystHatch;
+import me.oganesson.gregica.common.tileentities.mte.multipart.MTECreativeEnergyHatch;
+import me.oganesson.gregica.common.tileentities.mte.multipart.MTEQubitHatch;
 import me.oganesson.gregica.common.tileentities.mte.single.MTECreativeGenerator;
 import net.minecraft.util.ResourceLocation;
 

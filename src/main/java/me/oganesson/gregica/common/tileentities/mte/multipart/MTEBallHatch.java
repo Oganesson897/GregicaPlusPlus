@@ -110,10 +110,6 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
         inventory.damageBall(amount);
     }
 
-    protected boolean openGUIOnRightClick() {
-        return !getController().isActive();
-    }
-
     private boolean needUpdate = false;
 
     @Override

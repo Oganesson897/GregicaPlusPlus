@@ -13,13 +13,14 @@ import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
 import me.oganesson.gregica.common.unification.materials.GCMaterials;
 import me.oganesson.gregica.common.unification.ore.GCOrePrefix;
-import net.minecraft.init.Items;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
 import javax.annotation.Nonnull;
 
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.api.unification.ore.OrePrefix.gem;
+import static me.oganesson.gregica.common.recipes.GCBiologyRecipe.getBiologyCircuitData;
 import static me.oganesson.gregica.common.unification.ore.GCMaterialFlags.GENERATE_MILLED;
 
 public class GCIsaProcessLine {
@@ -99,6 +100,17 @@ public class GCIsaProcessLine {
 
         GCRecipeMaps.CHEMICAL_PLANT.recipeBuilder()
                 .recipeLevel(3)
+                .input(Blocks.SAPLING, 32)
+                .fluidInputs(Materials.DistilledWater.getFluid(8000))
+                .fluidInputs(Materials.Mutagen.getFluid(2000))
+                .notConsumable(getBiologyCircuitData(6))
+                .EUt(64)
+                .duration(2400)
+                .output(GCMetaBlocks.PINE_SAPLING, 16)
+                .buildAndRegister();
+
+        GCRecipeMaps.CHEMICAL_PLANT.recipeBuilder()
+                .recipeLevel(3)
                 .input(OrePrefix.dust, Materials.Sodium)
                 .fluidInputs(Materials.Ethanol.getFluid(1000))
                 .circuitMeta(16)
@@ -137,10 +149,10 @@ public class GCIsaProcessLine {
                 .circuitMeta(16)
                 .EUt(120)
                 .duration(1200)
-                .chancedOutput(OrePrefix.dust, Materials.Ash, 5, 30, 15)
-                .chancedOutput(OrePrefix.dust, Materials.Ash, 5, 30, 15)
-                .chancedOutput(OrePrefix.dust, Materials.DarkAsh, 5, 30, 15)
-                .chancedOutput(OrePrefix.dust, Materials.DarkAsh, 5, 30, 15)
+                .chancedOutput(OrePrefix.dust, Materials.Ash, 5, 3000, 15)
+                .chancedOutput(OrePrefix.dust, Materials.Ash, 5, 3000, 15)
+                .chancedOutput(OrePrefix.dust, Materials.DarkAsh, 5, 3000, 15)
+                .chancedOutput(OrePrefix.dust, Materials.DarkAsh, 5, 3000, 15)
                 .fluidOutputs(GCMaterials.PineOil.getFluid(500))
                 .buildAndRegister();
 
@@ -151,10 +163,10 @@ public class GCIsaProcessLine {
                 .circuitMeta(18)
                 .EUt(120)
                 .duration(900)
-                .chancedOutput(OrePrefix.dustTiny, Materials.Ash, 5, 30, 15)
-                .chancedOutput(OrePrefix.dustTiny, Materials.Ash, 5, 30, 15)
-                .chancedOutput(OrePrefix.dustTiny, Materials.DarkAsh, 5, 30, 15)
-                .chancedOutput(OrePrefix.dustTiny, Materials.DarkAsh, 5, 30, 15)
+                .chancedOutput(OrePrefix.dustTiny, Materials.Ash, 5, 3000, 15)
+                .chancedOutput(OrePrefix.dustTiny, Materials.Ash, 5, 3000, 15)
+                .chancedOutput(OrePrefix.dustTiny, Materials.DarkAsh, 5, 3000, 15)
+                .chancedOutput(OrePrefix.dustTiny, Materials.DarkAsh, 5, 3000, 15)
                 .fluidOutputs(GCMaterials.PineOil.getFluid(1500))
                 .buildAndRegister();
 
@@ -208,9 +220,9 @@ public class GCIsaProcessLine {
                 .EUt(120)
                 .duration(200)
                 .output(GCMetaItems.PINE_FRAGMENT, 16)
-                .chancedOutput(GCMetaItems.PINE_FRAGMENT, 16, 75, 0)
-                .chancedOutput(GCMetaItems.PINE_FRAGMENT, 16, 50, 0)
-                .chancedOutput(GCMetaItems.PINE_FRAGMENT, 16, 25, 0)
+                .chancedOutput(GCMetaItems.PINE_FRAGMENT, 16, 7500, 0)
+                .chancedOutput(GCMetaItems.PINE_FRAGMENT, 16, 5000, 0)
+                .chancedOutput(GCMetaItems.PINE_FRAGMENT, 16, 2500, 0)
                 .buildAndRegister();
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()

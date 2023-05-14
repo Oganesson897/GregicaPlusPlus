@@ -308,12 +308,12 @@ public class GCBiologyRecipe {
                 .fluidOutputs(GCMaterials.Resin.getFluid(500))
                 .buildAndRegister();
 
-        //Aluminum Pellets
+        //Aluminium Pellets
         GCRecipeMaps.CHEMICAL_PLANT.recipeBuilder()
                 .recipeLevel(1)
                 .input(gem, Materials.Coke, 1)
                 .input(dust, Materials.SodaAsh, 6)
-                .input(GCMetaItems.ALUMINUM_PELLETS)
+                .input(GCMetaItems.ALUMINIUM_PELLETS)
                 .output(dust, GCMaterials.SodiumAluminate, 8)
                 .notConsumable(getBiologyCircuitData(18))
                 .EUt(120)
@@ -324,7 +324,7 @@ public class GCBiologyRecipe {
                 .recipeLevel(1)
                 .input(gem, Materials.Coal, 2)
                 .input(dust, Materials.SodaAsh, 6)
-                .input(GCMetaItems.ALUMINUM_PELLETS)
+                .input(GCMetaItems.ALUMINIUM_PELLETS)
                 .output(dust, GCMaterials.SodiumAluminate, 8)
                 .notConsumable(getBiologyCircuitData(18))
                 .EUt(120)
@@ -338,7 +338,7 @@ public class GCBiologyRecipe {
                 .EUt(90).duration(9000)
                 .buildAndRegister();
 
-        //Purified Aluminum Mixture
+        //Purified Aluminium Mixture
 
         GCRecipeMaps.CHEMICAL_PLANT.recipeBuilder()
                 .recipeLevel(1)
@@ -347,7 +347,7 @@ public class GCBiologyRecipe {
                 .notConsumable(getBiologyCircuitData(14))
                 .EUt(30)
                 .duration(1200)
-                .output(GCMetaItems.PURIFIED_ALUMINUM_MIXTURE, 3)
+                .output(GCMetaItems.PURIFIED_ALUMINIUM_MIXTURE, 3)
                 .fluidOutputs(GCMaterials.RedMud.getFluid(300))
                 .buildAndRegister();
 
@@ -358,7 +358,7 @@ public class GCBiologyRecipe {
                 .notConsumable(getBiologyCircuitData(14))
                 .EUt(30)
                 .duration(1200)
-                .output(GCMetaItems.PURIFIED_ALUMINUM_MIXTURE, 3)
+                .output(GCMetaItems.PURIFIED_ALUMINIUM_MIXTURE, 3)
                 .fluidOutputs(GCMaterials.RedMud.getFluid(300))
                 .buildAndRegister();
 
@@ -369,7 +369,7 @@ public class GCBiologyRecipe {
                 .notConsumable(getBiologyCircuitData(14))
                 .EUt(60)
                 .duration(1200)
-                .output(GCMetaItems.PURIFIED_ALUMINUM_MIXTURE, 3)
+                .output(GCMetaItems.PURIFIED_ALUMINIUM_MIXTURE, 3)
                 .fluidOutputs(GCMaterials.RedMud.getFluid(300))
                 .buildAndRegister();
 
@@ -380,7 +380,7 @@ public class GCBiologyRecipe {
                 .notConsumable(getBiologyCircuitData(14))
                 .EUt(90)
                 .duration(1200)
-                .output(GCMetaItems.PURIFIED_ALUMINUM_MIXTURE, 3)
+                .output(GCMetaItems.PURIFIED_ALUMINIUM_MIXTURE, 3)
                 .fluidOutputs(GCMaterials.RedMud.getFluid(300))
                 .buildAndRegister();
 
@@ -391,7 +391,7 @@ public class GCBiologyRecipe {
                 .notConsumable(getBiologyCircuitData(14))
                 .EUt(90)
                 .duration(1200)
-                .output(GCMetaItems.PURIFIED_ALUMINUM_MIXTURE, 2)
+                .output(GCMetaItems.PURIFIED_ALUMINIUM_MIXTURE, 2)
                 .fluidOutputs(GCMaterials.RedMud.getFluid(200))
                 .buildAndRegister();
 
@@ -402,7 +402,7 @@ public class GCBiologyRecipe {
                 .notConsumable(getBiologyCircuitData(14))
                 .EUt(90)
                 .duration(1200)
-                .output(GCMetaItems.PURIFIED_ALUMINUM_MIXTURE, 3)
+                .output(GCMetaItems.PURIFIED_ALUMINIUM_MIXTURE, 3)
                 .fluidOutputs(GCMaterials.RedMud.getFluid(300))
                 .buildAndRegister();
 
@@ -413,7 +413,7 @@ public class GCBiologyRecipe {
                 .notConsumable(getBiologyCircuitData(14))
                 .EUt(90)
                 .duration(1200)
-                .output(GCMetaItems.PURIFIED_ALUMINUM_MIXTURE, 5)
+                .output(GCMetaItems.PURIFIED_ALUMINIUM_MIXTURE, 5)
                 .fluidOutputs(GCMaterials.RedMud.getFluid(500))
                 .buildAndRegister();
 
@@ -424,7 +424,7 @@ public class GCBiologyRecipe {
                 .notConsumable(getBiologyCircuitData(14))
                 .EUt(90)
                 .duration(1200)
-                .output(GCMetaItems.PURIFIED_ALUMINUM_MIXTURE, 23)
+                .output(GCMetaItems.PURIFIED_ALUMINIUM_MIXTURE, 23)
                 .fluidOutputs(GCMaterials.RedMud.getFluid(2300))
                 .buildAndRegister();
 
@@ -435,14 +435,14 @@ public class GCBiologyRecipe {
                 .notConsumable(getBiologyCircuitData(14))
                 .EUt(120)
                 .duration(1200)
-                .output(GCMetaItems.PURIFIED_ALUMINUM_MIXTURE, 5)
+                .output(GCMetaItems.PURIFIED_ALUMINIUM_MIXTURE, 5)
                 .fluidOutputs(GCMaterials.RedMud.getFluid(500))
                 .buildAndRegister();
 
         EXTRUDER_RECIPES.recipeBuilder()
                 .notConsumable(GCMetaItems.PELLETS_MOULD)
-                .input(GCMetaItems.PURIFIED_ALUMINUM_MIXTURE, 4)
-                .output(GCMetaItems.ALUMINUM_PELLETS)
+                .input(GCMetaItems.PURIFIED_ALUMINIUM_MIXTURE, 4)
+                .output(GCMetaItems.ALUMINIUM_PELLETS)
                 .EUt(64).duration(600)
                 .buildAndRegister();
         //Fish~

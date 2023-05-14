@@ -49,7 +49,7 @@ public class GCMetaItems {
     public static MetaItem<?>.MetaValueItem ADVANCED_INTEGRATED_CIRCUIT;
 
     public static MetaItem<?>.MetaValueItem ROUGH_BIOLOGY_RESIN;
-    public static MetaItem<?>.MetaValueItem PURIFIED_ALUMINUM_MIXTURE;
+    public static MetaItem<?>.MetaValueItem PURIFIED_ALUMINIUM_MIXTURE;
     public static MetaItem<?>.MetaValueItem CELLULOSE_PULP;
     public static MetaItem<?>.MetaValueItem CELLULOSE_FIBER;
     public static MetaItem<?>.MetaValueItem CELLULOSE_FIBER_RED;
@@ -60,7 +60,7 @@ public class GCMetaItems {
     public static MetaItem<?>.MetaValueItem ALGAE_ACID;
     public static MetaItem<?>.MetaValueItem WOOD_PELLETS;
     public static MetaItem<?>.MetaValueItem PELLETS_MOULD;
-    public static MetaItem<?>.MetaValueItem ALUMINUM_PELLETS;
+    public static MetaItem<?>.MetaValueItem ALUMINIUM_PELLETS;
 
     public static MetaItem<?>.MetaValueItem GRINDBALL_SOAPSTONE;
     public static MetaItem<?>.MetaValueItem GRINDBALL_ALUMINIUM;
@@ -237,7 +237,7 @@ public class GCMetaItems {
         BIOLOGY_INTEGRATED_CIRCUIT=metaItem1.addItem(39, "item.biology_integrated_circuit").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab).addComponents(new IntBcircuitBehavior());
         ADVANCED_INTEGRATED_CIRCUIT=metaItem1.addItem(40, "item.advanced_integrated_circuit").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         ROUGH_BIOLOGY_RESIN=metaItem1.addItem(41, "item.biology_resin").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
-        PURIFIED_ALUMINUM_MIXTURE=metaItem1.addItem(42, "item.aluminum_mixture").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
+        PURIFIED_ALUMINIUM_MIXTURE=metaItem1.addItem(42, "item.aluminium_mixture").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         CELLULOSE_PULP=metaItem1.addItem(43, "item.cellulose_pulp").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         CELLULOSE_FIBER=metaItem1.addItem(44, "item.cellulose_fiber_green").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         CELLULOSE_FIBER_RED=metaItem1.addItem(45, "item.cellulose_fiber_red").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
@@ -248,7 +248,7 @@ public class GCMetaItems {
         ALGAE_ACID=metaItem1.addItem(50, "item.algae_acid").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         WOOD_PELLETS=metaItem1.addItem(51, "item.wood_pellets").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
         PELLETS_MOULD=metaItem1.addItem(52, "item.pellets_mould").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
-        ALUMINUM_PELLETS=metaItem1.addItem(53, "item.aluminum_pellets").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
+        ALUMINIUM_PELLETS=metaItem1.addItem(53, "item.aluminium_pellets").setMaxStackSize(64).setCreativeTabs(CommonProxy.Tab);
 
         GRINDBALL_SOAPSTONE=metaItem1.addItem(54, "item.soapstone.ball").setMaxStackSize(1).setCreativeTabs(CommonProxy.Tab).addComponents(new MillBallBehavior());
         GRINDBALL_ALUMINIUM=metaItem1.addItem(55, "item.aluminium.ball").setMaxStackSize(1).setCreativeTabs(CommonProxy.Tab).addComponents(new MillBallBehavior());

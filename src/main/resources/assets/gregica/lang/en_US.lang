@@ -37,8 +37,15 @@ item.upgradeEssentia.8.name=§aEssentia Generator: Radiation§r
 item.upgradeEssentia.9.name=§3Essentia Generator: Electric§r
 
 metaitem.tool.baguette.name=Baguette
-
+metaitem.item.soapstone.ball.name=Grind Ball (Soap Stone)
+metaitem.item.aluminium.ball.name=Grind Ball (Aluminium)
 item.gt.tool.choocher.name=%s Skookum Choocher
+
+metaitem.item.sodium.ethylate.name=Sodium Ethylate
+metaitem.item.potassium.ethylate.name=Potassium Ethylate
+metaitem.item.sodium.ethylxanthate.name=Sodium Ethylxanthate
+metaitem.item.potassium.ethylxanthate.name=Potassium Ethylxanthate
+
 metaitem.algae.common.name=Common Algae
 metaitem.algae.red.name=Red Algae
 metaitem.algae.green.name=Green Algae
@@ -46,18 +53,21 @@ metaitem.algae.gold.name=Gold Algae
 metaitem.algae.brown.name=Brown Algae
 metaitem.algae.t.name=T Algae
 
+metaitem.item.pine_cone.name=Pine Cone
+metaitem.item.pine_fragment.name=Pine Fragment
+
 metaitem.item.biology_integrated_circuit.name=Biological Integrated Circuit
 metaitem.item.biology_resin.name=Biology Risen
 metaitem.item.cellulose_fiber_yellow.name=Fiber Cellulose
 metaitem.item.cellulose_fiber_red.name=Fiber Cellulose
 metaitem.item.cellulose_fiber_green.name=Fiber Cellulose
 metaitem.item.compost.name=Compost
-metaitem.item.aluminum_mixture.name=Aluminum Mixture
+metaitem.item.aluminium_mixture.name=Aluminium Mixture
 metaitem.item.cellulose_pulp.name=Cellulose Pulp
 metaitem.item.algae_acid.name=Algae Acid
 metaitem.item.pellets_mould.name=Pellets Mould
 metaitem.item.wood_pellets.name=Wood Pellets
-metaitem.item.aluminum_pellets.name=Aluminum Pellets
+metaitem.item.aluminium_pellets.name=Aluminium Pellets
 
 metaitem.cover.conveyor.ulv.name=ULV Conveyor Module
 metaitem.cover.emitter.ulv.name=ULV Emitter
@@ -109,18 +119,27 @@ item.material.oreprefix.orePoorDiorite=Poor Diorite %s Ore
 item.material.oreprefix.orePoorAndesite=Poor Andesite %s Ore
 
 #Blocks
-tile.gc_machine_casing.magic_machine_casing.name=Magic Casing
+tile.gc_machine_casing.magic_machine_casing.name=Magic Machine Casing
 tile.gc_essentia_cell.essentia_cell_1.name=Novice Essentia Diffusion Cell
 tile.gc_essentia_cell.essentia_cell_2.name=Adept Essentia Diffusion Cell
 tile.gc_essentia_cell.essentia_cell_3.name=Master Essentia Diffusion Cell
 tile.gc_essentia_cell.essentia_cell_4.name=Grandmaster Essentia Diffusion Cell
 tile.essentia_hatch.name=Essentia Input Hatch
 tile.ti_boron_silicate_glass_block.name=Titanium Reinforced Boron Silicate Glass Block
-tile.gc_machine_casing.fishing_machine_casing.name=Fishery Casing
-tile.gc_machine_casing.quantum_machine_casing.name=Quantum Casing
-tile.gc_machine_casing.quantum_generator_machine_casing.name=Quantum Generator Casing
-tile.gc_machine_casing.high_power_casing.name=High Power Casing
-tile.gc_machine_casing.aseptic_farm_machine_casing.name=Aseptic Farm Casing
+tile.gc_machine_casing.fishing_machine_casing.name=Fishery Machine Casing
+tile.gc_machine_casing.quantum_machine_casing.name=Quantum Machine Casing
+tile.gc_machine_casing.quantum_generator_machine_casing.name=Quantum Generator Machine Casing
+tile.gc_machine_casing.high_power_casing.name=High Power Machine Casing
+tile.gc_machine_casing.aseptic_farm_machine_casing.name=Aseptic Farm Machine Casing
+tile.gc_machine_casing.isa_machine_casing.name=Isa Machine Machine Casing
+tile.gc_meta_gearbox.isa_gear_casing.name=Isa Gearbox
+tile.gc_meta_gearbox.inconel_casing.name=Iconel Machine Casing
+tile.gc_meta_gearbox.flotation_cell.name=Flotation Cell Machine Casing
+tile.gc_meta_gearbox.vacuum_casing.name=Heat Resistance Vacuum Machine Casing
+
+tile.pine_log.name=Pine Log
+tile.pine_leaves.name=Pine Leaves
+tile.pine_sapling.name=Pine Sapling
 
 tile.gc_lapotronic_casing.lapotronic_super_capacitor_casing.name=Lapotronic Super Capacitor Casing
 tile.gc_lapotronic_casing.lapotronic_capacitor_empty.name=Empty Capacitor
@@ -146,6 +165,9 @@ gregica.machine.algae_farm.name=Algae Farm
 gregica.machine.active_transformer.name=Active Transformer
 gregica.machine.lapotronic_super_capacitor.name=Lapotronic Super Capacitor
 gregica.machine.chemical_plant.name=Chemical Plant
+gregica.machine.isa_mill.name=Isa Mill
+gregica.machine.flotation_cell_regulator.name=Flotation Cell Regulator
+gregica.machine.vacuum_furnace.name=Vacuum Furnace
 
 gregica.machine.creative_energy_hatch.ulv.name=CreativeEnergyHatch ULV
 gregica.machine.creative_energy_hatch.lv.name=CreativeEnergyHatch LV
@@ -180,6 +202,7 @@ gregica.machine.creative_generator.opv.name=CreativeGenerator OPV
 gregica.machine.creative_generator.max.name=CreativeGenerator MAX
 
 gregica.machine.catalyst_hatch.name=Catalyst Hatch
+gregica.machine.ball_hatch.name=Grind Ball Hatch
 
 gregica.machine.creative_energy_hatch.amperage=Output Amperage %d A
 
@@ -191,13 +214,30 @@ gregica.casing.lapotronic.part=§3Part of the Lapotronic Super Capacitor.
 #Fluid
 material.bismuth_lead_alloy=Bismuth-Lead-Alloy
 material.resin=Resin
-material.formaldehyde=Formaldehyde
 material.urea_mix=Urea Mixture
 material.propionic_acid=Propionic Acid
 material.red_mud=Red Mud
 material.calcium_carbonate=Calcium-Carbonate
 material.sodium_aluminate=Sodium Aluminate
-material.butanol=Butanol
+material.fermentation_base=Fermentation Base
+material.carbon_disulfide=Carbon Disulfide
+material.pine_oil=Pine Oil
+material.inconel_625=Inconel 625
+
+material.almandine_front=Almandine Front
+material.pentlandite_front=Pentlandite Front
+material.chalcopyrite_front=Chalcopyrite Front
+material.grossular_front=Grossular Front
+material.monazite_front=Monazite Front
+material.nickel_front=Nickel Front
+material.platinum_front=Platinum Front
+material.pyrope_front=Pyrope Front
+material.redstone_front=Redstone Front
+material.spessartine_front=Spessartine Front
+material.sphalerite_front=Sphalerite Front
+
+Material.thaumium=Thaumium
+Material.void=Void Metal
 #Info
 gc.multiblock.pattern.error.essentia=Essentia cell tier doesn't match.
 essentiahatch.chat.0=Successfully locked to %s.
@@ -214,6 +254,9 @@ gregica.multiblock.not_enough_qubit=Not enough qubit
 recipemap.simple_qubit_generator.name=Qubit Generator
 recipemap.research_station.name=Research Station
 recipemap.chemical_plant.name=Chemical Plant
+recipemap.isa_mill.name=Isa Mill
+recipemap.flotation_cell_regulator.name=Flotation Cell Regulator
+recipemap.vacuum_furnace.name=Vacuum Furnace
 
 gregicaplusplus.multiblock.industrial_fisher.mode0=Mode: Catching Fish
 gregicaplusplus.multiblock.industrial_fisher.mode1=Mode: Catching Trash
@@ -239,8 +282,8 @@ gregica.multiblock.active_transformer.current.input=   Current input: %d eu/t
 gregica.multiblock.active_transformer.current.output=   Current output: %d eu/t
 
 gregica.multiblock.data.remind=§cData will not update when the machine is disabled.
-gregica.multipart.catalyst.only=Only Catalysts
-
+gregica.multipart.catalyst.only=Catalysts Only
+gregica.multipart.ball.only=Grind Ball Only
 #MixinGregtech
 gregica.mixin.gregtech.itemblock.multiblock_controller=§aThis is a multiblock controller.
 gregica.mixin.gregtech.itemblock.multiblock_part=§aThis is a multiblock part.
@@ -676,15 +719,6 @@ tile.multiblock_casing_active.advanced_airfoil.name=Advanced Airfoil Chamber
 
 tile.transparent_casing.pmma.name=PMMA Glass
 
-
-# Vacuums
-gcys.vacuum_level.none=No Vacuum
-gcys.vacuum_level.low=Low Vacuum
-gcys.vacuum_level.medium=Medium Vacuum
-gcys.vacuum_level.high=High Vacuum
-gcys.vacuum_level.ultra_high=Ultra High Vacuum
-gcys.vacuum_level.extremely_high=Extremely High Vacuum
-gcys.vacuum_level.perfect=Perfect Vacuum
 
 # Ore Prefixes
 item.material.oreprefix.seedCrystal=%s Seed Crystal

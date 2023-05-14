@@ -18,6 +18,7 @@ import me.oganesson.gregica.common.recipes.FuelRecipe;
 import me.oganesson.gregica.common.recipes.GCIsaProcessLine;
 import me.oganesson.gregica.common.recipes.GCRecipes;
 import me.oganesson.gregica.common.recipes.GCYSRecipeLoader;
+import me.oganesson.gregica.common.recipes.compat.Thaumcraft;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
 import me.oganesson.gregica.common.tileentities.EssentiaHatch;
 import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
@@ -75,7 +76,7 @@ public class CommonProxy {
     public void init( FMLInitializationEvent event ) {
         registerCasingTier(0, "Bronze");
         registerCasingTier(1, "Steel");
-        registerCasingTier(2, "Aluminum");
+        registerCasingTier(2, "Aluminium");
         registerCasingTier(3, "StainlessSteel");
         registerCasingTier(4, "Titanium");
         registerCasingTier(5, "TungstenSteel");
@@ -93,6 +94,10 @@ public class CommonProxy {
 
         //GCYS
         GCYSRecipeLoader.init();
+
+        //Thaumcraft
+        if(GCValues.IS_TC_LOADED)
+            Thaumcraft.initTC();
     }
     
 

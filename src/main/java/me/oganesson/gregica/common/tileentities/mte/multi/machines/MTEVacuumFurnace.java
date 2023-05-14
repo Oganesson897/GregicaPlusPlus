@@ -16,7 +16,6 @@ import gregtech.client.renderer.ICubeRenderer;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
 import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.block.GCMetaBlocks;
-import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
 import me.oganesson.gregica.common.block.metablock.GCMetaGearBox;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
