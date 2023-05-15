@@ -25,6 +25,7 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Arrays;
 import java.util.List;
 
 @ParametersAreNonnullByDefault
@@ -115,6 +116,14 @@ public class GCMetaGlasses extends VariantActiveBlock<GCMetaGlasses.CasingType> 
         @Override
         public int getGlassTier() {
             return tier;
+        }
+
+        public static CasingType getByTier(int tier) {
+            CasingType casingType = null;
+            for (CasingType type : values()) if (type.tier == tier) {
+                casingType = type;
+            }
+            return casingType;
         }
     }
 

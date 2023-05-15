@@ -38,7 +38,8 @@ public class GCMetaCasing extends VariantBlock<GCMetaCasing.MetalCasingType> {
         HIGH_POWER_CASING("high_power_casing"),
         ASEPTIC_FARM_CASING("aseptic_farm_machine_casing"),
         MATTER_FABRICATION_CPU("matter_fabrication_cpu"),
-        ISA_MILL_CASING("isa_machine_casing");
+        ISA_MILL_CASING("isa_machine_casing"),
+        RHODIUM_PLATED_PALLADIUM_CASING("rhodium_plated_palladium_casing");
         private final String name;
 
         MetalCasingType(String name) {
