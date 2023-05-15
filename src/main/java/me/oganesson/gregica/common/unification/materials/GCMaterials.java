@@ -52,7 +52,8 @@ public class GCMaterials {
     public static void register() {
         FirstDegreeMaterials.register();
         SecondDegreeMaterials.register();
-        if(GCValues.IS_TC_LOADED)
-            ThaumcraftMaterials.TCMaterials();
+      /*  if(GCValues.IS_TC_LOADED)
+        *    ThaumcraftMaterials.TCMaterials();
+       */
     }
 }

@@ -14,9 +14,9 @@ import static me.oganesson.gregica.api.recipe.GCRecipeMaps.LOGS_CREATE;
 public class Thaumcraft {
 
     public static void initTC(){
-        registerTCOre();
+       //registerTCOre();
         addThaumcraftLog();
-        removeEZPlate();
+      //  removeEZPlate();
     }
 
 
