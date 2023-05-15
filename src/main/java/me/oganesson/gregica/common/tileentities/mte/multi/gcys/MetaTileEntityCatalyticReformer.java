@@ -1,4 +1,4 @@
-package me.oganesson.gregica.common.tileentities.mte.multi;
+package me.oganesson.gregica.common.tileentities.mte.multi.gcys;
 
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;

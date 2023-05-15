@@ -1,4 +1,4 @@
-package me.oganesson.gregica.common.tileentities.mte.multi;
+package me.oganesson.gregica.common.tileentities.mte.multi.gcys;
 
 import gregicality.multiblocks.api.render.GCYMTextures;
 import gregicality.multiblocks.common.block.GCYMMetaBlocks;

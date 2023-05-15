@@ -1,4 +1,4 @@
-package me.oganesson.gregica.common.tileentities.mte.multi;
+package me.oganesson.gregica.common.tileentities.mte.multi.gcys;
 
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
