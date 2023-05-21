@@ -1,8 +1,8 @@
 package me.oganesson.gregica.mixin.gcym;
 
 import gregicality.multiblocks.common.metatileentities.multiblockpart.MetaTileEntityParallelHatch;
-import me.oganesson.gregica.GCConfig;
 import me.oganesson.gregica.api.nerf.INerfed;
+import me.oganesson.gregica.config.GCConfig;
 import net.minecraft.client.resources.I18n;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,4 +1,12 @@
 # GregicaPlusPlus
+
+<h1 align="center">
+     <a href="https://discord.gg/9Duea6z9"><img src="https://img.shields.io/discord/1097649801841090620?color=5464ec&label=Discord&style=for-the-badge" alt="Discord"></a>
+     <a href="https://github.com/Darknight123MC/GregicaPlusPlus/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Darknight123MC/GregicaPlusPlus?style=for-the-badge" alt="License"></a>
+</h1>
+
+
+## General
 Added some machines and items from GTNH, such as Tectech, GT++ and Gregicality Legacy.
 
 Industrial Fishing Pond from GT++: https://github.com/GTNewHorizons/GTplusplus

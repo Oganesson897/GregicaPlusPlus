@@ -22,7 +22,7 @@ public class SeleniumTelluriumChain {
         // CuSO4 + H2O -> H2SO4 + Cu + O
         ELECTROLYZER_RECIPES.recipeBuilder()
                 .fluidInputs(BlueVitriol.getFluid(1000))
-                .fluidInputs(Water.getFluid(1000))
+                //.fluidInputs(Water.getFluid(1000))
                 .notConsumable(new IntCircuitIngredient(3))
                 .output(dust, Copper)
                 .chancedOutput(dust, ChalcogenAnodeMud, 500, 0)

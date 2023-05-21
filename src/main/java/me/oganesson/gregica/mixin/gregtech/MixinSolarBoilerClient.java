@@ -1,8 +1,8 @@
 package me.oganesson.gregica.mixin.gregtech;
 
 import gregtech.common.metatileentities.steam.boiler.SteamSolarBoiler;
-import me.oganesson.gregica.GCConfig;
 import me.oganesson.gregica.api.nerf.INerfed;
+import me.oganesson.gregica.config.GCConfig;
 import net.minecraft.client.resources.I18n;
 import org.spongepowered.asm.mixin.Mixin;
 

@@ -20,7 +20,7 @@ import me.oganesson.gregica.api.blocks.ITiredGlass;
 import me.oganesson.gregica.api.mte.IMTEChangeableBattery;
 import me.oganesson.gregica.api.mte.energy.BigIntegerBufferLogic;
 import me.oganesson.gregica.client.GCTextures;
-import me.oganesson.gregica.common.GCUtil;
+import me.oganesson.gregica.utils.GCUtil;
 import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.block.metablock.GCLapotronicCasing;
 import me.oganesson.gregica.common.block.metablock.GCMetaGlasses;

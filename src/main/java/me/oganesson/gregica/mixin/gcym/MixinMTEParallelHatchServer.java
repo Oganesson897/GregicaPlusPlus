@@ -1,7 +1,7 @@
 package me.oganesson.gregica.mixin.gcym;
 
 import gregicality.multiblocks.common.metatileentities.multiblockpart.MetaTileEntityParallelHatch;
-import me.oganesson.gregica.GCConfig;
+import me.oganesson.gregica.config.GCConfig;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

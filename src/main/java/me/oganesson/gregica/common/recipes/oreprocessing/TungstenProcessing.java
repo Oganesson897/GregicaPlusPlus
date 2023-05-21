@@ -3,8 +3,8 @@ package me.oganesson.gregica.common.recipes.oreprocessing;
 import gregtech.api.recipes.GTRecipeHandler;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.OreDictUnifier;
-import me.oganesson.gregica.GCConfig;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
+import me.oganesson.gregica.config.GCConfigValue;
 
 import static gregtech.api.GTValues.EV;
 import static gregtech.api.GTValues.VA;
@@ -29,7 +29,7 @@ public class TungstenProcessing {
 
     public static void init() {
         tungstenChain();
-        if (GCConfig.chainOverrides.disableTungstenProcessing)
+        if (GCConfigValue.disableTungstenProcessing)
             removeGTCERecipes();
     }
 

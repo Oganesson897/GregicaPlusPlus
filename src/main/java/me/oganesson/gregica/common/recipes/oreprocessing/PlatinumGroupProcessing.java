@@ -4,7 +4,7 @@ import gregtech.api.recipes.GTRecipeHandler;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.unification.OreDictUnifier;
-import me.oganesson.gregica.GCConfig;
+import me.oganesson.gregica.config.GCConfigValue;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -43,7 +43,7 @@ public class PlatinumGroupProcessing {
         iridium();
         osmium();
 
-        if (GCConfig.chainOverrides.disablePlatinumProcessing) {
+        if (GCConfigValue.disablePlatinumProcessing) {
             removeGTCERecipes();
         }
     }

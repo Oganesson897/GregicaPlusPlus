@@ -1,0 +1,7 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "gregica:items/tools/color_applicator",
+    "layer1": "gregica:items/tools/color_applicator_tip"
+  }
+}

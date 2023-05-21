@@ -29,12 +29,15 @@ import net.minecraft.util.ResourceLocation;
 
 import java.util.function.Function;
 import java.util.function.IntFunction;
+import java.util.function.IntSupplier;
 
 import static gregtech.common.metatileentities.MetaTileEntities.registerMetaTileEntity;
 
 public class GCMetaEntities {
     
-    public static int currentID = 11000;
+    public static int currentMultiBlockID = 11000;
+    public static int currentMultiPartID = 14000;
+    public static int currentSingleMachineID = 17000;
     public static final MTELightningRod[] LIGHTNING_ROD = new MTELightningRod[4];
     public static final MTECreativeGenerator[] CREATIVE_GENERATORS = new MTECreativeGenerator[GTValues.V.length];
     public static SimpleMachineMetaTileEntity[] LAMINATOR = new SimpleMachineMetaTileEntity[GTValues.MAX];
@@ -82,87 +85,21 @@ public class GCMetaEntities {
     public static MetaTileEntitySonicator SONICATOR;
     public static MetaTileEntityCatalyticReformer CATALYTIC_REFORMER;
     public static MetaTileEntityIndustrialDrill INDUSTRIAL_DRILL;
-    public static MetaTileEntitySuprachronalAssembler SUPRACHRONAL_ASSEMBLER;
+
     
     
     public static void register() {
-        //Single Machine
-        LIGHTNING_ROD[0] = registerMetaTileEntity(nextID(), new MTELightningRod(gcID("lightning_rod.hv"), GTValues.HV));
-        LIGHTNING_ROD[1] = registerMetaTileEntity(nextID(), new MTELightningRod(gcID("lightning_rod.ev"), GTValues.EV));
-        LIGHTNING_ROD[2] = registerMetaTileEntity(nextID(), new MTELightningRod(gcID("lightning_rod.iv"), GTValues.IV));
-
-        simpleTiredInit(CREATIVE_GENERATORS,
-                (i) -> new MTECreativeGenerator(gcID("creative_generator."+GTValues.VN[i].toLowerCase()),i));
-
-        registerSimpleMetaTileEntity(LAMINATOR, 12070, "laminator", GCRecipeMaps.LAMINATOR_RECIPES, Textures.BENDER_OVERLAY, true);
-
-        //Multiblock Controller
-        if(GCValues.IS_TC_LOADED)
-        {
-            ESSENTIA_GENERATOR = registerMetaTileEntity(nextID(), new MTEEssentiaGenerator(gcID("essentia_generator")));
-        }
-        INDUSTRIAL_POND = registerMetaTileEntity(nextID(), new MTEIndustrialFishingPond(gcID("industrial_fishing_pond")));
-
-        QUBIT_COMPUTER = registerMetaTileEntity(nextID(), new MTEQubitComputer(gcID("quantum_computer")));
-
-        RESEARCH_STATION = registerMetaTileEntity(nextID(), new MTEResearchStation(gcID("research_station")));
-
-        ALGAE_FARM = registerMetaTileEntity(nextID(),new MTEAlgaeFarm(gcID("algae_farm")));
-
-        ASSEMBLY_LINE = registerMetaTileEntity(nextID(), new MTEAssemblyLine(gcID("qubit_assembly_line")));
-
-        ACTIVE_TRANSFORMER = registerMetaTileEntity(nextID(),new MTEActiveTransformer(gcID("active_transformer")));
-
-        REPLICATOR = registerMetaTileEntity(nextID(), new MTEReplicator(gcID("replicator")));
-        
-        LAPOTRONIC_SUPER_CAPACITOR = registerMetaTileEntity(nextID(),new MTELapotronicSuperCapacitor(gcID("lapotronic_super_capacitor")));
-
-        LOG_CREATE_FACTORY = registerMetaTileEntity(nextID(),new MTELogCreateFactory(gcID("log_create_factory")));
-
-        ISA_MILL = registerMetaTileEntity(nextID(),new MTEIsaMill(gcID("isa_mill")));
-
-        CHEMICAL_PLANT = registerMetaTileEntity(nextID(),new MTEChemicalPlant(gcID("chemical_plant")));
-
-        FLOTATION_CELL_REGULATOR = registerMetaTileEntity(nextID(),new MTEFlotationCellRegulator(gcID("flotation_cell_regulator")));
-
-        VACUUM_FURNACE = registerMetaTileEntity(nextID(), new MTEVacuumFurnace(gcID("vacuum_furnace")));
-        //Multipart
-        QBIT_INPUT_HATCH[0] = registerMetaTileEntity(nextID(), new MTEQubitHatch(gcID("qubit_hatch.input.16"), 0, 16, false));
-        QBIT_OUTPUT_HATCH[0] = registerMetaTileEntity(nextID(), new MTEQubitHatch(gcID("qubit_hatch.output.1"), 0, 16, true));
-
-        CATALYST_HATCH = registerMetaTileEntity(nextID(),new MTECatalystHatch(gcID("catalyst_hatch")));
-        GRIND_BALL_HATCH = registerMetaTileEntity(nextID(),new MTEBallHatch(gcID("ball_hatch")));
+        initMultiBlock();
+        initMultiPart();
+        initSingleMachine();
+        initGCYS();
 
         for (LaserPipeType type : LaserPipeType.values()) {
             LASER_PIPES[type.ordinal()] = new BlockLaserPipe();
             LASER_PIPES[type.ordinal()].setRegistryName(String.format("laser_pipe_%s", type.name));
         }
-//        for(int i = 0;i<GTValues.V.length;i++){
-//            CREATIVE_GENERATORS[i] = registerMetaTileEntity(
-//                    nextID(),new MTECreativeGenerator(
-//                            gcID("creative_generator."+GTValues.VN[i].toLowerCase()),i));
-//        }
-        simpleTiredInit(CREATIVE_GENERATORS,
-                (i) -> new MTECreativeGenerator(gcID("creative_generator."+GTValues.VN[i].toLowerCase()),i));
-        simpleTiredInit(CREATIVE_ENERGY_HATCHES,
-                (i) -> new MTECreativeEnergyHatch(gcID("creative_energy_hatch."+GTValues.VN[i].toLowerCase()),i));
 
         //GCYS
-        // Simple Machines: ID 2300-3000+
-        registerSimpleMetaTileEntity(DRYER, 2200, "dryer", GCRecipeMaps.DRYER_RECIPES, GCTextures.DRYER_OVERLAY, true, GTUtility.hvCappedTankSizeFunction);
-
-        // Multiblocks: Id 3900-3999
-        INDUSTRIAL_DRILL = registerMetaTileEntity(3900, new MetaTileEntityIndustrialDrill(gcID("industrial_drill")));
-        CATALYTIC_REFORMER = registerMetaTileEntity(3901, new MetaTileEntityCatalyticReformer(gcID("catalytic_reformer")));
-        SONICATOR = registerMetaTileEntity(3902, new MetaTileEntitySonicator(gcID("sonicator")));
-        HYDRAULIC_FRACKER = registerMetaTileEntity(3903, new MetaTileEntityFracker(gcID("fracker"), GTValues.ZPM));
-        NANOSCALE_FABRICATOR = registerMetaTileEntity(3904, new MetaTileEntityNanoscaleFabricator(gcID("nanoscale_fabricator")));
-        ROASTER = registerMetaTileEntity(3905, new MetaTileEntityRoaster(gcID("roaster")));
-        CRYSTALLIZATION_CRUCIBLE = registerMetaTileEntity(3907, new MetaTileEntityCrystallizationCrucible(gcID("crystallization_crucible")));
-        CVD_UNIT = registerMetaTileEntity(3908, new MetaTileEntityCVDUnit(gcID("cvd_unit")));
-        BURNER_REACTOR = registerMetaTileEntity(3909, new MetaTileEntityBurnerReactor(gcID("burner_reactor")));
-        CRYOGENIC_REACTOR = registerMetaTileEntity(3910, new MetaTileEntityCryoReactor(gcID("cryogenic_reactor")));
-        SUPRACHRONAL_ASSEMBLER = registerMetaTileEntity(3915, new MetaTileEntitySuprachronalAssembler(gcID("suprachronal_assembler")));
 
     }
 
@@ -170,24 +107,117 @@ public class GCMetaEntities {
         return new ResourceLocation(Gregica.MOD_ID, name);
     }
     
-    public static void simpleTiredInit(MetaTileEntity[] tileEntities, IntFunction<MetaTileEntity> function){
+    private static ResourceLocation gcysID(String name){
+        return new ResourceLocation("gcys",name);
+    }
+    
+    public static void simpleTiredInit(MetaTileEntity[] tileEntities, IntFunction<MetaTileEntity> function, IntSupplier idSupplier){
         for(int i = 0;i<GTValues.V.length;i++){
             tileEntities[i] = registerMetaTileEntity(
-                    nextID(),function.apply(i));
+                    idSupplier.getAsInt(),function.apply(i));
         }
     }
 
-    private static void registerSimpleMetaTileEntity(SimpleMachineMetaTileEntity[] machines, int startID, String name, RecipeMap<?> map, ICubeRenderer texture, boolean frontfacing, Function<Integer, Integer> tankScalingFunction) {
-        MetaTileEntities.registerSimpleMetaTileEntity(machines, startID, name, map, texture, frontfacing, GCMetaEntities::gcID, tankScalingFunction);
+    private static void registerSimpleMetaTileEntity(SimpleMachineMetaTileEntity[] machines, int startID, String name, RecipeMap<?> map, ICubeRenderer texture, boolean frontfacing, Function<Integer, Integer> tankScalingFunction,boolean isGCYS) {
+        MetaTileEntities.registerSimpleMetaTileEntity(machines, startID, name, map, texture, frontfacing, isGCYS ? GCMetaEntities::gcysID : GCMetaEntities::gcID, tankScalingFunction);
     }
 
-    private static void registerSimpleMetaTileEntity(SimpleMachineMetaTileEntity[] machines, int startID, String name, RecipeMap<?> map, ICubeRenderer texture, boolean frontfacing) {
-        registerSimpleMetaTileEntity(machines, startID, name, map, texture, frontfacing, GTUtility.defaultTankSizeFunction);
+    private static void registerSimpleMetaTileEntity(SimpleMachineMetaTileEntity[] machines, int startID, String name, RecipeMap<?> map, ICubeRenderer texture, boolean frontfacing,boolean isGCYS) {
+        registerSimpleMetaTileEntity(machines, startID, name, map, texture, frontfacing, GTUtility.defaultTankSizeFunction,isGCYS);
     }
 
-    private static int nextID(){
-        currentID++;
-        return currentID;
+    private static int nextMultiBlockID(){
+        currentMultiBlockID++;
+        return currentMultiBlockID;
+    }
+    private static int nextMultiPartID(){
+        currentMultiPartID++;
+        return currentMultiPartID;
+    }
+    private static int nextSingleMachineID(){
+        currentSingleMachineID++;
+        return currentSingleMachineID;
+    }
+    
+    private static void initMultiBlock(){
+       
+        INDUSTRIAL_POND = registerMetaTileEntity(nextMultiBlockID(), new MTEIndustrialFishingPond(gcID("industrial_fishing_pond")));
+    
+        QUBIT_COMPUTER = registerMetaTileEntity(nextMultiBlockID(), new MTEQubitComputer(gcID("quantum_computer")));
+    
+        RESEARCH_STATION = registerMetaTileEntity(nextMultiBlockID(), new MTEResearchStation(gcID("research_station")));
+    
+        ALGAE_FARM = registerMetaTileEntity(nextMultiBlockID(),new MTEAlgaeFarm(gcID("algae_farm")));
+    
+        ASSEMBLY_LINE = registerMetaTileEntity(nextMultiBlockID(), new MTEAssemblyLine(gcID("qubit_assembly_line")));
+    
+        ACTIVE_TRANSFORMER = registerMetaTileEntity(nextMultiBlockID(),new MTEActiveTransformer(gcID("active_transformer")));
+    
+        REPLICATOR = registerMetaTileEntity(nextMultiBlockID(), new MTEReplicator(gcID("replicator")));
+    
+        LAPOTRONIC_SUPER_CAPACITOR = registerMetaTileEntity(nextMultiBlockID(),new MTELapotronicSuperCapacitor(gcID("lapotronic_super_capacitor")));
+    
+        LOG_CREATE_FACTORY = registerMetaTileEntity(nextMultiBlockID(),new MTELogCreateFactory(gcID("log_create_factory")));
+    
+        ISA_MILL = registerMetaTileEntity(nextMultiBlockID(),new MTEIsaMill(gcID("isa_mill")));
+    
+        CHEMICAL_PLANT = registerMetaTileEntity(nextMultiBlockID(),new MTEChemicalPlant(gcID("chemical_plant")));
+    
+        FLOTATION_CELL_REGULATOR = registerMetaTileEntity(nextMultiBlockID(),new MTEFlotationCellRegulator(gcID("flotation_cell_regulator")));
+    
+        VACUUM_FURNACE = registerMetaTileEntity(nextMultiBlockID(), new MTEVacuumFurnace(gcID("vacuum_furnace")));
+        //含联动的放最底下
+        if(GCValues.IS_TC_LOADED)
+        {
+            ESSENTIA_GENERATOR = registerMetaTileEntity(nextMultiBlockID(), new MTEEssentiaGenerator(gcID("essentia_generator")));
+        }
+        else {
+            //防止ID错位
+            nextMultiBlockID();
+        }
+    }
+    
+    private static void initMultiPart(){
+        QBIT_INPUT_HATCH[0] = registerMetaTileEntity(nextMultiPartID(), new MTEQubitHatch(gcID("qubit_hatch.input.16"), 0, 16, false));
+        QBIT_OUTPUT_HATCH[0] = registerMetaTileEntity(nextMultiPartID(), new MTEQubitHatch(gcID("qubit_hatch.output.1"), 0, 16, true));
+    
+        CATALYST_HATCH = registerMetaTileEntity(nextMultiPartID(),new MTECatalystHatch(gcID("catalyst_hatch")));
+        GRIND_BALL_HATCH = registerMetaTileEntity(nextMultiPartID(),new MTEBallHatch(gcID("ball_hatch")));
+    
+        simpleTiredInit(CREATIVE_ENERGY_HATCHES,
+                (i) -> new MTECreativeEnergyHatch(gcID("creative_energy_hatch."+GTValues.VN[i].toLowerCase()),i),
+                GCMetaEntities::nextMultiPartID);
+    }
+    
+    private static void initSingleMachine(){
+        LIGHTNING_ROD[0] = registerMetaTileEntity(nextSingleMachineID(), new MTELightningRod(gcID("lightning_rod.hv"), GTValues.HV));
+        LIGHTNING_ROD[1] = registerMetaTileEntity(nextSingleMachineID(), new MTELightningRod(gcID("lightning_rod.ev"), GTValues.EV));
+        LIGHTNING_ROD[2] = registerMetaTileEntity(nextSingleMachineID(), new MTELightningRod(gcID("lightning_rod.iv"), GTValues.IV));
+        
+        simpleTiredInit(CREATIVE_GENERATORS,
+                (i) -> new MTECreativeGenerator(gcID("creative_generator."+GTValues.VN[i].toLowerCase()),i),
+                GCMetaEntities::nextSingleMachineID);
+    
+        registerSimpleMetaTileEntity(LAMINATOR, 12070, "laminator", GCRecipeMaps.LAMINATOR_RECIPES, Textures.BENDER_OVERLAY, true,false);
+    
+    }
+    
+    private static void initGCYS(){
+        // Simple Machines: ID 2300-3000+
+        registerSimpleMetaTileEntity(DRYER, 2200, "dryer", GCRecipeMaps.DRYER_RECIPES, GCTextures.DRYER_OVERLAY, true, GTUtility.hvCappedTankSizeFunction,true);
+    
+        // Multiblocks: Id 3900-3999
+        INDUSTRIAL_DRILL = registerMetaTileEntity(3900, new MetaTileEntityIndustrialDrill(gcysID("industrial_drill")));
+        CATALYTIC_REFORMER = registerMetaTileEntity(3901, new MetaTileEntityCatalyticReformer(gcysID("catalytic_reformer")));
+        SONICATOR = registerMetaTileEntity(3902, new MetaTileEntitySonicator(gcysID("sonicator")));
+        HYDRAULIC_FRACKER = registerMetaTileEntity(3903, new MetaTileEntityFracker(gcysID("fracker"), GTValues.ZPM));
+        NANOSCALE_FABRICATOR = registerMetaTileEntity(3904, new MetaTileEntityNanoscaleFabricator(gcysID("nanoscale_fabricator")));
+        ROASTER = registerMetaTileEntity(3905, new MetaTileEntityRoaster(gcysID("roaster")));
+        CRYSTALLIZATION_CRUCIBLE = registerMetaTileEntity(3907, new MetaTileEntityCrystallizationCrucible(gcysID("crystallization_crucible")));
+        CVD_UNIT = registerMetaTileEntity(3908, new MetaTileEntityCVDUnit(gcysID("cvd_unit")));
+        BURNER_REACTOR = registerMetaTileEntity(3909, new MetaTileEntityBurnerReactor(gcysID("burner_reactor")));
+        CRYOGENIC_REACTOR = registerMetaTileEntity(3910, new MetaTileEntityCryoReactor(gcysID("cryogenic_reactor")));
+     
     }
     
 }

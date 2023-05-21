@@ -20,7 +20,7 @@ import gregtech.client.renderer.texture.Textures;
 import gregtech.client.utils.PipelineUtil;
 import me.oganesson.gregica.api.capability.ICreativeOnly;
 import me.oganesson.gregica.api.capability.impl.EnergyContainerCreative;
-import me.oganesson.gregica.common.GCUtil;
+import me.oganesson.gregica.utils.GCUtil;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

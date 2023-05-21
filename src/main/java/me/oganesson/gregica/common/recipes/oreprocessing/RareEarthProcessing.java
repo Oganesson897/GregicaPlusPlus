@@ -6,7 +6,7 @@ import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
-import me.oganesson.gregica.GCConfig;
+import me.oganesson.gregica.config.GCConfigValue;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
@@ -31,7 +31,7 @@ public class RareEarthProcessing {
 
     public static void init() {
         // Remove Rare Earth Centrifuging
-        if (GCConfig.chainOverrides.disableRareEarthProcessing) {
+        if (GCConfigValue.disableRareEarthProcessing) {
             GTRecipeHandler.removeRecipesByInputs(RecipeMaps.CENTRIFUGE_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.RareEarth));
         }
 

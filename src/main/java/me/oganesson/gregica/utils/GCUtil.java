@@ -1,5 +1,6 @@
-package me.oganesson.gregica.common;
+package me.oganesson.gregica.utils;
 
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 
 import java.util.function.BooleanSupplier;
@@ -60,5 +61,12 @@ public class GCUtil {
         }
         
         return direction;
+    }
+    
+    public static int getOrDefault(NBTTagCompound tag, String key, int defaultValue){
+        if(tag.hasKey(key)){
+            return tag.getInteger(key);
+        }
+        return defaultValue;
     }
 }

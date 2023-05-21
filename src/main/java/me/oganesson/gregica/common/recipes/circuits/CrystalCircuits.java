@@ -4,8 +4,8 @@ import gregtech.api.recipes.GTRecipeHandler;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.MarkerMaterials;
-import me.oganesson.gregica.GCConfig;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
+import me.oganesson.gregica.config.GCConfigValue;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
@@ -21,7 +21,7 @@ public class CrystalCircuits {
         crystalInterface();
         crystalModulators();
         crystalSOC();
-        if (GCConfig.circuitOverrides.harderCrystalCircuits) {
+        if (GCConfigValue.harderCrystalCircuits) {
             removeGTCERecipes();
         }
     }

@@ -135,12 +135,6 @@ public class GCYSUnknownCompositionMaterials {
                 .flags(NO_UNIFICATION, GENERATE_PLATE, GENERATE_ROD)
                 .build();
 
-        ReissnerNordstromMatrix = new Material.Builder(18058, "reissner_nordstrom_matrix")
-                .ingot()
-                .color(0x0a0a0a)
-                .flags(NO_UNIFICATION, GENERATE_PLATE, GENERATE_FRAME)
-                .build();
-
         SentientMetal = new Material.Builder(18059, "sentient_metal")
                 .fluid()
                 .color(0x0c0c0c)

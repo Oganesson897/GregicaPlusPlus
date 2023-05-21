@@ -68,6 +68,7 @@ metaitem.item.algae_acid.name=Algae Acid
 metaitem.item.pellets_mould.name=Pellets Mould
 metaitem.item.wood_pellets.name=Wood Pellets
 metaitem.item.aluminium_pellets.name=Aluminium Pellets
+metaitem.item.color_applicator.name=Color Applicator
 
 metaitem.cover.conveyor.ulv.name=ULV Conveyor Module
 metaitem.cover.emitter.ulv.name=ULV Emitter
@@ -284,7 +285,37 @@ gregica.multiblock.active_transformer.current.output=   Current output: %d eu/t
 gregica.multiblock.data.remind=§cData will not update when the machine is disabled.
 gregica.multipart.catalyst.only=Catalysts Only
 gregica.multipart.ball.only=Grind Ball Only
-#MixinGregtech
+
+gregica.color.current=Current Color:
+gregica.color.available=Available Amount: %d
+gregica.color.none=None
+gregica.color.black=Black
+gregica.color.dark_blue=Dark Blue
+gregica.color.dark_green=Dark Green
+gregica.color.dark_aqua=Dark Aqua
+gregica.color.dark_red=Dark Red
+gregica.color.dark_purple=Dark Purple
+gregica.color.gold=Gold
+gregica.color.gray=Gray
+gregica.color.dark_gray=Dark Gray
+gregica.color.blue=Blue
+gregica.color.green=Green
+gregica.color.aqua=Aqua
+gregica.color.red=Red
+gregica.color.light_purple=Light Purple
+gregica.color.yellow=Yellow
+gregica.color.white=White
+gregica.color.orange=Orange
+gregica.color.magenta=Magenta
+gregica.color.light_blue=Light Blue
+gregica.color.lime=Lime
+gregica.color.pink=Pink
+gregica.color.silver=Silver
+gregica.color.cyan=Cyan
+gregica.color.purple=Purple
+gregica.color.brown=Brown
+
+#Mixin
 gregica.mixin.gregtech.itemblock.multiblock_controller=§aThis is a multiblock controller.
 gregica.mixin.gregtech.itemblock.multiblock_part=§aThis is a multiblock part.
 gregica.mixin.gregtech.itemblock.creative_only=§cCreative Only
@@ -295,6 +326,7 @@ gregica.mixin.gregtech.itemblock.nerfed=§cThis machine has nerfed.Press shift t
 gregica.mixin.gregica=§bAdded by Gregica++
 gregica.mixin.info.steam=Current steam output %d l/s
 gregica.mixin.info.glass.tier=%s §fTire Glass
+gregica.mixin.gcys=§bAdded by GCYS.
 
 #Glasses
 tile.glasses_casing.ti_boron_silicate_glass_block.name=Ti Boron Silicate GLASS

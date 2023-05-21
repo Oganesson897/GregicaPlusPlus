@@ -4,8 +4,8 @@ import gregtech.api.metatileentity.multiblock.CleanroomType;
 import gregtech.api.recipes.GTRecipeHandler;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.MarkerMaterials;
-import me.oganesson.gregica.GCConfig;
 import me.oganesson.gregica.api.unification.materials.GCYSMaterials;
+import me.oganesson.gregica.config.GCConfigValue;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -21,7 +21,7 @@ public class WetwareCircuits {
 
     public static void init() {
         // Harder Wetware
-        if (GCConfig.circuitOverrides.harderWetwareCircuits) {
+        if (GCConfigValue.harderWetwareCircuits) {
             GTRecipeHandler.removeRecipesByInputs(CIRCUIT_ASSEMBLER_RECIPES, new ItemStack[]{
                             MULTILAYER_FIBER_BOARD.getStackForm(16),
                             PETRI_DISH.getStackForm(),

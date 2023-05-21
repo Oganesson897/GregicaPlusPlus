@@ -50,6 +50,10 @@ public abstract class MixinMachineItemBlock {
         if(metaTileEntity.getMetaName().contains("gregica")){
             tooltip.add(I18n.format("gregica.mixin.gregica"));
         }
+        
+        if(metaTileEntity.getMetaName().contains("gcys")){
+            tooltip.add(I18n.format("gregica.mixin.gcys"));
+        }
     
     }
 }

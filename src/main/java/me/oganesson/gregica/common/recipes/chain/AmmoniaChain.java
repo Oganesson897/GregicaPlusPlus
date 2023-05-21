@@ -2,7 +2,7 @@ package me.oganesson.gregica.common.recipes.chain;
 
 import gregtech.api.recipes.GTRecipeHandler;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
-import me.oganesson.gregica.GCConfig;
+import me.oganesson.gregica.config.GCConfigValue;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -27,10 +27,10 @@ public class AmmoniaChain {
 
         // CH4N + 2H2O -> NH4 + CH4 + O2 (lossy)
         CHEMICAL_RECIPES.recipeBuilder()
-                .notConsumable(dust, GCConfig.chainOverrides.disableAmmoniaProcessing ? Chrome : Ruthenium)
+                .notConsumable(dust, GCConfigValue.disableAmmoniaProcessing ? Chrome : Ruthenium)
                 .fluidInputs(RichNitrogenMixture.getFluid(2500))
                 .fluidInputs(Water.getFluid(2000))
-                .fluidOutputs(RichAmmoniaMixture.getFluid(GCConfig.chainOverrides.disableAmmoniaProcessing ? 1000 : 3000))
+                .fluidOutputs(RichAmmoniaMixture.getFluid(GCConfigValue.disableAmmoniaProcessing ? 1000 : 3000))
                 .fluidOutputs(Methane.getFluid(1000))
                 .duration(80).EUt(VA[MV]).buildAndRegister();
 
@@ -41,7 +41,7 @@ public class AmmoniaChain {
                 .fluidOutputs(Ammonia.getFluid(1000))
                 .duration(160).EUt(VA[LV]).buildAndRegister();
 
-        if (GCConfig.chainOverrides.disableAmmoniaProcessing) {
+        if (GCConfigValue.disableAmmoniaProcessing) {
             GTRecipeHandler.removeRecipesByInputs(CHEMICAL_RECIPES,
                     new ItemStack[]{IntCircuitIngredient.getIntegratedCircuit(1)},
                     new FluidStack[]{Nitrogen.getFluid(1000), Hydrogen.getFluid(3000)}

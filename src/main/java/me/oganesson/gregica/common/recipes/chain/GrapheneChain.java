@@ -5,8 +5,8 @@ import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.common.items.MetaItems;
-import me.oganesson.gregica.GCConfig;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
+import me.oganesson.gregica.config.GCConfigValue;
 
 import static gregicality.multiblocks.api.unification.GCYMMaterials.HSLASteel;
 import static gregtech.api.GTValues.*;
@@ -18,7 +18,7 @@ public class GrapheneChain {
 
     public static void init() {
         // Remove Graphene Mixing
-        if (GCConfig.chainOverrides.disableGrapheneProcessing) {
+        if (GCConfigValue.disableGrapheneProcessing) {
             GTRecipeHandler.removeRecipesByInputs(RecipeMaps.MIXER_RECIPES,
                     OreDictUnifier.get(dust, Graphite),
                     OreDictUnifier.get(dust, Carbon, 4),

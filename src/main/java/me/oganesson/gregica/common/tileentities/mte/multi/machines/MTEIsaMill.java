@@ -76,7 +76,7 @@ public class MTEIsaMill extends RecipeMapMultiblockController {
                         .or(abilities(MultiblockAbility.IMPORT_ITEMS).setMinGlobalLimited(1).setPreviewCount(1))
                          .or(abilities(MultiblockAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(2).setPreviewCount(1)))
                 .where('G', states(getCasingState1()))
-                .where('#', any())
+                //.where('#', any())
                 .build();
     }
 
@@ -136,7 +136,7 @@ public class MTEIsaMill extends RecipeMapMultiblockController {
         List<IBall> abilities = getAbilities(GCCapabilities.GRINDBALL);
 
         if(!abilities.isEmpty() && abilities.get(0) != null)
-        this.ball_tier = getBallHolder().getGrinderTier();
+            this.ball_tier = getBallHolder().getGrinderTier();
     }
 
     @Override

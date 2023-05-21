@@ -3,7 +3,7 @@ package me.oganesson.gregica.mixin.gregtech;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.common.metatileentities.steam.boiler.SteamBoiler;
 import gregtech.common.metatileentities.steam.boiler.SteamSolarBoiler;
-import me.oganesson.gregica.GCConfig;
+import me.oganesson.gregica.config.GCConfig;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;

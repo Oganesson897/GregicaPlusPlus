@@ -48,6 +48,7 @@ metaitem.algae.brown.name=棕色藻类
 metaitem.algae.t.name=T型藻类
 
 metaitem.item.advanced_circuit.name=高能电路板
+metaitem.item.color_applicator.name=染色器
 #Blocks
 tile.gc_machine_casing.magic_machine_casing.name=魔法机械外壳
 tile.gc_essentia_cell.essentia_cell_1.name=新手源质扩散单元
@@ -204,6 +205,36 @@ gregica.multiblock.data.remind=§c未开机机器不会更新数据!
 
 gregica.multipart.catalyst.only=仅能放入催化剂
 
+gregica.color.current=当前颜色:
+gregica.color.available=可用数量: %d
+gregica.color.none=无色
+gregica.color.black=黑色
+gregica.color.dark_blue=深蓝色
+gregica.color.dark_green=深绿色
+gregica.color.dark_aqua=湖蓝色
+gregica.color.dark_red=深红色
+gregica.color.dark_purple=紫色
+gregica.color.gold=金色
+gregica.color.gray=灰色
+gregica.color.dark_gray=深灰色
+gregica.color.blue=蓝色
+gregica.color.green=绿色
+gregica.color.aqua=天蓝色
+gregica.color.red=红色
+gregica.color.light_purple=粉色
+gregica.color.yellow=黄色
+gregica.color.white=白色
+gregica.color.orange=橘色
+gregica.color.magenta=品红色
+gregica.color.light_blue=淡蓝色
+gregica.color.lime=蓝绿色
+gregica.color.pink=粉红色
+gregica.color.silver=淡灰色
+gregica.color.cyan=青色
+gregica.color.purple=紫色
+gregica.color.brown=棕色
+
+
 #MixinGregtech
 gregica.mixin.gregtech.itemblock.multiblock_controller=§a多方块结构控制器
 gregica.mixin.gregtech.itemblock.multiblock_part=§a多方块结构部件
@@ -215,6 +246,7 @@ gregica.mixin.gregtech.itemblock.nerfed=§c该机器被nerf啦,按下shift显示
 gregica.mixin.gregica=§b由Gregica++添加
 gregica.mixin.info.steam=当前蒸汽输出: %d l/s
 gregica.mixin.info.glass.tier=%s §f等级玻璃
+gregica.mixin.gcys=§b由 GCYS 添加.
 
 #Glasses
 tile.glasses_casing.ti_boron_silicate_glass_block.name=钛强化硅酸盐硼玻璃
@@ -230,3 +262,45 @@ tile.glasses_casing.tl_boron_silicate_glass_block.name=超时空强化硅酸盐�
 
 
 recipemap.log_create.name=原木拟生
+
+#ceu override
+gregtech.machine.energy_hatch.output.ulv.name=动力仓（ULV）
+gregtech.machine.energy_hatch.output.lv.name=动力仓（LV）
+gregtech.machine.energy_hatch.output.mv.name=动力仓（MV）
+gregtech.machine.energy_hatch.output.hv.name=动力仓（HV）
+gregtech.machine.energy_hatch.output.ev.name=动力仓（EV）
+gregtech.machine.energy_hatch.output.iv.name=动力仓（IV）
+gregtech.machine.energy_hatch.output.luv.name=动力仓（LuV）
+gregtech.machine.energy_hatch.output.zpm.name=动力仓（ZPM）
+gregtech.machine.energy_hatch.output.uv.name=动力仓（UV）
+gregtech.machine.energy_hatch.output.uhv.name=动力仓（UHV）
+gregtech.machine.energy_hatch.output.uev.name=动力仓（UEV）
+gregtech.machine.energy_hatch.output.uiv.name=动力仓（UIV）
+gregtech.machine.energy_hatch.output.uxv.name=动力仓（UXV）
+gregtech.machine.energy_hatch.output.opv.name=动力仓（OpV）
+gregtech.machine.energy_hatch.output.max.name=动力仓（MAX）
+
+gregtech.machine.energy_hatch.output_hi_amp.tooltip=多方块结构的高电流能量输出端
+
+gregtech.machine.energy_hatch.output_4a.ev.name=4 安动力仓（EV）
+gregtech.machine.energy_hatch.output_4a.iv.name=4 安动力仓（IV）
+gregtech.machine.energy_hatch.output_4a.luv.name=4 安动力仓（LuV）
+gregtech.machine.energy_hatch.output_4a.zpm.name=4 安动力仓（ZPM）
+gregtech.machine.energy_hatch.output_4a.uv.name=4 安动力仓（UV）
+gregtech.machine.energy_hatch.output_4a.uhv.name=4 安动力仓（UHV）
+
+gregtech.machine.energy_hatch.output_16a.iv.name=16 安动力仓（IV）
+gregtech.machine.energy_hatch.output_16a.luv.name=16 安动力仓（LuV）
+gregtech.machine.energy_hatch.output_16a.zpm.name=16 安动力仓（ZPM）
+gregtech.machine.energy_hatch.output_16a.uv.name=16 安动力仓（UV）
+gregtech.machine.energy_hatch.output_16a.uhv.name=16 安动力仓（UHV）
+
+metaitem.nano_saber.tooltip=竜神の剣を喰らえ！
+metaitem.spray.solvent.name=喷漆罐(溶剂)
+metaitem.max.battery.tooltip=填满它以通关Minecraft
+
+gregtech.machine.maintenance_hatch.name=维护仓
+
+gregtech.machine.maintenance_hatch_configurable.name=可配置维护仓
+gregtech.machine.maintenance_hatch_full_auto.name=自动维护仓
+

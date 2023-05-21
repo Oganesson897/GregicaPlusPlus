@@ -17,13 +17,15 @@ import gregtech.api.recipes.Recipe;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.common.blocks.BlockWireCoil;
+import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.api.blocks.impl.WrappedIntTired;
 import me.oganesson.gregica.api.capability.GCCapabilities;
 import me.oganesson.gregica.api.capability.chemical_plant.ChemicalPlantProperties;
 import me.oganesson.gregica.api.predicate.TiredTraceabilityPredicate;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
 import me.oganesson.gregica.client.GCTextures;
-import me.oganesson.gregica.common.GCUtil;
+import me.oganesson.gregica.utils.GCUtil;
+import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
@@ -43,14 +45,24 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
     private int voltageTier;
     
     private int tier;
+    
 
     public MTEChemicalPlant(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GCRecipeMaps.CHEMICAL_PLANT);
         this.recipeMapWorkable = new ChemicalPlantLogic(this);
     }
     
+    @Override
+    public void update() {
+        super.update();
+       
+        if(this.getWorld().isRemote && this.casingTier == 0){
+            this.writeCustomData(GCValues.REQUIRE_DATA_UPDATE, buf -> {});
+        }
+    }
     
-
+    
+    
     @SuppressWarnings("SpellCheckingInspection")
     @NotNull
     @Override
@@ -99,7 +111,7 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
 
     @Override
     public ICubeRenderer getBaseTexture(IMultiblockPart iMultiblockPart) {
-        switch (casingTier){
+        switch (this.casingTier){
             case (2):{
                 return Textures.SOLID_STEEL_CASING;
             }
@@ -118,6 +130,17 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
             default:{
                 return Textures.BRONZE_PLATED_BRICKS;
             }
+        }
+    }
+    
+    @Override
+    public void receiveCustomData(int dataId, PacketBuffer buf) {
+        super.receiveCustomData(dataId, buf);
+        if(dataId == GCValues.UPDATE_TIER){
+            this.casingTier = buf.readInt();
+        }
+        if(dataId == GCValues.REQUIRE_DATA_UPDATE){
+            this.writeCustomData(GCValues.UPDATE_TIER,buf1 -> buf1.writeInt(this.casingTier));
         }
     }
     
@@ -156,6 +179,20 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
                 0);
         
         this.tier = Math.min(this.casingTier,this.tubeTier);
+        
+        this.writeCustomData(GCValues.UPDATE_TIER,buf -> buf.writeInt(this.casingTier));
+    }
+    
+    @Override
+    public void writeInitialSyncData(PacketBuffer buf) {
+        super.writeInitialSyncData(buf);
+        buf.writeInt(this.casingTier);
+    }
+    
+    @Override
+    public void receiveInitialSyncData(PacketBuffer buf) {
+        super.receiveInitialSyncData(buf);
+        this.casingTier = buf.readInt();
     }
 
     protected class ChemicalPlantLogic extends MultiblockRecipeLogic {
@@ -166,9 +203,9 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
         }
 
         public void update() {
-            if (metaTileEntity.getWorld().isRemote) {
-            
-            }
+//            if (metaTileEntity.getWorld().isRemote) {
+//
+//            }
             
         }
 

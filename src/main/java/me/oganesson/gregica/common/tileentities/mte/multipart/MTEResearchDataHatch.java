@@ -25,11 +25,11 @@ import gregtech.common.metatileentities.multi.electric.MetaTileEntityAssemblyLin
 import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityMultiblockNotifiablePart;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
-import me.oganesson.gregica.GCConfig;
 import me.oganesson.gregica.api.capability.GCCapabilities;
 import me.oganesson.gregica.api.capability.IResearchDataHatch;
 import me.oganesson.gregica.api.recipe.machines.IResearchRecipeMap;
 import me.oganesson.gregica.client.GCTextures;
+import me.oganesson.gregica.config.GCConfigValue;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -178,7 +178,7 @@ public class MTEResearchDataHatch extends MetaTileEntityMultiblockNotifiablePart
 
     @Override
     public void getSubItems(CreativeTabs creativeTab, NonNullList<ItemStack> subItems) {
-        if (GCConfig.Machines.enableResearch) {
+        if (GCConfigValue.enableResearch) {
             super.getSubItems(creativeTab, subItems);
         }
     }

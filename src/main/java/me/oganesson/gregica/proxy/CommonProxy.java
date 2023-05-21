@@ -50,7 +50,7 @@ public class CommonProxy {
 
     public static Item Upgrades = new itemUpgrades();
 
-    public static final CreativeTabs Tab = new CreativeTabs("gregica") {
+    public static final CreativeTabs GREGICA_TAB = new CreativeTabs("gregica") {
         @Override
         @Nonnull
         public ItemStack createIcon() {
@@ -103,22 +103,24 @@ public class CommonProxy {
 
     public void registerItems(RegistryEvent.Register<Item> event) {
         GCMetaItems.initSubitems();
-
-        Upgrades.setCreativeTab(Tab);
-        event.getRegistry().register(Upgrades);
-        event.getRegistry().register(createItemBlock(GC_BLOCK_CASING, VariantItemBlock::new));
-        event.getRegistry().register(createItemBlock(GC_ESSENTIA_CELLS, VariantItemBlock::new));
-        event.getRegistry().register(createItemBlock(GC_META_GEAR_BOX, VariantItemBlock::new));
-        event.getRegistry().register(createItemBlock(GC_LAPOTRONIC_CASING, VariantItemBlock::new));
-        event.getRegistry().register(createItemBlock(TRANSPARENT_CASING,  VariantItemBlock::new));
-        event.getRegistry().register(createItemBlock(TRANSPARENT_CASING1,  VariantItemBlock::new));
-        event.getRegistry().register(createItemBlock(PINE_LOG, ItemBlock::new));
-        event.getRegistry().register(createItemBlock(PINE_SAPLING, ItemBlock::new));
-        event.getRegistry().register(createItemBlock(PINE_LEAVES, ItemBlock::new));
+        
+        IForgeRegistry<Item> registry = event.getRegistry();
+        
+        Upgrades.setCreativeTab(GREGICA_TAB);
+        registry.register(Upgrades);
+        registry.register(createItemBlock(GC_BLOCK_CASING, VariantItemBlock::new));
+        registry.register(createItemBlock(GC_ESSENTIA_CELLS, VariantItemBlock::new));
+        registry.register(createItemBlock(GC_META_GEAR_BOX, VariantItemBlock::new));
+        registry.register(createItemBlock(GC_LAPOTRONIC_CASING, VariantItemBlock::new));
+        registry.register(createItemBlock(TRANSPARENT_CASING,  VariantItemBlock::new));
+        registry.register(createItemBlock(TRANSPARENT_CASING1,  VariantItemBlock::new));
+        registry.register(createItemBlock(PINE_LOG, ItemBlock::new));
+        registry.register(createItemBlock(PINE_SAPLING, ItemBlock::new));
+        registry.register(createItemBlock(PINE_LEAVES, ItemBlock::new));
         if(GCValues.IS_TC_LOADED) event.getRegistry().register(createItemBlock(getEssentiaHatch(), ItemBlock::new));
         for(BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(createItemBlock(pipe, ItemBlockLaserPipe::new));
 
-        IForgeRegistry<Item> registry = event.getRegistry();
+        
         registry.register(createItemBlock(GCYSMetaBlocks.CRUCIBLE, VariantItemBlock::new));
         registry.register(createItemBlock(GCYSMetaBlocks.MULTIBLOCK_CASING, VariantItemBlock::new));
         registry.register(createItemBlock(GCYSMetaBlocks.MULTIBLOCK_CASING_ACTIVE, VariantItemBlock::new));
@@ -128,18 +130,18 @@ public class CommonProxy {
     public void registerBlocks(RegistryEvent.Register<Block> event) {
         GCOres.registerSpecialOres();
 
-        GC_BLOCK_CASING.setCreativeTab(Tab);
-        GC_ESSENTIA_CELLS.setCreativeTab(Tab);
-        GC_META_GEAR_BOX.setCreativeTab(Tab);
-        TRANSPARENT_CASING1.setCreativeTab(Tab);
-        TRANSPARENT_CASING.setCreativeTab(Tab);
-        GC_LAPOTRONIC_CASING.setCreativeTab(Tab);
-        PINE_LOG.setCreativeTab(Tab);
-        PINE_SAPLING.setCreativeTab(Tab);
-        PINE_LEAVES.setCreativeTab(Tab);
+        GC_BLOCK_CASING.setCreativeTab(GREGICA_TAB);
+        GC_ESSENTIA_CELLS.setCreativeTab(GREGICA_TAB);
+        GC_META_GEAR_BOX.setCreativeTab(GREGICA_TAB);
+        TRANSPARENT_CASING1.setCreativeTab(GREGICA_TAB);
+        TRANSPARENT_CASING.setCreativeTab(GREGICA_TAB);
+        GC_LAPOTRONIC_CASING.setCreativeTab(GREGICA_TAB);
+        PINE_LOG.setCreativeTab(GREGICA_TAB);
+        PINE_SAPLING.setCreativeTab(GREGICA_TAB);
+        PINE_LEAVES.setCreativeTab(GREGICA_TAB);
 
         if(GCValues.IS_TC_LOADED){
-            getEssentiaHatch().setCreativeTab(Tab);
+            getEssentiaHatch().setCreativeTab(GREGICA_TAB);
             event.getRegistry().register(getEssentiaHatch());
             GameRegistry.registerTileEntity(EssentiaHatch.class, Objects.requireNonNull(getEssentiaHatch().getRegistryName()));
         }

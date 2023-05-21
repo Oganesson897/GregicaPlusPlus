@@ -9,6 +9,6 @@ public class ItemBlockLaserPipe extends ItemBlockPipe<LaserPipeType, EmptyNodeDa
 
     public ItemBlockLaserPipe(BlockLaserPipe block) {
         super(block);
-        setCreativeTab(CommonProxy.Tab);
+        setCreativeTab(CommonProxy.GREGICA_TAB);
     }
 }

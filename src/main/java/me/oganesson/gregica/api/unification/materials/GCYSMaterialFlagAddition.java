@@ -3,7 +3,7 @@ package me.oganesson.gregica.api.unification.materials;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.properties.OreProperty;
 import gregtech.api.unification.material.properties.PropertyKey;
-import me.oganesson.gregica.GCConfig;
+import me.oganesson.gregica.config.GCConfigValue;
 
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.material.info.MaterialFlags.*;
@@ -19,11 +19,11 @@ public class GCYSMaterialFlagAddition {
         IridiumMetalResidue.setFormula("Ir2O3", true);
 
         // Disable Decomposition
-        if (GCConfig.chainOverrides.disableNiobiumTantalumProcessing) {
+        if (GCConfigValue.disableNiobiumTantalumProcessing) {
             Pyrochlore.addFlags(DISABLE_DECOMPOSITION);
             Tantalite.addFlags(DISABLE_DECOMPOSITION);
         }
-        if (GCConfig.chainOverrides.disableMolybdenumProcessing) {
+        if (GCConfigValue.disableMolybdenumProcessing) {
             Molybdenite.addFlags(DISABLE_DECOMPOSITION);
             OreProperty oreProp = Molybdenite.getProperty(PropertyKey.ORE);
             oreProp.setDirectSmeltResult(null);

@@ -70,7 +70,8 @@ public class GermaniumProcessing {
                 .fluidInputs(HydrochloricAcid.getFluid(4000))
                 .chancedOutput(dust, Cadmium, 500, 1000)
                 .fluidOutputs(GermaniumTetrachloride.getFluid(1000))
-                .fluidOutputs(Water.getFluid(2000))
+                //?
+                .fluidOutputs(Water.getFluid(1000))
                 .duration(300).EUt(VA[HV]).buildAndRegister();
 
         // GeCl4 + 2H2O -> GeO2 + 4HCl

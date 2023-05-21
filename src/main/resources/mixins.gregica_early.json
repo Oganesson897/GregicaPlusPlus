@@ -5,7 +5,7 @@
   "target": "@env(DEFAULT)",
   "refmap": "mixins.gregica.refmap.json",
   "mixins": [
-
+    "forge.GCMixinConfigManager"
   ],
   "client": [
     "minecraft.MixinBlockGlass"

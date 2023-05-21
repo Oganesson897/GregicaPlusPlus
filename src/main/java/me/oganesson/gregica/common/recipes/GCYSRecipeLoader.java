@@ -72,6 +72,5 @@ public class GCYSRecipeLoader {
         GoowareCircuits.init();
         OpticalCircuits.init();
         SpintronicCircuits.init();
-        SuprachronalCircuits.init();
     }
 }

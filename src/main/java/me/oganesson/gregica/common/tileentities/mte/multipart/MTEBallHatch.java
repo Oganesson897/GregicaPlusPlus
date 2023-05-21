@@ -87,7 +87,7 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
             if(getBallStack() == null)
                 return 0;
             else
-            return GCMetaItems.GRINDBALL_SOAPSTONE.isItemEqual(getBallStack()) ? 1 : 2;
+                return GCMetaItems.GRINDBALL_SOAPSTONE.isItemEqual(getBallStack()) ? 1 : 2;
         }
 
         @Override
@@ -110,6 +110,10 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
         inventory.damageBall(amount);
     }
 
+    protected boolean openGUIOnRightClick() {
+        return getController() != null && getController().isActive();
+    }
+
     private boolean needUpdate = false;
 
     @Override
@@ -123,10 +127,10 @@ public class MTEBallHatch extends MetaTileEntityMultiblockPart implements IMulti
         MTEIsaMill controller = (MTEIsaMill) getController();
 
         if(controller != null && controller.getRecipeLogic() != null)
-        if (controller.getRecipeLogic().getMaxProgress() > 0)
-        if (controller.isActive() && controller.getRecipeLogic().getProgress()/controller.getRecipeLogic().getMaxProgress() == 1) {
-            damageGrinder(1 + controller.getNumMaintenanceProblems());
-        }
+            if (controller.getRecipeLogic().getMaxProgress() > 0)
+                if (controller.isActive() && controller.getRecipeLogic().getProgress()/controller.getRecipeLogic().getMaxProgress() == 1) {
+                damageGrinder(1 + controller.getNumMaintenanceProblems());
+            }
     }
 
     @Override
