@@ -4,7 +4,9 @@ import gregicality.multiblocks.api.unification.GCYMMaterials;
 import gregtech.api.fluids.fluidType.FluidTypes;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
+import gregtech.api.unification.material.info.MaterialFlags;
 import gregtech.api.unification.material.info.MaterialIconSet;
+import gregtech.api.unification.stack.MaterialStack;
 import me.oganesson.gregica.common.unification.GCElements;
 import me.oganesson.gregica.common.unification.materials.GCMaterials;
 
@@ -108,6 +110,15 @@ public class SecondDegreeMaterials {
         GCMaterials.PineOil  = new Material.Builder(26115, "pine_oil")
                 .fluid()
                 .color(0xd6ac37)
+                .build();
+
+        GCMaterials.Periodicium = new Material.Builder(26116, "periodicium")
+                .color(0x3D4BF6)
+                .ingot(6)
+                .iconSet(MaterialIconSet.SHINY)
+                .blastTemp(13500)
+                .fluidTemp(13500)
+                .components(Hydrogen, Helium, Lithium, Beryllium, Boron, Carbon, Nitrogen, Oxygen, Fluorine, Neon, Sodium, Magnesium, Aluminium, Silicon, Phosphorus, Sulfur, Chlorine, Argon, Potassium, Calcium, Scandium, Titanium, Vanadium, Chrome, Manganese, Iron, Cobalt, Nickel, Copper, Zinc, Gallium, Germanium, Arsenic, Selenium, Bromine, Krypton, Rubidium, Strontium, Yttrium, Zirconium, Niobium, Molybdenum, Technetium, Ruthenium, Rhodium, Palladium, Silver, Cadmium, Indium, Tin, Antimony, Tellurium, Iodine, Xenon, Caesium, Barium, Lanthanum, Cerium, Praseodymium, Neodymium, Promethium, Samarium, Europium, Gadolinium, Terbium, Dysprosium, Holmium, Erbium, Thulium, Ytterbium, Lutetium, Hafnium, Tantalum, Tungsten, Rhenium, Osmium, Iridium, Platinum, Gold, Mercury, Thallium, Lead, Bismuth, Polonium, Astatine, Radon, Francium, Radium, Actinium, Thorium, Protactinium, Uranium235, Neptunium, Plutonium239, Americium, Curium, Berkelium, Californium, Einsteinium, Fermium, Mendelevium, Nobelium, Lawrencium, Rutherfordium, Dubnium, Seaborgium, Bohrium, Hassium, Meitnerium, Darmstadtium, Roentgenium, Copernicium, Nihonium, Flerovium, Moscovium, Livermorium, Tennessine, Oganesson)
                 .build();
 
         GCMaterials.AlmandineFront  = new Material.Builder(26116, "almandine_front").fluid().color(0xD70505).build();

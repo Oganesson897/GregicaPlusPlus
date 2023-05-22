@@ -31,6 +31,7 @@ public class GCMaterials {
     public static Material Formaldehyde;
     public static Material CarbenDisulfide;
     public static Material PineOil;
+    public static Material Periodicium;
 
     public static Material AlmandineFront;
     public static Material PentlanditeFront;
