@@ -39,6 +39,16 @@
         "textures": {
           "all": "gregica:blocks/isa_machine_casing"
         }
+      },
+      "replicator_casing": {
+        "textures": {
+          "all": "gregica:blocks/replicator_casing"
+        }
+      },
+      "matter_fabrication_cpu": {
+        "textures": {
+          "all": "gregica:blocks/matter_fabrication_cpu"
+        }
       }
     }
   }

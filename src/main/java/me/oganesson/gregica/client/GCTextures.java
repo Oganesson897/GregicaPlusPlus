@@ -68,6 +68,8 @@ public class GCTextures {
 
     public static final SimpleOverlayRenderer GRATE_CASING = new SimpleOverlayRenderer("casings/pipe/machine_casing_grate");
 
+    public static SimpleOverlayRenderer REPLICATOR;
+
     public static final SimpleOverlayRenderer RESEARCH_DATA_HATCH = new SimpleOverlayRenderer("overlay/machine/overlay_data_hatch");
     public static final SimpleOverlayRenderer CREATIVE_RESEARCH_DATA_HATCH = new SimpleOverlayRenderer("overlay/machine/overlay_data_hatch_creative");
 
@@ -107,6 +109,7 @@ public class GCTextures {
         LIGHTNING_ROD_ACTIVE_EV = new SimpleSidedCubeRenderer("casings/lightning_rod_ev/active");
         LIGHTNING_ROD_IV = new SimpleSidedCubeRenderer("casings/lightning_rod_iv/normal");
         LIGHTNING_ROD_ACTIVE_IV = new SimpleSidedCubeRenderer("casings/lightning_rod_iv/active");
+        REPLICATOR = new SimpleOverlayRenderer("replicator_casing");
         QUBIT_COMPUTER_OVERLAY = new OrientedOverlayRenderer("multiblock/qubit_computer");
         RESEARCH_STATION_OVERLAY= new OrientedOverlayRenderer("multiblock/research_station");
         ALGAE_FARM= new OrientedOverlayRenderer("multiblock/algae_farm");

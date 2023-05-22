@@ -161,6 +161,9 @@ item.material.oreprefix.orePoorAndesite=贫瘠安山岩%s矿石
 #Fluid
 material.bismuth_lead_alloy=铅铋合金
 
+material.proton_flow=质子洪流
+material.neutrons_flow=中子洪流
+
 #Info
 gc.multiblock.pattern.error.essentia=无法获取扩散单元等级！
 essentiahatch.chat.0=成功锁定为%s源质.

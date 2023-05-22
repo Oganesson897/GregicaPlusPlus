@@ -6,6 +6,7 @@ import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.StoneType;
 import gregtech.common.blocks.BlockOre;
 import gregtech.common.blocks.MetaBlocks;
+import me.oganesson.gregica.common.block.GCMetaBlocks;
 
 import java.util.HashMap;
 
@@ -27,12 +28,14 @@ public class GCOres {
 
         for(int var6 = 0; var6 < var5; ++var6) {
             StoneType stoneType = var4[var6];
+            /*
             GregTechAPI.oreBlockTable.computeIfAbsent(material, (m) -> {
                 return new HashMap();
             }).put(stoneType, block);
+             */
         }
 
-        MetaBlocks.ORES.add(block);
+        GCMetaBlocks.ORES.add(block);
     }
 
 }

@@ -145,20 +145,20 @@ public class ReplicatorRecipes {
     }
 
     private static void addRecipeByMaterial(Material material) {
-        int EU = (int) ((material.getProtons() + material.getNeutrons()) * 3);
+        int EU = (int) ((material.getProtons() + material.getNeutrons()) * 100);
 
         if (material.hasFluid()) {
             GCRecipeMaps.REPLICATOR.recipeBuilder().duration(1)
-                    .fluidInputs(ProtonFlow.getPlasma((int) material.getProtons()))
-                    .fluidInputs(NeutronsFlow.getPlasma((int) material.getNeutrons()))
+                    .fluidInputs(ProtonFlow.getFluid((int) material.getProtons()))
+                    .fluidInputs(NeutronsFlow.getFluid((int) material.getNeutrons()))
                     .notConsumable(material.getFluid(1))
                     .fluidOutputs(material.getFluid(1))
                     .EUt(EU)
                 .buildAndRegister();
         } else {
             GCRecipeMaps.REPLICATOR.recipeBuilder().duration(1)
-                    .fluidInputs(ProtonFlow.getPlasma((int) material.getProtons()))
-                    .fluidInputs(NeutronsFlow.getPlasma((int) material.getNeutrons()))
+                    .fluidInputs(ProtonFlow.getFluid((int) material.getProtons()))
+                    .fluidInputs(NeutronsFlow.getFluid((int) material.getNeutrons()))
                     .notConsumable(OrePrefix.dust, material)
                     .outputs(OreDictUnifier.get(OrePrefix.dust, material))
                     .EUt(EU)
@@ -168,7 +168,7 @@ public class ReplicatorRecipes {
 
     private static void special() {
         GCRecipeMaps.REPLICATOR.recipeBuilder().duration(1)
-                .fluidInputs(NeutronsFlow.getPlasma(1000))
+                .fluidInputs(NeutronsFlow.getFluid(1000))
                 .notConsumable(Neutronium.getFluid(1))
                 .fluidOutputs(Neutronium.getFluid(1))
                 .EUt(3000)

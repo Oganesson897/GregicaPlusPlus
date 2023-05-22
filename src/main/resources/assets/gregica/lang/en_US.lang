@@ -225,6 +225,9 @@ material.carbon_disulfide=Carbon Disulfide
 material.pine_oil=Pine Oil
 material.inconel_625=Inconel 625
 
+material.proton_flow=Proton Flow
+material.neutrons_flow=Neutrons Flow
+
 material.almandine_front=Almandine Front
 material.pentlandite_front=Pentlandite Front
 material.chalcopyrite_front=Chalcopyrite Front

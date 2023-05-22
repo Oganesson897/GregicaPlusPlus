@@ -13,6 +13,7 @@ import gregtech.common.blocks.BlockFusionCasing;
 import gregtech.common.blocks.BlockGlassCasing;
 import gregtech.common.blocks.MetaBlocks;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
+import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.block.metablock.GCMetaCasing;
 import net.minecraft.util.ResourceLocation;
@@ -33,7 +34,7 @@ public class MTEReplicator extends RecipeMapMultiblockController {
                 .aisle("CUUUC", "GAAAG", "GAAAG", "CUUUC")
                 .aisle("CCOCC", "CGGGC", "CGGGC", "CCCCC")
                 .where('O', selfPredicate())
-                .where('C', states(MetaBlocks.FUSION_CASING.getState(BlockFusionCasing.CasingType.FUSION_CASING))
+                .where('C', states(GCMetaBlocks.GC_BLOCK_CASING.getState(GCMetaCasing.MetalCasingType.REPLICATOR_CASING))
                         .or(autoAbilities(true, true, true, true, true, true, false)))
                 .where('G', states(MetaBlocks.TRANSPARENT_CASING.getState(BlockGlassCasing.CasingType.LAMINATED_GLASS)))
                 .where('U', states(GCMetaBlocks.GC_BLOCK_CASING.getState(GCMetaCasing.MetalCasingType.MATTER_FABRICATION_CPU)))
@@ -44,7 +45,7 @@ public class MTEReplicator extends RecipeMapMultiblockController {
 
     @Override
     public ICubeRenderer getBaseTexture(IMultiblockPart iMultiblockPart) {
-        return Textures.FUSION_REACTOR_OVERLAY;
+        return GCTextures.REPLICATOR;
     }
 
     @Override

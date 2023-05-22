@@ -23,12 +23,12 @@ public class SecondDegreeMaterials {
                 .build();
 
         GCMaterials.NeutronsFlow = new Material.Builder(26102, "neutrons_flow")
-                .fluid(FluidTypes.PLASMA, false)
+                .fluid(FluidTypes.GAS, false)
                 .color(16448250)
                 .build();
 
         GCMaterials.ProtonFlow = new Material.Builder(26103, "proton_flow")
-                .fluid(FluidTypes.PLASMA, false)
+                .fluid(FluidTypes.GAS, false)
                 .color(16448250)
                 .build();
 
