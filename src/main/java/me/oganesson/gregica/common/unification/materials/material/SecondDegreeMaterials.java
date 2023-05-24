@@ -149,6 +149,18 @@ public class SecondDegreeMaterials {
                 .components(Hydrogen)
                 .build();
         
+        GCMaterials.Ethylenimine = new Material.Builder(26129, "ethylenimine")
+                .fluid()
+                .color(0x483D8B)
+                .components(Carbon, 2, Hydrogen, 5, Nitrogen)
+                .build()
+        
+        GCMaterials.Polyethyleneimine = new Material.Builder(26130, "polyethylenimine")
+                .fluid()
+                .color(0x483D8B)
+                .components(Carbon, 2, Hydrogen, 5, Nitrogen)
+                .build()
+        
         Materials.Potin.addFlags("generate_rotor", "generate_small_gear");
         Materials.Iridium.addFlags("generate_frame");
         Materials.Darmstadtium.addFlags("generate_frame");
