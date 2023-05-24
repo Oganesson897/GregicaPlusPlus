@@ -140,7 +140,15 @@ public class SecondDegreeMaterials {
                 .color(0x3fcc60)
                 .fluidPipeProperties(5500, 64000, true, true, true, true)
                 .build();
-
+        
+        GCMaterials.MetallicHydrogen = new Material.Builder(26128, "metallic_hydrogen")
+                .fluid()
+                .flags(GENERATE_RING, GENERATE_BOLT_SCREW, GENERATE_GEAR)
+                .fluidTemp(1)
+                .color(0x4682B4)
+                .components(Hydrogen)
+                .build();
+        
         Materials.Potin.addFlags("generate_rotor", "generate_small_gear");
         Materials.Iridium.addFlags("generate_frame");
         Materials.Darmstadtium.addFlags("generate_frame");
