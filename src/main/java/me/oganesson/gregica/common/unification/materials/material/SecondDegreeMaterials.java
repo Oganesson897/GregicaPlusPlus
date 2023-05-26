@@ -140,9 +140,9 @@ public class SecondDegreeMaterials {
                 .build();
         
         GCMaterials.MetallicHydrogen = new Material.Builder(26128, "metallic_hydrogen")
-                .ignot().fluid()
+                .ingot().fluid()
                 .iconSet(MaterialIconSet.SHINY)
-                .flags(GENERATE_PLATE, GENERATE_RING, GENERATE_ROUNG, GENERATE_ROTOR, GENERATE_BOLT_SCREW, GENERATE_GEAR, GENERATE_SMALL_GEAR, GENERATE_LONG_ROD, GENERATE_FRAME)
+                .flags(GENERATE_PLATE, GENERATE_RING, GENERATE_ROUND, GENERATE_ROTOR, GENERATE_BOLT_SCREW, GENERATE_GEAR, GENERATE_SMALL_GEAR, GENERATE_LONG_ROD, GENERATE_FRAME)
                 .fluidTemp(1)
                 .color(0x4682B4)
                 .fluidPipeProperties(10240, 32000, true, true, true, true)
@@ -153,14 +153,14 @@ public class SecondDegreeMaterials {
                 .fluid()
                 .color(0x483D8B)
                 .components(Carbon, 2, Hydrogen, 5, Nitrogen)
-                .build()
+                .build();
         
         GCMaterials.Polyethyleneimine = new Material.Builder(26130, "polyethylenimine")
                 .fluid()
                 .color(0x483DB4)
                 .flags(DISABLE_DECOMPOSITION)
                 .components(Carbon, 2, Hydrogen, 5, Nitrogen)
-                .build()
+                .build();
         
         Materials.Potin.addFlags("generate_rotor", "generate_small_gear");
         Materials.Iridium.addFlags("generate_frame");
