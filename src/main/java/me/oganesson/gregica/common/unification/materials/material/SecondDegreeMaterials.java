@@ -170,6 +170,7 @@ public class SecondDegreeMaterials {
         Materials.Cobalt.addFlags("generate_fine_wire");
         Materials.Lapis.addFlags("generate_bolt_screw");
         Materials.HSSE.addFlags(GENERATE_SMALL_GEAR);
+        Materials.Neutronium.addFlags(GENERATE_SMALL_GEAR);
 
         GCYMMaterials.Zeron100.addFlags("generate_rotor", "generate_bolt_screw");
         GCYMMaterials.IncoloyMA956.addFlags("generate_rotor");
