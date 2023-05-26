@@ -142,8 +142,9 @@ public class SecondDegreeMaterials {
                 .build();
         
         GCMaterials.MetallicHydrogen = new Material.Builder(26128, "metallic_hydrogen")
-                .fluid()
-                .flags(GENERATE_RING, GENERATE_BOLT_SCREW, GENERATE_GEAR)
+                .ignot()
+                .iconSet(MaterialIconSet.SHINY)
+                .flags(GENERATE_PLATE, GENERATE_RING, GENERATE_BOLT_SCREW, GENERATE_GEAR, GENERATE_LONG_ROD)
                 .fluidTemp(1)
                 .color(0x4682B4)
                 .components(Hydrogen)
@@ -157,7 +158,8 @@ public class SecondDegreeMaterials {
         
         GCMaterials.Polyethyleneimine = new Material.Builder(26130, "polyethylenimine")
                 .fluid()
-                .color(0x483D8B)
+                .color(0x483DB4)
+                .flags(DISABLE_DECOMPOSITION)
                 .components(Carbon, 2, Hydrogen, 5, Nitrogen)
                 .build()
         
