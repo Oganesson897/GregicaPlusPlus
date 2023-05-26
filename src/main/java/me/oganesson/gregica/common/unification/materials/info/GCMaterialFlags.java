@@ -1,4 +1,4 @@
-package me.oganesson.gregica.common.unification.ore;
+package me.oganesson.gregica.common.unification.materials.info;
 
 import gregtech.api.unification.material.info.MaterialFlag;
 import gregtech.api.unification.material.properties.PropertyKey;

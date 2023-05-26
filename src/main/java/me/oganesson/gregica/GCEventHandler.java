@@ -12,7 +12,7 @@ import me.oganesson.gregica.api.unification.materials.properties.GCYSMaterialPro
 import me.oganesson.gregica.common.recipes.GCYSMaterialInfoLoader;
 import me.oganesson.gregica.common.recipes.component.GCYSCraftingComponent;
 import me.oganesson.gregica.common.unification.materials.GCMaterials;
-import me.oganesson.gregica.common.unification.ore.OrePrefixGCPP;
+import me.oganesson.gregica.common.unification.materials.ore.GCOrePrefixs;
 import me.oganesson.gregica.network.GCNetworkManager;
 import me.oganesson.gregica.network.packets.MouseEventToSeverPacker;
 import net.minecraft.client.Minecraft;
@@ -66,7 +66,7 @@ public class GCEventHandler {
 
     @SubscribeEvent(priority = EventPriority.HIGH)
     public static void onMaterialRegister(GregTechAPI.MaterialEvent event){
-        OrePrefixGCPP.register();
+        GCOrePrefixs.register();
         GCMaterials.register();
 
         //GCYS

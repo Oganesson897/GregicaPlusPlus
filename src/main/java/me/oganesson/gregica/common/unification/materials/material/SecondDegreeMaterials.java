@@ -4,15 +4,13 @@ import gregicality.multiblocks.api.unification.GCYMMaterials;
 import gregtech.api.fluids.fluidType.FluidTypes;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
-import gregtech.api.unification.material.info.MaterialFlags;
 import gregtech.api.unification.material.info.MaterialIconSet;
-import gregtech.api.unification.stack.MaterialStack;
 import me.oganesson.gregica.common.unification.GCElements;
 import me.oganesson.gregica.common.unification.materials.GCMaterials;
 
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.material.info.MaterialFlags.*;
-import static me.oganesson.gregica.common.unification.ore.GCMaterialFlags.GENERATE_MILLED;
+import static me.oganesson.gregica.common.unification.materials.info.GCMaterialFlags.GENERATE_MILLED;
 
 public class SecondDegreeMaterials {
 

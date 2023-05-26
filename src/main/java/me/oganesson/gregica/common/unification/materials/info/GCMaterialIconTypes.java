@@ -16,5 +16,7 @@ public class GCMaterialIconTypes {
     public static final MaterialIconType nanoWireIcon = new MaterialIconType("nanowire");
     public static final MaterialIconType nanoFoilIcon = new MaterialIconType("nanofoil");
 
+    public static final MaterialIconType milled = new MaterialIconType("milled");
+
     private GCMaterialIconTypes() {/**/}
 }
