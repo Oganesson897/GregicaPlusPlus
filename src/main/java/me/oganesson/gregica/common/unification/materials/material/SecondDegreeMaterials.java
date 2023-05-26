@@ -144,9 +144,10 @@ public class SecondDegreeMaterials {
         GCMaterials.MetallicHydrogen = new Material.Builder(26128, "metallic_hydrogen")
                 .ignot().fluid()
                 .iconSet(MaterialIconSet.SHINY)
-                .flags(GENERATE_PLATE, GENERATE_RING, GENERATE_BOLT_SCREW, GENERATE_GEAR, GENERATE_LONG_ROD, GENERATE_FRAME)
+                .flags(GENERATE_PLATE, GENERATE_RING, GENERATE_ROUNG, GENERATE_ROTOR, GENERATE_BOLT_SCREW, GENERATE_GEAR, GENERATE_SMALL_GEAR, GENERATE_LONG_ROD, GENERATE_FRAME)
                 .fluidTemp(1)
                 .color(0x4682B4)
+                .fluidPipeProperties(10240, 32000, true, true, true, true)
                 .components(Hydrogen)
                 .build();
         
