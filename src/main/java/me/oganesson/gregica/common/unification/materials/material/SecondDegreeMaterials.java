@@ -146,7 +146,7 @@ public class SecondDegreeMaterials {
                 .fluidTemp(1)
                 .color(0x4682B4)
                 .fluidPipeProperties(10240, 32000, true, true, true, true)
-                .components(Hydrogen)
+                .components(Hydrogen, 1)
                 .build();
         
         GCMaterials.Ethylenimine = new Material.Builder(26129, "ethylenimine")
