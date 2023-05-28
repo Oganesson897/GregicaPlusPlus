@@ -173,7 +173,7 @@ public class EssentiaHatch extends TileEntity implements IAspectContainer, IEsse
         for (Aspect a : aspectList.aspects.keySet()) ret.add(current.aspects.containsKey(a));
         return !ret.contains(false);
     }
-
+   
     @Override
     public int containerContains(Aspect aspect) {
         return current.aspects.containsKey(aspect) ? current.getAmount(aspect) : 0;

@@ -9,7 +9,8 @@
     "gcym.MixinMTEParallelHatchServer",
     "gregtech.MixinGTGlassCasingType",
     "gregtech.MixinSolarBoilerServer",
-    "gregtech.MixinSteamBoilerAccess"
+    "gregtech.MixinSteamBoilerAccess",
+    "gregtech.MixinColorSprayBehaviour"
   ],
   "client": [
     "gcym.MixinMTEParallelHatchClient",

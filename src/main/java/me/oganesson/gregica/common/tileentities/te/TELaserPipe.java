@@ -4,6 +4,7 @@ import gregtech.api.metatileentity.IDataInfoProvider;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.util.GTUtility;
 import mcp.MethodsReturnNonnullByDefault;
+import me.oganesson.gregica.api.blocks.IColored;
 import me.oganesson.gregica.api.mte.INoticeable;
 import me.oganesson.gregica.common.tileentities.mte.multipart.MTELaserHatch;
 import me.oganesson.gregica.utils.GCColorUtil;
@@ -30,7 +31,7 @@ import java.util.List;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoProvider {
+public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoProvider, IColored {
     
     public static final String COLOR_KEY = "color";
     public static final String CONNECTION_KEY = "connections";
@@ -289,4 +290,8 @@ public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoPro
         return noticed;
     }
     
+    @Override
+    public GCColorUtil.StandardColor getStandardColor() {
+        return GCColorUtil.StandardColor.getFromInt(color-1);
+    }
 }

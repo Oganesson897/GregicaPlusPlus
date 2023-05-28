@@ -1,4 +1,4 @@
-package me.oganesson.gregica.api.capability.quantum;
+package me.oganesson.gregica.crossmod.top.provider;
 
 import gregtech.api.capability.GregtechTileCapabilities;
 import gregtech.integration.theoneprobe.provider.CapabilityInfoProvider;
@@ -7,6 +7,7 @@ import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.TextStyleClass;
 import me.oganesson.gregica.api.capability.GCCapabilities;
+import me.oganesson.gregica.api.capability.quantum.IQubitContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.capabilities.Capability;

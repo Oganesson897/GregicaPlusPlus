@@ -5,7 +5,6 @@ import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCLog;
 import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.api.capability.GCCapabilities;
-import me.oganesson.gregica.api.capability.GCCapabilityProvider;
 import me.oganesson.gregica.common.block.CommonBlocks;
 import me.oganesson.gregica.common.block.GCYSMetaBlocks;
 import me.oganesson.gregica.common.block.te.LaserVacuumPipeBlock;
@@ -24,6 +23,7 @@ import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
 import me.oganesson.gregica.common.tileentities.te.EssentiaHatch;
 import me.oganesson.gregica.common.tileentities.te.TELaserPipe;
 import me.oganesson.gregica.common.unification.materials.ore.GCOres;
+import me.oganesson.gregica.crossmod.top.TOPCompatibility;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -87,7 +87,7 @@ public class CommonProxy {
         FuelRecipe.init();
         if (GCValues.IS_TOP_LOADED) {
             GCLog.logger.info("TheOneProbe found. Enabling integration...");
-            GCCapabilityProvider.registerCompatibility();
+            TOPCompatibility.initCompatibility();
         }
         GCRecipes.register();
         GCCoverBehaviors.init();

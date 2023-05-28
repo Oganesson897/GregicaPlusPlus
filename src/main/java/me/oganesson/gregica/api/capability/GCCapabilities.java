@@ -2,6 +2,7 @@ package me.oganesson.gregica.api.capability;
 
 import gregtech.api.capability.SimpleCapabilityManager;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
+import me.oganesson.gregica.api.blocks.IColored;
 import me.oganesson.gregica.api.capability.quantum.IQubitContainer;
 import me.oganesson.gregica.api.item.IBall;
 import me.oganesson.gregica.api.item.ICatalyst;
@@ -12,9 +13,13 @@ import net.minecraftforge.common.capabilities.CapabilityInject;
 public class GCCapabilities {
     @CapabilityInject(IQubitContainer.class)
     public static Capability<IQubitContainer> QBIT_CAPABILITY;
+    
+    @CapabilityInject(IColored.class)
+    public static Capability<IColored> COLOR_CAPABILITY;
 
     public static void init() {
         SimpleCapabilityManager.registerCapabilityWithNoDefault(IQubitContainer.class);
+        SimpleCapabilityManager.registerCapabilityWithNoDefault(IColored.class);
     }
 
 

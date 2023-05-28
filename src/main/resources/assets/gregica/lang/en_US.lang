@@ -444,6 +444,8 @@ gregica.color.brown=Brown
 gregica.laser.color=Current Color Flag: %d
 gregica.color.wheel=Press shift + wheel to change color.
 gregica.color.creative=Shift right click block to load dyes.(Creative Only)
+gregica.info.laser_hatch_input=In fact it is a Energy Hatch.
+gregica.info.laser_hatch_output=In fact it is a Dynamo Hatch.
 
 #Mixin
 gregica.mixin.gregtech.itemblock.multiblock_controller=§aThis is a multiblock controller.

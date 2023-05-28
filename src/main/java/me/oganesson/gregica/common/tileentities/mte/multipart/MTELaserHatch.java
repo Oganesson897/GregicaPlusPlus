@@ -18,13 +18,18 @@ import gregtech.client.renderer.texture.Textures;
 import gregtech.client.utils.PipelineUtil;
 import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityMultiblockPart;
 import me.oganesson.gregica.api.GCValues;
+import me.oganesson.gregica.api.blocks.IColored;
 import me.oganesson.gregica.api.capability.impl.EnergyContainerLaser;
 import me.oganesson.gregica.api.mte.HatchType;
 import me.oganesson.gregica.api.mte.INoticeable;
+import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.tileentities.te.TELaserPipe;
 import me.oganesson.gregica.utils.GCColorUtil;
 import me.oganesson.gregica.utils.GCMathUtils;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
@@ -38,11 +43,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMultiblockAbilityPart<IEnergyContainer>, IDataInfoProvider, INoticeable {
+public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMultiblockAbilityPart<IEnergyContainer>, IDataInfoProvider, INoticeable, IColored {
     
     public static final String COLOR_KEY = "LaserColor";
     public static final String UP_KEY = "needUpdate";
@@ -139,6 +145,8 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
         super.renderMetaTileEntity(renderState, translation, pipeline);
         if (this.shouldRenderOverlay()) {
             Textures.ENERGY_IN_HI.renderSided(this.getFrontFacing(), renderState, translation, PipelineUtil.color(pipeline, GTValues.VC[this.getTier()]));
+            if(this.color != 0)
+                GCTextures.LASER_COLORED.renderSided(getFrontFacing(),renderState,translation,PipelineUtil.color(pipeline,GTUtility.convertRGBtoOpaqueRGBA_CL(EnumDyeColor.byMetadata(color-1).getColorValue())));
         }
     }
     
@@ -205,9 +213,16 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
         return color;
     }
     
+    public GCColorUtil.StandardColor getStandardColor(){
+        return GCColorUtil.StandardColor.getFromInt(color-1);
+    }
+    
     public void setColor(int color) {
         this.color = color;
         this.writeCustomData(GCValues.REQUIRE_DATA_UPDATE,(b) -> b.writeInt(color));
+        this.notifyBlockUpdate();
+        this.markDirty();
+        this.scheduleRenderUpdate();
     }
     
     @Override
@@ -216,6 +231,24 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
         if(dataId == GCValues.REQUIRE_DATA_UPDATE){
             this.color = buf.readInt();
         }
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, @Nullable World world, @NotNull List<String> tooltip, boolean advanced) {
+        super.addInformation(stack, world, tooltip, advanced);
+        String tierName = GTValues.VNF[this.getTier()];
+        if(this.type == HatchType.OUTPUT){
+            tooltip.add(I18n.format("gregica.info.laser_hatch_output"));
+            tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_out", this.energyContainer.getOutputVoltage(), tierName));
+            tooltip.add(I18n.format("gregtech.universal.tooltip.amperage_out_till", this.energyContainer.getOutputAmperage()));
+        }
+        else {
+            tooltip.add(I18n.format("gregica.info.laser_hatch_input"));
+            tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_in",this.energyContainer.getInputVoltage(), tierName));
+            tooltip.add(I18n.format("gregtech.universal.tooltip.amperage_in_till",this.energyContainer.getInputAmperage()));
+        }
+        tooltip.add(I18n.format("gregtech.universal.tooltip.energy_storage_capacity", this.energyContainer.getEnergyCapacity()));
     }
     
     @NotNull

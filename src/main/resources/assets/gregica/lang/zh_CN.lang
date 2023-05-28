@@ -365,6 +365,9 @@ gregica.laser.color=当前颜色标识: %d
 gregica.color.wheel=使用Shift+滚轮来切换颜色
 gregica.color.creative=Shift右键方块来填充染料(仅限创造模式)
 
+gregica.info.laser_hatch_input=事实上这算是个能源仓
+gregica.info.laser_hatch_output=事实上这算是个动力仓
+
 #MixinGregtech
 gregica.mixin.gregtech.itemblock.multiblock_controller=§a多方块结构控制器
 gregica.mixin.gregtech.itemblock.multiblock_part=§a多方块结构部件
