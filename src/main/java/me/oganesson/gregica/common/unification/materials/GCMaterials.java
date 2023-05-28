@@ -50,6 +50,10 @@ public class GCMaterials {
 
     public static Material Thaumium;
     public static Material VoidMetal;
+    public static Material MetallicHydrogen;
+    public static Material Ethylenimine;
+    public static Material Polyethyleneimine;
+
     public static void register() {
         FirstDegreeMaterials.register();
         SecondDegreeMaterials.register();

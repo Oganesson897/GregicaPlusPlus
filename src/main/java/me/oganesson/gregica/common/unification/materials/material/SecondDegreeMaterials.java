@@ -10,7 +10,7 @@ import me.oganesson.gregica.common.unification.materials.GCMaterials;
 
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.material.info.MaterialFlags.*;
-import static me.oganesson.gregica.common.unification.ore.GCMaterialFlags.GENERATE_MILLED;
+import static me.oganesson.gregica.common.unification.materials.info.GCMaterialFlags.GENERATE_MILLED;
 
 public class SecondDegreeMaterials {
 
@@ -167,13 +167,37 @@ public class SecondDegreeMaterials {
                 .color(0x3fcc60)
                 .fluidPipeProperties(5500, 64000, true, true, true, true)
                 .build();
-
+        
+        GCMaterials.MetallicHydrogen = new Material.Builder(26129, "metallic_hydrogen")
+                .ingot().fluid()
+                .iconSet(MaterialIconSet.SHINY)
+                .flags(GENERATE_PLATE, GENERATE_RING, GENERATE_ROUND, GENERATE_ROTOR, GENERATE_BOLT_SCREW, GENERATE_GEAR, GENERATE_SMALL_GEAR, GENERATE_LONG_ROD, GENERATE_FRAME)
+                .fluidTemp(1)
+                .color(0x4682B4)
+                .fluidPipeProperties(10240, 32000, true, true, true, true)
+                .components(Hydrogen, 1)
+                .build();
+        
+        GCMaterials.Ethylenimine = new Material.Builder(26130, "ethylenimine")
+                .fluid()
+                .color(0x483D8B)
+                .components(Carbon, 2, Hydrogen, 5, Nitrogen, 1)
+                .build();
+        
+        GCMaterials.Polyethyleneimine = new Material.Builder(26131, "polyethylenimine")
+                .fluid()
+                .color(0x483DB4)
+                .flags(DISABLE_DECOMPOSITION)
+                .components(Carbon, 2, Hydrogen, 5, Nitrogen, 1)
+                .build();
+        
         Materials.Potin.addFlags("generate_rotor", "generate_small_gear");
         Materials.Iridium.addFlags("generate_frame");
         Materials.Darmstadtium.addFlags("generate_frame");
         Materials.Cobalt.addFlags("generate_fine_wire");
         Materials.Lapis.addFlags("generate_bolt_screw");
         Materials.HSSE.addFlags(GENERATE_SMALL_GEAR);
+        Materials.Neutronium.addFlags(GENERATE_SMALL_GEAR, GENERATE_ROUND, GENERATE_RING, GENERATE_ROTOR);
 
         GCYMMaterials.Zeron100.addFlags("generate_rotor", "generate_bolt_screw");
         GCYMMaterials.IncoloyMA956.addFlags("generate_rotor");

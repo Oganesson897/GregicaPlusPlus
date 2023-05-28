@@ -12,7 +12,7 @@ import me.oganesson.gregica.api.recipe.GCRecipeMaps;
 import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
 import me.oganesson.gregica.common.unification.materials.GCMaterials;
-import me.oganesson.gregica.common.unification.ore.GCOrePrefix;
+import me.oganesson.gregica.common.unification.materials.ore.GCOrePrefixs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
@@ -21,7 +21,7 @@ import javax.annotation.Nonnull;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.api.unification.ore.OrePrefix.gem;
 import static me.oganesson.gregica.common.recipes.GCBiologyRecipe.getBiologyCircuitData;
-import static me.oganesson.gregica.common.unification.ore.GCMaterialFlags.GENERATE_MILLED;
+import static me.oganesson.gregica.common.unification.materials.info.GCMaterialFlags.GENERATE_MILLED;
 
 public class GCIsaProcessLine {
 
@@ -52,7 +52,7 @@ public class GCIsaProcessLine {
                 .duration(3000)
                 .getTier(1)
                 .EUt(7680)
-                .outputs(OreDictUnifier.get(GCOrePrefix.oreMilled, material, 48))
+                .outputs(OreDictUnifier.get(GCOrePrefixs.oreMilled, material, 48))
                 .buildAndRegister();
 
         GCRecipeMaps.ISAMILL_GRINDER.recipeBuilder()
@@ -61,7 +61,7 @@ public class GCIsaProcessLine {
                 .getTier(1)
                 .duration(1500)
                 .EUt(7680)
-                .output(GCOrePrefix.oreMilled, material, 16)
+                .output(GCOrePrefixs.oreMilled, material, 16)
                 .buildAndRegister();
 
         GCRecipeMaps.ISAMILL_GRINDER.recipeBuilder()
@@ -70,7 +70,7 @@ public class GCIsaProcessLine {
                 .getTier(2)
                 .duration(1200)
                 .EUt(7680)
-                .output(GCOrePrefix.oreMilled, material, 32)
+                .output(GCOrePrefixs.oreMilled, material, 32)
                 .buildAndRegister();
 
         GCRecipeMaps.ISAMILL_GRINDER.recipeBuilder()
@@ -79,8 +79,8 @@ public class GCIsaProcessLine {
                 .getTier(2)
                 .duration(2400)
                 .EUt(7680)
-                .output(GCOrePrefix.oreMilled, material, 64)
-                .output(GCOrePrefix.oreMilled, material, 32)
+                .output(GCOrePrefixs.oreMilled, material, 64)
+                .output(GCOrePrefixs.oreMilled, material, 32)
                 .buildAndRegister();
     }
 
@@ -227,10 +227,10 @@ public class GCIsaProcessLine {
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.SODIUM_ETHYLXANTHATE.getStackForm(32))
-                .input(GCOrePrefix.oreMilled, Materials.Pyrope, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Pyrope, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Pyrope, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Pyrope, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Pyrope, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Pyrope, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Pyrope, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Pyrope, 64)
                 .EUt(1920).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(8000))
                 .fluidOutputs(GCMaterials.PyropeFront.getFluid(1000))
@@ -238,10 +238,10 @@ public class GCIsaProcessLine {
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.POTASSIUM_ETHYLXANTHATE.getStackForm(32))
-                .input(GCOrePrefix.oreMilled, Materials.Chalcopyrite, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Chalcopyrite, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Chalcopyrite, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Chalcopyrite, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Chalcopyrite, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Chalcopyrite, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Chalcopyrite, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Chalcopyrite, 64)
                 .EUt(7680).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(12000))
                 .fluidOutputs(GCMaterials.ChalcopyriteFront.getFluid(1000))
@@ -249,10 +249,10 @@ public class GCIsaProcessLine {
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.SODIUM_ETHYLXANTHATE.getStackForm(32))
-                .input(GCOrePrefix.oreMilled, Materials.Redstone, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Redstone, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Redstone, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Redstone, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Redstone, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Redstone, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Redstone, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Redstone, 64)
                 .EUt(7680).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(13000))
                 .fluidOutputs(GCMaterials.RedstoneFront.getFluid(1000))
@@ -260,10 +260,10 @@ public class GCIsaProcessLine {
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.POTASSIUM_ETHYLXANTHATE.getStackForm(32))
-                .input(GCOrePrefix.oreMilled, Materials.Nickel, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Nickel, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Nickel, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Nickel, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Nickel, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Nickel, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Nickel, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Nickel, 64)
                 .EUt(7680).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(25000))
                 .fluidOutputs(GCMaterials.NickelFront.getFluid(1000))
@@ -271,10 +271,10 @@ public class GCIsaProcessLine {
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.SODIUM_ETHYLXANTHATE.getStackForm(32))
-                .input(GCOrePrefix.oreMilled, Materials.Almandine, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Almandine, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Almandine, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Almandine, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Almandine, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Almandine, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Almandine, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Almandine, 64)
                 .EUt(7680).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(18000))
                 .fluidOutputs(GCMaterials.AlmandineFront.getFluid(1000))
@@ -282,10 +282,10 @@ public class GCIsaProcessLine {
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.POTASSIUM_ETHYLXANTHATE.getStackForm(32))
-                .input(GCOrePrefix.oreMilled, Materials.Spessartine, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Spessartine, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Spessartine, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Spessartine, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Spessartine, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Spessartine, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Spessartine, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Spessartine, 64)
                 .EUt(30720).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(35000))
                 .fluidOutputs(GCMaterials.SpessartineFront.getFluid(1000))
@@ -293,10 +293,10 @@ public class GCIsaProcessLine {
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.SODIUM_ETHYLXANTHATE.getStackForm(32))
-                .input(GCOrePrefix.oreMilled, Materials.Sphalerite, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Sphalerite, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Sphalerite, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Sphalerite, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Sphalerite, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Sphalerite, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Sphalerite, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Sphalerite, 64)
                 .EUt(30720).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(14000))
                 .fluidOutputs(GCMaterials.SphaleriteFront.getFluid(1000))
@@ -304,10 +304,10 @@ public class GCIsaProcessLine {
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.POTASSIUM_ETHYLXANTHATE.getStackForm(32))
-                .input(GCOrePrefix.oreMilled, Materials.Pentlandite, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Pentlandite, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Pentlandite, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Pentlandite, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Pentlandite, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Pentlandite, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Pentlandite, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Pentlandite, 64)
                 .EUt(30720).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(14000))
                 .fluidOutputs(GCMaterials.PentlanditeFront.getFluid(1000))
@@ -315,10 +315,10 @@ public class GCIsaProcessLine {
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.SODIUM_ETHYLXANTHATE.getStackForm(32))
-                .input(GCOrePrefix.oreMilled, Materials.Platinum, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Platinum, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Platinum, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Platinum, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Platinum, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Platinum, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Platinum, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Platinum, 64)
                 .EUt(30720).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(35000))
                 .fluidOutputs(GCMaterials.PlatinumFront.getFluid(1000))
@@ -326,10 +326,10 @@ public class GCIsaProcessLine {
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.POTASSIUM_ETHYLXANTHATE.getStackForm(32))
-                .input(GCOrePrefix.oreMilled, Materials.Grossular, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Grossular, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Grossular, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Grossular, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Grossular, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Grossular, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Grossular, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Grossular, 64)
                 .EUt(30720).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(28000))
                 .fluidOutputs(GCMaterials.GrossularFront.getFluid(1000))
@@ -337,10 +337,10 @@ public class GCIsaProcessLine {
 
         GCRecipeMaps.FLOTATION_CELL_REGULATOR.recipeBuilder()
                 .inputs(GCMetaItems.SODIUM_ETHYLXANTHATE.getStackForm(32))
-                .input(GCOrePrefix.oreMilled, Materials.Monazite, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Monazite, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Monazite, 64)
-                .input(GCOrePrefix.oreMilled, Materials.Monazite, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Monazite, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Monazite, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Monazite, 64)
+                .input(GCOrePrefixs.oreMilled, Materials.Monazite, 64)
                 .EUt(30720).duration(9600)
                 .fluidInputs(GCMaterials.PineOil.getFluid(30000))
                 .fluidOutputs(GCMaterials.MonaziteFront.getFluid(1000))
