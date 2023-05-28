@@ -9,8 +9,11 @@ import gregtech.api.items.metaitem.stats.IItemBehaviour;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.pipenet.tile.IPipeTile;
+import gregtech.client.utils.TooltipHelper;
 import me.oganesson.gregica.api.item.IExtendedItemBehavior;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
+import me.oganesson.gregica.common.tileentities.mte.multipart.MTELaserHatch;
+import me.oganesson.gregica.common.tileentities.te.TELaserPipe;
 import me.oganesson.gregica.utils.GCColorUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockColored;
@@ -47,7 +50,12 @@ public class ColorApplicatorBehavior implements IItemBehaviour, IExtendedItemBeh
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack itemStack, List<String> lines) {
         if(itemStack.hasTagCompound()){
+            lines.add(I18n.format("gregica.color.wheel"));
+            if(TooltipHelper.isShiftDown()){
+                lines.add(I18n.format("gregica.color.creative"));
+            }
             lines.add(TextFormatting.WHITE+I18n.format("gregica.color.current")+currentColor(itemStack).getChatColor()+I18n.format("gregica.color."+currentColorName(itemStack))+"  "+currentColor(itemStack).ordinal());
+            
             //noinspection ConstantConditions
             NBTTagCompound colorTags = itemStack.getTagCompound().getCompoundTag("colors");
             for(GCColorUtil.StandardColor color : GCColorUtil.StandardColor.values()){
@@ -81,31 +89,6 @@ public class ColorApplicatorBehavior implements IItemBehaviour, IExtendedItemBeh
     public boolean canHandleWheelChange() {
         return true;
     }
-    
-//    @Override
-//    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-//        if(!world.isRemote) {
-//            ItemStack itemStack = player.getHeldItem(hand);
-//            if (player.isSneaking()) {
-//                if (player.isCreative() && needLoad(itemStack)) {
-//                    loadAllColor(itemStack);
-//                    return ActionResult.newResult(EnumActionResult.SUCCESS,itemStack);
-//                }
-////                if(canChangeColor){
-////                    nextColor(itemStack);
-////                    GCColorUtil.StandardColor standardColor = currentColor(itemStack);
-////                    EnumDyeColor color = standardColor.getAsDyeColor();
-////                    player.sendStatusMessage(new TextComponentTranslation("gregica.color.current")
-////                            .appendSibling(new TextComponentTranslation(color.getTranslationKey()))
-////                            .setStyle(new Style().setColor(standardColor.getChatColor())),true);
-////                    return ActionResult.newResult(EnumActionResult.SUCCESS,itemStack);
-////                }
-//            }
-////            canChangeColor = true;
-//        }
-//        return IItemBehaviour.super.onItemRightClick(world, player, hand);
-//    }
-    
     
     @Override
     public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
@@ -259,9 +242,29 @@ public class ColorApplicatorBehavior implements IItemBehaviour, IExtendedItemBeh
     private boolean tryPaintBlock(EntityPlayer player, World world, BlockPos pos, EnumFacing side,@Nullable EnumDyeColor color) {
         IBlockState blockState = world.getBlockState(pos);
         Block block = blockState.getBlock();
+    
+        TileEntity te = world.getTileEntity(pos);
+        int colorValue = color == null ? -1 : color.ordinal()+1;
+        if (te instanceof IGregTechTileEntity) {
+            MetaTileEntity mte = ((IGregTechTileEntity) te).getMetaTileEntity();
+            if (mte instanceof MTELaserHatch && ((MTELaserHatch) mte).getColor() != colorValue) {
+                MTELaserHatch laserHatch = (MTELaserHatch) mte;
+                laserHatch.setColor(colorValue);
+                return true;
+            }
+        }
+        if(te instanceof TELaserPipe){
+            if(((TELaserPipe) te).getColor() != (colorValue)){
+                ((TELaserPipe) te).setColor(colorValue);
+                ((TELaserPipe) te).updateConnections(world,pos,true);
+                return true;
+            }
+        }
+        
         if (color == null) {
             return tryStripBlockColor(player, world, pos, block, side);
         }
+        
         return block.recolorBlock(world, pos, side, color) || tryPaintSpecialBlock(player, world, pos, block,color);
     }
     

@@ -103,6 +103,8 @@ dependencies {
     //implementation fg.deobf("curse.maven:endercore-231868:2972849")
 
     implementation fg.deobf("maven.modrinth:gregtech-ce-unofficial:${ceu_version}")
+   // implementation fg.deobf("curse.maven:gregtech-ce-unofficial-4527757:${ceu_version}")
+    //implementation files(("libs/gregtech-2.6.2-beta.jar"))
     //implementation fg.deobf("libs:gregtech-1.12.2:2.5.4-beta")
     implementation fg.deobf("curse.maven:gregicality-multiblocks-564858:${gcym_version}")
 

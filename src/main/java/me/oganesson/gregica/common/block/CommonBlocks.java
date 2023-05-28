@@ -1,6 +1,7 @@
 package me.oganesson.gregica.common.block;
 
 import me.oganesson.gregica.api.GCValues;
+import me.oganesson.gregica.common.block.te.LaserVacuumPipeBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -13,6 +14,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nonnull;
 
 public class CommonBlocks {
+    
+    public static final Block LaserVacuumPipe = new LaserVacuumPipeBlock();
 
     @SideOnly(Side.CLIENT)
     public static void registerItemModels() {

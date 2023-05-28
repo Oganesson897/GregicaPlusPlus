@@ -1,24 +1,19 @@
 package me.oganesson.gregica.common.block;
 
-import me.oganesson.gregica.common.tileentities.EssentiaHatch;
+import me.oganesson.gregica.common.tileentities.te.EssentiaHatch;
+import me.oganesson.gregica.common.tileentities.te.IGCTileEntity;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.api.aspects.IEssentiaContainerItem;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -31,8 +26,8 @@ public class TEBlock extends BlockContainer {
         super(Material.IRON);
         this.setHardness(9.0F);
         this.setResistance(5.0F);
-        setRegistryName(name);
-        setTranslationKey(name);
+        this.setRegistryName(name);
+        this.setTranslationKey(name);
         this.setHarvestLevel("wrench", 2);
         this.index = index;
     }
@@ -67,40 +62,9 @@ public class TEBlock extends BlockContainer {
 
     @Override
     public boolean onBlockActivated(@Nonnull World worldIn, @Nonnull BlockPos pos, @Nonnull IBlockState state, @Nonnull EntityPlayer playerIn, @Nonnull EnumHand hand, @Nonnull EnumFacing facing, float hitX, float hitY, float hitZ) {
-        if (worldIn.isRemote) {
-            return false;
-        } else if (hand == EnumHand.MAIN_HAND) {
-            TileEntity tile = worldIn.getTileEntity(pos);
-            if (index == 1) {
-                if (tile instanceof EssentiaHatch) {
-                    ItemStack tItemStack = playerIn.getHeldItem(hand);
-                    if (!tItemStack.isEmpty()) {
-                        Item tItem = tItemStack.getItem();
-                        if (tItem instanceof IEssentiaContainerItem
-                                && ((IEssentiaContainerItem) tItem).getAspects(playerIn.getHeldItem(hand)) != null
-                                && ((IEssentiaContainerItem) tItem).getAspects(playerIn.getHeldItem(hand)).size() > 0) {
-                            Aspect tLocked = ((IEssentiaContainerItem) tItem).getAspects(playerIn.getHeldItem(hand))
-                                    .getAspects()[0];
-                            ((EssentiaHatch) tile).setLockedAspect(tLocked);
-                            if (playerIn instanceof EntityPlayerMP) {
-                                playerIn.sendMessage(
-                                        new TextComponentTranslation(
-                                                "essentiahatch.chat.0",
-                                                tLocked.getLocalizedDescription()));
-                            }
-                        }
-                    } else {
-                        ((EssentiaHatch) tile).setLockedAspect(null);
-                        if (playerIn instanceof EntityPlayerMP) {
-                            playerIn.sendMessage(new TextComponentTranslation(
-                                    "essentiahatch.chat.1"
-                            ));
-                        }
-                    }
-                    tile.markDirty();
-                    return true;
-                }
-            }
+        TileEntity tile = worldIn.getTileEntity(pos);
+        if(tile instanceof IGCTileEntity){
+            return ((IGCTileEntity)tile).onBlockActivated(tile,worldIn,pos,state,playerIn,hand,facing,hitX,hitY,hitZ);
         }
         return false;
     }

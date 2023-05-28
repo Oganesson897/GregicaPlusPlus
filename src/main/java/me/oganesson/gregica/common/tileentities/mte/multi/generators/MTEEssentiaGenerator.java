@@ -26,7 +26,7 @@ import me.oganesson.gregica.api.predicate.TiredTraceabilityPredicate;
 import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.block.GCMetaBlocks;
 import me.oganesson.gregica.common.recipes.recipemap.EssentiaLogic;
-import me.oganesson.gregica.common.tileentities.EssentiaHatch;
+import me.oganesson.gregica.common.tileentities.te.EssentiaHatch;
 import me.oganesson.gregica.proxy.CommonProxy;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;

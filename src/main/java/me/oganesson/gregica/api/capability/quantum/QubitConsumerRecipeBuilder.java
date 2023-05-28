@@ -9,7 +9,7 @@ import gregtech.api.util.GTLog;
 import gregtech.api.util.ValidationResult;
 import mcp.MethodsReturnNonnullByDefault;
 import me.oganesson.gregica.config.GCConfig;
-import me.oganesson.gregica.utils.GCUtil;
+import me.oganesson.gregica.utils.GCMathUtils;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -25,7 +25,7 @@ public class QubitConsumerRecipeBuilder extends RecipeBuilder<QubitConsumerRecip
     static {
             for (String fluid : GCConfig.Misc.solderingFluidList) {
             String[] fluidSplit = fluid.split(":");
-            int amount = GCUtil.clamp(Integer.parseInt(fluidSplit[1]), 1, 64000);
+            int amount = GCMathUtils.clamp(Integer.parseInt(fluidSplit[1]), 1, 64000);
 
             FluidStack fluidStack = FluidRegistry.getFluidStack(fluidSplit[0], amount);
             if (fluidStack != null) SOLDER_FLUIDS.add(fluidStack);

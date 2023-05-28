@@ -11,24 +11,21 @@ import gregtech.client.renderer.texture.Textures;
 import gregtech.common.metatileentities.MetaTileEntities;
 import me.oganesson.gregica.Gregica;
 import me.oganesson.gregica.api.GCValues;
+import me.oganesson.gregica.api.mte.HatchType;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
 import me.oganesson.gregica.client.GCTextures;
-import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
-import me.oganesson.gregica.common.block.laserpipe.LaserPipeType;
 import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTEActiveTransformer;
 import me.oganesson.gregica.common.tileentities.mte.multi.energy.MTELapotronicSuperCapacitor;
 import me.oganesson.gregica.common.tileentities.mte.multi.gcys.*;
 import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEEssentiaGenerator;
 import me.oganesson.gregica.common.tileentities.mte.multi.machines.*;
-import me.oganesson.gregica.common.tileentities.mte.multipart.MTEBallHatch;
-import me.oganesson.gregica.common.tileentities.mte.multipart.MTECatalystHatch;
-import me.oganesson.gregica.common.tileentities.mte.multipart.MTECreativeEnergyHatch;
-import me.oganesson.gregica.common.tileentities.mte.multipart.MTEQubitHatch;
+import me.oganesson.gregica.common.tileentities.mte.multipart.*;
 import me.oganesson.gregica.common.tileentities.mte.single.MTECreativeGenerator;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.function.Function;
 import java.util.function.IntFunction;
+import java.util.function.IntPredicate;
 import java.util.function.IntSupplier;
 
 import static gregtech.common.metatileentities.MetaTileEntities.registerMetaTileEntity;
@@ -68,10 +65,14 @@ public class GCMetaEntities {
 
     public static MTECatalystHatch CATALYST_HATCH;
     public static MTEBallHatch GRIND_BALL_HATCH;
+    
+    public static MTELaserHatch[] LASER_HATCH_INPUT = new MTELaserHatch[(GTValues.V.length-5)*6];
+    
+    public static MTELaserHatch[] LASER_HATCH_OUTPUT = new MTELaserHatch[(GTValues.V.length-5)*6];
 
     public static final MTECreativeEnergyHatch[] CREATIVE_ENERGY_HATCHES = new MTECreativeEnergyHatch[GTValues.V.length];
 
-    public static final BlockLaserPipe[] LASER_PIPES = new BlockLaserPipe[1];
+    //public static final BlockLaserPipe[] LASER_PIPES = new BlockLaserPipe[1];
 
     public static SimpleMachineMetaTileEntity[] DRYER = new SimpleMachineMetaTileEntity[GTValues.V.length - 1];
 
@@ -94,12 +95,7 @@ public class GCMetaEntities {
         initSingleMachine();
         initGCYS();
 
-        for (LaserPipeType type : LaserPipeType.values()) {
-            LASER_PIPES[type.ordinal()] = new BlockLaserPipe();
-            LASER_PIPES[type.ordinal()].setRegistryName(String.format("laser_pipe_%s", type.name));
-        }
 
-        //GCYS
 
     }
 
@@ -111,11 +107,17 @@ public class GCMetaEntities {
         return new ResourceLocation("gcys",name);
     }
     
-    public static void simpleTiredInit(MetaTileEntity[] tileEntities, IntFunction<MetaTileEntity> function, IntSupplier idSupplier){
+    public static void simpleTiredInit(MetaTileEntity[] tileEntities, IntFunction<MetaTileEntity> function, IntSupplier idSupplier, IntPredicate canAdd){
         for(int i = 0;i<GTValues.V.length;i++){
-            tileEntities[i] = registerMetaTileEntity(
-                    idSupplier.getAsInt(),function.apply(i));
+            if(canAdd.test(i)){
+                tileEntities[i] = registerMetaTileEntity(
+                        idSupplier.getAsInt(),function.apply(i));
+            }
         }
+    }
+    
+    public static void simpleTiredInit(MetaTileEntity[] tileEntities, IntFunction<MetaTileEntity> function, IntSupplier idSupplier){
+        simpleTiredInit(tileEntities,function,idSupplier,(i) -> true);
     }
 
     private static void registerSimpleMetaTileEntity(SimpleMachineMetaTileEntity[] machines, int startID, String name, RecipeMap<?> map, ICubeRenderer texture, boolean frontfacing, Function<Integer, Integer> tankScalingFunction,boolean isGCYS) {
@@ -187,6 +189,21 @@ public class GCMetaEntities {
         simpleTiredInit(CREATIVE_ENERGY_HATCHES,
                 (i) -> new MTECreativeEnergyHatch(gcID("creative_energy_hatch."+GTValues.VN[i].toLowerCase()),i),
                 GCMetaEntities::nextMultiPartID);
+        
+        for(int i=5; i<GTValues.V.length; i++){
+            for (int j = 0; j<GCValues.LASER_AMPERAGE.length; j++){
+                int a = GCValues.LASER_AMPERAGE[j];
+                LASER_HATCH_INPUT[j+(i-5)*6] = registerMetaTileEntity(nextMultiPartID(),
+                        new MTELaserHatch(gcID("laser_hatch_input_"+GTValues.VN[i]+"_a_"+a),i,a,HatchType.INPUT));
+            }
+        }
+        for(int i=5; i<GTValues.V.length; i++){
+            for (int j = 0; j<GCValues.LASER_AMPERAGE.length; j++){
+                int a = GCValues.LASER_AMPERAGE[j];
+                LASER_HATCH_OUTPUT[j+(i-5)*6] = registerMetaTileEntity(nextMultiPartID(),
+                        new MTELaserHatch(gcID("laser_hatch_output_"+GTValues.VN[i]+"_a_"+a),i,a,HatchType.OUTPUT));
+            }
+        }
     }
     
     private static void initSingleMachine(){

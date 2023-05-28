@@ -7,7 +7,7 @@ import gregtech.api.metatileentity.multiblock.IMaintenance;
 import gregtech.api.unification.material.Materials;
 import gregtech.common.ConfigHolder;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
-import me.oganesson.gregica.common.tileentities.EssentiaHatch;
+import me.oganesson.gregica.common.tileentities.te.EssentiaHatch;
 import me.oganesson.gregica.common.tileentities.mte.multi.generators.MTEEssentiaGenerator;
 import me.oganesson.gregica.common.unification.materials.GCMaterials;
 import net.minecraft.nbt.NBTTagCompound;
@@ -50,9 +50,7 @@ public class EssentiaLogic {
         if (!this.isWorkingEnabled) return;
         if (hasMaintenance && ((IMaintenance) host).getNumMaintenanceProblems() > 5) return;
         if(host.energyContainer.getEnergyStored() == host.energyContainer.getEnergyCapacity()) return;
-
-
-            setEssentiaToEUVoltageAndAmp(host.energyContainer.getOutputVoltage(), host.energyContainer.getOutputAmperage());
+        setEssentiaToEUVoltageAndAmp(host.energyContainer.getOutputVoltage(), host.energyContainer.getOutputAmperage());
             if (!this.isActive)
                 setActive(mEUt * eAmpereFlow > 0);
             progressTime++;

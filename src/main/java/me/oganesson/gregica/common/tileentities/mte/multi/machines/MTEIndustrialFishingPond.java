@@ -55,7 +55,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 @ParametersAreNonnullByDefault
@@ -220,7 +219,7 @@ public class MTEIndustrialFishingPond extends MultiblockWithDisplayBase implemen
     @Nonnull
     @Override
     public List<ITextComponent> getDataInfo() {
-        return new LinkedList<>();
+        return Collections.emptyList();
     }
 
     public int getEnergyTier() {

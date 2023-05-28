@@ -275,17 +275,17 @@ public class MTELapotronicSuperCapacitor extends MultiblockWithUpdatable<BigInte
         BlockPos pos = this.getPos();
         EnumFacing facing = this.getFrontFacing().getOpposite();
         BlockPos startPos = pos.offset(facing,1).offset(GCUtil.getCounterClockWise(facing)).offset(EnumFacing.UP,2);
-        BlockPos searchPos = new BlockPos.MutableBlockPos(startPos);
+        BlockPos.MutableBlockPos searchPos = new BlockPos.MutableBlockPos(startPos);
         int height = 0;
         while (height <= 50){
             if(GCLapotronicCasing.isLapotronicCasing(world.getBlockState(searchPos))){
                 height++;
-                searchPos = searchPos.up();
+                searchPos = searchPos.move(EnumFacing.UP);
                 continue;
             }
             break;
         }
-        BlockPos endPos = searchPos.offset(facing,2).offset(GCUtil.getClockWise(facing),2).toImmutable();
+        BlockPos endPos = searchPos.move(facing,2).move(GCUtil.getClockWise(facing),2).toImmutable();
         return BlockPos.getAllInBoxMutable(startPos,endPos);
     }
     
@@ -294,18 +294,18 @@ public class MTELapotronicSuperCapacitor extends MultiblockWithUpdatable<BigInte
         BlockPos pos = this.getPos();
         EnumFacing facing = this.getFrontFacing().getOpposite();
         BlockPos startPos = pos.offset(facing,1).offset(GCUtil.getCounterClockWise(facing)).offset(EnumFacing.UP,2);
-        BlockPos searchPos = new BlockPos.MutableBlockPos(startPos);
+        BlockPos.MutableBlockPos searchPos = new BlockPos.MutableBlockPos(startPos);
         startPos = pos.offset(GCUtil.getClockWise(facing),2).offset(EnumFacing.UP,2);
         int height = 0;
         while (height <= 50){
             if(GCLapotronicCasing.isLapotronicCasing(world.getBlockState(searchPos))){
                 height++;
-                searchPos = searchPos.up();
+                searchPos = searchPos.move(EnumFacing.UP);
                 continue;
             }
             break;
         }
-        BlockPos endPos = searchPos.offset(facing,3).offset(GCUtil.getCounterClockWise(facing),3).toImmutable();
+        BlockPos endPos = searchPos.move(facing,3).move(GCUtil.getCounterClockWise(facing),3).toImmutable();
         return BlockPos.getAllInBoxMutable(startPos,endPos);
     }
     

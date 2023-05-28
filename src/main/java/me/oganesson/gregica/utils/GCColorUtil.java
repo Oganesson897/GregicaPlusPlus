@@ -65,6 +65,18 @@ public class GCColorUtil {
         public String getName() {
             return name;
         }
+        
+        public String getI18NKey(){
+           return  "gregica.color."+this.name;
+        }
+        
+        public static StandardColor getFromInt(int index){
+            if(index < values().length && index >= 0){
+                return values()[index];
+            }
+            return NONE;
+        }
+        
     }
     
     public static String colorName(GCColorUtil.StandardColor color){

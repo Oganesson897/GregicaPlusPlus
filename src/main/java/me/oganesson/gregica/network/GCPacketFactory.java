@@ -2,6 +2,7 @@ package me.oganesson.gregica.network;
 
 import io.netty.buffer.ByteBuf;
 import me.oganesson.gregica.network.packets.MouseEventToSeverPacker;
+import me.oganesson.gregica.network.packets.UpdateConnectionsClient;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -37,7 +38,8 @@ public enum GCPacketFactory {
         }
     }
     public enum PacketType {
-        MOUSE_EVENT_TO_SEVER(MouseEventToSeverPacker.class);
+        MOUSE_EVENT_TO_SEVER(MouseEventToSeverPacker.class),
+        UPDATE_CONNECTIONS_CLIENT(UpdateConnectionsClient.class);
         //按需加枚举类型
         //然后就可以直接按数组进行索引了
         public static final PacketType[] VALUES = PacketType.values();

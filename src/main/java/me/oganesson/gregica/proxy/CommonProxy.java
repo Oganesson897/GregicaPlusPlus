@@ -6,10 +6,10 @@ import me.oganesson.gregica.api.GCLog;
 import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.api.capability.GCCapabilities;
 import me.oganesson.gregica.api.capability.GCCapabilityProvider;
+import me.oganesson.gregica.common.block.CommonBlocks;
 import me.oganesson.gregica.common.block.GCYSMetaBlocks;
-import me.oganesson.gregica.common.block.laserpipe.BlockLaserPipe;
-import me.oganesson.gregica.common.block.laserpipe.ItemBlockLaserPipe;
-import me.oganesson.gregica.common.block.laserpipe.tile.TileEntityLaserPipe;
+import me.oganesson.gregica.common.block.te.LaserVacuumPipeBlock;
+import me.oganesson.gregica.common.item.CommonItems;
 import me.oganesson.gregica.common.item.cover.GCCoverBehaviors;
 import me.oganesson.gregica.common.item.itemUpgrades;
 import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
@@ -20,8 +20,9 @@ import me.oganesson.gregica.common.recipes.GCRecipes;
 import me.oganesson.gregica.common.recipes.GCYSRecipeLoader;
 import me.oganesson.gregica.common.recipes.compat.Thaumcraft;
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
-import me.oganesson.gregica.common.tileentities.EssentiaHatch;
 import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
+import me.oganesson.gregica.common.tileentities.te.EssentiaHatch;
+import me.oganesson.gregica.common.tileentities.te.TELaserPipe;
 import me.oganesson.gregica.common.unification.materials.ore.GCOres;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -44,7 +45,6 @@ import static me.oganesson.gregica.api.capability.chemical_plant.ChemicalPlantPr
 import static me.oganesson.gregica.api.capability.isa_mill.IsaMillProperties.registerBallTier;
 import static me.oganesson.gregica.common.block.CommonBlocks.getEssentiaHatch;
 import static me.oganesson.gregica.common.block.GCMetaBlocks.*;
-import static me.oganesson.gregica.common.tileentities.mte.GCMetaEntities.LASER_PIPES;
 
 public class CommonProxy {
 
@@ -117,18 +117,24 @@ public class CommonProxy {
         registry.register(createItemBlock(PINE_LOG, ItemBlock::new));
         registry.register(createItemBlock(PINE_SAPLING, ItemBlock::new));
         registry.register(createItemBlock(PINE_LEAVES, ItemBlock::new));
-        if(GCValues.IS_TC_LOADED) event.getRegistry().register(createItemBlock(getEssentiaHatch(), ItemBlock::new));
-        for(BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(createItemBlock(pipe, ItemBlockLaserPipe::new));
+        if(GCValues.IS_TC_LOADED) registry.register(createItemBlock(getEssentiaHatch(), ItemBlock::new));
+        //for(BlockLaserPipe pipe : LASER_PIPES) registry.register(createItemBlock(pipe, ItemBlockLaserPipe::new));
 
         
         registry.register(createItemBlock(GCYSMetaBlocks.CRUCIBLE, VariantItemBlock::new));
         registry.register(createItemBlock(GCYSMetaBlocks.MULTIBLOCK_CASING, VariantItemBlock::new));
         registry.register(createItemBlock(GCYSMetaBlocks.MULTIBLOCK_CASING_ACTIVE, VariantItemBlock::new));
         registry.register(createItemBlock(GCYSMetaBlocks.TRANSPARENT_CASING, VariantItemBlock::new));
+        
+        CommonItems.ITEM_LASER_VACUUM_BLOCK.setCreativeTab(GREGICA_TAB);
+        CommonItems.ITEM_LASER_VACUUM_BLOCK.setRegistryName(new ResourceLocation(Gregica.MOD_ID,LaserVacuumPipeBlock.NAME));
+        registry.register(CommonItems.ITEM_LASER_VACUUM_BLOCK);
     }
 
     public void registerBlocks(RegistryEvent.Register<Block> event) {
         GCOres.registerSpecialOres();
+        
+        IForgeRegistry<Block> registry = event.getRegistry();
 
         GC_BLOCK_CASING.setCreativeTab(GREGICA_TAB);
         GC_ESSENTIA_CELLS.setCreativeTab(GREGICA_TAB);
@@ -142,25 +148,29 @@ public class CommonProxy {
 
         if(GCValues.IS_TC_LOADED){
             getEssentiaHatch().setCreativeTab(GREGICA_TAB);
-            event.getRegistry().register(getEssentiaHatch());
+            registry.register(getEssentiaHatch());
             GameRegistry.registerTileEntity(EssentiaHatch.class, Objects.requireNonNull(getEssentiaHatch().getRegistryName()));
         }
-        event.getRegistry().register(GC_BLOCK_CASING);
-        event.getRegistry().register(GC_ESSENTIA_CELLS);
-        event.getRegistry().register(GC_META_GEAR_BOX);
-        event.getRegistry().register(GC_LAPOTRONIC_CASING);
-        event.getRegistry().register(TRANSPARENT_CASING);
-        event.getRegistry().register(TRANSPARENT_CASING1);
-        event.getRegistry().register(PINE_LOG);
-        event.getRegistry().register(PINE_SAPLING);
-        event.getRegistry().register(PINE_LEAVES);
-        for (BlockLaserPipe pipe : LASER_PIPES) event.getRegistry().register(pipe);
-        GameRegistry.registerTileEntity(TileEntityLaserPipe.class, new ResourceLocation(Gregica.MOD_ID, "laser_pipe"));
+        
+        registry.register(GC_BLOCK_CASING);
+        registry.register(GC_ESSENTIA_CELLS);
+        registry.register(GC_META_GEAR_BOX);
+        registry.register(GC_LAPOTRONIC_CASING);
+        registry.register(TRANSPARENT_CASING);
+        registry.register(TRANSPARENT_CASING1);
+        registry.register(PINE_LOG);
+        registry.register(PINE_SAPLING);
+        registry.register(PINE_LEAVES);
+//        for (BlockLaserPipe pipe : LASER_PIPES) registry.register(pipe);
+//        GameRegistry.registerTileEntity(TileEntityLaserPipe.class, new ResourceLocation(Gregica.MOD_ID, "laser_pipe"));
+//
+        registry.register(CommonBlocks.LaserVacuumPipe);
+        GameRegistry.registerTileEntity(TELaserPipe.class,new ResourceLocation(Gregica.MOD_ID, LaserVacuumPipeBlock.NAME));
 
-        event.getRegistry().register(GCYSMetaBlocks.CRUCIBLE);
-        event.getRegistry().register(GCYSMetaBlocks.MULTIBLOCK_CASING);
-        event.getRegistry().register(GCYSMetaBlocks.MULTIBLOCK_CASING_ACTIVE);
-        event.getRegistry().register(GCYSMetaBlocks.TRANSPARENT_CASING);
+        registry.register(GCYSMetaBlocks.CRUCIBLE);
+        registry.register(GCYSMetaBlocks.MULTIBLOCK_CASING);
+        registry.register(GCYSMetaBlocks.MULTIBLOCK_CASING_ACTIVE);
+        registry.register(GCYSMetaBlocks.TRANSPARENT_CASING);
     }
 
     public void onModelRegister() {

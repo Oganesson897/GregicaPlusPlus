@@ -1,23 +1,30 @@
-package me.oganesson.gregica.common.tileentities;
+package me.oganesson.gregica.common.tileentities.te;
 
 import me.oganesson.gregica.common.thaumcraft.LargeEssentiaEnergyData;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 import thaumcraft.api.ThaumcraftApiHelper;
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.api.aspects.AspectList;
-import thaumcraft.api.aspects.IAspectContainer;
-import thaumcraft.api.aspects.IEssentiaTransport;
+import thaumcraft.api.aspects.*;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
 
-public class EssentiaHatch extends TileEntity implements IAspectContainer, IEssentiaTransport, ITickable {
+public class EssentiaHatch extends TileEntity implements IAspectContainer, IEssentiaTransport, ITickable,IGCTileEntity {
 
     private Aspect mLocked;
     private AspectList current = new AspectList();
@@ -162,7 +169,7 @@ public class EssentiaHatch extends TileEntity implements IAspectContainer, IEsse
 
     @Override
     public boolean doesContainerContain(AspectList aspectList) {
-        ArrayList<Boolean> ret = new ArrayList<Boolean>();
+        ArrayList<Boolean> ret = new ArrayList<>();
         for (Aspect a : aspectList.aspects.keySet()) ret.add(current.aspects.containsKey(a));
         return !ret.contains(false);
     }
@@ -228,5 +235,48 @@ public class EssentiaHatch extends TileEntity implements IAspectContainer, IEsse
     @Override
     public int getMinimumSuction() {
         return Integer.MAX_VALUE;
+    }
+    
+    @Override
+    public int getIndex() {
+        return 1;
+    }
+    
+    @Override
+    public boolean onBlockActivated(TileEntity tile,@NotNull World worldIn, @NotNull BlockPos pos, @NotNull IBlockState state, @NotNull EntityPlayer playerIn, @NotNull EnumHand hand, @NotNull EnumFacing facing, float hitX, float hitY, float hitZ) {
+        if (worldIn.isRemote) {
+            return false;
+        } else if (hand == EnumHand.MAIN_HAND) {
+            if (tile instanceof EssentiaHatch) {
+                ItemStack tItemStack = playerIn.getHeldItem(hand);
+                if (!tItemStack.isEmpty()) {
+                    Item tItem = tItemStack.getItem();
+                    if (tItem instanceof IEssentiaContainerItem
+                            && ((IEssentiaContainerItem) tItem).getAspects(playerIn.getHeldItem(hand)) != null
+                            && ((IEssentiaContainerItem) tItem).getAspects(playerIn.getHeldItem(hand)).size() > 0) {
+                        Aspect tLocked = ((IEssentiaContainerItem) tItem).getAspects(playerIn.getHeldItem(hand))
+                                .getAspects()[0];
+                        ((EssentiaHatch) tile).setLockedAspect(tLocked);
+                        if (playerIn instanceof EntityPlayerMP) {
+                            playerIn.sendMessage(
+                                    new TextComponentTranslation(
+                                            "essentiahatch.chat.0",
+                                            tLocked.getLocalizedDescription()));
+                        }
+                    }
+                } else {
+                    ((EssentiaHatch) tile).setLockedAspect(null);
+                    if (playerIn instanceof EntityPlayerMP) {
+                        playerIn.sendMessage(new TextComponentTranslation(
+                                "essentiahatch.chat.1"
+                        ));
+                    }
+                }
+                tile.markDirty();
+                return true;
+            }
+        }
+        
+        return false;
     }
 }

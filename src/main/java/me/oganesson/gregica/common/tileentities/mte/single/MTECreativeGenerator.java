@@ -20,7 +20,7 @@ import gregtech.client.renderer.texture.Textures;
 import gregtech.client.utils.PipelineUtil;
 import me.oganesson.gregica.api.capability.ICreativeOnly;
 import me.oganesson.gregica.api.capability.impl.EnergyContainerCreative;
-import me.oganesson.gregica.utils.GCUtil;
+import me.oganesson.gregica.utils.GCMathUtils;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -148,7 +148,7 @@ public class MTECreativeGenerator extends TieredMetaTileEntity implements IContr
     }
     
     public void setOutputAmperage(int i){
-        this.outputAmperage = GCUtil.clamp(i,0,64);
+        this.outputAmperage = GCMathUtils.clamp(i,0,64);
     }
     
     public void changeAmperage(int i){
