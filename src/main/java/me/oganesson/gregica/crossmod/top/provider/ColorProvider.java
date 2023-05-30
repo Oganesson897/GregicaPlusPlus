@@ -20,7 +20,7 @@ public class ColorProvider extends CapabilityInfoProvider<IColored> {
     
     @Override
     protected void addProbeInfo(IColored iColored, IProbeInfo iProbeInfo, EntityPlayer entityPlayer, TileEntity tileEntity, IProbeHitData iProbeHitData) {
-        iProbeInfo.text(iColored.getStandardColor().getChatColor()+iColored.getStandardColor().getI18NKey());
+        iProbeInfo.text(iColored.getStandardColor().getChatColor()+"{*"+iColored.getStandardColor().getI18NKey()+"*}");
     }
     
     @Override

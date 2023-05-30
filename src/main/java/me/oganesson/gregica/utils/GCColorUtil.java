@@ -8,9 +8,13 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.text.TextFormatting;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.function.IntFunction;
+
 public class GCColorUtil {
     
     public static final Int2ObjectMap<StandardColor> colors = new Int2ObjectOpenHashMap<>();
+    
+    public static final IntFunction<StandardColor> valueToColor = colors::get;
     
     public enum StandardColor implements IStringSerializable{
         NONE("none",TextFormatting.WHITE,EnumDyeColor.WHITE){

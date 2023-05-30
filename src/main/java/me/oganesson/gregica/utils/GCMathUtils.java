@@ -8,6 +8,6 @@ public class GCMathUtils {
     }
     
     public static long min(long i1,long i2,long i3){
-        return i1<i2 ? Math.min(i2, i3) : i1;
+        return i1<i2 ? Math.min(i1,i3) : Math.min(i2,i3);
     }
 }

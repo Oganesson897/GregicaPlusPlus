@@ -15,7 +15,8 @@ import javax.annotation.Nonnull;
 
 public class CommonBlocks {
     
-    public static final Block LaserVacuumPipe = new LaserVacuumPipeBlock();
+    public static final Block OpaqueLVPipe = new LaserVacuumPipeBlock(false);
+    public static final Block TransparentLVPipe = new LaserVacuumPipeBlock(true);
 
     @SideOnly(Side.CLIENT)
     public static void registerItemModels() {

@@ -149,8 +149,8 @@ public class ReplicatorRecipes {
 
         if (material.hasFluid()) {
             GCRecipeMaps.REPLICATOR.recipeBuilder().duration(1)
-                    .fluidInputs(ProtonFlow.getFluid((int) material.getProtons()))
-                    .fluidInputs(NeutronsFlow.getFluid((int) material.getNeutrons()))
+                    .fluidInputs(ProtonFlow.getFluid((int) Math.min(material.getProtons(),1)))
+                    .fluidInputs(NeutronsFlow.getFluid((int) Math.min(material.getNeutrons(),1)))
                     .notConsumable(material.getFluid(1))
                     .fluidOutputs(material.getFluid(1))
                     .EUt(EU)

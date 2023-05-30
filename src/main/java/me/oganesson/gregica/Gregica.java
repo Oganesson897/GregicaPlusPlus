@@ -5,6 +5,7 @@ import me.oganesson.gregica.client.render.BlocksHighlightRenderer;
 import me.oganesson.gregica.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -56,6 +57,10 @@ public class Gregica {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
+    }
+    
+    public static ResourceLocation gcResource(String path){
+        return new ResourceLocation(Gregica.MOD_ID,path);
     }
 
     @Mod.EventBusSubscriber

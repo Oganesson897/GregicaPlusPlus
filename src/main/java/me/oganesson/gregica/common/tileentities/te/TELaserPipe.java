@@ -5,10 +5,13 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.util.GTUtility;
 import mcp.MethodsReturnNonnullByDefault;
 import me.oganesson.gregica.api.blocks.IColored;
+import me.oganesson.gregica.api.capability.GCCapabilities;
 import me.oganesson.gregica.api.mte.INoticeable;
+import me.oganesson.gregica.common.block.te.LaserVacuumPipeBlock;
 import me.oganesson.gregica.common.tileentities.mte.multipart.MTELaserHatch;
 import me.oganesson.gregica.utils.GCColorUtil;
 import me.oganesson.gregica.utils.GCUtil;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -21,6 +24,7 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.capabilities.Capability;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -292,6 +296,23 @@ public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoPro
     
     @Override
     public GCColorUtil.StandardColor getStandardColor() {
-        return GCColorUtil.StandardColor.getFromInt(color-1);
+        return GCColorUtil.StandardColor.getFromInt(color);
+    }
+    
+    @Nullable
+    @Override
+    public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
+        if(capability == GCCapabilities.COLOR_CAPABILITY){
+            return GCCapabilities.COLOR_CAPABILITY.cast(this);
+        }
+        return super.getCapability(capability, facing);
+    }
+    
+    public boolean isTransparent(){
+        Block self = this.getBlockType();
+        if(self instanceof LaserVacuumPipeBlock){
+            return ((LaserVacuumPipeBlock) self).isTransparent();
+        }
+        return false;
     }
 }

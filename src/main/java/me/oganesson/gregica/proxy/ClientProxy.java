@@ -25,7 +25,6 @@ public class ClientProxy extends CommonProxy {
     public void preInit( FMLPreInitializationEvent event ) {
         super.preInit(event);
         GCTextures.preInit();
-        //LaserPipeRenderer.INSTANCE.preInit();
         LaserVacuumPipeRender.INSTANCE.preInit();
     }
 
@@ -38,42 +37,28 @@ public class ClientProxy extends CommonProxy {
         GCMetaBlocks.registerItemModels();
         GCYSMetaBlocks.registerItemModels();
         if(GCValues.IS_TC_LOADED) CommonBlocks.registerItemModels();
-//        for (BlockLaserPipe pipe : LASER_PIPES) {
-//            ModelLoader.setCustomStateMapper(pipe, new DefaultStateMapper() {
-//                @Nonnull
-//                @Override
-//                protected ModelResourceLocation getModelResourceLocation(@Nonnull IBlockState state) {
-//                    return LaserPipeRenderer.INSTANCE.getModelLocation();
-//                }
-//            });
-//            ModelLoader.setCustomMeshDefinition(Item.getItemFromBlock(pipe), stack -> LaserPipeRenderer.INSTANCE.getModelLocation());
-//        }
        for (int i = 0; i < itemUpgrades.ListUpgrade.length; i++)
             ModelLoader.setCustomModelResourceLocation(Upgrades, i, new ModelResourceLocation(Gregica.MOD_ID + ":" + itemUpgrades.ListUpgrade[i] + "_upgrade", "inventory"));
        
-       ModelLoader.setCustomStateMapper(CommonBlocks.LaserVacuumPipe,new DefaultStateMapper(){
+       ModelLoader.setCustomStateMapper(CommonBlocks.OpaqueLVPipe,new DefaultStateMapper(){
+           @Override
+           protected @NotNull ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state) {
+               return LaserVacuumPipeRender.INSTANCE.getModelLocation();
+           }
+       });
+       ModelLoader.setCustomStateMapper(CommonBlocks.TransparentLVPipe,new DefaultStateMapper(){
            @Override
            protected @NotNull ModelResourceLocation getModelResourceLocation(@NotNull IBlockState state) {
                return LaserVacuumPipeRender.INSTANCE.getModelLocation();
            }
        });
        
-        ModelLoader.setCustomMeshDefinition(CommonItems.ITEM_LASER_VACUUM_BLOCK,
+        ModelLoader.setCustomMeshDefinition(CommonItems.OPAQUE_ITEM_LASER_VACUUM_BLOCK,
+                stack -> LaserVacuumPipeRender.INSTANCE.getModelLocation());
+        ModelLoader.setCustomMeshDefinition(CommonItems.TRANSPARENT_ITEM_LASER_VACUUM_BLOCK,
                 stack -> LaserVacuumPipeRender.INSTANCE.getModelLocation());
         
-//       ModelLoader.setCustomStateMapper(GCMetaBlocks.GC_BLOCK_CASING, new StateMapperBase() {
-//           @Override
-//           @Nonnull
-//           protected ModelResourceLocation getModelResourceLocation(@Nonnull IBlockState state) {
-//               return new ModelResourceLocation(new ResourceLocation(Gregica.MOD_ID,"gc_machine_casing"),
-//                       "block_model"+ GCMetaBlocks.getType(state).ordinal());
-//           }
-//       });
-//        ModelLoaderRegistry.registerLoader(new CasingModelLoader());
     }
     
-//    public void onCustomResourcePack(CustomResourcePackEvent event){
-//        //GCLog.info("test_mixin");
-//        event.addCustomResourcePack(Gregica.MOD_ID,new CasingResourcePack());
-//    }
+
 }

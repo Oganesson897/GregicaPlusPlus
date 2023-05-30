@@ -324,7 +324,8 @@ gregica.machine.laser_hatch_input_max_a_16384.name=Laser Target Hatch MAX 16384A
 gregica.machine.laser_hatch_input_max_a_65536.name=Laser Target Hatch MAX 65536A/t
 gregica.machine.laser_hatch_input_max_a_262144.name=Laser Target Hatch MAX 262144A/t
 
-tile.laser_vacuum_pipe.name=Laser Vacuum Pipe
+tile.laser_vacuum_pipe_opaque.name=Laser Vacuum Pipe
+tile.laser_vacuum_pipe_transparent.name=Transparent Laser Vacuum Pipe
 
 gregica.machine.catalyst_hatch.name=Catalyst Hatch
 gregica.machine.ball_hatch.name=Grind Ball Hatch

@@ -5,5 +5,6 @@ import net.minecraft.item.ItemBlock;
 
 public class CommonItems {
     
-    public static final ItemBlock ITEM_LASER_VACUUM_BLOCK = new ItemBlock(CommonBlocks.LaserVacuumPipe);
+    public static final ItemBlock OPAQUE_ITEM_LASER_VACUUM_BLOCK = new ItemBlock(CommonBlocks.OpaqueLVPipe);
+    public static final ItemBlock TRANSPARENT_ITEM_LASER_VACUUM_BLOCK = new ItemBlock(CommonBlocks.TransparentLVPipe);
 }

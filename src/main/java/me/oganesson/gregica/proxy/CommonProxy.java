@@ -126,9 +126,12 @@ public class CommonProxy {
         registry.register(createItemBlock(GCYSMetaBlocks.MULTIBLOCK_CASING_ACTIVE, VariantItemBlock::new));
         registry.register(createItemBlock(GCYSMetaBlocks.TRANSPARENT_CASING, VariantItemBlock::new));
         
-        CommonItems.ITEM_LASER_VACUUM_BLOCK.setCreativeTab(GREGICA_TAB);
-        CommonItems.ITEM_LASER_VACUUM_BLOCK.setRegistryName(new ResourceLocation(Gregica.MOD_ID,LaserVacuumPipeBlock.NAME));
-        registry.register(CommonItems.ITEM_LASER_VACUUM_BLOCK);
+        CommonItems.OPAQUE_ITEM_LASER_VACUUM_BLOCK.setCreativeTab(GREGICA_TAB);
+        CommonItems.OPAQUE_ITEM_LASER_VACUUM_BLOCK.setRegistryName(new ResourceLocation(Gregica.MOD_ID,LaserVacuumPipeBlock.NAME+"_opaque"));
+        CommonItems.TRANSPARENT_ITEM_LASER_VACUUM_BLOCK.setCreativeTab(GREGICA_TAB);
+        CommonItems.TRANSPARENT_ITEM_LASER_VACUUM_BLOCK.setRegistryName(new ResourceLocation(Gregica.MOD_ID,LaserVacuumPipeBlock.NAME+"_transparent"));
+        registry.register(CommonItems.OPAQUE_ITEM_LASER_VACUUM_BLOCK);
+        registry.register(CommonItems.TRANSPARENT_ITEM_LASER_VACUUM_BLOCK);
     }
 
     public void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -164,7 +167,8 @@ public class CommonProxy {
 //        for (BlockLaserPipe pipe : LASER_PIPES) registry.register(pipe);
 //        GameRegistry.registerTileEntity(TileEntityLaserPipe.class, new ResourceLocation(Gregica.MOD_ID, "laser_pipe"));
 //
-        registry.register(CommonBlocks.LaserVacuumPipe);
+        registry.register(CommonBlocks.OpaqueLVPipe);
+        registry.register(CommonBlocks.TransparentLVPipe);
         GameRegistry.registerTileEntity(TELaserPipe.class,new ResourceLocation(Gregica.MOD_ID, LaserVacuumPipeBlock.NAME));
 
         registry.register(GCYSMetaBlocks.CRUCIBLE);

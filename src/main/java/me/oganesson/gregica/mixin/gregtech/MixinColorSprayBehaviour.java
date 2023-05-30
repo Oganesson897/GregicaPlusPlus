@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ColorSprayBehaviour.class)
-public class MixinColorSprayBehaviour {
+public abstract class MixinColorSprayBehaviour {
     
     @Shadow(remap = false) @Final private EnumDyeColor color;
     

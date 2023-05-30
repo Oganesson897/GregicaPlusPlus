@@ -8,17 +8,24 @@ import gregtech.api.capability.GregtechCapabilities;
 import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.gui.ModularUI;
 import gregtech.api.metatileentity.IDataInfoProvider;
+import gregtech.api.metatileentity.IFastRenderMetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockAbilityPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.util.GTUtility;
+import gregtech.api.util.interpolate.Eases;
 import gregtech.client.renderer.handler.BlockPosHighlightRenderer;
 import gregtech.client.renderer.texture.Textures;
+import gregtech.client.shader.postprocessing.BloomEffect;
+import gregtech.client.utils.BloomEffectUtil;
 import gregtech.client.utils.PipelineUtil;
+import gregtech.client.utils.RenderUtil;
+import gregtech.common.ConfigHolder;
 import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityMultiblockPart;
 import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.api.blocks.IColored;
+import me.oganesson.gregica.api.capability.GCCapabilities;
 import me.oganesson.gregica.api.capability.impl.EnergyContainerLaser;
 import me.oganesson.gregica.api.mte.HatchType;
 import me.oganesson.gregica.api.mte.INoticeable;
@@ -26,20 +33,29 @@ import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.common.tileentities.te.TELaserPipe;
 import me.oganesson.gregica.utils.GCColorUtil;
 import me.oganesson.gregica.utils.GCMathUtils;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
@@ -48,14 +64,19 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMultiblockAbilityPart<IEnergyContainer>, IDataInfoProvider, INoticeable, IColored {
+public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMultiblockAbilityPart<IEnergyContainer>, IDataInfoProvider, INoticeable, IColored, IFastRenderMetaTileEntity {
     
     public static final String COLOR_KEY = "LaserColor";
     public static final String UP_KEY = "needUpdate";
     public static final String POS_KEY = "targetPos";
     
+    public static final String RENDER_KEY = "renderLaser";
+    
+    public static final int LASER_COLOR = 0xFF8FFFFF;
+    
     private final IEnergyContainer energyContainer;
     private final HatchType type;
+    
     private final int amperage;
     
     private final long maxIO;
@@ -63,6 +84,8 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
     private int color;
     
     private boolean needUpdateImm;
+    
+    private boolean renderLaser;
     
     private BlockPos target;
     
@@ -110,8 +133,9 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
     }
     
     public void updateTarget(){
+        boolean buff = this.renderLaser;
         if(this.color != -1){
-            
+            this.renderLaser = false;
             World world = getWorld();
             BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(this.getPos()).move(this.getFrontFacing());
             if(this.target != null){
@@ -123,9 +147,11 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
                     }
                     else {
                         target = null;
+                        this.writeCustomData(GCValues.TARGET_UPDATE_NULL,b -> {});
                         return;
                     }
                 }
+               // renderLaser = true;
             }
             else {
                 while (isConnectedLaserPipe(world,pos)){
@@ -133,11 +159,15 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
                 }
                 if(isTarget(world,pos)){
                     this.target = pos.toImmutable();
+                    this.writeCustomData(GCValues.TARGET_UPDATE,b -> b.writeBlockPos(target));
+                   // this.renderLaser = true;
                 }
             }
          
         }
-       
+        if(buff != this.renderLaser){
+            this.writeCustomData(GCValues.RENDER_UPDATE,(b) -> b.writeBoolean(renderLaser));
+        }
     }
     
     @SideOnly(Side.CLIENT)
@@ -145,9 +175,60 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
         super.renderMetaTileEntity(renderState, translation, pipeline);
         if (this.shouldRenderOverlay()) {
             Textures.ENERGY_IN_HI.renderSided(this.getFrontFacing(), renderState, translation, PipelineUtil.color(pipeline, GTValues.VC[this.getTier()]));
-            if(this.color != 0)
-                GCTextures.LASER_COLORED.renderSided(getFrontFacing(),renderState,translation,PipelineUtil.color(pipeline,GTUtility.convertRGBtoOpaqueRGBA_CL(EnumDyeColor.byMetadata(color-1).getColorValue())));
+            if(this.color != 0 && this.color != -1)
+                GCTextures.LASER_COLORED.renderSided(getFrontFacing(),renderState,translation,PipelineUtil.color(pipeline,EnumDyeColor.byMetadata(color-1).getColorValue()));
         }
+      
+    }
+    
+    @Override
+    public void renderMetaTileEntity(double x, double y, double z, float partialTicks) {
+        if(this.target != null && this.renderLaser && MinecraftForgeClient.getRenderPass() == 0){
+            BloomEffectUtil.requestCustomBloom(RENDER_HANDLER,(bufferBuilder) ->{
+                int r_color = RenderUtil.colorInterpolator(LASER_COLOR, -1).apply(Eases.EaseQuadIn.getInterpolation(Math.abs((float)Math.abs(this.getOffsetTimer() % 50L) +  - 25.0F) / 25.0F));
+                float a = (float)(r_color >> 24 & 255) / 255.0F;
+                float r = (float)(r_color >> 16 & 255) / 255.0F;
+                float g = (float)(r_color >> 8 & 255) / 255.0F;
+                float b = (float)(r_color & 255) / 255.0F;
+                Entity entity = Minecraft.getMinecraft().getRenderViewEntity();
+                if (entity != null) {
+//                    bufferBuilder.begin(8, DefaultVertexFormats.POSITION_COLOR);
+//                    double sideDelta = 6.283185307179586 / (double)10;
+//                    double phi = 0;
+//                    double cosTheta = 1.0;
+//                    double sinTheta = 0.0;
+//                    for (int j = 0; j <= 10; ++j) {
+//                        phi += sideDelta;
+//                        double cosPhi = MathHelper.cos((float) phi);
+//                        double sinPhi = MathHelper.sin((float) phi);
+//                        double dist = r + 0.1 * cosPhi;
+//                        bufferBuilder.pos(x + sinTheta * dist, y + 0.1 * sinPhi, z + cosTheta * dist).color(r, g, b, a).endVertex();
+//                        bufferBuilder.pos(x + sinTheta1 * dist, y + 0.1 * sinPhi, z + cosTheta1 * dist).color(r, g, b, a).endVertex();
+
+                   
+                   // }
+//                bufferBuilder.pos(x+0.4,y+0.4,z+0.4).color(r,g,b,a).endVertex();
+//                bufferBuilder.pos(target.getX()+0.4,target.getY()+0.4,target.getZ()+0.4).color(r,g,b,a).endVertex();
+//                bufferBuilder.pos(x+0.6,y+0.6,z+0.6).color(r,g,b,a).endVertex();
+//                bufferBuilder.pos(target.getX()+0.6,target.getY()+0.6,target.getZ()+0.6).color(r,g,b,a).endVertex();
+//                Tessellator.getInstance().draw();
+                }
+            });
+        }
+    }
+    
+    @Override
+    public AxisAlignedBB getRenderBoundingBox() {
+        if(target != null){
+            return new AxisAlignedBB(this.getPos().offset(this.getFrontFacing().getOpposite()).offset(this.getFrontFacing().rotateY()),
+                    target.offset(this.getFrontFacing().getOpposite()).offset(this.getFrontFacing().rotateY()));
+        }
+        return new AxisAlignedBB(this.getPos(),this.getPos());
+    }
+    
+    @Override
+    public boolean isGlobalRenderer() {
+        return true;
     }
     
     @Override
@@ -158,6 +239,7 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
         if(target != null) {
             result.setIntArray(POS_KEY, new int[]{target.getX(), target.getY(), target.getZ()});
         }
+        result.setBoolean(RENDER_KEY,renderLaser);
         return result;
     }
     
@@ -170,18 +252,29 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
             int[] pos = data.getIntArray(POS_KEY);
             this.target = new BlockPos(pos[0],pos[1],pos[2]);
         }
+        this.renderLaser = data.getBoolean(RENDER_KEY);
     }
     
     @Override
     public void writeInitialSyncData(PacketBuffer buf) {
         super.writeInitialSyncData(buf);
         buf.writeInt(color);
+        buf.writeBoolean(renderLaser);
+        if(this.target != null){
+            buf.writeBoolean(true);
+            buf.writeBlockPos(target);
+        }
+        buf.writeBoolean(false);
     }
     
     @Override
     public void receiveInitialSyncData(PacketBuffer buf) {
         super.receiveInitialSyncData(buf);
         this.color = buf.readInt();
+        this.renderLaser = buf.readBoolean();
+        if(buf.readBoolean()){
+            this.target = buf.readBlockPos();
+        }
     }
     
     @Override
@@ -214,7 +307,7 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
     }
     
     public GCColorUtil.StandardColor getStandardColor(){
-        return GCColorUtil.StandardColor.getFromInt(color-1);
+        return GCColorUtil.StandardColor.getFromInt(color);
     }
     
     public void setColor(int color) {
@@ -230,6 +323,25 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
         super.receiveCustomData(dataId, buf);
         if(dataId == GCValues.REQUIRE_DATA_UPDATE){
             this.color = buf.readInt();
+            //this.notifyBlockUpdate();
+            this.markDirty();
+            this.scheduleRenderUpdate();
+        }
+        if(dataId == GCValues.RENDER_UPDATE){
+            this.renderLaser = buf.readBoolean();
+            //this.notifyBlockUpdate();
+            this.markDirty();
+            this.scheduleRenderUpdate();
+        }
+        if(dataId == GCValues.TARGET_UPDATE){
+            this.target = buf.readBlockPos();
+            this.markDirty();
+            this.scheduleRenderUpdate();
+        }
+        if(dataId == GCValues.TARGET_UPDATE_NULL){
+            this.target = null;
+            this.markDirty();
+            this.scheduleRenderUpdate();
         }
     }
     
@@ -279,6 +391,7 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
     public boolean isConnectedLaserPipe(World world ,BlockPos pos){
         TileEntity te = world.getTileEntity(pos);
         if(te instanceof TELaserPipe){
+            this.renderLaser = this.renderLaser || ((TELaserPipe) te).isTransparent();
             return ((TELaserPipe) te).getColor() == this.color;
         }
         return false;
@@ -291,4 +404,46 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
         }
         return false;
     }
+    
+    @Override
+    public <T> T getCapability(Capability<T> capability, EnumFacing side) {
+        if(capability == GCCapabilities.COLOR_CAPABILITY){
+            return GCCapabilities.COLOR_CAPABILITY.cast(this);
+        }
+        return super.getCapability(capability, side);
+    }
+    
+    public int getAmperage() {
+        return amperage;
+    }
+    
+    static BloomEffectUtil.IBloomRenderFast RENDER_HANDLER = new BloomEffectUtil.IBloomRenderFast() {
+        float lastBrightnessX;
+        float lastBrightnessY;
+        
+        public int customBloomStyle() {
+            return ConfigHolder.client.shader.fusionBloom.useShader ? ConfigHolder.client.shader.fusionBloom.bloomStyle : -1;
+        }
+        
+        @SideOnly(Side.CLIENT)
+        public void preDraw(BufferBuilder buffer) {
+            BloomEffect.strength = (float)ConfigHolder.client.shader.fusionBloom.strength;
+            BloomEffect.baseBrightness = (float)ConfigHolder.client.shader.fusionBloom.baseBrightness;
+            BloomEffect.highBrightnessThreshold = (float)ConfigHolder.client.shader.fusionBloom.highBrightnessThreshold;
+            BloomEffect.lowBrightnessThreshold = (float)ConfigHolder.client.shader.fusionBloom.lowBrightnessThreshold;
+            BloomEffect.step = 0.4F;
+            this.lastBrightnessX = OpenGlHelper.lastBrightnessX;
+            this.lastBrightnessY = OpenGlHelper.lastBrightnessY;
+            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+            OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240.0F, 240.0F);
+            GlStateManager.disableTexture2D();
+        }
+        
+        @SideOnly(Side.CLIENT)
+        public void postDraw(BufferBuilder buffer) {
+            GlStateManager.enableTexture2D();
+            OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, this.lastBrightnessX, this.lastBrightnessY);
+        }
+    };
+    
 }

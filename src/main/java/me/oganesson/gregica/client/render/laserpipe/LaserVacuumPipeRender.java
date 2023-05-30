@@ -51,7 +51,8 @@ import java.util.BitSet;
 public class LaserVacuumPipeRender implements ICCBlockRenderer, IItemRenderer {
     
     public static final Cuboid6 MAIN = BlockPipe.getSideBox(null, 0.5f);
-    public static IVertexOperation[] STATIC_OP;
+    public static IVertexOperation[] STATIC_OP_O;
+    public static IVertexOperation[] STATIC_OP_T;
     
     public static final BitSet ITEM_CONNECT = GCUtil.forIntToBitSet(12,6);
     public final ModelResourceLocation modelLocation;
@@ -63,6 +64,10 @@ public class LaserVacuumPipeRender implements ICCBlockRenderer, IItemRenderer {
     
     private TextureAtlasSprite texture;
     private TextureAtlasSprite texture_color;
+    
+    private TextureAtlasSprite t_texture;
+    
+    private TextureAtlasSprite t_texture_color;
     
     public static final LaserVacuumPipeRender INSTANCE = new LaserVacuumPipeRender();
     
@@ -85,9 +90,12 @@ public class LaserVacuumPipeRender implements ICCBlockRenderer, IItemRenderer {
     }
     
     public void registerIcons(TextureMap map){
-        texture = map.registerSprite( new ResourceLocation(Gregica.MOD_ID, "blocks/pipe/laser_normal"));
-        texture_color = map.registerSprite(new ResourceLocation(Gregica.MOD_ID,"blocks/pipe/laser_color"));
-        STATIC_OP = new IVertexOperation[]{new IconTransformation(texture)};
+        texture = map.registerSprite(Gregica.gcResource("blocks/pipe/laser_normal"));
+        texture_color = map.registerSprite(Gregica.gcResource("blocks/pipe/laser_color"));
+        t_texture = map.registerSprite(Gregica.gcResource("blocks/pipe/laser_transparent"));
+        t_texture_color = map.registerSprite(Gregica.gcResource("blocks/pipe/laser_color_transparent"));
+        STATIC_OP_O = new IVertexOperation[]{new IconTransformation(texture)};
+        STATIC_OP_T = new IVertexOperation[]{new IconTransformation(t_texture)};
     }
     
     
@@ -137,15 +145,18 @@ public class LaserVacuumPipeRender implements ICCBlockRenderer, IItemRenderer {
             Textures.RENDER_STATE.set(new CubeRendererState(renderLayer, sideMask, world));
             
             if (renderLayer == BlockRenderLayer.CUTOUT_MIPPED) {
+                boolean isTransparent = lp.isTransparent();
                 
                 renderState.lightMatrix.locate(world, pos);
                 
                 IVertexOperation[] faceRenderer = new IVertexOperation[]
-                        {new Translation(pos), renderState.lightMatrix,new IconTransformation(texture)};
+                        {new Translation(pos), renderState.lightMatrix,
+                                isTransparent ? new IconTransformation(t_texture) :new IconTransformation(texture)};
                         
                 IVertexOperation[] faceRenderColor =  new IVertexOperation[]
-                        {new Translation(pos), renderState.lightMatrix,new IconTransformation(texture),
-                                new IconTransformation(texture_color),
+                        {new Translation(pos), renderState.lightMatrix,
+                                //new IconTransformation(texture),
+                                isTransparent ? new IconTransformation(t_texture_color) : new IconTransformation(texture_color),
                                 new ColourMultiplier(GTUtility.convertRGBtoOpaqueRGBA_CL(EnumDyeColor.byMetadata(color-1).getColorValue()))};
                 
                 Cuboid6 cuboid6 = MAIN;
@@ -216,20 +227,19 @@ public class LaserVacuumPipeRender implements ICCBlockRenderer, IItemRenderer {
     
     @Override
     public void renderItem(ItemStack itemStack, ItemCameraTransforms.TransformType transformType) {
-        if (itemStack.getItem() == CommonItems.ITEM_LASER_VACUUM_BLOCK) {
+        if (itemStack.getItem() == CommonItems.OPAQUE_ITEM_LASER_VACUUM_BLOCK
+                || itemStack.getItem() == CommonItems.TRANSPARENT_ITEM_LASER_VACUUM_BLOCK) {
             CCRenderState renderState = CCRenderState.instance();
             GlStateManager.enableBlend();
             renderState.reset();
             renderState.startDrawing(7, DefaultVertexFormats.ITEM);
-            IVertexOperation[] faceRenderer = STATIC_OP;
+            IVertexOperation[] faceRenderer = itemStack.getItem() == CommonItems.OPAQUE_ITEM_LASER_VACUUM_BLOCK ?
+                    STATIC_OP_O : STATIC_OP_T;
             
             Cuboid6 cuboid6 = BlockPipe.getSideBox(null, 0.5f);
     
             for(EnumFacing facing : EnumFacing.VALUES){
                 if(!ITEM_CONNECT.get(facing.getIndex())){
-                    //不需要判断边上是否链接
-                    //因为side和open是一样的
-                    //int oppIndex = facing.getOpposite().getIndex();
                     renderOneFace(renderState,faceRenderer,facing,cuboid6,-1, null);
                 }
                 else {
@@ -265,5 +275,10 @@ public class LaserVacuumPipeRender implements ICCBlockRenderer, IItemRenderer {
     @Override
     public boolean isBuiltInRenderer() {
         return true;
+    }
+    
+    @Override
+    public TextureAtlasSprite getParticleTexture() {
+        return this.texture;
     }
 }

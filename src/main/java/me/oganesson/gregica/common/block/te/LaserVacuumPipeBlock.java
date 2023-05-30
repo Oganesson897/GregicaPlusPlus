@@ -50,13 +50,16 @@ public class LaserVacuumPipeBlock extends BlockContainer {
     
     public static final String NAME = "laser_vacuum_pipe";
     
-    public LaserVacuumPipeBlock() {
+    private final boolean isTransparent;
+    
+    public LaserVacuumPipeBlock(boolean isTransparent) {
         super(Material.IRON, MapColor.BLUE);
         this.setHardness(9.0F);
         this.setResistance(5.0F);
-        this.setRegistryName(NAME);
-        this.setTranslationKey(NAME);
+        this.setRegistryName(NAME+ (isTransparent?"_transparent":"_opaque"));
+        this.setTranslationKey(NAME+(isTransparent?"_transparent":"_opaque"));
         this.setHarvestLevel("wrench", 2);
+        this.isTransparent = isTransparent;
     }
     
     @Nullable
@@ -171,5 +174,9 @@ public class LaserVacuumPipeBlock extends BlockContainer {
                 }
             }
         }
+    }
+    
+    public boolean isTransparent() {
+        return isTransparent;
     }
 }

@@ -16,6 +16,7 @@ import gregtech.api.pattern.PatternMatchContext;
 import gregtech.api.recipes.Recipe;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
+import gregtech.client.utils.TooltipHelper;
 import gregtech.common.blocks.BlockWireCoil;
 import me.oganesson.gregica.api.GCValues;
 import me.oganesson.gregica.api.blocks.impl.WrappedIntTired;
@@ -25,11 +26,17 @@ import me.oganesson.gregica.api.predicate.TiredTraceabilityPredicate;
 import me.oganesson.gregica.api.recipe.GCRecipeMaps;
 import me.oganesson.gregica.client.GCTextures;
 import me.oganesson.gregica.utils.GCUtil;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -145,6 +152,13 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
     }
     
     @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, @Nullable World world, @NotNull List<String> tooltip, boolean advanced) {
+        super.addInformation(stack, world, tooltip, advanced);
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("gregtech.machine.perfect_oc"));
+    }
+    
+    @Override
     protected void addDisplayText(List<ITextComponent> textList) {
         super.addDisplayText(textList);
         textList.add(new TextComponentString(String.format("coilTire: %d",coilLevel)));
@@ -199,7 +213,7 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
         
 
         public ChemicalPlantLogic(RecipeMapMultiblockController tileEntity) {
-            super(tileEntity);
+            super(tileEntity,true);
         }
 
         public void update() {
