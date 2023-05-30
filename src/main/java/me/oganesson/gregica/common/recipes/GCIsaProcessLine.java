@@ -27,19 +27,6 @@ public class GCIsaProcessLine {
 
     public static void register(){
         OrePrefix.ore.addProcessingHandler(PropertyKey.ORE, GCIsaProcessLine::processIsaMill);
-        OrePrefix.oreNetherrack.addProcessingHandler(PropertyKey.ORE, GCIsaProcessLine::processIsaMill);
-        OrePrefix.oreEndstone.addProcessingHandler(PropertyKey.ORE, GCIsaProcessLine::processIsaMill);
-        if (ConfigHolder.worldgen.allUniqueStoneTypes) {
-            OrePrefix.oreGranite.addProcessingHandler(PropertyKey.ORE, GCIsaProcessLine::processIsaMill);
-            OrePrefix.oreDiorite.addProcessingHandler(PropertyKey.ORE, GCIsaProcessLine::processIsaMill);
-            OrePrefix.oreAndesite.addProcessingHandler(PropertyKey.ORE, GCIsaProcessLine::processIsaMill);
-            OrePrefix.oreBasalt.addProcessingHandler(PropertyKey.ORE, GCIsaProcessLine::processIsaMill);
-            OrePrefix.oreBlackgranite.addProcessingHandler(PropertyKey.ORE, GCIsaProcessLine::processIsaMill);
-            OrePrefix.oreMarble.addProcessingHandler(PropertyKey.ORE, GCIsaProcessLine::processIsaMill);
-            OrePrefix.oreRedgranite.addProcessingHandler(PropertyKey.ORE, GCIsaProcessLine::processIsaMill);
-            OrePrefix.oreSand.addProcessingHandler(PropertyKey.ORE, GCIsaProcessLine::processIsaMill);
-            OrePrefix.oreRedSand.addProcessingHandler(PropertyKey.ORE, GCIsaProcessLine::processIsaMill);
-        }
     }
 
     public static void processIsaMill(OrePrefix ore, @Nonnull Material material, OreProperty property) {
