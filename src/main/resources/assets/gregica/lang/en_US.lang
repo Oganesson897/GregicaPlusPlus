@@ -324,6 +324,11 @@ gregica.machine.laser_hatch_input_max_a_16384.name=Laser Target Hatch MAX 16384A
 gregica.machine.laser_hatch_input_max_a_65536.name=Laser Target Hatch MAX 65536A/t
 gregica.machine.laser_hatch_input_max_a_262144.name=Laser Target Hatch MAX 262144A/t
 
+gregica.machine.infinite_water_hatch.name=Infinite Water Hatch
+gregica.tooltip.inf_water1=Supply 2^31-1 mb/t water.
+gregica.tooltip.inf_water2=I N F I N I T E
+gregica.tooltip.inf_water3=Can only supply water for MultiBlocks.You cannot pump out water from it.
+
 tile.laser_vacuum_pipe_opaque.name=Laser Vacuum Pipe
 tile.laser_vacuum_pipe_transparent.name=Transparent Laser Vacuum Pipe
 

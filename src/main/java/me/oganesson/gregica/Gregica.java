@@ -1,6 +1,6 @@
 package me.oganesson.gregica;
 
-import gregtech.common.ConfigHolder;
+import gregtech.api.event.HighTierEvent;
 import me.oganesson.gregica.client.render.BlocksHighlightRenderer;
 import me.oganesson.gregica.proxy.CommonProxy;
 import net.minecraft.block.Block;
@@ -42,7 +42,7 @@ public class Gregica {
 
     @EventHandler
     public void onConstruction(FMLConstructionEvent event) {
-        ConfigHolder.machines.highTierContent = true;
+       // ConfigHolder.machines.highTierContent = true;
     }
 
     @EventHandler
@@ -66,6 +66,11 @@ public class Gregica {
     @Mod.EventBusSubscriber
     public static class ObjectRegistryHandler {
         /** Listen for the register event for creating custom items */
+
+        @SubscribeEvent
+        public static void onCheckHighTier(HighTierEvent event){
+            event.enableHighTier();
+        }
         @SubscribeEvent
         public static void addItems(RegistryEvent.Register<Item> event) {
             proxy.registerItems(event);

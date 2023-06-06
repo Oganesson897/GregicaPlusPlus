@@ -39,6 +39,8 @@ public class GCTextures {
     
     public static SimpleOverlayRenderer LASER_COLORED;
     
+    public static SimpleOverlayRenderer INF_WATER;
+    
     public static SimpleSidedCubeRenderer LAPOTRONIC_CASING;
     
     public static OrientedOverlayRenderer LAPOTRONIC_CAPACITOR;
@@ -80,9 +82,9 @@ public class GCTextures {
     public static OrientedOverlayRenderer SONICATOR_OVERLAY = new OrientedOverlayRenderer("multiblock/sonicator");
     public static OrientedOverlayRenderer CATALYTIC_REFORMER_OVERLAY = new OrientedOverlayRenderer("multiblock/catalytic_reformer");
     public static OrientedOverlayRenderer INDUSTRIAL_DRILL_OVERLAY = new OrientedOverlayRenderer("multiblock/industrial_drill");
-    public static OrientedOverlayRenderer SUPRACHRONAL_OVERLAY = new OrientedOverlayRenderer("multiblock/suprachronal_assembler");
-
-    public static SimpleOverlayRenderer SUPRACHRONAL_CASING = new SimpleOverlayRenderer("casings/solid/suprachronal_casing");
+//    public static OrientedOverlayRenderer SUPRACHRONAL_OVERLAY = new OrientedOverlayRenderer("multiblock/suprachronal_assembler");
+//
+//    public static SimpleOverlayRenderer SUPRACHRONAL_CASING = new SimpleOverlayRenderer("casings/solid/suprachronal_casing");
 
 
     public static void preInit() {
@@ -113,6 +115,7 @@ public class GCTextures {
         FLOTATION_CELL_REGULATOR = new SimpleOverlayRenderer("flotation_casing");
         VACUUM_CASING = new SimpleOverlayRenderer("vacuum_casing");
         LASER_COLORED = new SimpleOverlayRenderer("multipart/laser_hatch_colored");
+        INF_WATER = new SimpleOverlayRenderer("multipart/inf_water");
     }
 
 }

@@ -36,6 +36,9 @@ public class GCValues {
     
     public static final boolean IS_TC_LOADED = Loader.isModLoaded("thaumcraft");
     
+    @SuppressWarnings("SpellCheckingInspection")
+    public static final boolean IS_BilingualName_LOADED = Loader.isModLoaded("bilingualname");
+    
     //用于writeCustomData
     public static final int UPDATE_TIER = 114514;
     public static final int REQUIRE_DATA_UPDATE = 1919;

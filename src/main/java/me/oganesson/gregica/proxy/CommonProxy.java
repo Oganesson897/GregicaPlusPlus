@@ -23,13 +23,16 @@ import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
 import me.oganesson.gregica.common.tileentities.te.EssentiaHatch;
 import me.oganesson.gregica.common.tileentities.te.TELaserPipe;
 import me.oganesson.gregica.common.unification.materials.ore.GCOres;
+import me.oganesson.gregica.config.GCConfig;
 import me.oganesson.gregica.crossmod.top.TOPCompatibility;
+import me.oganesson.gregica.utils.GCLangUtil;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -71,6 +74,10 @@ public class CommonProxy {
         //GCYS
         GCYSMetaBlocks.init();
         GCYSRecipeLoader.initHandlers();
+        
+        if(GCConfig.Misc.forceBilingualName && !GCValues.IS_BilingualName_LOADED){
+            MinecraftForge.EVENT_BUS.register(GCLangUtil.class);
+        }
     }
 
     public void init( FMLInitializationEvent event ) {

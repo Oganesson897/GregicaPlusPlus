@@ -17,7 +17,8 @@
     "gcym.MixinMTEParallelHatchClient",
     "gregtech.MixinBlockGlassCasing",
     "gregtech.MixinMachineItemBlock",
-    "gregtech.MixinSolarBoilerClient"
+    "gregtech.MixinSolarBoilerClient",
+    "gregtech.MixinMetaItemClient"
   ],
   "server": [
 

@@ -37,6 +37,12 @@ public class GCConfig {
         @Config.Comment("Enable the TJCore combat")
         @Config.RequiresMcRestart
         public static boolean enableTjcore = false;
+        
+        @Config.RequiresMcRestart
+        public static boolean enableMetaItemShows_en_us_nameOnOtherLanguage = true;
+        
+        @Config.RequiresMcRestart
+        public static boolean forceBilingualName = false;
     }
 
     public static class CircuitOverrides {

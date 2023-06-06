@@ -115,7 +115,7 @@ gregica.machine.creative_generator.uv.name=创造模式发电机 UV
 gregica.machine.creative_generator.uhv.name=创造模式发电机 UHV
 gregica.machine.creative_generator.uev.name=创造模式发电机 UEV
 gregica.machine.creative_generator.uiv.name=创造模式发电机 UIV
-gregica.machine.creative_generator.uxv.name=创造模式发电机 UXU
+gregica.machine.creative_generator.uxv.name=创造模式发电机 UXV
 gregica.machine.creative_generator.opv.name=创造模式发电机 OPV
 gregica.machine.creative_generator.max.name=创造模式发电机 MAX
 gregica.machine.creative_generator.amperage=能量输出 %d A
@@ -241,6 +241,11 @@ gregica.machine.laser_hatch_input_max_a_4096.name=激光靶仓 MAX 4096A/t
 gregica.machine.laser_hatch_input_max_a_16384.name=激光靶仓 MAX 16384A/t
 gregica.machine.laser_hatch_input_max_a_65536.name=激光靶仓 MAX 65536A/t
 gregica.machine.laser_hatch_input_max_a_262144.name=激光靶仓 MAX 262144A/t
+gregica.machine.infinite_water_hatch.name=无限水仓
+
+gregica.tooltip.inf_water1=供水 2^31-1 mb/t
+gregica.tooltip.inf_water2=§9百 度 贴 吧
+gregica.tooltip.inf_water3=只能给多方块结构供水,你不能从中抽水.
 
 gregica.machine.catalyst_hatch.name=催化剂仓
 

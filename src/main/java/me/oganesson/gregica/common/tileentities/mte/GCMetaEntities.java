@@ -69,6 +69,8 @@ public class GCMetaEntities {
     public static MTELaserHatch[] LASER_HATCH_INPUT = new MTELaserHatch[(GTValues.V.length-5)*6];
     
     public static MTELaserHatch[] LASER_HATCH_OUTPUT = new MTELaserHatch[(GTValues.V.length-5)*6];
+    
+    public static MTEInfWaterHatch INF_WATER_HATCH;
 
     public static final MTECreativeEnergyHatch[] CREATIVE_ENERGY_HATCHES = new MTECreativeEnergyHatch[GTValues.V.length];
 
@@ -204,6 +206,7 @@ public class GCMetaEntities {
                         new MTELaserHatch(gcID("laser_hatch_output_"+GTValues.VN[i]+"_a_"+a),i,a,HatchType.OUTPUT));
             }
         }
+        INF_WATER_HATCH = registerMetaTileEntity(nextMultiPartID(),new MTEInfWaterHatch(gcID("infinite_water_hatch")));
     }
     
     private static void initSingleMachine(){

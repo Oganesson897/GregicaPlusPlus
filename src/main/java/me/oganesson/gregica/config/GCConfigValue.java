@@ -1,5 +1,7 @@
 package me.oganesson.gregica.config;
 
+import me.oganesson.gregica.api.GCValues;
+
 public class GCConfigValue {
     static {
         if(!GCConfig.configLoaded){
@@ -22,8 +24,11 @@ public class GCConfigValue {
     public final static boolean disableAmmoniaProcessing = GCConfig.ChainOverrides.disableAmmoniaProcessing;
     public final static boolean disableMolybdenumProcessing = GCConfig.ChainOverrides.disableMolybdenumProcessing;
     
+    public final static boolean  enableMetaItemShows_en_us_nameOnOtherLanguage = GCConfig.Misc.enableMetaItemShows_en_us_nameOnOtherLanguage || GCValues.IS_BilingualName_LOADED;
+    
     //cannot use in mixin
     public final static boolean enableNerfSteamSolarBoiler = GCConfig.Nerf.enableNerfSteamSolarBoiler;
+    
     public final static boolean enableNerfGCYMParallelHatch = GCConfig.Nerf.enableNerfGCYMParallelHatch;
 }
 

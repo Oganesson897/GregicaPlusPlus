@@ -14,7 +14,7 @@ import me.oganesson.gregica.common.item.metaitems.GCMetaItems;
 import me.oganesson.gregica.common.tileentities.mte.GCMetaEntities;
 import me.oganesson.gregica.common.tileentities.mte.multipart.MTELaserHatch;
 
-import static me.oganesson.gregica.utils.RecipeUtils.*;
+import static me.oganesson.gregica.utils.GCRecipeUtils.*;
 
 public class LaserRecipes {
     

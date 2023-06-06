@@ -37,6 +37,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -133,7 +135,6 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
     }
     
     public void updateTarget(){
-        boolean buff = this.renderLaser;
         if(this.color != -1){
             this.renderLaser = false;
             World world = getWorld();
@@ -165,7 +166,7 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
             }
          
         }
-        if(buff != this.renderLaser){
+        if(this.renderLaser){
             this.writeCustomData(GCValues.RENDER_UPDATE,(b) -> b.writeBoolean(renderLaser));
         }
     }
@@ -192,26 +193,59 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
                 float b = (float)(r_color & 255) / 255.0F;
                 Entity entity = Minecraft.getMinecraft().getRenderViewEntity();
                 if (entity != null) {
-//                    bufferBuilder.begin(8, DefaultVertexFormats.POSITION_COLOR);
-//                    double sideDelta = 6.283185307179586 / (double)10;
-//                    double phi = 0;
-//                    double cosTheta = 1.0;
-//                    double sinTheta = 0.0;
-//                    for (int j = 0; j <= 10; ++j) {
-//                        phi += sideDelta;
-//                        double cosPhi = MathHelper.cos((float) phi);
-//                        double sinPhi = MathHelper.sin((float) phi);
-//                        double dist = r + 0.1 * cosPhi;
-//                        bufferBuilder.pos(x + sinTheta * dist, y + 0.1 * sinPhi, z + cosTheta * dist).color(r, g, b, a).endVertex();
-//                        bufferBuilder.pos(x + sinTheta1 * dist, y + 0.1 * sinPhi, z + cosTheta1 * dist).color(r, g, b, a).endVertex();
+                    BlockPos self = this.getPos();
+                    int dist = (int) target.getDistance(self.getX(),self.getY(),self.getZ());
 
-                   
-                   // }
-//                bufferBuilder.pos(x+0.4,y+0.4,z+0.4).color(r,g,b,a).endVertex();
-//                bufferBuilder.pos(target.getX()+0.4,target.getY()+0.4,target.getZ()+0.4).color(r,g,b,a).endVertex();
-//                bufferBuilder.pos(x+0.6,y+0.6,z+0.6).color(r,g,b,a).endVertex();
-//                bufferBuilder.pos(target.getX()+0.6,target.getY()+0.6,target.getZ()+0.6).color(r,g,b,a).endVertex();
-//                Tessellator.getInstance().draw();
+                    EnumFacing.Axis axis = this.getFrontFacing().getAxis();
+                    bufferBuilder.begin(8, DefaultVertexFormats.POSITION_COLOR);
+                    double x1 = x + 0.5;
+                    double y1 = y + 0.5;
+                    double z1 = z + 0.5;
+                    switch (axis){
+                        case X:{
+                            dist = dist*this.getFrontFacing().getXOffset();
+                            bufferBuilder.pos(x,y1+0.1,z1+0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x+dist,y1+0.1,z1+0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x+dist,y1+0.1,z1-0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x,y1+0.1,z1-0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x+dist,y1-0.1,z1-0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x,y1-0.1,z1-0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x+dist,y1-0.1,z1+0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x,y1-0.1,z1+0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x+dist,y1+0.1,z1+0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x,y1+0.1,z1+0.1).color(r,g,b,a).endVertex();
+                            break;
+                        }
+                        case Y:{
+                            dist = dist*this.getFrontFacing().getYOffset();
+                            bufferBuilder.pos(x1+0.1,y,z1+0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1+0.1,y+dist,z1+0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1+0.1,y+dist,z1-0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1+0.1,y,z1-0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1-0.1,y+dist,z1-0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1-0.1,y,z1-0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1-0.1,y+dist,z1+0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1-0.1,y,z1+0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1+0.1,y+dist,z1+0.1).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1+0.1,y,z1+0.1).color(r,g,b,a).endVertex();
+                            break;
+                        }
+                        case Z:{
+                            dist = dist*this.getFrontFacing().getZOffset();
+                            bufferBuilder.pos(x1+0.1,y1+0.1,z).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1+0.1,y1+0.1,z+dist).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1+0.1,y1-0.1,z+dist).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1+0.1,y1-0.1,z).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1-0.1,y1-0.1,z+dist).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1-0.1,y1-0.1,z).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1-0.1,y1+0.1,z+dist).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1-0.1,y1+0.1,z).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1+0.1,y1+0.1,z+dist).color(r,g,b,a).endVertex();
+                            bufferBuilder.pos(x1+0.1,y1+0.1,z).color(r,g,b,a).endVertex();
+                        }
+                    }
+
+                Tessellator.getInstance().draw();
                 }
             });
         }
@@ -220,8 +254,10 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
     @Override
     public AxisAlignedBB getRenderBoundingBox() {
         if(target != null){
-            return new AxisAlignedBB(this.getPos().offset(this.getFrontFacing().getOpposite()).offset(this.getFrontFacing().rotateY()),
-                    target.offset(this.getFrontFacing().getOpposite()).offset(this.getFrontFacing().rotateY()));
+            EnumFacing front = this.getFrontFacing();
+            boolean b = front.getAxis() == EnumFacing.Axis.Y;
+            return new AxisAlignedBB(this.getPos().offset(front.getOpposite(),2).offset(b?front.rotateAround(EnumFacing.Axis.X) : front.rotateY(),2),
+                    target.offset(front.getOpposite(),2).offset((b?front.rotateAround(EnumFacing.Axis.X) : front.rotateY()).getOpposite(),2));
         }
         return new AxisAlignedBB(this.getPos(),this.getPos());
     }
@@ -373,6 +409,7 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
             result.add(new TextComponentString("target: x:"+target.getX()+" y:"+target.getY()+" z:"+target.getZ()));
             BlockPosHighlightRenderer.renderBlockBoxHighLight(target,10000);
         }
+        result.add(new TextComponentString(String.valueOf(this.renderLaser)));
         
         return result;
     }

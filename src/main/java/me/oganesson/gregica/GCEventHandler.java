@@ -15,6 +15,7 @@ import me.oganesson.gregica.common.unification.materials.GCMaterials;
 import me.oganesson.gregica.common.unification.materials.ore.GCOrePrefixs;
 import me.oganesson.gregica.network.GCNetworkManager;
 import me.oganesson.gregica.network.packets.MouseEventToSeverPacker;
+import me.oganesson.gregica.utils.GCLangUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -24,6 +25,7 @@ import net.minecraftforge.client.event.MouseEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -84,5 +86,11 @@ public class GCEventHandler {
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void initComponents(GregTechAPI.RegisterEvent<CraftingComponent> event) {
         GCYSCraftingComponent.init();
+    }
+    
+    @SubscribeEvent
+    @SideOnly(Side.CLIENT)
+    public static void onClientEvent(TickEvent.ClientTickEvent event){
+        GCLangUtil.updateModifier();
     }
 }
