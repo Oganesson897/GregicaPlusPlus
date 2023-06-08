@@ -37,8 +37,14 @@ item.upgradeEssentia.8.name=§a大型源质发电机升级：辐射§r
 item.upgradeEssentia.9.name=§3大型源质发电机升级：电力§r
 
 metaitem.tool.baguette.name=法棍
-
+metaitem.item.soapstone.ball.name=研磨球（皂石）
+metaitem.item.aluminium.ball.name=研磨球（铝）
 item.gt.tool.choocher.name=%s 两用扳手
+
+metaitem.item.sodium.ethylate.name=乙醇钠
+metaitem.item.potassium.ethylate.name=乙醇钾
+metaitem.item.sodium.ethylxanthate.name=乙基黄原酸钠
+metaitem.item.potassium.ethylxanthate.name=乙基黄原酸钾
 
 metaitem.algae.common.name=普通藻类
 metaitem.algae.red.name=红色藻类
@@ -46,6 +52,43 @@ metaitem.algae.green.name=绿色藻类
 metaitem.algae.gold.name=金色藻类
 metaitem.algae.brown.name=棕色藻类
 metaitem.algae.t.name=T型藻类
+
+metaitem.item.pine_cone.name=松果
+metaitem.item.pine_fragment.name=松树碎块
+
+item.material.oreprefix.milled=研磨%s矿石
+
+metaitem.item.biology_integrated_circuit.name=生物集成电路
+metaitem.item.biology_resin.name=生物树脂
+metaitem.item.cellulose_fiber_yellow.name=黄色纤维素纤维
+metaitem.item.cellulose_fiber_red.name=红色纤维素纤维
+metaitem.item.cellulose_fiber_green.name=绿色纤维素纤维
+metaitem.item.compost.name=堆肥
+metaitem.item.aluminium_mixture.name=铝混合物
+metaitem.item.cellulose_pulp.name=纤维素浆
+metaitem.item.algae_acid.name=藻酸
+metaitem.item.pellets_mould.name=模具（颗粒）
+metaitem.item.wood_pellets.name=木颗粒
+metaitem.item.aluminium_pellets.name=铝颗粒
+
+metaitem.cover.conveyor.ulv.name=ULV 传送带
+metaitem.cover.emitter.ulv.name=ULV 发射器
+metaitem.cover.field_generator.ulv.name=ULV 立场发生器
+metaitem.cover.motor.ulv.name=ULV 电动马达
+metaitem.cover.piston.ulv.name=ULV 电动活塞
+metaitem.cover.robotic_arm.ulv.name=ULV 机械臂
+metaitem.cover.sensor.ulv.name=ULV 传感器
+metaitem.cover.pump.ulv.name=ULV 电动泵
+
+
+metaitem.cover.conveyor.max.name=MAX 传送带
+metaitem.cover.emitter.max.name=MAX 发射器
+metaitem.cover.field_generator.max.name=MAX 立场发生器
+metaitem.cover.motor.max.name=MAX 电动马达
+metaitem.cover.piston.max.name=MAX 电动活塞
+metaitem.cover.robotic_arm.max.name=MAX 机械臂
+metaitem.cover.sensor.max.name=MAX 传感器
+metaitem.cover.pump.max.name=MAX 电动泵
 
 metaitem.item.advanced_circuit.name=高能电路板
 metaitem.item.color_applicator.name=染色器
@@ -63,6 +106,12 @@ tile.gc_machine_casing.quantum_generator_machine_casing.name=量子发生机械�
 tile.gc_machine_casing.high_power_casing.name=超能机械方块
 tile.gc_machine_casing.aseptic_farm_machine_casing.name=无菌农场方块
 
+tile.gc_machine_casing.isa_machine_casing.name=艾萨机械外壳
+tile.gc_meta_gearbox.isa_gear_casing.name=艾萨齿轮箱
+tile.gc_meta_gearbox.inconel_casing.name=镍铬铁合金机械外壳
+tile.gc_meta_gearbox.flotation_cell.name=浮选槽机械外壳
+tile.gc_meta_gearbox.vacuum_casing.name=耐热真空机械外壳
+
 tile.gc_lapotronic_casing.lapotronic_super_capacitor_casing.name=兰波顿超级电容机械方块
 tile.gc_lapotronic_casing.lapotronic_capacitor_empty.name=空电容
 tile.gc_lapotronic_casing.lapotronic_capacitor_ev.name=兰波顿电容(EV)
@@ -76,9 +125,9 @@ tile.gc_lapotronic_casing.lapotronic_capacitor_uev.name=兰波顿电容(UEV)
 gregica.machine.essentia_generator.name=大型源质反应堆
 gregica.machine.industrial_fishing_pond.name=珠海渔场
 gregica.machine.quantum_computer.name=量子计算机
-gregica.machine.lightning_rod.hv.name=避雷针Ⅰ
-gregica.machine.lightning_rod.ev.name=避雷针Ⅱ
-gregica.machine.lightning_rod.iv.name=避雷针Ⅲ
+gregica.machine.lightning_rod.hv.name=避雷针 I
+gregica.machine.lightning_rod.ev.name=避雷针 II
+gregica.machine.lightning_rod.iv.name=避雷针 III
 gregica.machine.qubit_hatch.input.16.name=量子位输入仓
 gregica.machine.qubit_hatch.output.1.name=量子位输出仓
 gregica.machine.research_station.name=研究站
@@ -86,6 +135,12 @@ gregica.machine.algae_farm.name=藻类农场
 gregica.machine.log_create_factory.name=原木拟生厂
 gregica.machine.active_transformer.name=有源变压器
 gregica.machine.lapotronic_super_capacitor.name=兰波顿超级电容库
+gregica.machine.chemical_plant.name=化工厂
+gregica.machine.isa_mill.name=艾萨研磨机
+gregica.machine.flotation_cell_regulator.name=工业浮选槽
+gregica.machine.vacuum_furnace.name=真空干燥炉
+gregica.machine.replication.name=复制机
+
 
 gregica.machine.creative_energy_hatch.ulv.name=创造模式能源仓 ULV
 gregica.machine.creative_energy_hatch.lv.name=创造模式能源仓 LV
@@ -248,6 +303,7 @@ gregica.tooltip.inf_water2=§9百 度 贴 吧
 gregica.tooltip.inf_water3=只能给多方块结构供水,你不能从中抽水.
 
 gregica.machine.catalyst_hatch.name=催化剂仓
+gregica.machine.ball_hatch.name=研磨球仓
 
 
 gregica.casing.lapotronic.capacity=容量: %d eu
@@ -290,9 +346,34 @@ item.material.oreprefix.orePoorAndesite=贫瘠安山岩%s矿石
 
 #Fluid
 material.bismuth_lead_alloy=铅铋合金
+material.resin=树脂
+material.urea_mix=尿素混合物
+material.propionic_acid=丙酸
+material.red_mud=赤泥
+material.calcium_carbonate=碳酸钙
+material.sodium_aluminate=铝酸钠
+material.fermentation_base=发酵基
+material.carbon_disulfide=二硫化碳
+material.pine_oil=松油
+material.inconel_625=镍铬铁合金-625
 
 material.proton_flow=质子洪流
 material.neutrons_flow=中子洪流
+
+material.almandine_front=铁铝榴石泡沫
+material.pentlandite_front=镍黄铁矿泡沫
+material.chalcopyrite_front=黄铜矿泡沫
+material.grossular_front=钙铝榴石泡沫
+material.monazite_front=独居石泡沫
+material.nickel_front=镍泡沫
+material.platinum_front=铂泡沫
+material.pyrope_front=镁铝榴石泡沫
+material.redstone_front=红石泡沫
+material.spessartine_front=锰铝榴石泡沫
+material.sphalerite_front=闪锌矿泡沫
+
+Material.thaumium=神秘
+Material.void=虚空金属
 
 #Info
 gc.multiblock.pattern.error.essentia=无法获取扩散单元等级！
@@ -309,7 +390,11 @@ gregica.multiblock.not_enough_qubit=量子位不足
 
 recipemap.simple_qubit_generator.name=量子计算
 recipemap.research_station.name=研究站
-
+ecipemap.chemical_plant.name=化工厂
+recipemap.isa_mill.name=艾萨研磨
+recipemap.flotation_cell_regulator.name=工业浮选
+recipemap.vacuum_furnace.name=真空干燥
+recipemap.replication.name=复制
 
 gregicaplusplus.multiblock.industrial_fisher.mode0=模式：捕鱼
 gregicaplusplus.multiblock.industrial_fisher.mode1=模式：捕垃圾
@@ -337,6 +422,7 @@ gregica.multiblock.active_transformer.current.output=   当前输出: %d eu/t
 gregica.multiblock.data.remind=§c未开机机器不会更新数据!
 
 gregica.multipart.catalyst.only=仅能放入催化剂
+gregica.multipart.ball.only=仅能放入研磨球
 
 gregica.color.current=当前颜色:
 gregica.color.available=可用数量: %d
@@ -402,61 +488,11 @@ tile.glasses_casing.tl_boron_silicate_glass_block.name=超时空强化硅酸盐�
 
 recipemap.log_create.name=原木拟生
 
-#ceu override
-gregtech.machine.energy_hatch.output.ulv.name=动力仓（ULV）
-gregtech.machine.energy_hatch.output.lv.name=动力仓（LV）
-gregtech.machine.energy_hatch.output.mv.name=动力仓（MV）
-gregtech.machine.energy_hatch.output.hv.name=动力仓（HV）
-gregtech.machine.energy_hatch.output.ev.name=动力仓（EV）
-gregtech.machine.energy_hatch.output.iv.name=动力仓（IV）
-gregtech.machine.energy_hatch.output.luv.name=动力仓（LuV）
-gregtech.machine.energy_hatch.output.zpm.name=动力仓（ZPM）
-gregtech.machine.energy_hatch.output.uv.name=动力仓（UV）
-gregtech.machine.energy_hatch.output.uhv.name=动力仓（UHV）
-gregtech.machine.energy_hatch.output.uev.name=动力仓（UEV）
-gregtech.machine.energy_hatch.output.uiv.name=动力仓（UIV）
-gregtech.machine.energy_hatch.output.uxv.name=动力仓（UXV）
-gregtech.machine.energy_hatch.output.opv.name=动力仓（OpV）
-gregtech.machine.energy_hatch.output.max.name=动力仓（MAX）
-
-gregtech.machine.energy_hatch.output_hi_amp.tooltip=多方块结构的高电流能量输出端
-
-gregtech.machine.energy_hatch.output_4a.ev.name=4 安动力仓（EV）
-gregtech.machine.energy_hatch.output_4a.iv.name=4 安动力仓（IV）
-gregtech.machine.energy_hatch.output_4a.luv.name=4 安动力仓（LuV）
-gregtech.machine.energy_hatch.output_4a.zpm.name=4 安动力仓（ZPM）
-gregtech.machine.energy_hatch.output_4a.uv.name=4 安动力仓（UV）
-gregtech.machine.energy_hatch.output_4a.uhv.name=4 安动力仓（UHV）
-
-gregtech.machine.energy_hatch.output_16a.iv.name=16 安动力仓（IV）
-gregtech.machine.energy_hatch.output_16a.luv.name=16 安动力仓（LuV）
-gregtech.machine.energy_hatch.output_16a.zpm.name=16 安动力仓（ZPM）
-gregtech.machine.energy_hatch.output_16a.uv.name=16 安动力仓（UV）
-gregtech.machine.energy_hatch.output_16a.uhv.name=16 安动力仓（UHV）
-
-metaitem.nano_saber.tooltip=竜神の剣を喰らえ！
-metaitem.spray.solvent.name=喷漆罐(溶剂)
-metaitem.max.battery.tooltip=填满它以通关Minecraft
-
-gregtech.machine.maintenance_hatch.name=维护仓
-
-gregtech.machine.maintenance_hatch_configurable.name=可配置维护仓
-gregtech.machine.maintenance_hatch_full_auto.name=自动维护仓
-
-metaitem.conveyor.module.lv.name=传送带（LV）
-metaitem.conveyor.module.mv.name=传送带（MV）
-metaitem.conveyor.module.hv.name=传送带（HV）
-metaitem.conveyor.module.ev.name=传送带（EV）
-metaitem.conveyor.module.iv.name=传送带（IV）
-metaitem.conveyor.module.luv.name=传送带（LuV）
-metaitem.conveyor.module.zpm.name=传送带（ZPM）
-metaitem.conveyor.module.uv.name=传送带（UV）
-metaitem.conveyor.module.uhv.name=传送带（UHV）
-metaitem.conveyor.module.uev.name=传送带（UEV）
-metaitem.conveyor.module.uiv.name=传送带（UIV）
-metaitem.conveyor.module.uxv.name=传送带（UXV）
-metaitem.conveyor.module.opv.name=传送带（OpV）
-
+#material New
+material.metallic_hydrogen=金属氢
+material.periodicium=元素周期表
+material.tiberium=泰伯利亚
+material.atomic_separation_catalyst=原子离催化剂
 
 
 ######
@@ -531,7 +567,7 @@ material.lithium_tetrafluoroborate=四氟合硼酸钠
 material.diborane=乙硼烷
 material.borazine=环硼氮烷
 material.boron_trichloride=三氯化硼
-material.trichloroborazine=B-三氯环硼氮烷
+material.trichloroborazine=三氯环硼氮烷
 material.hexagonal_boron_nitride=六方氮化硼
 material.cubic_boron_nitride=立方氮化硼
 material.amorphous_boron_nitride=无定形氮化硼
@@ -624,14 +660,14 @@ material.graphene_oxide=氧化石墨烯
 material.ammonium_nitrate=硝酸铵
 material.wollastonite=硅灰石
 material.roasted_sphalerite=焙烧闪锌矿
-material.waelz_oxide=Waelz氧化物
-item.waelz_oxide.dust=Waelz氧化物
-item.waelz_oxide.dustSmall=小堆Waelz氧化物
-item.waelz_oxide.dustTiny=小撮Waelz氧化物
-material.waelz_slag=Waelz浸出渣
-item.waelz_slag.dust=Waelz浸出渣
-item.waelz_slag.dustSmall=小堆Waelz炉渣
-item.waelz_slag.dustTiny=小撮Waelz炉渣
+material.waelz_oxide=威尔兹氧化物
+item.waelz_oxide.dust=威尔兹氧化物
+item.waelz_oxide.dustSmall=小堆威尔兹氧化物
+item.waelz_oxide.dustTiny=小撮威尔兹氧化物
+material.waelz_slag=威尔兹浸出渣
+item.waelz_slag.dust=威尔兹浸出渣
+item.waelz_slag.dustSmall=小堆威尔兹炉渣
+item.waelz_slag.dustTiny=小撮威尔兹炉渣
 material.impure_germanium_dioxide=含杂二氧化锗
 material.erbium_driven_zblan_glass=掺铒ZBLAN玻璃
 material.prseodymium_driven_zblan_glass=掺镨ZBLAN玻璃
@@ -712,12 +748,12 @@ material.bromo_bromomethyl_naphthalene=1-溴-2-(溴甲基)萘
 material.bromobutane=1-溴丁烷
 material.butyllithium=正丁基鋰
 material.palladium_acetate=醋酸钯
-material.geodesic_polyarene=预组织C₆₀前体
-material.edot=3,4-乙撑二氧噻吩（EDOT）
+material.geodesic_polyarene=多环芳烃
+material.edot=3,4-乙烯二氧噻吩（EDOT）
 material.polystyrene=聚苯乙烯
 material.polystyrene_sulfonate=聚苯乙烯磺酸
-material.pedot_pss=PEDOT:PSS
-material.pedot_tma=PEDOT-TMA
+material.pedot_pss=聚3,4-乙烯二氧噻吩-聚苯乙烯磺酸(PEDOT:PSS)
+material.pedot_tma=聚3,4-乙烯二氧噻吩-四甲基丙烯酸酯(PEDOT-TMA)
 
 
 # Unknown Composition Materials
@@ -772,6 +808,9 @@ material.energetic_naquadria=活性超能硅岩
 material.light_hyper_fuel=轻型超能燃料
 material.medium_hyper_fuel=中型超能燃料
 material.heavy_hyper_fuel=重型超能燃料
+material.qcd_confined_matter=量子色动力学封闭物质
+material.reissner_nordstrom_matrix=Reissner-Nordstrom Matrix
+material.sentient_metal=感知金属
 
 
 # Tricorder Info
@@ -1180,11 +1219,16 @@ recipemap.sonication_recipes.name=超声处理
 recipemap.ion_implanter_recipes.name=离子注入
 recipemap.superheavy_reactor_recipes.name=超重反应
 recipemap.drill_recipes.name=钻取
+recipemap.naquadah_reactor_mkii.name=硅岩反应堆 MK II
+recipemap.naquadah_reactor_mkv.name=硅岩反应堆 MK V
+recipemap.naquadah_reactor_mkiv.name=硅岩反应堆 MK IV
+
+recipemap.suprachronal_assembler_recipes.name=超级克隆装配线
 
 # Generators
-recipemap.taranium_reactor_mk1_recipes.name=塔兰金属反应堆 MkI
-recipemap.taranium_reactor_mk2_recipes.name=塔兰金属反应堆 MkII
-recipemap.taranium_reactor_mk3_recipes.name=塔兰金属超级反应堆 MkIII
+recipemap.taranium_reactor_mk1_recipes.name=塔兰金属反应堆 Mk I
+recipemap.taranium_reactor_mk2_recipes.name=塔兰金属反应堆 Mk II
+recipemap.taranium_reactor_mk3_recipes.name=塔兰金属超级反应堆 Mk III
 
 
 # Recipe Properties
@@ -1192,3 +1236,16 @@ gcys.recipe.temperature=温度：%,dK
 gcys.recipe.pressure=压力：%sPa
 gcys.recipe.vacuum=真空度：%sPa
 
+#fix
+material.blue_vitriol=硫酸铜
+material.green_vitriol=硫酸亚铁
+material.red_vitriol=硫酸钴
+material.pink_vitriol=硫酸镁
+material.cyan_vitriol=硫酸镍
+material.white_vitriol=硫酸锌
+material.gray_vitriol=硫酸锰
+material.clay_vitriol=硫酸铝
+material.chloroauric_acid=氯金酸
+material.chloroplatinic_acid=氯铂酸
+material.alumina=氧化铝
+material.hematite=三氧化二铁
