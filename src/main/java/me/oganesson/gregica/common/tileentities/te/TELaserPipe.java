@@ -59,9 +59,8 @@ public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoPro
                 
                 TileEntity te = world.getTileEntity(testPos);
                 MetaTileEntity mte = GTUtility.getMetaTileEntity(world,testPos);
-                if(te instanceof TELaserPipe){
-                    
-                    TELaserPipe lp = (TELaserPipe) te;
+                if(te instanceof TELaserPipe lp){
+    
                     if(lp.getColor() == this.color && !connections.get(index)){
                         this.connections.set(index);
                         lp.updateConnections(world,testPos,false);
