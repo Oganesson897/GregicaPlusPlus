@@ -36,18 +36,18 @@ import java.util.List;
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoProvider, IColored {
-    
+
     public static final String COLOR_KEY = "color";
     public static final String CONNECTION_KEY = "connections";
     public static final String STATE_KEY = "state";
-    
+
     private final BitSet connections = new BitSet(6);
     private int color = -1;
     private boolean noticed = false;
     private boolean updated = false;
-    
+
     private boolean state = false;
-    
+
     public void updateConnections(IBlockAccess world, BlockPos pos,boolean needNotice){
         if(updated) return;
         this.updated = true;
@@ -56,12 +56,11 @@ public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoPro
             for(EnumFacing facing : EnumFacing.VALUES){
                 BlockPos testPos = pos.offset(facing);
                 int index = facing.getIndex();
-                
+
                 TileEntity te = world.getTileEntity(testPos);
                 MetaTileEntity mte = GTUtility.getMetaTileEntity(world,testPos);
-                if(te instanceof TELaserPipe){
-                    
-                    TELaserPipe lp = (TELaserPipe) te;
+                if(te instanceof TELaserPipe lp){
+
                     if(lp.getColor() == this.color && !connections.get(index)){
                         this.connections.set(index);
                         lp.updateConnections(world,testPos,false);
@@ -124,7 +123,7 @@ public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoPro
         }
         this.updated = false;
     }
-    
+
     @Override
     public void readFromNBT(NBTTagCompound tag) {
         super.readFromNBT(tag);
@@ -132,14 +131,14 @@ public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoPro
         GCUtil.forIntToBitSet(tag.getInteger(CONNECTION_KEY),6,connections);
         this.state = tag.getBoolean(STATE_KEY);
     }
-    
+
     @Override
     public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
         NBTTagCompound nbt = pkt.getNbtCompound();
         readFromNBT(nbt);
         this.updateRendering();
     }
-    
+
 //    @Override
 //    public void writeInitialSyncData(PacketBuffer packetBuffer) {
 //        packetBuffer.writeInt(color);
@@ -160,7 +159,7 @@ public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoPro
 //            this.updateRendering();
 //        }
 //    }
-    
+
     @Nullable
     @Override
     public SPacketUpdateTileEntity getUpdatePacket() {
@@ -177,7 +176,7 @@ public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoPro
         result.setBoolean(STATE_KEY,state);
         return result;
     }
-    
+
     @Override
     public NBTTagCompound getUpdateTag() {
         NBTTagCompound result = super.getUpdateTag();
@@ -186,7 +185,7 @@ public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoPro
         result.setBoolean(STATE_KEY,state);
         return result;
     }
-    
+
     @Override
     public void handleUpdateTag(NBTTagCompound tag) {
         super.handleUpdateTag(tag);
@@ -194,11 +193,11 @@ public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoPro
         GCUtil.forIntToBitSet(tag.getInteger(CONNECTION_KEY),6,connections);
         this.state = tag.getBoolean(STATE_KEY);
     }
-    
+
     public int getColor() {
         return color;
     }
-    
+
     public void setColor(int color) {
         this.color = color;
         IBlockState state1 = world.getBlockState(pos);
@@ -206,27 +205,27 @@ public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoPro
         this.markDirty();
         this.updateRendering();
     }
-    
+
     public BitSet getConnections() {
         return connections;
     }
-    
+
     public int getConnectionsAsInt(){
         return GCUtil.intValueOfBitSet(connections);
     }
-    
+
     public void setConnections(int i){
         GCUtil.forIntToBitSet(i,6,connections);
     }
-    
+
     public boolean isState() {
         return state;
     }
-    
+
     public void setState(boolean state) {
         this.state = state;
     }
-    
+
     @Override
     public void notice(IBlockAccess world, BlockPos pos) {
         if(!this.noticed){
@@ -251,7 +250,7 @@ public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoPro
         }
         this.noticed = false;
     }
-    
+
     public boolean isConnectedLaserPipe(World world ,BlockPos pos){
         TileEntity te = world.getTileEntity(pos);
         if(te instanceof TELaserPipe){
@@ -259,19 +258,19 @@ public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoPro
         }
         return false;
     }
-    
+
     public void updateRendering(){
         BlockPos pos = this.pos;
         this.world.notifyNeighborsOfStateChange(pos,this.blockType,true);
         //if(this.world.isRemote){
-            this.world.markBlockRangeForRenderUpdate(pos.getX() - 1, pos.getY() - 1, pos.getZ() - 1,
-                    pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1);
+        this.world.markBlockRangeForRenderUpdate(pos.getX() - 1, pos.getY() - 1, pos.getZ() - 1,
+                pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1);
 //        }
 //        else {
 //            this.writeCustomData(GregtechDataCodes.UPDATE_CONNECTIONS,packetBuffer -> {});
 //        }
     }
-    
+
     @NotNull
     @Override
     public List<ITextComponent> getDataInfo() {
@@ -289,16 +288,16 @@ public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoPro
                 .appendSibling(new TextComponentTranslation(GCColorUtil.StandardColor.getFromInt(color).getI18NKey())));
         return result;
     }
-    
+
     public boolean isNoticed() {
         return noticed;
     }
-    
+
     @Override
     public GCColorUtil.StandardColor getStandardColor() {
         return GCColorUtil.StandardColor.getFromInt(color);
     }
-    
+
     @Nullable
     @Override
     public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
@@ -307,7 +306,7 @@ public class TELaserPipe extends TileEntity implements INoticeable, IDataInfoPro
         }
         return super.getCapability(capability, facing);
     }
-    
+
     public boolean isTransparent(){
         Block self = this.getBlockType();
         if(self instanceof LaserVacuumPipeBlock){
