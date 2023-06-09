@@ -1,8 +1,8 @@
 {
   "minVersion": "0.7",
-  "package": "me.oganesson.gregica.mixin",
+  "package": "project.gregica.mixin",
   "compatibilityLevel": "JAVA_8",
-  "plugin": "me.oganesson.gregica.mixininit.GCMixinConfigPlugin",
+  "plugin": "project.gregica.mixin.mixininit.GCMixinConfigPlugin",
   "target": "@env(DEFAULT)",
   "refmap": "mixins.gregica.refmap.json",
   "mixins": [

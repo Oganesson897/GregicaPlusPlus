@@ -1,6 +1,6 @@
 {
   "minVersion": "0.7",
-  "package": "me.oganesson.gregica.mixin",
+  "package": "project.gregica.mixin",
   "compatibilityLevel": "JAVA_8",
   "target": "@env(DEFAULT)",
   "refmap": "mixins.gregica.refmap.json",
