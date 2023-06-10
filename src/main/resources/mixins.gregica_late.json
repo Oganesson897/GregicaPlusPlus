@@ -2,23 +2,23 @@
   "minVersion": "0.7",
   "package": "me.oganesson.gregica.mixin",
   "compatibilityLevel": "JAVA_8",
-  "plugin": "me.oganesson.gregica.mixininit.GCMixinConfigPlugin",
+  "plugin": "gregica.mixin.mixininit.GCMixinConfigPlugin",
   "target": "@env(DEFAULT)",
   "refmap": "mixins.gregica.refmap.json",
   "mixins": [
-    "gcym.MixinMTEParallelHatchServer",
-    "gregtech.MixinGTGlassCasingType",
-    "gregtech.MixinSolarBoilerServer",
-    "gregtech.MixinSteamBoilerAccess",
-    "gregtech.MixinColorSprayBehaviour",
-    "gregtech.MixinMTE"
+    "gregica.mixin.gcym.MixinMTEParallelHatchServer",
+    "gregica.mixin.gregtech.MixinGTGlassCasingType",
+    "gregica.mixin.gregtech.MixinSolarBoilerServer",
+    "gregica.mixin.gregtech.MixinSteamBoilerAccess",
+    "gregica.mixin.gregtech.MixinColorSprayBehaviour",
+    "gregica.mixin.gregtech.MixinMTE"
   ],
   "client": [
-    "gcym.MixinMTEParallelHatchClient",
-    "gregtech.MixinBlockGlassCasing",
-    "gregtech.MixinMachineItemBlock",
-    "gregtech.MixinSolarBoilerClient",
-    "gregtech.MixinMetaItemClient"
+    "gregica.mixin.gcym.MixinMTEParallelHatchClient",
+    "gregica.mixin.gregtech.MixinBlockGlassCasing",
+    "gregica.mixin.gregtech.MixinMachineItemBlock",
+    "gregica.mixin.gregtech.MixinSolarBoilerClient",
+    "gregica.mixin.gregtech.MixinMetaItemClient"
   ],
   "server": [
 
