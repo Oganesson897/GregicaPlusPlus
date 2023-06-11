@@ -151,7 +151,7 @@ jar {
         attributes([
 //                "TweakOrder": "0",
                 'FMLCorePluginContainsFMLMod': true,
-                'FMLCorePlugin': 'me.oganesson.gregica.mixininit.EarlyMixinInit',
+                'FMLCorePlugin': 'gregica.mixininit.EarlyMixinInit',
                 "ForceLoadAsMod": true,
                 //"TweakClass": "org.spongepowered.asm.launch.MixinTweaker",
                 "Specification-Title"     : "gregica",
