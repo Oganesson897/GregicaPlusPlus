@@ -1,4 +1,4 @@
-package gregica.mixin.mixininit;
+package gregica.mixininit;
 
 import gregica.Gregica;
 import net.minecraftforge.common.ForgeVersion;

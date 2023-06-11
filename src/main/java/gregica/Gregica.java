@@ -37,7 +37,7 @@ public class Gregica {
     public static final String MOD_ABRIDGE = "GC";
     public static final String VERSION = "0.0.2-Alpha";
 
-    @SidedProxy(clientSide = "me.oganesson.gregica.api.ClientProxy", serverSide = "me.oganesson.gregica.api.CommonProxy")
+    @SidedProxy(clientSide = "gregica.api.ClientProxy", serverSide = "gregica.api.CommonProxy")
     public static CommonProxy proxy;
 
     @EventHandler

@@ -1,4 +1,4 @@
-package gregica.mixin.mixininit;
+package gregica.mixininit;
 
 import com.google.common.collect.Lists;
 import zone.rong.mixinbooter.ILateMixinLoader;

@@ -1,4 +1,4 @@
-package gregica.mixin.mixininit;
+package gregica.mixininit;
 
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;

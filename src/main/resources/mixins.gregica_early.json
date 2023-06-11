@@ -1,14 +1,14 @@
 {
   "minVersion": "0.7",
-  "package": "me.oganesson.gregica.mixin",
+  "package": "gregica.mixin",
   "compatibilityLevel": "JAVA_8",
   "target": "@env(DEFAULT)",
   "refmap": "mixins.gregica.refmap.json",
   "mixins": [
-    "gregica.mixin.forge.GCMixinConfigManager"
+    "forge.GCMixinConfigManager"
   ],
   "client": [
-    "gregica.mixin.minecraft.MixinBlockGlass"
+    "minecraft.MixinBlockGlass"
   ],
   "server": [
   ],
