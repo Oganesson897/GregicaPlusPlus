@@ -1,4 +1,4 @@
-package gregica.api.utils;
+package gregica.utils;
 
 import gregtech.api.GTValues;
 import gregtech.api.items.metaitem.MetaItem;

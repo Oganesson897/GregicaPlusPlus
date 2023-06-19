@@ -16,7 +16,7 @@ import codechicken.lib.vec.uv.IconTransformation;
 import gregica.Gregica;
 import gregica.common.block.te.LaserVacuumPipeBlock;
 import gregica.common.tileentities.te.TELaserPipe;
-import gregica.api.utils.GCUtil;
+import gregica.utils.GCUtil;
 import gregtech.api.pipenet.block.BlockPipe;
 import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.CubeRendererState;
@@ -123,14 +123,13 @@ public class LaserVacuumPipeRender implements ICCBlockRenderer, IItemRenderer {
     @Override
     public boolean renderBlock(IBlockAccess world, BlockPos pos, IBlockState state, BufferBuilder buffer) {
         TileEntity te = world.getTileEntity(pos);
-        if(te instanceof TELaserPipe){
+        if(te instanceof TELaserPipe lp){
             
             CCRenderState renderState = CCRenderState.instance();
             renderState.reset();
             renderState.bind(buffer);
             renderState.setBrightness(world, pos);
-            
-            TELaserPipe lp = (TELaserPipe) te;
+    
             int color = lp.getColor();
             int connection = lp.getConnectionsAsInt();
             BitSet connections = lp.getConnections();

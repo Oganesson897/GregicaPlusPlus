@@ -10,37 +10,54 @@ import java.io.IOException;
 @Mod.EventBusSubscriber(modid = Gregica.MOD_ID)
 public class DataEventHandler {
     
-    @SubscribeEvent
-    public static void onWorldLoad(WorldEvent.Load event){
-        if(!event.getWorld().isRemote) {
-            try {
-                CrossWorldDataHandler.INSTANCE.loadWorld(event.getWorld().provider.getDimension());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+    public static void onServerStart() {
+        try {
+            CrossWorldDataHandler.INSTANCE.loadWorld();
+        } catch (IOException var1) {
+            throw new RuntimeException(var1);
         }
     }
     
-    @SubscribeEvent
-    public static void onWorldSave(WorldEvent.Save event){
-        if(!event.getWorld().isRemote) {
-            try {
-                CrossWorldDataHandler.INSTANCE.save(event.getWorld().provider.getDimension());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+    public static void onSeverClose() {
+        try {
+            CrossWorldDataHandler.INSTANCE.unloadWorld();
+        } catch (IOException var1) {
+            throw new RuntimeException(var1);
         }
     }
     
-    @SubscribeEvent
-    public static void onWorldUnload(WorldEvent.Unload event){
-        if(!event.getWorld().isRemote) {
+    public static void onWorldLoad(WorldEvent.Load event) {
+        if (!event.getWorld().isRemote) {
             try {
-                CrossWorldDataHandler.INSTANCE.unloadWorld(event.getWorld().provider.getDimension());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                CrossWorldDataHandler.INSTANCE.loadWorld();
+            } catch (IOException var2) {
+                throw new RuntimeException(var2);
             }
         }
+        
+    }
+    
+    @SubscribeEvent
+    public static void onWorldSave(WorldEvent.Save event) {
+        if (!event.getWorld().isRemote) {
+            try {
+                CrossWorldDataHandler.INSTANCE.save();
+            } catch (IOException var2) {
+                throw new RuntimeException(var2);
+            }
+        }
+        
+    }
+    
+    public static void onWorldUnload(WorldEvent.Unload event) {
+        if (!event.getWorld().isRemote) {
+            try {
+                CrossWorldDataHandler.INSTANCE.unloadWorld();
+            } catch (IOException var2) {
+                throw new RuntimeException(var2);
+            }
+        }
+        
     }
     
 }

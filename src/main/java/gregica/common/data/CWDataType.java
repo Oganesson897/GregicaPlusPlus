@@ -1,50 +1,48 @@
 package gregica.common.data;
 
 import gregica.api.data.CrossWorldData;
+import gregica.api.data.impl.CWElectricityData;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public enum CWDataType {
+    ELECTRICITY("cross_world_electricity_data", CWElectricityData.class);
     
-    ;
     private final String name;
     private final Class<? extends CrossWorldData> aClass;
-    
     private static final Map<String, CWDataType> tableMap = new HashMap<>();
     
-    CWDataType(String name, Class<? extends CrossWorldData> aClass) {
+    private CWDataType(String name, Class<? extends CrossWorldData> aClass) {
         this.name = name;
         this.aClass = aClass;
-        
     }
     
-    public static CrossWorldData byName(String s){
-        if(tableMap.isEmpty()){
-            for(CWDataType table : CWDataType.values()){
-                tableMap.put(table.name,table);
+    public static CrossWorldData byName(String s) {
+        if (tableMap.isEmpty()) {
+            
+    
+            for (CWDataType table : CWDataType.values()) {
+                tableMap.put(table.name, table);
             }
         }
-        if(tableMap.containsKey(s)){
-            return tableMap.get(s).newInstance();
-        }
-       return null;
+        
+        return tableMap.containsKey(s) ? tableMap.get(s).newInstance() : null;
     }
     
     public String getName() {
-        return name;
+        return this.name;
     }
     
-    public Class<?> getaClass() {
-        return aClass;
+    public Class<? extends CrossWorldData> getaClass() {
+        return this.aClass;
     }
     
-    public CrossWorldData newInstance() {
+    public <T extends CrossWorldData> T newInstance() {
         try {
-            return (CrossWorldData) this.getaClass().newInstance();
-        } catch (InstantiationException | IllegalAccessException e) {
+            return (T) this.getaClass().newInstance();
+        } catch (IllegalAccessException | InstantiationException var2) {
             return null;
         }
     }
-    
 }

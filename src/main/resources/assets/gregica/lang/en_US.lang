@@ -89,6 +89,8 @@ metaitem.cover.sensor.max.name=MAX Sensor
 metaitem.cover.pump.max.name=MAX Electric Pump
 
 metaitem.item.advanced_circuit.name=High Power Circuit
+metaitem.item.memory_card.name=Memory Card
+
 
 # Ore Prefixes
 item.material.oreprefix.milled=%s Milled Ore
@@ -452,6 +454,16 @@ gregica.color.wheel=Press shift + wheel to change color.
 gregica.color.creative=Shift right click block to load dyes.(Creative Only)
 gregica.info.laser_hatch_input=In fact it is a Energy Hatch.
 gregica.info.laser_hatch_output=In fact it is a Dynamo Hatch.
+
+gregica.gui.current_channel=§lCurrent Bind Channel : %s
+gregica.gui.mode.manual=Manual Set Channel
+gregica.gui.mode.available=Available Channels
+gregica.gui.mode.all=All Channels
+gregica.gui.available_channel=Channel Available
+gregica.gui.unavailable_channel=Channel Unavailable
+gregica.gui.channel_to_bind=Channel:
+gregica.gui.set_channel:Set/Create Channel
+
 
 #Mixin
 gregica.mixin.gregtech.itemblock.multiblock_controller=§aThis is a multiblock controller.

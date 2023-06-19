@@ -1,6 +1,8 @@
 package gregica.common.item.metaitems;
 
 import gregica.api.CommonProxy;
+import gregica.api.GCValues;
+import gregica.common.item.behavior.*;
 import gregtech.api.GTValues;
 import gregtech.api.items.metaitem.ElectricStats;
 import gregtech.api.items.metaitem.MetaItem;
@@ -11,17 +13,15 @@ import gregtech.api.unification.stack.ItemMaterialInfo;
 import gregtech.api.unification.stack.MaterialStack;
 import gregtech.common.items.behaviors.TooltipBehavior;
 import gregica.modules.gcys.api.unification.materials.GCYSMaterials;
-import gregica.common.item.behavior.BaguetteBehavior;
-import gregica.common.item.behavior.ColorApplicatorBehavior;
-import gregica.common.item.behavior.IntBcircuitBehavior;
-import gregica.common.item.behavior.MillBallBehavior;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 
 import static gregtech.api.GTValues.M;
 
 public class GCMetaItems {
+    //GC
     private static StandardMetaItem metaItem1;
+    //GCYS
     private static StandardMetaItem metaItem2;
     
     //Only for colorApplicator now
@@ -200,6 +200,8 @@ public class GCMetaItems {
     
     //tool?
     public static MetaItem<?>.MetaValueItem COLOR_APPLICATOR;
+    
+    public static MetaItem<?>.MetaValueItem MEMORY_CARD;
 
     public static void initMetaItems() {
         metaItem1 = new StandardMetaItem();
@@ -264,6 +266,8 @@ public class GCMetaItems {
                 .setMaxStackSize(1)
                 .addComponents(ElectricStats.createElectricItem(10000000L, GTValues.HV),new ColorApplicatorBehavior())
                 .setCreativeTabs(CommonProxy.GREGICA_TAB);
+        
+        MEMORY_CARD = metaItem1.addItem(60,"item.memory_card").setMaxStackSize(1).setCreativeTabs(CommonProxy.GREGICA_TAB).addComponents(new MemoryCardBehavior());
     }
 
     private static void tierItems() {
@@ -286,25 +290,28 @@ public class GCMetaItems {
         ULV_SENSOR = metaItem1.addItem(28, "cover.sensor.ulv").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB);
         ULV_FIELD_GENERATOR = metaItem1.addItem(29, "cover.field_generator.ulv").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB);
 
-        //max cover(30~37)
-        MAX_CONVEYOR_MODULE = metaItem1.addItem(30, "cover.conveyor.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB).addComponents(new TooltipBehavior(lines -> {
-            lines.add(I18n.format("metaitem.conveyor.module.tooltip"));
-            lines.add(I18n.format("gregtech.universal.tooltip.item_transfer_rate", 16 * 64 * 2));
-        }));
-        MAX_ELECTRIC_PUMP = metaItem1.addItem(31, "cover.pump.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB).addComponents(new TooltipBehavior(lines -> {
-            lines.add(I18n.format("metaitem.electric.pump.tooltip"));
-            lines.add(I18n.format("gregtech.universal.tooltip.fluid_transfer_rate", 1280 * 64 * 64 * 4 * 2 / 80));
-        }));
-        MAX_ELECTRIC_MOTOR = metaItem1.addItem(32, "cover.motor.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB);
-        MAX_ELECTRIC_PISTON = metaItem1.addItem(33, "cover.piston.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB);
-        MAX_ROBOT_ARM = metaItem1.addItem(34, "cover.robotic_arm.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB).addComponents(new TooltipBehavior(lines -> {
-            lines.add(I18n.format("metaitem.robot.arm.tooltip"));
-            lines.add(I18n.format("gregtech.universal.tooltip.item_transfer_rate", 16 * 64 * 2));
-        }));
-        MAX_EMITTER = metaItem1.addItem(35, "cover.emitter.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB);
-        MAX_SENSOR = metaItem1.addItem(36, "cover.sensor.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB);
-        MAX_FIELD_GENERATOR = metaItem1.addItem(37, "cover.field_generator.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB);
-    }
+        if(!GCValues.IS_SERENDUSTRY_LOADED){
+            //max cover(30~37)
+            MAX_CONVEYOR_MODULE = metaItem1.addItem(30, "cover.conveyor.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB).addComponents(new TooltipBehavior(lines -> {
+                lines.add(I18n.format("metaitem.conveyor.module.tooltip"));
+                lines.add(I18n.format("gregtech.universal.tooltip.item_transfer_rate", 16 * 64 * 2));
+            }));
+            MAX_ELECTRIC_PUMP = metaItem1.addItem(31, "cover.pump.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB).addComponents(new TooltipBehavior(lines -> {
+                lines.add(I18n.format("metaitem.electric.pump.tooltip"));
+                lines.add(I18n.format("gregtech.universal.tooltip.fluid_transfer_rate", 1280 * 64 * 64 * 4 * 2 / 80));
+            }));
+            MAX_ELECTRIC_MOTOR = metaItem1.addItem(32, "cover.motor.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB);
+            MAX_ELECTRIC_PISTON = metaItem1.addItem(33, "cover.piston.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB);
+            MAX_ROBOT_ARM = metaItem1.addItem(34, "cover.robotic_arm.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB).addComponents(new TooltipBehavior(lines -> {
+                lines.add(I18n.format("metaitem.robot.arm.tooltip"));
+                lines.add(I18n.format("gregtech.universal.tooltip.item_transfer_rate", 16 * 64 * 2));
+            }));
+            MAX_EMITTER = metaItem1.addItem(35, "cover.emitter.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB);
+            MAX_SENSOR = metaItem1.addItem(36, "cover.sensor.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB);
+            MAX_FIELD_GENERATOR = metaItem1.addItem(37, "cover.field_generator.max").setMaxStackSize(64).setCreativeTabs(CommonProxy.GREGICA_TAB);
+    
+        }
+     }
 
     public static void GCYSItems(){
         GOOWARE_PROCESSOR = metaItem2.addItem(0, "circuit.gooware_processor").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.ZPM);

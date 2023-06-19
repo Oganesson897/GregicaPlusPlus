@@ -2,6 +2,7 @@ package gregica.api.capability.impl;
 
 import gregtech.api.capability.impl.EnergyContainerHandler;
 import gregtech.api.metatileentity.MetaTileEntity;
+import net.minecraftforge.common.capabilities.Capability;
 
 public class EnergyContainerLaser extends EnergyContainerHandler {
     
@@ -48,5 +49,10 @@ public class EnergyContainerLaser extends EnergyContainerHandler {
 //                setEnergyStored(getEnergyStored() - amperesUsed * outputVoltage);
 //            }
 //        }
+    }
+    
+    @Override
+    public <T> T getCapability(Capability<T> capability) {
+        return null;
     }
 }

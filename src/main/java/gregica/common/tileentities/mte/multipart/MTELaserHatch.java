@@ -9,10 +9,9 @@ import gregica.api.capability.GCCapabilities;
 import gregica.api.mte.HatchType;
 import gregica.api.mte.INoticeable;
 import gregica.client.GCTextures;
-import gregica.api.utils.GCColorUtil;
-import gregica.api.utils.GCMathUtils;
+import gregica.utils.GCColorUtil;
+import gregica.utils.GCMathUtils;
 import gregtech.api.GTValues;
-import gregtech.api.capability.GregtechCapabilities;
 import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.gui.ModularUI;
 import gregtech.api.metatileentity.IDataInfoProvider;
@@ -96,7 +95,7 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
         super(metaTileEntityId, tier);
         this.type = type;
         this.amperage = amperage;
-        this.maxIO = GTValues.V[tier]*amperage;
+        this.maxIO = GTValues.V[tier]*amperage*5;
         this.energyContainer = type == HatchType.INPUT ? EnergyContainerLaser.input(this,GTValues.V[tier],amperage)
                 : EnergyContainerLaser.output(this,GTValues.V[tier],amperage);
     }
@@ -116,8 +115,8 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
             
             if(this.target != null && getOffsetTimer() % 5 == 0){
                 MetaTileEntity mte = GTUtility.getMetaTileEntity(getWorld(),target);
-                if(mte instanceof MTELaserHatch) {
-                    IEnergyContainer container = mte.getCapability(GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER, this.getFrontFacing().getOpposite());
+                if(mte instanceof MTELaserHatch lh) {
+                    IEnergyContainer container = lh.getEnergyContainer();
                     long canOutput = container.getEnergyCanBeInserted();
                     canOutput = GCMathUtils.min(canOutput, energyContainer.getEnergyStored(),maxIO);
                     int tier = this.getTier() - ((MTELaserHatch) mte).getTier();
@@ -201,47 +200,47 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
                     double x1 = x + 0.5;
                     double y1 = y + 0.5;
                     double z1 = z + 0.5;
-                    switch (axis){
-                        case X:{
-                            dist = dist*this.getFrontFacing().getXOffset();
-                            bufferBuilder.pos(x,y1+0.1,z1+0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x+dist,y1+0.1,z1+0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x+dist,y1+0.1,z1-0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x,y1+0.1,z1-0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x+dist,y1-0.1,z1-0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x,y1-0.1,z1-0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x+dist,y1-0.1,z1+0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x,y1-0.1,z1+0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x+dist,y1+0.1,z1+0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x,y1+0.1,z1+0.1).color(r,g,b,a).endVertex();
+                    switch (axis) {
+                        case X -> {
+                            dist = dist * this.getFrontFacing().getXOffset();
+                            bufferBuilder.pos(x, y1 + 0.1, z1 + 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x + dist, y1 + 0.1, z1 + 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x + dist, y1 + 0.1, z1 - 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x, y1 + 0.1, z1 - 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x + dist, y1 - 0.1, z1 - 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x, y1 - 0.1, z1 - 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x + dist, y1 - 0.1, z1 + 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x, y1 - 0.1, z1 + 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x + dist, y1 + 0.1, z1 + 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x, y1 + 0.1, z1 + 0.1).color(r, g, b, a).endVertex();
                             break;
                         }
-                        case Y:{
-                            dist = dist*this.getFrontFacing().getYOffset();
-                            bufferBuilder.pos(x1+0.1,y,z1+0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1+0.1,y+dist,z1+0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1+0.1,y+dist,z1-0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1+0.1,y,z1-0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1-0.1,y+dist,z1-0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1-0.1,y,z1-0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1-0.1,y+dist,z1+0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1-0.1,y,z1+0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1+0.1,y+dist,z1+0.1).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1+0.1,y,z1+0.1).color(r,g,b,a).endVertex();
+                        case Y -> {
+                            dist = dist * this.getFrontFacing().getYOffset();
+                            bufferBuilder.pos(x1 + 0.1, y, z1 + 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 + 0.1, y + dist, z1 + 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 + 0.1, y + dist, z1 - 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 + 0.1, y, z1 - 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 - 0.1, y + dist, z1 - 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 - 0.1, y, z1 - 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 - 0.1, y + dist, z1 + 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 - 0.1, y, z1 + 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 + 0.1, y + dist, z1 + 0.1).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 + 0.1, y, z1 + 0.1).color(r, g, b, a).endVertex();
                             break;
                         }
-                        case Z:{
-                            dist = dist*this.getFrontFacing().getZOffset();
-                            bufferBuilder.pos(x1+0.1,y1+0.1,z).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1+0.1,y1+0.1,z+dist).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1+0.1,y1-0.1,z+dist).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1+0.1,y1-0.1,z).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1-0.1,y1-0.1,z+dist).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1-0.1,y1-0.1,z).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1-0.1,y1+0.1,z+dist).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1-0.1,y1+0.1,z).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1+0.1,y1+0.1,z+dist).color(r,g,b,a).endVertex();
-                            bufferBuilder.pos(x1+0.1,y1+0.1,z).color(r,g,b,a).endVertex();
+                        case Z -> {
+                            dist = dist * this.getFrontFacing().getZOffset();
+                            bufferBuilder.pos(x1 + 0.1, y1 + 0.1, z).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 + 0.1, y1 + 0.1, z + dist).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 + 0.1, y1 - 0.1, z + dist).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 + 0.1, y1 - 0.1, z).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 - 0.1, y1 - 0.1, z + dist).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 - 0.1, y1 - 0.1, z).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 - 0.1, y1 + 0.1, z + dist).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 - 0.1, y1 + 0.1, z).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 + 0.1, y1 + 0.1, z + dist).color(r, g, b, a).endVertex();
+                            bufferBuilder.pos(x1 + 0.1, y1 + 0.1, z).color(r, g, b, a).endVertex();
                         }
                     }
 
@@ -436,10 +435,14 @@ public class MTELaserHatch extends MetaTileEntityMultiblockPart implements IMult
     
     public boolean isTarget(World world,BlockPos pos){
         MetaTileEntity mte = GTUtility.getMetaTileEntity(world,pos);
-        if(mte instanceof MTELaserHatch){
-            return ((MTELaserHatch) mte).type == HatchType.INPUT;
+        if(mte instanceof MTELaserHatch lh){
+            return lh.type == HatchType.INPUT && lh.color == this.color && this.color != 0;
         }
         return false;
+    }
+    
+    public IEnergyContainer getEnergyContainer(){
+        return this.energyContainer;
     }
     
     @Override

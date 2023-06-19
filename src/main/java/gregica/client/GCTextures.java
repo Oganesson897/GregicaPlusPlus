@@ -1,5 +1,7 @@
 package gregica.client;
 
+import gregica.Gregica;
+import gregtech.api.gui.resources.SizedTextureArea;
 import gregtech.client.renderer.texture.cube.OrientedOverlayRenderer;
 import gregtech.client.renderer.texture.cube.SimpleOverlayRenderer;
 import gregtech.client.renderer.texture.cube.SimpleSidedCubeRenderer;
@@ -87,6 +89,9 @@ public class GCTextures {
 //    public static SimpleOverlayRenderer SUPRACHRONAL_CASING = new SimpleOverlayRenderer("casings/solid/suprachronal_casing");
 
 
+    public static final SizedTextureArea BUTTON = new SizedTextureArea(Gregica.gcResource("textures/gui/button.png"),
+            0.0, 0.0, 1.0, 1.0,200,40);
+    
     public static void preInit() {
         MAGIC_CASING = new SimpleOverlayRenderer("magic_machine_casing");
         FISHING_CASING = new SimpleOverlayRenderer("fishing_machine_casing");

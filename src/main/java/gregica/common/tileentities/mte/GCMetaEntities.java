@@ -21,9 +21,6 @@ import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.common.metatileentities.MetaTileEntities;
-import gregica.common.tileentities.mte.multi.gcys.*;
-import gregica.common.tileentities.mte.multi.machines.*;
-import gregica.common.tileentities.mte.multipart.*;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.function.Function;

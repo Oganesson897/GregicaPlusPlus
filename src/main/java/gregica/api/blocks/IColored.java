@@ -1,6 +1,6 @@
 package gregica.api.blocks;
 
-import gregica.api.utils.GCColorUtil;
+import gregica.utils.GCColorUtil;
 
 public interface IColored {
     GCColorUtil.StandardColor getStandardColor();

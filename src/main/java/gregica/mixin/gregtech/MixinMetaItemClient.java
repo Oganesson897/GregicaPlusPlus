@@ -2,7 +2,7 @@ package gregica.mixin.gregtech;
 
 import gregtech.api.items.metaitem.MetaItem;
 import gregica.config.GCConfigValue;
-import gregica.api.utils.GCLangUtil;
+import gregica.utils.GCLangUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
@@ -19,8 +19,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static gregica.api.utils.GCLangUtil.EN_US;
-import static gregica.api.utils.GCLangUtil.tryFindingKey;
+import static gregica.utils.GCLangUtil.EN_US;
+import static gregica.utils.GCLangUtil.tryFindingKey;
 
 //borrow some code from https://github.com/friendlyhj/BilingualName
 @Mixin(MetaItem.class)

@@ -92,6 +92,7 @@ metaitem.cover.pump.max.name=MAX 电动泵
 
 metaitem.item.advanced_circuit.name=高能电路板
 metaitem.item.color_applicator.name=染色器
+metaitem.item.memory_card.name=内存卡
 #Blocks
 tile.gc_machine_casing.magic_machine_casing.name=魔法机械外壳
 tile.gc_essentia_cell.essentia_cell_1.name=新手源质扩散单元
@@ -460,6 +461,15 @@ gregica.color.creative=Shift右键方块来填充染料(仅限创造模式)
 gregica.info.laser_hatch_input=事实上这算是个能源仓
 gregica.info.laser_hatch_output=事实上这算是个动力仓
 
+gregica.gui.current_channel=§l当前绑定频道 : %s
+gregica.gui.mode.manual=手动设置频道
+gregica.gui.mode.available=可用频道
+gregica.gui.mode.all=所有频道
+gregica.gui.available_channel=频道可用
+gregica.gui.unavailable_channel=频道不可用
+gregica.gui.channel_to_bind=频道:
+gregica.gui.set_channel:选择/创建 频道
+
 #MixinGregtech
 gregica.mixin.gregtech.itemblock.multiblock_controller=§a多方块结构控制器
 gregica.mixin.gregtech.itemblock.multiblock_part=§a多方块结构部件
@@ -487,6 +497,82 @@ tile.glasses_casing.tl_boron_silicate_glass_block.name=超时空强化硅酸盐�
 
 
 recipemap.log_create.name=原木拟生
+
+#ceu override
+gregtech.machine.energy_hatch.output.ulv.name=动力仓（ULV）
+gregtech.machine.energy_hatch.output.lv.name=动力仓（LV）
+gregtech.machine.energy_hatch.output.mv.name=动力仓（MV）
+gregtech.machine.energy_hatch.output.hv.name=动力仓（HV）
+gregtech.machine.energy_hatch.output.ev.name=动力仓（EV）
+gregtech.machine.energy_hatch.output.iv.name=动力仓（IV）
+gregtech.machine.energy_hatch.output.luv.name=动力仓（LuV）
+gregtech.machine.energy_hatch.output.zpm.name=动力仓（ZPM）
+gregtech.machine.energy_hatch.output.uv.name=动力仓（UV）
+gregtech.machine.energy_hatch.output.uhv.name=动力仓（UHV）
+gregtech.machine.energy_hatch.output.uev.name=动力仓（UEV）
+gregtech.machine.energy_hatch.output.uiv.name=动力仓（UIV）
+gregtech.machine.energy_hatch.output.uxv.name=动力仓（UXV）
+gregtech.machine.energy_hatch.output.opv.name=动力仓（OpV）
+gregtech.machine.energy_hatch.output.max.name=动力仓（MAX）
+
+gregtech.machine.energy_hatch.output_hi_amp.tooltip=多方块结构的高电流能量输出端
+
+gregtech.machine.energy_hatch.output_4a.ev.name=4 安动力仓（EV）
+gregtech.machine.energy_hatch.output_4a.iv.name=4 安动力仓（IV）
+gregtech.machine.energy_hatch.output_4a.luv.name=4 安动力仓（LuV）
+gregtech.machine.energy_hatch.output_4a.zpm.name=4 安动力仓（ZPM）
+gregtech.machine.energy_hatch.output_4a.uv.name=4 安动力仓（UV）
+gregtech.machine.energy_hatch.output_4a.uhv.name=4 安动力仓（UHV）
+
+gregtech.machine.energy_hatch.output_16a.iv.name=16 安动力仓（IV）
+gregtech.machine.energy_hatch.output_16a.luv.name=16 安动力仓（LuV）
+gregtech.machine.energy_hatch.output_16a.zpm.name=16 安动力仓（ZPM）
+gregtech.machine.energy_hatch.output_16a.uv.name=16 安动力仓（UV）
+gregtech.machine.energy_hatch.output_16a.uhv.name=16 安动力仓（UHV）
+
+metaitem.nano_saber.tooltip=竜神の剣を喰らえ！
+metaitem.spray.solvent.name=喷漆罐(溶剂)
+metaitem.max.battery.tooltip=填满它以通关Minecraft
+
+gregtech.machine.maintenance_hatch.name=维护仓
+
+gregtech.machine.maintenance_hatch_configurable.name=可配置维护仓
+gregtech.machine.maintenance_hatch_full_auto.name=自动维护仓
+
+metaitem.conveyor.module.lv.name=传送带（LV）
+metaitem.conveyor.module.mv.name=传送带（MV）
+metaitem.conveyor.module.hv.name=传送带（HV）
+metaitem.conveyor.module.ev.name=传送带（EV）
+metaitem.conveyor.module.iv.name=传送带（IV）
+metaitem.conveyor.module.luv.name=传送带（LuV）
+metaitem.conveyor.module.zpm.name=传送带（ZPM）
+metaitem.conveyor.module.uv.name=传送带（UV）
+metaitem.conveyor.module.uhv.name=传送带（UHV）
+metaitem.conveyor.module.uev.name=传送带（UEV）
+metaitem.conveyor.module.uiv.name=传送带（UIV）
+metaitem.conveyor.module.uxv.name=传送带（UXV）
+metaitem.conveyor.module.opv.name=传送带（OpV）
+
+tile.steam_casing.bronze_hull.name=青铜机械外壳
+tile.steam_casing.bronze_bricks_hull.name=砖砌青铜机械外壳
+tile.steam_casing.steel_hull.name=钢制机械外壳
+tile.steam_casing.steel_bricks_hull.name=砖砌锻铁机械外壳
+
+gregtech.machine.hull.ulv.name=ULV机械外壳
+gregtech.machine.hull.lv.name=LV机械外壳
+gregtech.machine.hull.mv.name=MV机械外壳
+gregtech.machine.hull.hv.name=HV机械外壳
+gregtech.machine.hull.ev.name=EV机械外壳
+gregtech.machine.hull.iv.name=IV机械外壳
+gregtech.machine.hull.luv.name=LuV机械外壳
+gregtech.machine.hull.zpm.name=ZPM机械外壳
+gregtech.machine.hull.uv.name=UV机械外壳
+gregtech.machine.hull.uhv.name=UHV机械外壳
+gregtech.machine.hull.uev.name=UEV机械外壳
+gregtech.machine.hull.uiv.name=UIV机械外壳
+gregtech.machine.hull.uxv.name=UXV机械外壳
+gregtech.machine.hull.opv.name=OpV机械外壳
+gregtech.machine.hull.max.name=MAX机械外壳
 
 #material New
 material.metallic_hydrogen=金属氢

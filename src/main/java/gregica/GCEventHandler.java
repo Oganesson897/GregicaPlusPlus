@@ -3,7 +3,7 @@ package gregica;
 import gregica.api.item.IExtendedItemBehavior;
 import gregica.modules.gcys.api.unification.OrePrefixAdditions;
 import gregica.network.GCNetworkManager;
-import gregica.api.utils.GCLangUtil;
+import gregica.utils.GCLangUtil;
 import gregtech.api.GregTechAPI;
 import gregtech.api.items.metaitem.StandardMetaItem;
 import gregtech.api.items.metaitem.stats.IItemBehaviour;

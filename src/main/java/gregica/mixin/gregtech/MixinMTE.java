@@ -2,7 +2,7 @@ package gregica.mixin.gregtech;
 
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregica.api.capability.GCCapabilities;
-import gregica.api.utils.GCColorUtil;
+import gregica.utils.GCColorUtil;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
 import org.spongepowered.asm.mixin.Mixin;

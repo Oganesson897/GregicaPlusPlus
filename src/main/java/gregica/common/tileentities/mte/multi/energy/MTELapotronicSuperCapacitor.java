@@ -6,7 +6,7 @@ import codechicken.lib.vec.Matrix4;
 import gregica.api.blocks.ITiredGlass;
 import gregica.api.mte.IMTEChangeableBattery;
 import gregica.client.GCTextures;
-import gregica.api.utils.GCUtil;
+import gregica.utils.GCUtil;
 import gregtech.api.capability.GregtechTileCapabilities;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;

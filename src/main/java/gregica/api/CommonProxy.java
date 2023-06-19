@@ -23,7 +23,7 @@ import gregica.common.tileentities.te.EssentiaHatch;
 import gregica.common.tileentities.te.TELaserPipe;
 import gregica.api.unification.materials.ore.GCOres;
 import gregica.integration.top.TOPCompatibility;
-import gregica.api.utils.GCLangUtil;
+import gregica.utils.GCLangUtil;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

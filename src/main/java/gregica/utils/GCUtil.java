@@ -1,9 +1,12 @@
-package gregica.api.utils;
+package gregica.utils;
 
+import gregica.Gregica;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 
+import java.util.Arrays;
 import java.util.BitSet;
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
@@ -61,47 +64,25 @@ public class GCUtil {
     }
     
     public static EnumFacing getCounterClockWise(EnumFacing self) {
-        EnumFacing direction;
-        switch(self) {
-            case NORTH:
-                direction = WEST;
-                break;
-            case SOUTH:
-                direction = EAST;
-                break;
-            case WEST:
-                direction = SOUTH;
-                break;
-            case EAST:
-                direction = NORTH;
-                break;
-            default:
-                throw new IllegalStateException("Unable to get CCW facing of " + self);
-        }
-        
-        return direction;
+    
+        return switch (self) {
+            case NORTH -> WEST;
+            case SOUTH -> EAST;
+            case WEST -> SOUTH;
+            case EAST -> NORTH;
+            default -> throw new IllegalStateException("Unable to get CCW facing of " + self);
+        };
     }
     
     public static EnumFacing getClockWise(EnumFacing self) {
-        EnumFacing direction;
-        switch(self) {
-            case NORTH:
-                direction = EAST;
-                break;
-            case SOUTH:
-                direction = WEST;
-                break;
-            case WEST:
-                direction = NORTH;
-                break;
-            case EAST:
-                direction = SOUTH;
-                break;
-            default:
-                throw new IllegalStateException("Unable to get Y-rotated facing of " + self);
-        }
-        
-        return direction;
+    
+        return switch (self) {
+            case NORTH -> EAST;
+            case SOUTH -> WEST;
+            case WEST -> NORTH;
+            case EAST -> SOUTH;
+            default -> throw new IllegalStateException("Unable to get Y-rotated facing of " + self);
+        };
     }
     
     public static int getOrDefault(NBTTagCompound tag, String key, int defaultValue){
@@ -109,5 +90,14 @@ public class GCUtil {
             return tag.getInteger(key);
         }
         return defaultValue;
+    }
+    
+    public static boolean isOP(EntityPlayer entityPlayer){
+        var name = entityPlayer.getName();
+        if (Gregica.currentServer != null) {
+            var list = Gregica.currentServer.getPlayerList().getOppedPlayerNames();
+            return Arrays.asList(list).contains(name);
+        }
+        return false;
     }
 }

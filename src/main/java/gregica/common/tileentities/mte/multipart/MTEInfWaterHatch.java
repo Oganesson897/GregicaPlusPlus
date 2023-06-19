@@ -4,7 +4,7 @@ import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
 import gregica.client.GCTextures;
-import gregica.api.utils.GCLangUtil;
+import gregica.utils.GCLangUtil;
 import gregtech.api.capability.impl.FluidTankList;
 import gregtech.api.gui.ModularUI;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -19,6 +19,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.IFluidTank;
 import net.minecraftforge.fml.relauncher.Side;
@@ -103,10 +104,10 @@ public class MTEInfWaterHatch extends MetaTileEntityMultiblockNotifiablePart imp
         String tooltip2 = I18n.format("gregica.tooltip.inf_water2");
         if(tooltip2.contains("§")){
             tooltip.add(tooltip2);
-            tooltip.add(GCLangUtil.currentRainbowModifier()+GCLangUtil.getEnglishLang("gregica.tooltip.inf_water2"));
+            tooltip.add(TextFormatting.UNDERLINE.toString()+TextFormatting.BOLD+GCLangUtil.currentRainbowString(GCLangUtil.getEnglishLang("gregica.tooltip.inf_water2")));
         }
         else {
-            tooltip.add(GCLangUtil.currentRainbowModifier()+tooltip2);
+            tooltip.add(TextFormatting.UNDERLINE.toString()+TextFormatting.BOLD+GCLangUtil.currentRainbowString(GCLangUtil.currentRainbowModifier()+tooltip2));
         }
     }
 }

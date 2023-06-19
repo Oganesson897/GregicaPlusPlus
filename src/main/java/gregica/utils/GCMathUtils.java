@@ -1,4 +1,4 @@
-package gregica.api.utils;
+package gregica.utils;
 
 public class GCMathUtils {
     public static int clamp(int value, int min, int max) {

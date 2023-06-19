@@ -10,23 +10,14 @@ public class GCValues {
     
     public static final int[] LASER_AMPERAGE = new int[]{256,1024,4096,16384,65536,262144};
     
-    public static final IntUnaryOperator AMPERAGE_TIER = (i) -> {
-        switch (i){
-            case(256):
-                return 1;
-            case (1024):
-                return 2;
-            case (4096):
-                return 3;
-            case (16384):
-                return 4;
-            case (65536):
-                return 5;
-            case (262144):
-                return 6;
-            default:
-                return 0;
-        }
+    public static final IntUnaryOperator AMPERAGE_TIER = (i) -> switch (i) {
+        case (256) -> 1;
+        case (1024) -> 2;
+        case (4096) -> 3;
+        case (16384) -> 4;
+        case (65536) -> 5;
+        case (262144) -> 6;
+        default -> 0;
     };
 
     public static final String CEu_MOD_ID = "gregtech";
@@ -35,6 +26,8 @@ public class GCValues {
     public static final boolean IS_TOP_LOADED = Loader.isModLoaded(GTValues.MODID_TOP);
     
     public static final boolean IS_TC_LOADED = Loader.isModLoaded("thaumcraft");
+    
+    public static final boolean IS_SERENDUSTRY_LOADED = Loader.isModLoaded("dandustry");
     
     @SuppressWarnings("SpellCheckingInspection")
     public static final boolean IS_BilingualName_LOADED = Loader.isModLoaded("bilingualname");

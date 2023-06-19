@@ -1,6 +1,6 @@
 package gregica.loader.recipes.xkball.worktablerecipe;
 
-import gregica.api.utils.GCRecipeUtils;
+import gregica.utils.GCRecipeUtils;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.Materials;

@@ -6,7 +6,7 @@ import gregica.api.item.IExtendedItemBehavior;
 import gregica.common.item.metaitems.GCMetaItems;
 import gregica.common.tileentities.mte.multipart.MTELaserHatch;
 import gregica.common.tileentities.te.TELaserPipe;
-import gregica.api.utils.GCColorUtil;
+import gregica.utils.GCColorUtil;
 import gregtech.api.GTValues;
 import gregtech.api.capability.GregtechCapabilities;
 import gregtech.api.capability.IElectricItem;
@@ -247,8 +247,7 @@ public class ColorApplicatorBehavior implements IItemBehaviour, IExtendedItemBeh
         int colorValue = color == null ? -1 : color.ordinal()+1;
         if (te instanceof IGregTechTileEntity) {
             MetaTileEntity mte = ((IGregTechTileEntity) te).getMetaTileEntity();
-            if (mte instanceof MTELaserHatch && ((MTELaserHatch) mte).getColor() != colorValue) {
-                MTELaserHatch laserHatch = (MTELaserHatch) mte;
+            if (mte instanceof MTELaserHatch laserHatch && ((MTELaserHatch) mte).getColor() != colorValue) {
                 laserHatch.setColor(colorValue);
                 return true;
             }
@@ -289,8 +288,7 @@ public class ColorApplicatorBehavior implements IItemBehaviour, IExtendedItemBeh
         }
         if (Loader.isModLoaded(GTValues.MODID_APPENG)) {
             TileEntity te = world.getTileEntity(pos);
-            if (te instanceof TileCableBus) {
-                TileCableBus cable = (TileCableBus) te;
+            if (te instanceof TileCableBus cable) {
                 // do not try to recolor if it already is this color
                 if (cable.getColor().ordinal() != color.ordinal()) {
                     cable.recolourBlock(null, AEColor.values()[color.ordinal()], player);
@@ -330,8 +328,7 @@ public class ColorApplicatorBehavior implements IItemBehaviour, IExtendedItemBeh
         }
     
         // TileEntityPipeBase special case
-        if (te instanceof IPipeTile) {
-            IPipeTile<?, ?> pipe = (IPipeTile<?, ?>) te;
+        if (te instanceof IPipeTile<?, ?> pipe) {
             if (pipe.isPainted()) {
                 pipe.setPaintingColor(-1);
                 return true;
@@ -340,8 +337,7 @@ public class ColorApplicatorBehavior implements IItemBehaviour, IExtendedItemBeh
     
         // AE2 cable special case
         if (Loader.isModLoaded(GTValues.MODID_APPENG)) {
-            if (te instanceof TileCableBus) {
-                TileCableBus cable = (TileCableBus) te;
+            if (te instanceof TileCableBus cable) {
                 // do not try to strip color if it is already colorless
                 if (cable.getColor() != AEColor.TRANSPARENT) {
                     cable.recolourBlock(null, AEColor.TRANSPARENT, player);

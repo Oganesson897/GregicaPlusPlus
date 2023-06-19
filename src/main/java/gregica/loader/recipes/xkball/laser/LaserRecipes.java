@@ -2,7 +2,7 @@ package gregica.loader.recipes.xkball.laser;
 
 import gregica.api.GCValues;
 import gregica.common.tileentities.mte.multipart.MTELaserHatch;
-import gregica.api.utils.GCRecipeUtils;
+import gregica.utils.GCRecipeUtils;
 import gregtech.api.GTValues;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.material.Materials;

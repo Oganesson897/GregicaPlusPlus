@@ -2,7 +2,7 @@ package gregica.api.capability.quantum;
 
 
 import gregica.config.GCConfig;
-import gregica.api.utils.GCMathUtils;
+import gregica.utils.GCMathUtils;
 import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeBuilder;
 import gregtech.api.recipes.RecipeMap;

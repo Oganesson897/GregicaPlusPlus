@@ -1,4 +1,4 @@
-package gregica.api.utils;
+package gregica.utils;
 
 import com.google.common.collect.Lists;
 import gregtech.api.GTValues;
@@ -10,6 +10,7 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 //borrow some code from https://github.com/friendlyhj/BilingualName
 public class GCLangUtil {
@@ -24,6 +25,20 @@ public class GCLangUtil {
     };
     
     public static int currentIndex = 0;
+    
+    public static Predicate<String> hexIntValidator = (s) -> {
+        if(s.isEmpty()){
+            return true;
+        }
+        else {
+            try {
+                Integer.parseInt(s, 16);
+                return true;
+            } catch (Exception e){
+                return false;
+            }
+        }
+    };
     
     static {
         EN_US.loadLocaleDataFiles(Minecraft.getMinecraft().getResourceManager(), Lists.newArrayList("en_us"));
@@ -65,6 +80,23 @@ public class GCLangUtil {
     
     public static String currentRainbowModifier(){
         return modifiers[currentIndex];
+    }
+    
+    //获得一个彩色字符串
+    //根据空格分隔
+    public static String rainbowString(String s,int startIndex){
+        StringBuilder builder = new StringBuilder();
+        int i = 0;
+        for(String sp : s.split(" ")){
+            builder.append(modifiers[(startIndex + i) % 16]).append(sp).append(" ");
+            i++;
+        }
+        return builder.toString();
+    }
+    
+    //获得一个根据时间变化的彩色字符串
+    public static String currentRainbowString(String s){
+        return rainbowString(s,currentIndex);
     }
     
     public static void updateModifier(){

@@ -8,7 +8,7 @@ import gregica.api.capability.GCCapabilities;
 import gregica.api.predicate.TiredTraceabilityPredicate;
 import gregica.api.recipe.GCRecipeMaps;
 import gregica.client.GCTextures;
-import gregica.api.utils.GCUtil;
+import gregica.utils.GCUtil;
 import gregtech.api.block.IHeatingCoilBlockStats;
 import gregtech.api.capability.impl.MultiblockRecipeLogic;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -118,23 +118,23 @@ public class MTEChemicalPlant extends RecipeMapMultiblockController {
 
     @Override
     public ICubeRenderer getBaseTexture(IMultiblockPart iMultiblockPart) {
-        switch (this.casingTier){
-            case (2):{
+        switch (this.casingTier) {
+            case (2) -> {
                 return Textures.SOLID_STEEL_CASING;
             }
-            case (3):{
+            case (3) -> {
                 return Textures.FROST_PROOF_CASING;
             }
-            case (4):{
+            case (4) -> {
                 return Textures.CLEAN_STAINLESS_STEEL_CASING;
             }
-            case (5):{
+            case (5) -> {
                 return Textures.STABLE_TITANIUM_CASING;
             }
-            case (6):{
+            case (6) -> {
                 return Textures.ROBUST_TUNGSTENSTEEL_CASING;
             }
-            default:{
+            default -> {
                 return Textures.BRONZE_PLATED_BRICKS;
             }
         }
