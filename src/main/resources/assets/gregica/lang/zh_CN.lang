@@ -2,7 +2,7 @@
 #
 # <BR> or <BR/>         Paragraph break (<BR/> is included for people using XML for their localization)
 # <LINE> or <LINE/>     Insert a fancy centered linebreak between sections of text.
-# <DIV> or <DIV/>     Insert a fancy left-justified linebreak between sections of text.
+# <DIV> or <DIV/>      Insert a fancy left-justified linebreak between sections of text.
 # <PAGE> or <PAGE/>     Skip to a new page.
 # <IMG>...</IMG>  Insert a centered image into text. Parameters are separated by ':' and are:
 #                    - mod resource location name
@@ -16,7 +16,7 @@
 #                   <IMG>thaumcraft:textures/gui/gui_researchbook.png:24:184:96:4:1.0</IMG>   <-- line break image as used in <LINE> above
 #                   <IMG>thaumcraft:textures/items/alumentum.png:0:0:255:255:0.0625</IMG>     <-- alumentum item icon
 
-#Language
+# Language
 
 language.name=中文
 language.region=CN
@@ -24,22 +24,22 @@ language.code=zh_CN
 
 itemGroup.gregica=Gregica++
 
-#Items
-item.upgradeEssentia.0.name=大型源质发电机升级：空
-item.upgradeEssentia.1.name=§e大型源质发电机升级：风§r
-item.upgradeEssentia.2.name=§c大型源质发电机升级：热力§r
-item.upgradeEssentia.3.name=§8大型源质发电机升级：不稳定§r
-item.upgradeEssentia.4.name=§d大型源质发电机升级：生命§r
-item.upgradeEssentia.5.name=§5大型源质发电机升级：腐化§r
-item.upgradeEssentia.6.name=§b大型源质发电机升级：机械§r
-item.upgradeEssentia.7.name=§6大型源质发电机升级：灵魂§r
-item.upgradeEssentia.8.name=§a大型源质发电机升级：辐射§r
-item.upgradeEssentia.9.name=§3大型源质发电机升级：电力§r
+# Items
+item.upgradeEssentia.0.name=大型源质发电机升级:空
+item.upgradeEssentia.1.name=§e大型源质发电机升级:风§r
+item.upgradeEssentia.2.name=§c大型源质发电机升级:热力§r
+item.upgradeEssentia.3.name=§8大型源质发电机升级:不稳定§r
+item.upgradeEssentia.4.name=§d大型源质发电机升级:生命§r
+item.upgradeEssentia.5.name=§5大型源质发电机升级:腐化§r
+item.upgradeEssentia.6.name=§b大型源质发电机升级:机械§r
+item.upgradeEssentia.7.name=§6大型源质发电机升级:灵魂§r
+item.upgradeEssentia.8.name=§a大型源质发电机升级:辐射§r
+item.upgradeEssentia.9.name=§3大型源质发电机升级:电力§r
 
 metaitem.tool.baguette.name=法棍
-metaitem.item.soapstone.ball.name=研磨球（皂石）
-metaitem.item.aluminium.ball.name=研磨球（铝）
-item.gt.tool.choocher.name=%s 两用扳手
+metaitem.item.soapstone.ball.name=研磨球(皂石)
+metaitem.item.aluminium.ball.name=研磨球(铝)
+item.gt.tool.choocher.name=%s两用扳手
 
 metaitem.item.sodium.ethylate.name=乙醇钠
 metaitem.item.potassium.ethylate.name=乙醇钾
@@ -67,70 +67,66 @@ metaitem.item.compost.name=堆肥
 metaitem.item.aluminium_mixture.name=铝混合物
 metaitem.item.cellulose_pulp.name=纤维素浆
 metaitem.item.algae_acid.name=藻酸
-metaitem.item.pellets_mould.name=模具（颗粒）
+metaitem.item.pellets_mould.name=模具(颗粒)
 metaitem.item.wood_pellets.name=木颗粒
 metaitem.item.aluminium_pellets.name=铝颗粒
 
-metaitem.cover.conveyor.ulv.name=ULV 传送带
-metaitem.cover.emitter.ulv.name=ULV 发射器
-metaitem.cover.field_generator.ulv.name=ULV 立场发生器
-metaitem.cover.motor.ulv.name=ULV 电动马达
-metaitem.cover.piston.ulv.name=ULV 电动活塞
-metaitem.cover.robotic_arm.ulv.name=ULV 机械臂
-metaitem.cover.sensor.ulv.name=ULV 传感器
-metaitem.cover.pump.ulv.name=ULV 电动泵
+metaitem.cover.conveyor.ulv.name=传送带 (§8ULV§r)
+metaitem.cover.emitter.ulv.name=发射器 (§8ULV§r)
+metaitem.cover.field_generator.ulv.name=立场发生器 (§8ULV§r)
+metaitem.cover.motor.ulv.name=电动马达 (§8ULV§r)
+metaitem.cover.piston.ulv.name=电动活塞 (§8ULV§r)
+metaitem.cover.robotic_arm.ulv.name=机械臂 (§8ULV§r)
+metaitem.cover.sensor.ulv.name=传感器 (§8ULV§r)
+metaitem.cover.pump.ulv.name=电动泵 (§8ULV§r)
 
 
-metaitem.cover.conveyor.max.name=MAX 传送带
-metaitem.cover.emitter.max.name=MAX 发射器
-metaitem.cover.field_generator.max.name=MAX 立场发生器
-metaitem.cover.motor.max.name=MAX 电动马达
-metaitem.cover.piston.max.name=MAX 电动活塞
-metaitem.cover.robotic_arm.max.name=MAX 机械臂
-metaitem.cover.sensor.max.name=MAX 传感器
-metaitem.cover.pump.max.name=MAX 电动泵
+metaitem.cover.conveyor.max.name=传送带 (§c§lMAX§r)
+metaitem.cover.emitter.max.name=发射器 (§c§lMAX§r)
+metaitem.cover.field_generator.max.name=立场发生器 (§c§lMAX§r)
+metaitem.cover.motor.max.name=电动马达 (§c§lMAX§r)
+metaitem.cover.piston.max.name=电动活塞 (§c§lMAX§r)
+metaitem.cover.robotic_arm.max.name=机械臂 (§c§lMAX§r)
+metaitem.cover.sensor.max.name=传感器 (§c§lMAX§r)
+metaitem.cover.pump.max.name=电动泵 (§c§lMAX§r)
 
 metaitem.item.advanced_circuit.name=高能电路板
 metaitem.item.color_applicator.name=染色器
 metaitem.item.memory_card.name=内存卡
-#Blocks
-tile.gc_machine_casing.magic_machine_casing.name=魔法机械外壳
+
+# Blocks
+tile.gc_machine_casing.magic_machine_casing.name=魔法机械方块
 tile.gc_essentia_cell.essentia_cell_1.name=新手源质扩散单元
 tile.gc_essentia_cell.essentia_cell_2.name=学徒源质扩散单元
 tile.gc_essentia_cell.essentia_cell_3.name=大师源质扩散单元
 tile.gc_essentia_cell.essentia_cell_4.name=宗师源质扩散单元
-tile.essentia_hatch.name=源质输入仓
-tile.ti_boron_silicate_glass_block.name=钛强化硅酸盐硼玻璃
-tile.gc_machine_casing.fishing_machine_casing.name=水产机械外壳
-tile.gc_machine_casing.quantum_machine_casing.name=量子外壳
-tile.gc_machine_casing.quantum_generator_machine_casing.name=量子发生机械外壳
-tile.gc_machine_casing.high_power_casing.name=超能机械方块
-tile.gc_machine_casing.aseptic_farm_machine_casing.name=无菌农场方块
-
-tile.gc_machine_casing.isa_machine_casing.name=艾萨机械外壳
+tile.gc_machine_casing.fishing_machine_casing.name=水产机械方块
+tile.gc_machine_casing.quantum_machine_casing.name=量子机械方块
+tile.gc_machine_casing.quantum_generator_machine_casing.name=量子发生机械方块
+tile.gc_machine_casing.high_power_casing.name=高能机械方块
+tile.gc_machine_casing.aseptic_farm_machine_casing.name=无菌农场机械方块
+tile.gc_machine_casing.isa_machine_casing.name=艾萨机械方块
 tile.gc_meta_gearbox.isa_gear_casing.name=艾萨齿轮箱
-tile.gc_meta_gearbox.inconel_casing.name=镍铬铁合金机械外壳
-tile.gc_meta_gearbox.flotation_cell.name=浮选槽机械外壳
-tile.gc_meta_gearbox.vacuum_casing.name=耐热真空机械外壳
+tile.gc_meta_gearbox.inconel_casing.name=耐蚀机械方块
+tile.gc_meta_gearbox.flotation_cell.name=浮选槽机械方块
+tile.gc_meta_gearbox.vacuum_casing.name=耐热机械方块
 
 tile.gc_lapotronic_casing.lapotronic_super_capacitor_casing.name=兰波顿超级电容机械方块
 tile.gc_lapotronic_casing.lapotronic_capacitor_empty.name=空电容
-tile.gc_lapotronic_casing.lapotronic_capacitor_ev.name=兰波顿电容(EV)
-tile.gc_lapotronic_casing.lapotronic_capacitor_iv.name=兰波顿电容(IV)
-tile.gc_lapotronic_casing.lapotronic_capacitor_luv.name=兰波顿电容(LUV)
-tile.gc_lapotronic_casing.lapotronic_capacitor_zpm.name=兰波顿电容(ZPM)
-tile.gc_lapotronic_casing.lapotronic_capacitor_uv.name=兰波顿电容(UV)
-tile.gc_lapotronic_casing.lapotronic_capacitor_uhv.name=兰波顿电容(UHV)
-tile.gc_lapotronic_casing.lapotronic_capacitor_uev.name=兰波顿电容(UEV)
+tile.gc_lapotronic_casing.lapotronic_capacitor_ev.name=兰波顿电容 (§5EV§r)
+tile.gc_lapotronic_casing.lapotronic_capacitor_iv.name=兰波顿电容 (§1IV§r)
+tile.gc_lapotronic_casing.lapotronic_capacitor_luv.name=兰波顿电容 (§dLuV§r)
+tile.gc_lapotronic_casing.lapotronic_capacitor_zpm.name=兰波顿电容 (§cZPM§r)
+tile.gc_lapotronic_casing.lapotronic_capacitor_uv.name=兰波顿电容 (§3UV§r)
+tile.gc_lapotronic_casing.lapotronic_capacitor_uhv.name=兰波顿电容 (§4UHV§r)
+tile.gc_lapotronic_casing.lapotronic_capacitor_uev.name=兰波顿电容 (§aUEV§r)
 
 gregica.machine.essentia_generator.name=大型源质反应堆
 gregica.machine.industrial_fishing_pond.name=珠海渔场
 gregica.machine.quantum_computer.name=量子计算机
-gregica.machine.lightning_rod.hv.name=避雷针 I
-gregica.machine.lightning_rod.ev.name=避雷针 II
-gregica.machine.lightning_rod.iv.name=避雷针 III
-gregica.machine.qubit_hatch.input.16.name=量子位输入仓
-gregica.machine.qubit_hatch.output.1.name=量子位输出仓
+gregica.machine.lightning_rod.hv.name=避雷针 (§6HV§r)
+gregica.machine.lightning_rod.ev.name=避雷针 (§5EV§r)
+gregica.machine.lightning_rod.iv.name=避雷针 (§1IV§r)
 gregica.machine.research_station.name=研究站
 gregica.machine.algae_farm.name=藻类农场
 gregica.machine.log_create_factory.name=原木拟生厂
@@ -142,6 +138,9 @@ gregica.machine.flotation_cell_regulator.name=工业浮选槽
 gregica.machine.vacuum_furnace.name=真空干燥炉
 gregica.machine.replication.name=复制机
 
+tile.essentia_hatch.name=源质输入仓
+
+gregica.machine.qubit_hatch.input.16.name=量子位输入仓
 
 gregica.machine.creative_energy_hatch.ulv.name=创造模式能源仓 ULV
 gregica.machine.creative_energy_hatch.lv.name=创造模式能源仓 LV
@@ -176,127 +175,128 @@ gregica.machine.creative_generator.opv.name=创造模式发电机 OPV
 gregica.machine.creative_generator.max.name=创造模式发电机 MAX
 gregica.machine.creative_generator.amperage=能量输出 %d A
 
-gregica.machine.laser_hatch_output_iv_a_256.name=激光源仓 IV 256A/t
-gregica.machine.laser_hatch_output_iv_a_1024.name=激光源仓 IV 1024A/t
-gregica.machine.laser_hatch_output_iv_a_4096.name=激光源仓 IV 4096A/t
-gregica.machine.laser_hatch_output_iv_a_16384.name=激光源仓 IV 16384A/t
-gregica.machine.laser_hatch_output_iv_a_65536.name=激光源仓 IV 65536A/t
-gregica.machine.laser_hatch_output_iv_a_262144.name=激光源仓 IV 262144A/t
-gregica.machine.laser_hatch_output_luv_a_256.name=激光源仓 LuV 256A/t
-gregica.machine.laser_hatch_output_luv_a_1024.name=激光源仓 LuV 1024A/t
-gregica.machine.laser_hatch_output_luv_a_4096.name=激光源仓 LuV 4096A/t
-gregica.machine.laser_hatch_output_luv_a_16384.name=激光源仓 LuV 16384A/t
-gregica.machine.laser_hatch_output_luv_a_65536.name=激光源仓 LuV 65536A/t
-gregica.machine.laser_hatch_output_luv_a_262144.name=激光源仓 LuV 262144A/t
-gregica.machine.laser_hatch_output_zpm_a_256.name=激光源仓 ZPM 256A/t
-gregica.machine.laser_hatch_output_zpm_a_1024.name=激光源仓 ZPM 1024A/t
-gregica.machine.laser_hatch_output_zpm_a_4096.name=激光源仓 ZPM 4096A/t
-gregica.machine.laser_hatch_output_zpm_a_16384.name=激光源仓 ZPM 16384A/t
-gregica.machine.laser_hatch_output_zpm_a_65536.name=激光源仓 ZPM 65536A/t
-gregica.machine.laser_hatch_output_zpm_a_262144.name=激光源仓 ZPM 262144A/t
-gregica.machine.laser_hatch_output_uv_a_256.name=激光源仓 UV 256A/t
-gregica.machine.laser_hatch_output_uv_a_1024.name=激光源仓 UV 1024A/t
-gregica.machine.laser_hatch_output_uv_a_4096.name=激光源仓 UV 4096A/t
-gregica.machine.laser_hatch_output_uv_a_16384.name=激光源仓 UV 16384A/t
-gregica.machine.laser_hatch_output_uv_a_65536.name=激光源仓 UV 65536A/t
-gregica.machine.laser_hatch_output_uv_a_262144.name=激光源仓 UV 262144A/t
-gregica.machine.laser_hatch_output_uhv_a_256.name=激光源仓 UHV 256A/t
-gregica.machine.laser_hatch_output_uhv_a_1024.name=激光源仓 UHV 1024A/t
-gregica.machine.laser_hatch_output_uhv_a_4096.name=激光源仓 UHV 4096A/t
-gregica.machine.laser_hatch_output_uhv_a_16384.name=激光源仓 UHV 16384A/t
-gregica.machine.laser_hatch_output_uhv_a_65536.name=激光源仓 UHV 65536A/t
-gregica.machine.laser_hatch_output_uhv_a_262144.name=激光源仓 UHV 262144A/t
-gregica.machine.laser_hatch_output_uev_a_256.name=激光源仓 UEV 256A/t
-gregica.machine.laser_hatch_output_uev_a_1024.name=激光源仓 UEV 1024A/t
-gregica.machine.laser_hatch_output_uev_a_4096.name=激光源仓 UEV 4096A/t
-gregica.machine.laser_hatch_output_uev_a_16384.name=激光源仓 UEV 16384A/t
-gregica.machine.laser_hatch_output_uev_a_65536.name=激光源仓 UEV 65536A/t
-gregica.machine.laser_hatch_output_uev_a_262144.name=激光源仓 UEV 262144A/t
-gregica.machine.laser_hatch_output_uiv_a_256.name=激光源仓 UIV 256A/t
-gregica.machine.laser_hatch_output_uiv_a_1024.name=激光源仓 UIV 1024A/t
-gregica.machine.laser_hatch_output_uiv_a_4096.name=激光源仓 UIV 4096A/t
-gregica.machine.laser_hatch_output_uiv_a_16384.name=激光源仓 UIV 16384A/t
-gregica.machine.laser_hatch_output_uiv_a_65536.name=激光源仓 UIV 65536A/t
-gregica.machine.laser_hatch_output_uiv_a_262144.name=激光源仓 UIV 262144A/t
-gregica.machine.laser_hatch_output_uxv_a_256.name=激光源仓 UXV 256A/t
-gregica.machine.laser_hatch_output_uxv_a_1024.name=激光源仓 UXV 1024A/t
-gregica.machine.laser_hatch_output_uxv_a_4096.name=激光源仓 UXV 4096A/t
-gregica.machine.laser_hatch_output_uxv_a_16384.name=激光源仓 UXV 16384A/t
-gregica.machine.laser_hatch_output_uxv_a_65536.name=激光源仓 UXV 65536A/t
-gregica.machine.laser_hatch_output_uxv_a_262144.name=激光源仓 UXV 262144A/t
-gregica.machine.laser_hatch_output_opv_a_256.name=激光源仓 OPV 256A/t
-gregica.machine.laser_hatch_output_opv_a_1024.name=激光源仓 OPV 1024A/t
-gregica.machine.laser_hatch_output_opv_a_4096.name=激光源仓 OPV 4096A/t
-gregica.machine.laser_hatch_output_opv_a_16384.name=激光源仓 OPV 16384A/t
-gregica.machine.laser_hatch_output_opv_a_65536.name=激光源仓 OPV 65536A/t
-gregica.machine.laser_hatch_output_opv_a_262144.name=激光源仓 OPV 262144A/t
-gregica.machine.laser_hatch_output_max_a_256.name=激光源仓 MAX 256A/t
-gregica.machine.laser_hatch_output_max_a_1024.name=激光源仓 MAX 1024A/t
-gregica.machine.laser_hatch_output_max_a_4096.name=激光源仓 MAX 4096A/t
-gregica.machine.laser_hatch_output_max_a_16384.name=激光源仓 MAX 16384A/t
-gregica.machine.laser_hatch_output_max_a_65536.name=激光源仓 MAX 65536A/t
-gregica.machine.laser_hatch_output_max_a_262144.name=激光源仓 MAX 262144A/t
+gregica.machine.laser_hatch_output_iv_a_256.name=256A 激光源仓 (§1IV§r)
+gregica.machine.laser_hatch_output_iv_a_1024.name=1024A 激光源仓 (§1IV§r)
+gregica.machine.laser_hatch_output_iv_a_4096.name=4096A 激光源仓 (§1IV§r)
+gregica.machine.laser_hatch_output_iv_a_16384.name=16384A 激光源仓 (§1IV§r)
+gregica.machine.laser_hatch_output_iv_a_65536.name=65536A 激光源仓 (§1IV§r)
+gregica.machine.laser_hatch_output_iv_a_262144.name=262144A 激光源仓 (§1IV§r)
+gregica.machine.laser_hatch_output_luv_a_256.name=256A 激光源仓 (§dLuV§r)
+gregica.machine.laser_hatch_output_luv_a_1024.name=1024A 激光源仓 (§dLuV§r)
+gregica.machine.laser_hatch_output_luv_a_4096.name=4096A 激光源仓 (§dLuV§r)
+gregica.machine.laser_hatch_output_luv_a_16384.name=16384A 激光源仓 (§dLuV§r)
+gregica.machine.laser_hatch_output_luv_a_65536.name=65536A 激光源仓 (§dLuV§r)
+gregica.machine.laser_hatch_output_luv_a_262144.name=262144A 激光源仓 (§dLuV§r)
+gregica.machine.laser_hatch_output_zpm_a_256.name=256A 激光源仓 (§cZPM§r)
+gregica.machine.laser_hatch_output_zpm_a_1024.name=1024A 激光源仓 (§cZPM§r)
+gregica.machine.laser_hatch_output_zpm_a_4096.name=4096A 激光源仓 (§cZPM§r)
+gregica.machine.laser_hatch_output_zpm_a_16384.name=16384A 激光源仓 (§cZPM§r)
+gregica.machine.laser_hatch_output_zpm_a_65536.name=65536A 激光源仓 (§cZPM§r)
+gregica.machine.laser_hatch_output_zpm_a_262144.name=262144A 激光源仓 (§cZPM§r)
+gregica.machine.laser_hatch_output_uv_a_256.name=256A 激光源仓 (§3UV§r)
+gregica.machine.laser_hatch_output_uv_a_1024.name=1024A 激光源仓 (§3UV§r)
+gregica.machine.laser_hatch_output_uv_a_4096.name=4096A 激光源仓 (§3UV§r)
+gregica.machine.laser_hatch_output_uv_a_16384.name=16384A 激光源仓 (§3UV§r)
+gregica.machine.laser_hatch_output_uv_a_65536.name=65536A 激光源仓 (§3UV§r)
+gregica.machine.laser_hatch_output_uv_a_262144.name=262144A 激光源仓 (§3UV§r)
+gregica.machine.laser_hatch_output_uhv_a_256.name=256A 激光源仓 (§4UHV§r)
+gregica.machine.laser_hatch_output_uhv_a_1024.name=1024A 激光源仓 (§4UHV§r)
+gregica.machine.laser_hatch_output_uhv_a_4096.name=4096A 激光源仓 (§4UHV§r)
+gregica.machine.laser_hatch_output_uhv_a_16384.name=16384A 激光源仓 (§4UHV§r)
+gregica.machine.laser_hatch_output_uhv_a_65536.name=65536A 激光源仓 (§4UHV§r)
+gregica.machine.laser_hatch_output_uhv_a_262144.name=262144A 激光源仓 (§4UHV§r)
+gregica.machine.laser_hatch_output_uev_a_256.name=256A 激光源仓 (§aUEV§r)
+gregica.machine.laser_hatch_output_uev_a_1024.name=1024A 激光源仓 (§aUEV§r)
+gregica.machine.laser_hatch_output_uev_a_4096.name=4096A 激光源仓 (§aUEV§r)
+gregica.machine.laser_hatch_output_uev_a_16384.name=16384A 激光源仓 (§aUEV§r)
+gregica.machine.laser_hatch_output_uev_a_65536.name=65536A 激光源仓 (§aUEV§r)
+gregica.machine.laser_hatch_output_uev_a_262144.name=262144A 激光源仓 (§aUEV§r)
+gregica.machine.laser_hatch_output_uiv_a_256.name=256A 激光源仓 (§2UIV§r)
+gregica.machine.laser_hatch_output_uiv_a_1024.name=1024A 激光源仓 (§2UIV§r)
+gregica.machine.laser_hatch_output_uiv_a_4096.name=4096A 激光源仓 (§2UIV§r)
+gregica.machine.laser_hatch_output_uiv_a_16384.name=16384A 激光源仓 (§2UIV§r)
+gregica.machine.laser_hatch_output_uiv_a_65536.name=65536A 激光源仓 (§2UIV§r)
+gregica.machine.laser_hatch_output_uiv_a_262144.name=262144A 激光源仓 (§2UIV§r)
+gregica.machine.laser_hatch_output_uxv_a_256.name=256A 激光源仓 (§eUXV§r)
+gregica.machine.laser_hatch_output_uxv_a_1024.name=1024A 激光源仓 (§eUXV§r)
+gregica.machine.laser_hatch_output_uxv_a_4096.name=4096A 激光源仓 (§eUXV§r)
+gregica.machine.laser_hatch_output_uxv_a_16384.name=16384A 激光源仓 (§eUXV§r)
+gregica.machine.laser_hatch_output_uxv_a_65536.name=65536A 激光源仓 (§eUXV§r)
+gregica.machine.laser_hatch_output_uxv_a_262144.name=262144A 激光源仓 (§eUXV§r)
+gregica.machine.laser_hatch_output_opv_a_256.name=256A 激光源仓 (§aOpV§r)
+gregica.machine.laser_hatch_output_opv_a_1024.name=1024A 激光源仓 (§aOpV§r)
+gregica.machine.laser_hatch_output_opv_a_4096.name=4096A 激光源仓 (§aOpV§r)
+gregica.machine.laser_hatch_output_opv_a_16384.name=16384A 激光源仓 (§aOpV§r)
+gregica.machine.laser_hatch_output_opv_a_65536.name=65536A 激光源仓 (§aOpV§r)
+gregica.machine.laser_hatch_output_opv_a_262144.name=262144A 激光源仓 (§aOpV§r)
+gregica.machine.laser_hatch_output_max_a_256.name=256A 激光源仓 (§c§lMAX§r)
+gregica.machine.laser_hatch_output_max_a_1024.name=1024A 激光源仓 (§c§lMAX§r)
+gregica.machine.laser_hatch_output_max_a_4096.name=4096A 激光源仓 (§c§lMAX§r)
+gregica.machine.laser_hatch_output_max_a_16384.name=16384A 激光源仓 (§c§lMAX§r)
+gregica.machine.laser_hatch_output_max_a_65536.name=65536A 激光源仓 (§c§lMAX§r)
+gregica.machine.laser_hatch_output_max_a_262144.name=262144A 激光源仓 (§c§lMAX§r)
 
-gregica.machine.laser_hatch_input_iv_a_256.name=激光靶仓 IV 256A/t
-gregica.machine.laser_hatch_input_iv_a_1024.name=激光靶仓 IV 1024A/t
-gregica.machine.laser_hatch_input_iv_a_4096.name=激光靶仓 IV 4096A/t
-gregica.machine.laser_hatch_input_iv_a_16384.name=激光靶仓 IV 16384A/t
-gregica.machine.laser_hatch_input_iv_a_65536.name=激光靶仓 IV 65536A/t
-gregica.machine.laser_hatch_input_iv_a_262144.name=激光靶仓 IV 262144A/t
-gregica.machine.laser_hatch_input_luv_a_256.name=激光靶仓 LuV 256A/t
-gregica.machine.laser_hatch_input_luv_a_1024.name=激光靶仓 LuV 1024A/t
-gregica.machine.laser_hatch_input_luv_a_4096.name=激光靶仓 LuV 4096A/t
-gregica.machine.laser_hatch_input_luv_a_16384.name=激光靶仓 LuV 16384A/t
-gregica.machine.laser_hatch_input_luv_a_65536.name=激光靶仓 LuV 65536A/t
-gregica.machine.laser_hatch_input_luv_a_262144.name=激光靶仓 LuV 262144A/t
-gregica.machine.laser_hatch_input_zpm_a_256.name=激光靶仓 ZPM 256A/t
-gregica.machine.laser_hatch_input_zpm_a_1024.name=激光靶仓 ZPM 1024A/t
-gregica.machine.laser_hatch_input_zpm_a_4096.name=激光靶仓 ZPM 4096A/t
-gregica.machine.laser_hatch_input_zpm_a_16384.name=激光靶仓 ZPM 16384A/t
-gregica.machine.laser_hatch_input_zpm_a_65536.name=激光靶仓 ZPM 65536A/t
-gregica.machine.laser_hatch_input_zpm_a_262144.name=激光靶仓 ZPM 262144A/t
-gregica.machine.laser_hatch_input_uv_a_256.name=激光靶仓 UV 256A/t
-gregica.machine.laser_hatch_input_uv_a_1024.name=激光靶仓 UV 1024A/t
-gregica.machine.laser_hatch_input_uv_a_4096.name=激光靶仓 UV 4096A/t
-gregica.machine.laser_hatch_input_uv_a_16384.name=激光靶仓 UV 16384A/t
-gregica.machine.laser_hatch_input_uv_a_65536.name=激光靶仓 UV 65536A/t
-gregica.machine.laser_hatch_input_uv_a_262144.name=激光靶仓 UV 262144A/t
-gregica.machine.laser_hatch_input_uhv_a_256.name=激光靶仓 UHV 256A/t
-gregica.machine.laser_hatch_input_uhv_a_1024.name=激光靶仓 UHV 1024A/t
-gregica.machine.laser_hatch_input_uhv_a_4096.name=激光靶仓 UHV 4096A/t
-gregica.machine.laser_hatch_input_uhv_a_16384.name=激光靶仓 UHV 16384A/t
-gregica.machine.laser_hatch_input_uhv_a_65536.name=激光靶仓 UHV 65536A/t
-gregica.machine.laser_hatch_input_uhv_a_262144.name=激光靶仓 UHV 262144A/t
-gregica.machine.laser_hatch_input_uev_a_256.name=激光靶仓 UEV 256A/t
-gregica.machine.laser_hatch_input_uev_a_1024.name=激光靶仓 UEV 1024A/t
-gregica.machine.laser_hatch_input_uev_a_4096.name=激光靶仓 UEV 4096A/t
-gregica.machine.laser_hatch_input_uev_a_16384.name=激光靶仓 UEV 16384A/t
-gregica.machine.laser_hatch_input_uev_a_65536.name=激光靶仓 UEV 65536A/t
-gregica.machine.laser_hatch_input_uev_a_262144.name=激光靶仓 UEV 262144A/t
-gregica.machine.laser_hatch_input_uiv_a_256.name=激光靶仓 UIV 256A/t
-gregica.machine.laser_hatch_input_uiv_a_1024.name=激光靶仓 UIV 1024A/t
-gregica.machine.laser_hatch_input_uiv_a_4096.name=激光靶仓 UIV 4096A/t
-gregica.machine.laser_hatch_input_uiv_a_16384.name=激光靶仓 UIV 16384A/t
-gregica.machine.laser_hatch_input_uiv_a_65536.name=激光靶仓 UIV 65536A/t
-gregica.machine.laser_hatch_input_uiv_a_262144.name=激光靶仓 UIV 262144A/t
-gregica.machine.laser_hatch_input_uxv_a_256.name=激光靶仓 UXV 256A/t
-gregica.machine.laser_hatch_input_uxv_a_1024.name=激光靶仓 UXV 1024A/t
-gregica.machine.laser_hatch_input_uxv_a_4096.name=激光靶仓 UXV 4096A/t
-gregica.machine.laser_hatch_input_uxv_a_16384.name=激光靶仓 UXV 16384A/t
-gregica.machine.laser_hatch_input_uxv_a_65536.name=激光靶仓 UXV 65536A/t
-gregica.machine.laser_hatch_input_uxv_a_262144.name=激光靶仓 UXV 262144A/t
-gregica.machine.laser_hatch_input_opv_a_256.name=激光靶仓 OPV 256A/t
-gregica.machine.laser_hatch_input_opv_a_1024.name=激光靶仓 OPV 1024A/t
-gregica.machine.laser_hatch_input_opv_a_4096.name=激光靶仓 OPV 4096A/t
-gregica.machine.laser_hatch_input_opv_a_16384.name=激光靶仓 OPV 16384A/t
-gregica.machine.laser_hatch_input_opv_a_65536.name=激光靶仓 OPV 65536A/t
-gregica.machine.laser_hatch_input_opv_a_262144.name=激光靶仓 OPV 262144A/t
-gregica.machine.laser_hatch_input_max_a_256.name=激光靶仓 MAX 256A/t
-gregica.machine.laser_hatch_input_max_a_1024.name=激光靶仓 MAX 1024A/t
-gregica.machine.laser_hatch_input_max_a_4096.name=激光靶仓 MAX 4096A/t
-gregica.machine.laser_hatch_input_max_a_16384.name=激光靶仓 MAX 16384A/t
-gregica.machine.laser_hatch_input_max_a_65536.name=激光靶仓 MAX 65536A/t
-gregica.machine.laser_hatch_input_max_a_262144.name=激光靶仓 MAX 262144A/t
+gregica.machine.laser_hatch_input_iv_a_256.name=256A 激光靶仓 (§1IV§r)
+gregica.machine.laser_hatch_input_iv_a_1024.name=1024A 激光靶仓 (§1IV§r)
+gregica.machine.laser_hatch_input_iv_a_4096.name=4096A 激光靶仓 (§1IV§r)
+gregica.machine.laser_hatch_input_iv_a_16384.name=16384A 激光靶仓 (§1IV§r)
+gregica.machine.laser_hatch_input_iv_a_65536.name=65536A  激光靶仓 (§1IV§r)
+gregica.machine.laser_hatch_input_iv_a_262144.name=262144A 激光靶仓 (§1IV§r)
+gregica.machine.laser_hatch_input_luv_a_256.name=256A 激光靶仓 (§dLuV§r)
+gregica.machine.laser_hatch_input_luv_a_1024.name=1024A 激光靶仓 (§dLuV§r)
+gregica.machine.laser_hatch_input_luv_a_4096.name=4096A 激光靶仓 (§dLuV§r)
+gregica.machine.laser_hatch_input_luv_a_16384.name=16384A 激光靶仓 (§dLuV§r)
+gregica.machine.laser_hatch_input_luv_a_65536.name=65536A 激光靶仓 (§dLuV§r)
+gregica.machine.laser_hatch_input_luv_a_262144.name=262144A 激光靶仓 (§dLuV§r)
+gregica.machine.laser_hatch_input_zpm_a_256.name=256A 激光靶仓 (§cZPM§r)
+gregica.machine.laser_hatch_input_zpm_a_1024.name=1024A 激光靶仓 (§cZPM§r)
+gregica.machine.laser_hatch_input_zpm_a_4096.name=4096A 激光靶仓 (§cZPM§r)
+gregica.machine.laser_hatch_input_zpm_a_16384.name=16384A 激光靶仓 (§cZPM§r)
+gregica.machine.laser_hatch_input_zpm_a_65536.name=65536A 激光靶仓 (§cZPM§r)
+gregica.machine.laser_hatch_input_zpm_a_262144.name=262144A 激光靶仓 (§cZPM§r)
+gregica.machine.laser_hatch_input_uv_a_256.name=256A 激光靶仓 (§3UV§r)
+gregica.machine.laser_hatch_input_uv_a_1024.name=1024A 激光靶仓 (§3UV§r)
+gregica.machine.laser_hatch_input_uv_a_4096.name=4096A 激光靶仓 (§3UV§r)
+gregica.machine.laser_hatch_input_uv_a_16384.name=16384A 激光靶仓 (§3UV§r)
+gregica.machine.laser_hatch_input_uv_a_65536.name=65536A 激光靶仓 (§3UV§r)
+gregica.machine.laser_hatch_input_uv_a_262144.name=262144A 激光靶仓 (§3UV§r)
+gregica.machine.laser_hatch_input_uhv_a_256.name=256A 激光靶仓 (§4UHV§r)
+gregica.machine.laser_hatch_input_uhv_a_1024.name=1024A 激光靶仓 (§4UHV§r)
+gregica.machine.laser_hatch_input_uhv_a_4096.name=4096A 激光靶仓 (§4UHV§r)
+gregica.machine.laser_hatch_input_uhv_a_16384.name=16384A 激光靶仓 (§4UHV§r)
+gregica.machine.laser_hatch_input_uhv_a_65536.name=65536A 激光靶仓 (§4UHV§r)
+gregica.machine.laser_hatch_input_uhv_a_262144.name=262144A 激光靶仓 (§4UHV§r)
+gregica.machine.laser_hatch_input_uev_a_256.name=256A 激光靶仓 (§aUEV§r)
+gregica.machine.laser_hatch_input_uev_a_1024.name=1024A 激光靶仓 (§aUEV§r)
+gregica.machine.laser_hatch_input_uev_a_4096.name=4096A 激光靶仓 (§aUEV§r)
+gregica.machine.laser_hatch_input_uev_a_16384.name=16384A 激光靶仓 (§aUEV§r)
+gregica.machine.laser_hatch_input_uev_a_65536.name=65536A 激光靶仓 (§aUEV§r)
+gregica.machine.laser_hatch_input_uev_a_262144.name=262144A 激光靶仓 (§aUEV§r)
+gregica.machine.laser_hatch_input_uiv_a_256.name=256A 激光靶仓 (§2UIV§r)
+gregica.machine.laser_hatch_input_uiv_a_1024.name=1024A 激光靶仓 (§2UIV§r)
+gregica.machine.laser_hatch_input_uiv_a_4096.name=4096A 激光靶仓 (§2UIV§r)
+gregica.machine.laser_hatch_input_uiv_a_16384.name=16384A 激光靶仓 (§2UIV§r)
+gregica.machine.laser_hatch_input_uiv_a_65536.name=65536A 激光靶仓 (§2UIV§r)
+gregica.machine.laser_hatch_input_uiv_a_262144.name=262144A 激光靶仓 (§2UIV§r)
+gregica.machine.laser_hatch_input_uxv_a_256.name=256A 激光靶仓 (§eUXV§r)
+gregica.machine.laser_hatch_input_uxv_a_1024.name=1024A 激光靶仓 (§eUXV§r)
+gregica.machine.laser_hatch_input_uxv_a_4096.name=4096A 激光靶仓 (§eUXV§r)
+gregica.machine.laser_hatch_input_uxv_a_16384.name=16384A 激光靶仓 (§eUXV§r)
+gregica.machine.laser_hatch_input_uxv_a_65536.name=65536A 激光靶仓 (§eUXV§r)
+gregica.machine.laser_hatch_input_uxv_a_262144.name=262144A 激光靶仓 (§eUXV§r)
+gregica.machine.laser_hatch_input_opv_a_256.name=256A 激光靶仓 (§aOpV§r)
+gregica.machine.laser_hatch_input_opv_a_1024.name=1024A 激光靶仓 (§aOpV§r)
+gregica.machine.laser_hatch_input_opv_a_4096.name=4096A 激光靶仓 (§aOpV§r)
+gregica.machine.laser_hatch_input_opv_a_16384.name=16384A 激光靶仓 (§aOpV§r)
+gregica.machine.laser_hatch_input_opv_a_65536.name=65536A 激光靶仓 (§aOpV§r)
+gregica.machine.laser_hatch_input_opv_a_262144.name=262144A 激光靶仓 (§aOpV§r)
+gregica.machine.laser_hatch_input_max_a_256.name=256A 激光靶仓 (§c§lMAX§r)
+gregica.machine.laser_hatch_input_max_a_1024.name=1024A 激光靶仓 (§c§lMAX§r)
+gregica.machine.laser_hatch_input_max_a_4096.name=4096A 激光靶仓 (§c§lMAX§r)
+gregica.machine.laser_hatch_input_max_a_16384.name=16384A 激光靶仓 (§c§lMAX§r)
+gregica.machine.laser_hatch_input_max_a_65536.name=65536A 激光靶仓 (§c§lMAX§r)
+gregica.machine.laser_hatch_input_max_a_262144.name=262144A 激光靶仓 (§c§lMAX§r)
+
 gregica.machine.infinite_water_hatch.name=无限水仓
 
 gregica.tooltip.inf_water1=供水 2^31-1 mb/t
@@ -306,44 +306,49 @@ gregica.tooltip.inf_water3=只能给多方块结构供水,你不能从中抽水.
 gregica.machine.catalyst_hatch.name=催化剂仓
 gregica.machine.ball_hatch.name=研磨球仓
 
+# Large Essentia Generator
+gc.multiblock.pattern.error.essentia=无法获取扩散单元等级!
+essentiahatch.chat.0=成功锁定为%s源质。
+essentiahatch.chat.1=清空。
+largeessentiagenerator.chat=安装成功!
 
+# ZhuHai Fishing Pond
+gregica.tooltip.warning=§c警告§r:§b能量输入仓§r不能与水接触而§b其余部分§r必须与水接触!
+gregicaplusplus.multiblock.industrial_fisher.mode0=模式:捕鱼
+gregicaplusplus.multiblock.industrial_fisher.mode1=模式:捕垃圾
+gregicaplusplus.multiblock.industrial_fisher.mode2=模式: 捕宝藏
+gregicaplusplus.multiblock.industrial_fisher.inv_full=物品栏已满
+
+# Qubit Generator
+gregica.recipe.qubitProduce=产生量子位:%d Qubit/t
+gregica.recipe.qubitConsume=消耗量子位:%d Qubit/t
+gregica.top.qubit_stored=量子位:
+gregica.multiblock.not_enough_qubit=量子位不足
+
+# Lightning Rod
+gregica.tooltip.usage=§b用法§r:将§b原版的§r铁栏杆放置其上,每当雨天或雷雨天时它就会产生能量。
+
+# Active Transformer
+gregica.multiblock.active_transformer.stored=   储存能量: %d eu
+gregica.multiblock.active_transformer.capacity=   能量容量: %d eu
+gregica.multiblock.active_transformer.percent=   百分比: %.2f%%
+gregica.multiblock.active_transformer.tooltip1=允许你随意变压
+gregica.multiblock.active_transformer.tooltip2=仅有 0.0002 损耗!
+gregica.multiblock.active_transformer.current.input=   当前输入: %d eu/t
+gregica.multiblock.active_transformer.current.output=   当前输出: %d eu/t
+
+# Lapotronic Super Capacitor
 gregica.casing.lapotronic.capacity=容量: %d eu
-gregica.casing.lapotronic.passive_loss=(每个)在超级兰波顿能量电容中造成被动损耗: %d eu/t
+gregica.casing.lapotronic.passive_loss=(每个) 在超级兰波顿能量电容中造成被动损耗: %d eu/t
 gregica.casing.lapotronic.part=§3兰波顿超级电容库的组成部分
 
 tile.laser_vacuum_pipe_opaque.name=激光真空管
 tile.laser_vacuum_pipe_transparent.name=透明激光真空管
 
-#OrePrefix
-item.material.oreprefix.oreRichBlackgranite=富集黑花岗岩%s矿石
-item.material.oreprefix.oreRichRedgranite=富集红花岗岩%s矿石
-item.material.oreprefix.oreRichMarble=富集大理石%s矿石
-item.material.oreprefix.oreRichBasalt=富集玄武岩%s矿石
-item.material.oreprefix.oreRichSand=富集沙子%s矿石
-item.material.oreprefix.oreRichRedSand=富集红沙%s矿石
-item.material.oreprefix.oreRichNetherrack=富集地狱岩%s矿石
-item.material.oreprefix.oreRichNether=富集下界%s矿石
-item.material.oreprefix.oreRichEndstone=富集末地石%s矿石
-item.material.oreprefix.oreRichEnd=富集末地%s矿石
-item.material.oreprefix.oreRich=富集%s矿石
-item.material.oreprefix.oreRichGranite=富集花岗岩%s矿石
-item.material.oreprefix.oreRichDiorite=富集闪长岩%s矿石
-item.material.oreprefix.oreRichAndesite=富集安山岩%s矿石
-
-item.material.oreprefix.orePoorBlackgranite=贫瘠黑花岗岩%s矿石
-item.material.oreprefix.orePoorRedgranite=贫瘠红花岗岩%s矿石
-item.material.oreprefix.orePoorMarble=贫瘠大理石%s矿石
-item.material.oreprefix.orePoorBasalt=贫瘠玄武岩%s矿石
-item.material.oreprefix.orePoorSand=贫瘠沙子%s矿石
-item.material.oreprefix.orePoorRedSand=贫瘠红沙%s矿石
-item.material.oreprefix.orePoorNetherrack=贫瘠地狱岩%s矿石
-item.material.oreprefix.orePoorNether=贫瘠下界%s矿石
-item.material.oreprefix.orePoorEndstone=贫瘠末地石%s矿石
-item.material.oreprefix.orePoorEnd=贫瘠末地%s矿石
-item.material.oreprefix.orePoor=贫瘠%s矿石
-item.material.oreprefix.orePoorGranite=贫瘠花岗岩%s矿石
-item.material.oreprefix.orePoorDiorite=贫瘠闪长岩%s矿石
-item.material.oreprefix.orePoorAndesite=贫瘠安山岩%s矿石
+# Other
+gregica.multiblock.data.remind=§c未开机机器不会更新数据!
+gregica.info.laser_hatch_input=事实上这算是个能量输入仓
+gregica.info.laser_hatch_output=事实上这算是个能量输出仓
 
 #Fluid
 material.bismuth_lead_alloy=铅铋合金
@@ -580,6 +585,16 @@ material.periodicium=元素周期表
 material.tiberium=泰伯利亚
 material.atomic_separation_catalyst=原子离催化剂
 
+# RecipeMaps
+# Machines
+recipemap.simple_qubit_generator.name=量子计算
+recipemap.research_station.name=研究站
+recipemap.chemical_plant.name=化工厂
+recipemap.isa_mill.name=艾萨研磨
+recipemap.flotation_cell_regulator.name=工业浮选
+recipemap.vacuum_furnace.name=真空干燥
+recipemap.replication.name=复制
+recipemap.log_create.name=原木拟生
 
 ######
 #GCYS
@@ -659,7 +674,7 @@ material.cubic_boron_nitride=立方氮化硼
 material.amorphous_boron_nitride=无定形氮化硼
 material.heterodiamond=杂金刚石
 material.cubic_heterodiamond=立方杂金刚石
-material.lithium_hydrode=氢化锂
+material.lithium_hydride=氢化锂
 material.hydrobromic_acid=氢溴酸
 material.white_phosphorus=白磷
 material.red_phosphorus=红磷
@@ -799,16 +814,16 @@ material.kapton_k=聚酰亚胺Kapton-K
 material.biphenyl_tetracarboxylic_acid_dianhydride=联苯四甲酸二酐
 material.nitroaniline=4-硝基苯胺
 material.para_phenylenediamine=对苯二胺
-material.kapton_e=聚酰亚胺Kapton-E
+material.kapton_e=聚酰亚胺-E(Kapton-E)
 material.methylamine=甲胺
 material.trimethylamine=三甲胺
-material.bistrichloromethylbenzene=1,4-双(三氯甲基)苯
+material.bistrichloromethylbenzene=1,4-双(三氯甲基) 苯
 material.tetrabromoethane=四溴乙烷
 material.terephthalic_acid=对苯二甲酸
 material.terephthaloyl_chloride=对苯二甲酰氯
-material.butanediol=1，4-丁二醇
+material.butanediol=1,4-丁二醇
 material.gamma_butyrolactone=γ-丁内酯
-material.n_methyl_pyrrolidone=N-甲基-2-吡咯烷酮（NMP）
+material.n_methyl_pyrrolidone=N-甲基-2-吡咯烷酮(NMP)
 material.kevlar=凯夫拉
 material.malonic_acid=丙二酸
 material.tetramethylammonium_chloride=四甲基氯化铵
@@ -818,7 +833,7 @@ material.ethylene_oxide=环氧乙烷
 material.ethylene_glycol=乙二醇
 material.diacetyl=丁二酮
 material.acetone_cyanohydrin=丙酮氰醇
-material.polymethylmethacrylate=聚甲基丙烯酸甲酯（PMMA）
+material.polymethylmethacrylate=聚甲基丙烯酸甲酯(PMMA)
 material.trimethylaluminium=三甲基铝
 material.trimethylgallium=三甲基镓
 material.ethylene_dibromide=1,2-二溴乙烷
@@ -830,16 +845,16 @@ material.indene=茚
 material.indanone=1-茚满酮
 material.truxene=三聚茚
 material.bromomethane=溴甲烷
-material.bromo_bromomethyl_naphthalene=1-溴-2-(溴甲基)萘
+material.bromo_bromomethyl_naphthalene=1-溴-2-(溴甲基) 萘
 material.bromobutane=1-溴丁烷
 material.butyllithium=正丁基鋰
 material.palladium_acetate=醋酸钯
-material.geodesic_polyarene=多环芳烃
-material.edot=3,4-乙烯二氧噻吩（EDOT）
+material.geodesic_polyarene=拱形多环芳烃
+material.edot=3,4-乙烯二氧噻吩(EDOT)
 material.polystyrene=聚苯乙烯
-material.polystyrene_sulfonate=聚苯乙烯磺酸
+material.polystyrene_sulfonate=聚苯乙烯磺酸(PSS)
 material.pedot_pss=聚3,4-乙烯二氧噻吩-聚苯乙烯磺酸(PEDOT:PSS)
-material.pedot_tma=聚3,4-乙烯二氧噻吩-四甲基丙烯酸酯(PEDOT-TMA)
+material.pedot_tma=聚3,4-乙烯二氧噻吩-四甲基丙烯酸酯(PEDOT:TMA)
 
 
 # Unknown Composition Materials
@@ -895,52 +910,8 @@ material.light_hyper_fuel=轻型超能燃料
 material.medium_hyper_fuel=中型超能燃料
 material.heavy_hyper_fuel=重型超能燃料
 material.qcd_confined_matter=量子色动力学封闭物质
-material.reissner_nordstrom_matrix=Reissner-Nordstrom Matrix
 material.sentient_metal=感知金属
 
-
-# Tricorder Info
-behavior.tricorder.current_pressure=当前压力：%sPa
-behavior.tricorder.min_pressure=最小压力：%sPa
-behavior.tricorder.max_pressure=最大压力：%sPa
-
-
-# Generic Pressure Info
-gcys.universal.tooltip.pressure.minimum=最小压力容量：§a%sPa(§r%s§a)
-gcys.universal.tooltip.pressure.maximum=最大压力容量：§a%sPa(§r%s§a)
-gcys.universal.tooltip.pressure.target=压力目标
-
-
-# Single Block Machines
-
-# Steam Ejector
-gcys.machine.steam_ejector.name=蒸汽喷射器
-gcys.steam_ejector.tooltip.1=创建你的第一个真空。
-gcys.steam_ejector.tooltip.2=每秒减少压力§b%sPa§7。
-gcys.steam_ejector.tooltip.3=每秒消耗%sL蒸汽。
-
-# Vacuum Chamber
-gcys.machine.steam_vacuum_chamber.name=小型蒸汽真空室
-
-# Infinite Pressure Pump
-gcys.machine.infinite_pressure_pump.name=无限压力泵
-gcys.machine.infinite_pressure_pump.tooltip=§8你只需要§o§5绝§d对§4无§c所§e不§a能§b的§3创§7造§1模§5式§d力§r§8来使用它
-
-# Multi Block Hatches
-gcys.machine.pressure_hatch.ivv.name=星际虚空真空仓
-gcys.machine.pressure_hatch.csv.name=封闭空间真空仓
-gcys.machine.pressure_hatch.ehv.name=极高真空仓
-gcys.machine.pressure_hatch.uhv.name=超高真空仓
-gcys.machine.pressure_hatch.hv.name=高真空仓
-gcys.machine.pressure_hatch.mv.name=中真空仓
-gcys.machine.pressure_hatch.lv.name=低真空仓
-gcys.machine.pressure_hatch.lp.name=低压力仓
-gcys.machine.pressure_hatch.mp.name=中压力仓
-gcys.machine.pressure_hatch.hp.name=高压力仓
-gcys.machine.pressure_hatch.uhp.name=超高压力仓
-gcys.machine.pressure_hatch.edp.name=电子简并压力仓
-gcys.machine.pressure_hatch.wdp.name=白矮星压力仓
-gcys.machine.pressure_hatch.nsp.name=中子星压力仓
 
 # Multi Block Machines
 
@@ -949,10 +920,11 @@ gcys.machine.crystallization_crucible.name=结晶坩埚
 
 # Roaster
 gcys.machine.roaster.name=焙烧炉
-gcys.multiblock.roaster.tooltip.1=青铜燃烧室: §c1000K
-gcys.multiblock.roaster.tooltip.2=钢燃烧室: §c1500K
-gcys.multiblock.roaster.tooltip.3=钛燃烧室: §c2000K
-gcys.multiblock.roaster.tooltip.4=钨钢燃烧室: §c2500K
+gregica.multiblock.roaster.tooltip.1=青铜燃烧室: §c1000 K
+gregica.multiblock.roaster.tooltip.2=钢燃烧室: §c1500 K
+gregica.multiblock.roaster.tooltip.3=钛燃烧室: §c2000 K
+gregica.multiblock.roaster.tooltip.4=钨钢燃烧室: §c2500 K
+
 # Burner Reactor
 gcys.machine.burner_reactor.name=燃烧反应器
 
@@ -961,15 +933,15 @@ gcys.machine.cryogenic_reactor.name=低温反应室
 
 # Nanoscale Fabricator
 gcys.machine.nanoscale_fabricator.name=纳米级制造室
-gcys.multiblock.nanoscale_fabricator.tooltip.1=平均坩埚热量不能超过目标温度不能超过§c250K§7。
+gregica.multiblock.nanoscale_fabricator.tooltip.1=平均坩埚热量不能超过目标温度不能超过§c250 K§7。
 
 # CVD Unit
 gcys.machine.cvd_unit.name=化学气相沉积单元(CVD装置)
 
 # Fracking Machine
 gcys.machine.fracker.name=液压压裂机
-gcys.multiblock.fracker.tooltip.1=使用1000L压裂液补充基岩下的区块流体。
-gcys.multiblock.fracker.tooltip.2=消耗§a%sEU/t§7。
+gregica.multiblock.fracker.tooltip.1=使用1000L压裂液补充基岩下的区块流体。
+gregica.multiblock.fracker.tooltip.2=消耗§a%sEU/t§7。
 
 # Sonicator
 gcys.machine.sonicator.name=超声波仪
@@ -979,70 +951,51 @@ gcys.machine.catalytic_reformer.name=催化重整装置
 
 # Industrial Drill
 gcys.machine.industrial_drill.name=工业钻机
-gcys.multiblock.industrial_drill.tooltip.1=钻取放置在钻头下方的方块。
-gcys.multiblock.industrial_drill.tooltip.2=目标方块在非消耗品时不会被破坏。
-
-# Axial Compressors
-gcys.machine.axis_compressor.subsonic.name=亚音速轴流压缩机
-gcys.machine.axis_compressor.supersonic.name=超音速轴流压缩机
-gcys.multiblock.axis_compressor.tooltip.1=将压力增加§b%sPa/s§7至§a%sPa(§r%s§a)。
-gcys.multiblock.axis_compressor.tooltip.2=增加压力时消耗§e%sL/s§7润滑剂。
-gcys.multiblock.axis_compressor.tooltip.3=使用%s§7能量，不能超频。
-
-# Turbomolecular Pumps
-gcys.machine.turbomolecular_pump.low_power.name=低功率涡轮分子泵
-gcys.machine.turbomolecular_pump.high_power.name=高功率涡轮分子泵
-gcys.multiblock.turbomolecular_pump.tooltip.1=将压力降低§b%sPa/s§7至§a%sPa(§r%s§a)。
-gcys.multiblock.turbomolecular_pump.tooltip.2=降低压力时消耗§e%sL/s§7e润滑剂。
-gcys.multiblock.turbomolecular_pump.tooltip.3=使用%s§7能量，不能超频。
+gregica.multiblock.industrial_drill.tooltip.1=钻取放置在钻头下方的方块。
+gregica.multiblock.industrial_drill.tooltip.2=目标方块在非消耗品时不会被破坏。
 
 # Single Block Machines
-
-gcys.machine.dryer.lv.name=基础干燥机
+gcys.machine.dryer.lv.name=干燥机 (§7LV§r)
 gcys.machine.dryer.lv.tooltip=不是为了头发
-gcys.machine.dryer.mv.name=进阶干燥机
+gcys.machine.dryer.mv.name=干燥机 (§bMV§r)
 gcys.machine.dryer.mv.tooltip=不是为了头发
-gcys.machine.dryer.hv.name=进阶干燥机 II
+gcys.machine.dryer.hv.name=干燥机 (§6HV§r)
 gcys.machine.dryer.hv.tooltip=不是为了头发
-gcys.machine.dryer.ev.name=进阶干燥机 III
+gcys.machine.dryer.ev.name=干燥机 (§5EV§r)
 gcys.machine.dryer.ev.tooltip=不是为了头发
-gcys.machine.dryer.iv.name=精英干燥机
+gcys.machine.dryer.iv.name=干燥机 (§1IV§r)
 gcys.machine.dryer.iv.tooltip=不是为了服装
-gcys.machine.dryer.luv.name=精英干燥机 II
+gcys.machine.dryer.luv.name=干燥机 (§dLuV§r)
 gcys.machine.dryer.luv.tooltip=不是为了服装
-gcys.machine.dryer.zpm.name=精英干燥机 III
+gcys.machine.dryer.zpm.name=干燥机 (§cZPM§r)
 gcys.machine.dryer.zpm.tooltip=不是为了服装
-gcys.machine.dryer.uv.name=终极干燥机
+gcys.machine.dryer.uv.name=干燥机 (§3UV§r)
 gcys.machine.dryer.uv.tooltip=水分去除剂
-gcys.machine.dryer.uhv.name=史诗干燥机
+gcys.machine.dryer.uhv.name=干燥机 (§4UHV§r)
 gcys.machine.dryer.uhv.tooltip=水分去除剂
-gcys.machine.dryer.uev.name=史诗干燥机 II
+gcys.machine.dryer.uev.name=干燥机 (§aUEV§r)
 gcys.machine.dryer.uev.tooltip=水分去除剂
-gcys.machine.dryer.uiv.name=史诗干燥机 III
+gcys.machine.dryer.uiv.name=干燥机 (§2UIV§r)
 gcys.machine.dryer.uiv.tooltip=水分去除剂
-gcys.machine.dryer.uxv.name=史诗干燥机 IV
+gcys.machine.dryer.uxv.name=干燥机 (§eUXV§r)
 gcys.machine.dryer.uxv.tooltip=水分去除剂
-gcys.machine.dryer.opv.name=传奇干燥机
+gcys.machine.dryer.opv.name=干燥机 (§aOpV§r)
 gcys.machine.dryer.opv.tooltip=水分去除剂
 
-# Pipes
-gcys.pipe.pressure_pipe_low_vacuum.name=低真空管
-gcys.pipe.pressure_pipe_medium_vacuum.name=中真空管
-gcys.pipe.pressure_pipe_high_vacuum.name=高真空管
-gcys.pipe.pressure_pipe_ultra_high_vacuum.name=超高真空管
-gcys.pipe.pressure_pipe_extremely_high_vacuum.name=极高真空管
-gcys.pipe.pressure_pipe_close_space_vacuum.name=封闭空间真空管
-gcys.pipe.pressure_pipe_intergalactic_void_vacuum.name=星际虚空真空管
-gcys.pipe.pressure_pipe_low_pressure.name=低压管
-gcys.pipe.pressure_pipe_medium_pressure.name=中压管
-gcys.pipe.pressure_pipe_high_pressure.name=高压管
-gcys.pipe.pressure_pipe_ultra_high_pressure.name=超高压管
-gcys.pipe.pressure_pipe_electron_degeneracy_pressure.name=电子简并压力管
-gcys.pipe.pressure_pipe_white_dwarf_pressure.name=白矮星压力管
-gcys.pipe.pressure_pipe_neutron_star_pressure.name=中子星压力管
-
-gcys.pipe.pressure.tooltip.volume=体积：§a%sL
-
+# Laminator
+gregica.machine.laminator.lv.name=过胶机 (§7LV§r)
+gregica.machine.laminator.mv.name=过胶机 (§bMV§r)
+gregica.machine.laminator.hv.name=过胶机 (§6HV§r)
+gregica.machine.laminator.ev.name=过胶机 (§5EV§r)
+gregica.machine.laminator.iv.name=过胶机 (§1IV§r)
+gregica.machine.laminator.luv.name=过胶机 (§dLuV§r)
+gregica.machine.laminator.zpm.name=过胶机 (§cZPM§r)
+gregica.machine.laminator.uv.name=过胶机 (§3UV§r)
+gregica.machine.laminator.uhv.name=过胶机 (§4UHV§r)
+gregica.machine.laminator.uev.name=过胶机 (§aUEV§r)
+gregica.machine.laminator.uiv.name=过胶机 (§2UIV§r)
+gregica.machine.laminator.uxv.name=过胶机 (§eUXV§r)
+gregica.machine.laminator.opv.name=过胶机 (§aOpV§r)
 
 # Blocks
 tile.crucible.quartz.name=石英坩埚
@@ -1050,24 +1003,14 @@ tile.crucible.tungsten.name=钨坩埚
 tile.crucible.graphite.name=石墨坩埚
 tile.crucible.boron_nitride.name=氮化硼坩埚
 
-tile.multiblock_casing.substrate.name=基材外壳
-tile.multiblock_casing.advanced_substrate.name=高级基材外壳
-tile.multiblock_casing.drill_head.name=钻取
+tile.multiblock_casing.substrate.name=基材方块
+tile.multiblock_casing.advanced_substrate.name=高级基材方块
+tile.multiblock_casing.drill_head.name=钻头
 
 tile.multiblock_casing_active.airfoil.name=翼型室
 tile.multiblock_casing_active.advanced_airfoil.name=高级翼型室
 
-tile.transparent_casing.pmma.name=亚克力玻璃（PMMA）
-
-
-# Vacuums
-gcys.vacuum_level.none=未真空
-gcys.vacuum_level.low=低真空
-gcys.vacuum_level.medium=中真空
-gcys.vacuum_level.high=高真空
-gcys.vacuum_level.ultra_high=超高真空
-gcys.vacuum_level.extremely_high=极高真空
-gcys.vacuum_level.perfect=完美真空
+tile.transparent_casing.pmma.name=亚克力(PMMA)玻璃
 
 # Ore Prefixes
 item.material.oreprefix.seedCrystal=%s晶种
@@ -1080,19 +1023,19 @@ metaitem.vacuum_tube.components.name=真空管组件
 metaitem.vacuum_tube.components.tooltip=你希望它不会烧坏
 
 # Crystal Stuff
-metaitem.boule.cubic_zirconia.europium.name=掺铕立方氧化锆单晶
-metaitem.boule.cubic_zirconia.europium.tooltip=未处理的晶体
-metaitem.wafer.cubic_zirconia.europium.name=掺铕立方氧化锆晶片
-metaitem.wafer.cubic_zirconia.europium.tooltip=未处理的晶片
-metaitem.wafer.crystal.interface.name=晶振接口晶片
-metaitem.wafer.crystal.interface.tooltip=原始水晶接口
+metaitem.boule.cubic_zirconia.europium.name=铕掺杂的单晶立方氧化锆
+metaitem.boule.cubic_zirconia.europium.tooltip=待处理电路
+metaitem.wafer.cubic_zirconia.europium.name=铕掺杂的立方氧化锆晶圆
+metaitem.wafer.cubic_zirconia.europium.tooltip=待处理电路
+metaitem.wafer.crystal.interface.name=晶振接口晶圆
+metaitem.wafer.crystal.interface.tooltip=待处理的晶振接口
 metaitem.plate.crystal.interface.name=晶振接口芯片
 metaitem.plate.crystal.interface.tooltip=晶振接口
-metaitem.engraved.crystal_chip.ruby.name=刻蚀红水晶芯片
+metaitem.engraved.crystal_chip.ruby.name=刻蚀红宝石芯片
 metaitem.engraved.crystal_chip.ruby.tooltip=控制红宝石
-metaitem.engraved.crystal_chip.sapphire.name=刻蚀蓝水晶芯片
+metaitem.engraved.crystal_chip.sapphire.name=刻蚀蓝宝石芯片
 metaitem.engraved.crystal_chip.sapphire.tooltip=转换蓝宝石
-metaitem.engraved.crystal_chip.diamond.name=刻蚀钻石水晶芯片
+metaitem.engraved.crystal_chip.diamond.name=刻蚀钻石芯片
 metaitem.engraved.crystal_chip.diamond.tooltip=逻辑钻石
 metaitem.crystal.modulator.ruby.name=红晶体调制器
 metaitem.crystal.modulator.ruby.tooltip=控制处理电路
@@ -1100,12 +1043,11 @@ metaitem.crystal.modulator.sapphire.name=蓝晶体调制器
 metaitem.crystal.modulator.sapphire.tooltip=转换处理电路
 metaitem.crystal.modulator.diamond.name=钻石晶体调制器
 metaitem.crystal.modulator.diamond.tooltip=逻辑处理电路
-metaitem.crystal.system_on_chip.socket.name=晶体SOC插槽
+metaitem.crystal.system_on_chip.socket.name=晶体 SOC插槽
 metaitem.crystal.system_on_chip.socket.tooltip=桥接晶体和电路
 
 # Wetware Stuff
 metaitem.magnetron.name=磁控管
-
 
 # Optical Stuff
 metaitem.plate.phase_change_memory.name=PRAM
@@ -1117,9 +1059,9 @@ metaitem.dielectric_mirror.tooltip=布拉格之镜
 metaitem.laser.assembly.empty.name=空激光组件
 metaitem.laser.assembly.empty.tooltip=用一些激光介质填充它
 metaitem.laser.helium_neon.name=氦氖激光
-metaitem.laser.helium_neon.tooltip=用途：弱光学设备
-metaitem.laser.nd_yag.name=掺钕钇铝石榴石激光(Nd:YAG)
-metaitem.laser.nd_yag.tooltip=用途：强光学设备
+metaitem.laser.helium_neon.tooltip=用途:弱光学设备
+metaitem.laser.nd_yag.name=钇铝石榴石激光(Nd:YAG)
+metaitem.laser.nd_yag.tooltip=用途:强光学设备
 
 
 # Spintronic Stuff
@@ -1127,19 +1069,24 @@ metaitem.plate.spin_transfer_torque_memory.name=STTRAM
 metaitem.plate.spin_transfer_torque_memory.tooltip=自旋转移扭矩记忆
 metaitem.tube.topological_insulator.name=拓扑绝缘管
 metaitem.tube.topological_insulator.tooltip=导电表面态
-metaitem.containment_unit.bose_einstein_condensate.name=玻色-爱因斯坦冷凝液遏制装置
+metaitem.containment_unit.bose_einstein_condensate.name=玻色-爱因斯坦凝聚体遏制单元
 metaitem.containment_unit.bose_einstein_condensate.tooltip=磁蒸发冷却
 metaitem.bose_einstein_condensate.name=玻色-爱因斯坦凝聚体
-metaitem.bose_einstein_condensate.tooltip=2,000§cRb-87§7原子，§b170nK§7！
+metaitem.bose_einstein_condensate.tooltip=2,000§cRb-87§7原子,§b170nK§7!
 
+# Supra-Causal Stuff
+metaitem.eigenfolded.kerr.manifold.name=本征折叠克尔流形
+
+# Supra-Chronal Stuff
+metaitem.hyperdimensional.drone.name=超维无人机
 
 # Power Components
-metaitem.wafer.nano_power_integrated_circuit.name=NPIC晶圆
-metaitem.wafer.nano_power_integrated_circuit.tooltip=纳米功率电路原料
-metaitem.wafer.pico_power_integrated_circuit.name=PPIC晶圆
-metaitem.wafer.pico_power_integrated_circuit.tooltip=微微电源电路原料
-metaitem.wafer.femto_power_integrated_circuit.name=FPIC晶圆
-metaitem.wafer.femto_power_integrated_circuit.tooltip=毫微微电源电路原料
+metaitem.wafer.nano_power_integrated_circuit.name=NPIC 晶圆
+metaitem.wafer.nano_power_integrated_circuit.tooltip=待处理的纳米功率电路
+metaitem.wafer.pico_power_integrated_circuit.name=PPIC 晶圆
+metaitem.wafer.pico_power_integrated_circuit.tooltip=待处理的微微功率电路
+metaitem.wafer.femto_power_integrated_circuit.name=FPIC 晶圆
+metaitem.wafer.femto_power_integrated_circuit.tooltip=待处理的毫微微功率电路
 metaitem.plate.nano_power_integrated_circuit.name=NPIC
 metaitem.plate.nano_power_integrated_circuit.tooltip=纳米功率集成电路
 metaitem.plate.pico_power_integrated_circuit.name=PPIC
@@ -1149,7 +1096,7 @@ metaitem.plate.femto_power_integrated_circuit.tooltip=毫微微功率集成电�
 
 
 # Item Behaviors
-metaitem.behavior.held_item_destroy.message=拿着%s损坏了它！
+metaitem.behavior.held_item_destroy.message=拿着%s损坏了它!
 
 
 # Nanotube Stuff
@@ -1157,15 +1104,16 @@ metaitem.mixture.carbon_allotrope.name=碳同素异形体混合物
 metaitem.cnt.graphene_aligned.name=石墨烯排列碳纳米管
 
 # Crafting Components
-metaitem.component.grinder.boron_nitride.name=氮化硼磨头
+metaitem.component.grinder.boron_nitride.name=氮化硼研磨头
 
-#Circuit Boards
+# Circuit Boards
 metaitem.board.gooware.name=聚酰亚胺基板
 metaitem.board.gooware.tooltip=这是极好的
 metaitem.board.optical.name=氮化镓基板
 metaitem.board.optical.tooltip=这是最终...大概吧
 metaitem.board.spintronic.name=碳纳米管基板
 metaitem.board.spintronic.tooltip=无限的人生...无尽的基板
+
 metaitem.circuit_board.gooware.name=聚酰亚胺电路基板
 metaitem.circuit_board.gooware.tooltip=执行反应的电路基板
 metaitem.circuit_board.optical.name=氮化镓电路基板
@@ -1198,95 +1146,64 @@ metaitem.component.spintronic_smd.inductor.tooltip=自旋电子电感器
 # Processing Units
 metaitem.reaction_chamber.bz.name=B-Z振荡反应室
 metaitem.nonlinear_chemical_oscillator.name=非线性化学振荡器
-metaitem.nonlinear_chemical_oscillator.tooltip=非平衡热力学！
+metaitem.nonlinear_chemical_oscillator.tooltip=非平衡热力学!
 metaitem.optical_laser_control_unit.name=光学激光控制装置
 metaitem.optical_laser_control_unit.tooltip=激光信息传输
 metaitem.esr_computation_unit.name=ESR计算单元
-metaitem.esr_computation_unit.tooltip=电子自旋共振量子计算！
+metaitem.esr_computation_unit.tooltip=电子自旋共振量子计算!
 
 # Circuits
-# Gooware
-metaitem.circuit.gooware_processor.name=化学处理器
-metaitem.circuit.gooware_processor.tooltip=反应扩散计算/n§2ZPM-等级
-metaitem.circuit.gooware_assembly.name=化学组件
-metaitem.circuit.gooware_assembly.tooltip=周期性的浓度变化/n§2UV-等级
-metaitem.circuit.gooware_computer.name=化学超级计算机
-metaitem.circuit.gooware_computer.tooltip=复杂的波动现象！/n§2UHV-等级
-metaitem.circuit.gooware_mainframe.name=化学电脑主机
-metaitem.circuit.gooware_mainframe.tooltip=螺旋彩色波浪！/n§2UEV-等级
+# T8:Gooware
+metaitem.circuit.gooware_processor.name=化学处理器(§cZPM 4§r)
+metaitem.circuit.gooware_processor.tooltip=反应扩散计算/n§cZPM§r - 等级
+metaitem.circuit.gooware_assembly.name=化学处理器集群(§3UV 3§r)
+metaitem.circuit.gooware_assembly.tooltip=周期性的浓度变化/n§3UV§r - 等级
+metaitem.circuit.gooware_computer.name=化学超级计算机(§4UHV 2§r)
+metaitem.circuit.gooware_computer.tooltip=复杂的波动现象!/n§4UHV§r - 等级
+metaitem.circuit.gooware_mainframe.name=化学处理器主机(§aUEV 1§r)
+metaitem.circuit.gooware_mainframe.tooltip=螺旋彩色波浪!/n§aUEV§r - 等级
 
-# Optical
-metaitem.circuit.optical_processor.name=光学处理器
-metaitem.circuit.optical_processor.tooltip=光速计算/n§6UV-等级
-metaitem.circuit.optical_assembly.name=光学组件
-metaitem.circuit.optical_assembly.tooltip=借助激光的力量！/n§6UHV-等级
-metaitem.circuit.optical_computer.name=光学超级计算机
-metaitem.circuit.optical_computer.tooltip=在一眨眼的功夫/n§6UEV-等级
-metaitem.circuit.optical_mainframe.name=光学电脑主机
-metaitem.circuit.optical_mainframe.tooltip=有什么可以更快的吗？/n§6UIV-等级
+# T9:Optical
+metaitem.circuit.optical_processor.name=光学处理器(§3UV 4§r)
+metaitem.circuit.optical_processor.tooltip=光速计算/n§3UV§r - 等级
+metaitem.circuit.optical_assembly.name=光学处理器集群(§4UHV 3§r)
+metaitem.circuit.optical_assembly.tooltip=借助激光的力量!/n§4UHV§r - 等级
+metaitem.circuit.optical_computer.name=光学超级计算机(§aUEV 2§r)
+metaitem.circuit.optical_computer.tooltip=在一眨眼的功夫/n§aUEV§r - 等级
+metaitem.circuit.optical_mainframe.name=光学处理器主机(§2UIV 1§r)
+metaitem.circuit.optical_mainframe.tooltip=有什么可以更快的吗?/n§2UIV§r - 等级
 
-# Spintronic
-metaitem.circuit.spintronic_processor.name=自旋电子学处理器
-metaitem.circuit.spintronic_processor.tooltip=自旋电子/n§5UHV-等级
-metaitem.circuit.spintronic_assembly.name=自旋电子学组件
-metaitem.circuit.spintronic_assembly.tooltip=离散量子漫步/n§5UEV-等级
-metaitem.circuit.spintronic_computer.name=自旋电子学超级计算机
-metaitem.circuit.spintronic_computer.tooltip=弹道自旋过滤/n§5UIV-等级
-metaitem.circuit.spintronic_mainframe.name=自旋电子学电脑主机
-metaitem.circuit.spintronic_mainframe.tooltip=自旋波逻辑！/n§5UXV-等级
+# T10:Spintronic
+metaitem.circuit.spintronic_processor.name=自旋电子学处理器(§4UHV 4§r)
+metaitem.circuit.spintronic_processor.tooltip=自旋电子/n§5§4UHV§r - 等级
+metaitem.circuit.spintronic_assembly.name=自旋电子学处理器集群(§aUEV 3§r)
+metaitem.circuit.spintronic_assembly.tooltip=离散量子漫步/n§5§aUEV§r - 等级
+metaitem.circuit.spintronic_computer.name=自旋电子学超级计算机(§2UIV 2§r)
+metaitem.circuit.spintronic_computer.tooltip=弹道自旋过滤/n§5§2UIV§r - 等级
+metaitem.circuit.spintronic_mainframe.name=自旋电子学处理器主机(§eUXV 1§r)
+metaitem.circuit.spintronic_mainframe.tooltip=自旋波逻辑!/n§5§eUXV§r - 等级
 
 
-# Cosmic
-metaitem.circuit.cosmic_processor.name=宇宙处理器
-metaitem.circuit.cosmic_processor.tooltip=新生宇宙之初！/n§8UEV-等级
-metaitem.circuit.cosmic_assembly.name=宇宙组件
-metaitem.circuit.cosmic_assembly.tooltip=新生宇宙扩张！/n§8UIV-等级
-metaitem.circuit.cosmic_computer.name=宇宙超级计算机
-metaitem.circuit.cosmic_computer.tooltip=几乎模拟了一切！/n§8UXV-等级
-metaitem.circuit.cosmic_mainframe.name=宇宙电脑主机
-metaitem.circuit.cosmic_mainframe.tooltip=一切尽在其中！/n§8OpV-等级
+# T11:Cosmic
+metaitem.circuit.cosmic_processor.name=宇宙处理器(§aUEV 4§r)
+metaitem.circuit.cosmic_processor.tooltip=新生宇宙之初!/n§aUEV§r - 等级
+metaitem.circuit.cosmic_assembly.name=宇宙处理器集群(§2UIV 3§r)
+metaitem.circuit.cosmic_assembly.tooltip=新生宇宙扩张!/n§2UIV§r - 等级
+metaitem.circuit.cosmic_computer.name=宇宙超级计算机(§eUXV 2§r)
+metaitem.circuit.cosmic_computer.tooltip=几乎模拟了一切!/n§eUXV§r - 等级
+metaitem.circuit.cosmic_mainframe.name=宇宙处理器主机(§aOpV 1§r)
+metaitem.circuit.cosmic_mainframe.tooltip=一切尽在其中!/n§aOpV§r - 等级
 
-# Supracausal
-metaitem.circuit.supracausal_processor.name=超因果处理器
-metaitem.circuit.supracausal_processor.tooltip=借助黑洞的力量/n§fUIV-等级
-metaitem.circuit.supracausal_assembly.name=超因果组件
-metaitem.circuit.supracausal_assembly.tooltip=史诗般的奇点/n§fUXV-等级
-metaitem.circuit.supracausal_computer.name=超因果超级计算机
-metaitem.circuit.supracausal_computer.tooltip=利用虫洞来发挥我们的优势/n§fOpV-等级
-metaitem.circuit.supracausal_mainframe.name=超因果电脑主机
-metaitem.circuit.supracausal_mainframe.tooltip=问题前的回答/n§fMAX-等级
+# T12:Supracausal
+metaitem.circuit.supracausal_processor.name=超因果处理器(§2UIV 4§r)
+metaitem.circuit.supracausal_processor.tooltip=借助黑洞的力量/n§2UIV§r - 等级
+metaitem.circuit.supracausal_assembly.name=超因果处理器集群(§eUXV 3§r)
+metaitem.circuit.supracausal_assembly.tooltip=史诗般的奇点/n§eUXV§r - 等级
+metaitem.circuit.supracausal_computer.name=超因果超级计算机(§aOpV 2§r)
+metaitem.circuit.supracausal_computer.tooltip=利用虫洞来发挥我们的优势/n§aOpV§r - 等级
+metaitem.circuit.supracausal_mainframe.name=超因果处理器主机(§c§lMAX 1§r)
+metaitem.circuit.supracausal_mainframe.tooltip=问题前的回答/n§c§lMAX§r - 等级
 
-# Suprachronal
-metaitem.circuit.suprachronal.ulv.name=超时空超低压电路
-metaitem.circuit.suprachronal.ulv.tooltip=§fULV-等级电路/n
-metaitem.circuit.suprachronal.lv.name=超时空低压电路
-metaitem.circuit.suprachronal.lv.tooltip=§fLV-等级电路/n
-metaitem.circuit.suprachronal.mv.name=超时空中压电路
-metaitem.circuit.suprachronal.mv.tooltip=§fMV-等级电路/n
-metaitem.circuit.suprachronal.hv.name=超时空高压电路
-metaitem.circuit.suprachronal.hv.tooltip=§fHV-等级电路/n
-metaitem.circuit.suprachronal.ev.name=超时空特高压电路
-metaitem.circuit.suprachronal.ev.tooltip=§fEV-等级电路/n
-metaitem.circuit.suprachronal.iv.name=超时空强导压电路
-metaitem.circuit.suprachronal.iv.tooltip=§fIV-等级电路/n
-metaitem.circuit.suprachronal.luv.name=超时空剧差压电路
-metaitem.circuit.suprachronal.luv.tooltip=§fLuV-等级电路/n
-metaitem.circuit.suprachronal.zpm.name=超时空零点压电路
-metaitem.circuit.suprachronal.zpm.tooltip=§fZPM-等级电路/n
-metaitem.circuit.suprachronal.uv.name=超时空极限压电路
-metaitem.circuit.suprachronal.uv.tooltip=§fUV-等级电路/n
-metaitem.circuit.suprachronal.uhv.name=超时空极高压电路
-metaitem.circuit.suprachronal.uhv.tooltip=§fUHV-等级电路/n
-metaitem.circuit.suprachronal.uev.name=超时空超极限压电路
-metaitem.circuit.suprachronal.uev.tooltip=§fUEV-等级电路/n
-metaitem.circuit.suprachronal.uiv.name=超时空极强导压电路
-metaitem.circuit.suprachronal.uiv.tooltip=§fUIV-等级电路/n
-metaitem.circuit.suprachronal.uxv.name=超时空极上拓压电路
-metaitem.circuit.suprachronal.uxv.tooltip=§fUXV-等级电路/n
-metaitem.circuit.suprachronal.opv.name=超时空过载压电路
-metaitem.circuit.suprachronal.opv.tooltip=§fOpV-等级电路/n
-metaitem.circuit.suprachronal.max.name=超时空终压电路
-metaitem.circuit.suprachronal.max.tooltip=§fMAX-等级电路/n
 
 
 # RecipeMaps
@@ -1309,8 +1226,6 @@ recipemap.naquadah_reactor_mkii.name=硅岩反应堆 MK II
 recipemap.naquadah_reactor_mkv.name=硅岩反应堆 MK V
 recipemap.naquadah_reactor_mkiv.name=硅岩反应堆 MK IV
 
-recipemap.suprachronal_assembler_recipes.name=超级克隆装配线
-
 # Generators
 recipemap.taranium_reactor_mk1_recipes.name=塔兰金属反应堆 Mk I
 recipemap.taranium_reactor_mk2_recipes.name=塔兰金属反应堆 Mk II
@@ -1318,11 +1233,9 @@ recipemap.taranium_reactor_mk3_recipes.name=塔兰金属超级反应堆 Mk III
 
 
 # Recipe Properties
-gcys.recipe.temperature=温度：%,dK
-gcys.recipe.pressure=压力：%sPa
-gcys.recipe.vacuum=真空度：%sPa
+gregica.recipe.temperature=温度:%,d K
 
-#fix
+# fix
 material.blue_vitriol=硫酸铜
 material.green_vitriol=硫酸亚铁
 material.red_vitriol=硫酸钴
