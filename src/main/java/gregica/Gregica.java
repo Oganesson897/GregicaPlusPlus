@@ -1,9 +1,15 @@
 package gregica;
 
 import gregica.api.CommonProxy;
+import gregica.common.data.CWDataType;
+import gregica.common.data.CrossWorldDataHandler;
+import gregica.common.data.DataCode;
 import gregica.common.data.DataEventHandler;
+import gregica.network.GCNetworkManager;
+import gregica.network.packets.CWDataUpdatePacket;
 import gregtech.api.event.HighTierEvent;
 import gregica.client.render.BlocksHighlightRenderer;
+import io.netty.buffer.Unpooled;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.server.MinecraftServer;
@@ -16,6 +22,7 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
@@ -40,7 +47,10 @@ public class Gregica {
     
     @Nullable
     public static MinecraftServer currentServer;
-
+    
+    //只会在Client更新
+    public static long clientTimer;
+    
     @SidedProxy(clientSide = "gregica.api.ClientProxy", serverSide = "gregica.api.CommonProxy")
     public static CommonProxy proxy;
 
@@ -67,6 +77,13 @@ public class Gregica {
     public void serverStart(FMLServerStartingEvent event) {
         currentServer = event.getServer();
         DataEventHandler.onServerStart();
+    }
+    
+    @EventHandler
+    public void serverStarted(FMLServerStartedEvent event){
+        var byteBuffer = Unpooled.buffer();
+        ByteBufUtils.writeTag(byteBuffer, CrossWorldDataHandler.INSTANCE.getOrCreate(CWDataType.ELECTRICITY).save());
+        GCNetworkManager.INSTANCE.sendPacketToAll(new CWDataUpdatePacket(DataCode.LOAD_ALL, CWDataType.ELECTRICITY.name(),byteBuffer));
     }
     
     @EventHandler

@@ -14,7 +14,7 @@ public class GCColorUtil {
     
     public static final Int2ObjectMap<StandardColor> colors = new Int2ObjectOpenHashMap<>();
     
-    public static final IntFunction<StandardColor> valueToColor = colors::get;
+    public static final IntFunction<StandardColor> valueToColor = (i) -> colors.getOrDefault(i,StandardColor.NONE);
     
     public enum StandardColor implements IStringSerializable{
         NONE("none",TextFormatting.WHITE,EnumDyeColor.WHITE){

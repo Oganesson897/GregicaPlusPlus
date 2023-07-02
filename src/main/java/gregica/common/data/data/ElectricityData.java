@@ -1,10 +1,15 @@
 package gregica.common.data.data;
 
+import gregica.api.data.impl.CWElectricityData;
+import gregica.common.data.CWDataType;
+import gregica.common.data.CrossWorldDataHandler;
+import gregica.common.data.DataCode;
 import net.minecraft.nbt.NBTTagCompound;
 
 import javax.annotation.Nullable;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,6 +18,8 @@ public class ElectricityData {
     private final int channel;
     private BigInteger storage;
     private final List<UUID> owner = new ArrayList<>();
+    
+    private boolean isDirty = false;
     
     public ElectricityData(int channel, BigInteger storage) {
         this.channel = channel;
@@ -57,13 +64,56 @@ public class ElectricityData {
     
     public void setStorage(BigInteger storage) {
         this.storage = storage;
+        this.markDirty();
     }
-    
-    public void addOwner(UUID ow) {
+    public ElectricityData addOwner(UUID ow){
+        return this.addOwner(ow,false);
+    }
+    //服务端客户端均可
+    public ElectricityData addOwner(UUID ow,boolean isReceive) {
+        if(owner.contains(ow)) return this;
         this.owner.add(ow);
+        this.markDirty();
+        if(!isReceive){
+            getHandler().sentUpdateData(DataCode.ADD_OWNER,byteBuf -> {
+                byteBuf.writeInt(this.channel);
+                byteBuf.writeLong(ow.getMostSignificantBits());
+                byteBuf.writeLong(ow.getLeastSignificantBits());
+            });
+        }
+        return this;
     }
     
-    public void removeOwner(UUID ow) {
+    public void removeOwner(UUID ow){
+        this.removeOwner(ow,false);
+    }
+    //服务端客户端均可
+    public void removeOwner(UUID ow,boolean isReceive) {
+        if(!owner.contains(ow)) return;
         this.owner.remove(ow);
+        this.markDirty();
+        if(!isReceive){
+            getHandler().sentUpdateData(DataCode.REMOVE_OWNER,byteBuf -> {
+                byteBuf.writeInt(this.channel);
+                byteBuf.writeLong(ow.getMostSignificantBits());
+                byteBuf.writeLong(ow.getLeastSignificantBits());
+            });
+        }
+    }
+    
+    public List<UUID> getOwners(){
+        return Collections.unmodifiableList(owner);
+    }
+    
+    public void markDirty() {
+        this.isDirty = true;
+    }
+    
+    public boolean isDirty() {
+        return isDirty;
+    }
+    
+    public CWElectricityData getHandler(){
+        return CrossWorldDataHandler.INSTANCE.getOrCreate(CWDataType.ELECTRICITY);
     }
 }

@@ -473,7 +473,20 @@ gregica.gui.mode.all=所有频道
 gregica.gui.available_channel=频道可用
 gregica.gui.unavailable_channel=频道不可用
 gregica.gui.channel_to_bind=频道:
-gregica.gui.set_channel:选择/创建 频道
+gregica.gui.set_channel=选择/创建 频道
+gregica.gui.uuid=你的 UUID : %s
+gregica.gui.copy=复制
+gregica.gui.channel_mode_choose=选择频道模式:
+gregica.gui.cross_world_electricity=无线电网
+gregica.gui.create_or_op=只有创造模式玩家或OP可以使用该按钮
+gregica.gui.current_mode=模式: 未知
+gregica.gui.current_mode0=模式: 无线电网
+gregica.gui.channel=频道: %d
+gregica.gui.channel_owner_count=所有者共 %s 人
+gregica.gui.channel_choose=选择
+gregica.gui.channel_invite=邀请
+gregica.gui.channel_join=加入
+gregica.gui.channel_delete=删除
 
 #MixinGregtech
 gregica.mixin.gregtech.itemblock.multiblock_controller=§a多方块结构控制器

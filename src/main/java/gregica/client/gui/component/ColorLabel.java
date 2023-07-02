@@ -1,5 +1,6 @@
 package gregica.client.gui.component;
 
+import gregica.Gregica;
 import gregica.client.gui.TooltipData;
 import gregtech.api.gui.IRenderContext;
 import gregtech.api.gui.Widget;
@@ -24,6 +25,8 @@ public class ColorLabel extends Widget {
     @Nullable
     private TooltipData tooltip;
     
+    
+    
     public ColorLabel(int x, int y, int width, int height, IntSupplier colorSupplier,@Nullable TooltipData tooltip){
         this(x,y,width,height,colorSupplier);
         this.tooltip = tooltip;
@@ -41,6 +44,7 @@ public class ColorLabel extends Widget {
         }
         return this;
     }
+    
     
     @Override
     @SideOnly(Side.CLIENT)

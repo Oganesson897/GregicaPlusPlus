@@ -15,7 +15,7 @@ import gregica.loader.recipes.GCYSMaterialInfoLoader;
 import gregica.loader.recipes.component.GCYSCraftingComponent;
 import gregica.api.unification.materials.GCMaterials;
 import gregica.api.unification.materials.ore.GCOrePrefixs;
-import gregica.network.packets.MouseEventToSeverPacker;
+import gregica.network.packets.MouseEventToSeverPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -56,7 +56,7 @@ public class GCEventHandler {
                     if(behaviour instanceof IExtendedItemBehavior){
                         IExtendedItemBehavior extendedItemBehavior = (IExtendedItemBehavior) behaviour;
                         if(extendedItemBehavior.canHandleWheelChange()){
-                            GCNetworkManager.INSTANCE.sendPacketToServer(new MouseEventToSeverPacker(event.getDwheel()>0));
+                            GCNetworkManager.INSTANCE.sendPacketToServer(new MouseEventToSeverPacket(event.getDwheel()>0));
                             event.setCanceled(true);
                             return;
                         }
@@ -91,6 +91,9 @@ public class GCEventHandler {
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public static void onClientEvent(TickEvent.ClientTickEvent event){
-        GCLangUtil.updateModifier();
+        if(event.phase == TickEvent.Phase.END){
+            GCLangUtil.updateModifier();
+            Gregica.clientTimer++;
+        }
     }
 }

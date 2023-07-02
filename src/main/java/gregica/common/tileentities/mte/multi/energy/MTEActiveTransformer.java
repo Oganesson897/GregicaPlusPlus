@@ -4,6 +4,7 @@ import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
 import gregica.client.GCTextures;
+import gregtech.api.capability.GregtechCapabilities;
 import gregtech.api.capability.GregtechTileCapabilities;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
@@ -103,6 +104,9 @@ public class MTEActiveTransformer extends MultiblockWithUpdatable<LongBufferLogi
     public <T> T getCapability(Capability<T> capability, EnumFacing side) {
         if (capability == GregtechTileCapabilities.CAPABILITY_CONTROLLABLE)
             return GregtechTileCapabilities.CAPABILITY_CONTROLLABLE.cast(this);
+        if(capability == GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER){
+            return GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER.cast(this.logic.getEnergyContainer());
+        }
         return super.getCapability(capability, side);
     }
     

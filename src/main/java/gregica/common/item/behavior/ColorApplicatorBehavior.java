@@ -56,13 +56,15 @@ public class ColorApplicatorBehavior implements IItemBehaviour, IExtendedItemBeh
             }
             lines.add(TextFormatting.WHITE+I18n.format("gregica.color.current")+currentColor(itemStack).getChatColor()+I18n.format("gregica.color."+currentColorName(itemStack))+"  "+currentColor(itemStack).ordinal());
             
-            //noinspection ConstantConditions
-            NBTTagCompound colorTags = itemStack.getTagCompound().getCompoundTag("colors");
-            for(GCColorUtil.StandardColor color : GCColorUtil.StandardColor.values()){
-                if(colorTags.hasKey(color.getName())){
-                    int amount = colorTags.getInteger(color.getName());
-                    if(amount >= 1){
-                        lines.add(GCColorUtil.colorName(color)+I18n.format("gregica.color.available",amount));
+            if(TooltipHelper.isShiftDown()){
+                //noinspection ConstantConditions
+                NBTTagCompound colorTags = itemStack.getTagCompound().getCompoundTag("colors");
+                for(GCColorUtil.StandardColor color : GCColorUtil.StandardColor.values()){
+                    if(colorTags.hasKey(color.getName())){
+                        int amount = colorTags.getInteger(color.getName());
+                        if(amount >= 1){
+                            lines.add(GCColorUtil.colorName(color)+I18n.format("gregica.color.available",amount));
+                        }
                     }
                 }
             }
