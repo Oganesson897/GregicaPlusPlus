@@ -2,6 +2,8 @@ package gregica.client.gui.proup;
 
 import com.google.common.collect.ArrayListMultimap;
 import gregica.client.gui.Updater;
+import com.google.common.collect.Multimap;
+import gregica.client.gui.Updater;
 import gregtech.api.gui.IRenderContext;
 import gregtech.api.gui.Widget;
 import gregtech.api.gui.ingredient.IIngredientSlot;
@@ -13,6 +15,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Collections;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.function.IntSupplier;
 
 public class IntModeGroup extends WidgetGroup {
