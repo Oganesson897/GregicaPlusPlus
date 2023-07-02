@@ -1,7 +1,5 @@
 package gregica.mixin.gregtech;
 
-import gregica.api.blocks.IColored;
-import gregtech.api.metatileentity.MetaTileEntity;
 import gregica.api.capability.GCCapabilities;
 import gregica.utils.GCColorUtil;
 import gregtech.api.metatileentity.MetaTileEntity;

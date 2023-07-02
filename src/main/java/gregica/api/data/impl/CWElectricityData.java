@@ -7,39 +7,22 @@ import gregica.network.GCNetworkManager;
 import gregica.network.packets.CWDataUpdatePacket;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import gregica.common.data.steam.GCDataInputStream;
-import gregica.network.GCNetworkManager;
-import gregica.network.packets.CWDataUpdatePacket;
-import gregica.utils.GCUtil;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import mcp.MethodsReturnNonnullByDefault;
-import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.common.network.ByteBufUtils;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.relauncher.Side;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.io.DataInputStream;
 import java.math.BigInteger;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.UUID;
 import java.util.function.Consumer;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.UUID;
-import java.util.function.Consumer;
-import java.util.function.Function;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault

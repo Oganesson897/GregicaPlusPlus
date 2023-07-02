@@ -1,6 +1,5 @@
 package gregica.client.gui.component;
 
-import gregica.Gregica;
 import gregica.client.gui.TooltipData;
 import gregtech.api.gui.IRenderContext;
 import gregtech.api.gui.Widget;
