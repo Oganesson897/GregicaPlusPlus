@@ -7,6 +7,7 @@ import gregica.api.blocks.ITiredGlass;
 import gregica.api.mte.IMTEChangeableBattery;
 import gregica.client.GCTextures;
 import gregica.utils.GCUtil;
+import gregtech.api.capability.GregtechCapabilities;
 import gregtech.api.capability.GregtechTileCapabilities;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
@@ -237,6 +238,9 @@ public class MTELapotronicSuperCapacitor extends MultiblockWithUpdatable<BigInte
     public <T> T getCapability(Capability<T> capability, EnumFacing side) {
         if (capability == GregtechTileCapabilities.CAPABILITY_CONTROLLABLE)
             return GregtechTileCapabilities.CAPABILITY_CONTROLLABLE.cast(this);
+        if(capability == GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER){
+            return GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER.cast(this.logic.getEnergyContainer());
+        }
         return super.getCapability(capability, side);
     }
     

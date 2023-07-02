@@ -47,6 +47,7 @@ public enum CrossWorldDataHandler {
                 CrossWorldData crossWorldData = CWDataType.byName(file.getName());
                 if (crossWorldData != null) {
                     crossWorldData.load(CompressedStreamTools.read(file));
+                    data.put(crossWorldData.getName(),crossWorldData);
                 } else {
                     //noinspection ResultOfMethodCallIgnored
                     file.delete();
@@ -64,11 +65,7 @@ public enum CrossWorldDataHandler {
     
             for (CrossWorldData crossWorldData : this.data.values()) {
                 File file = new File(dataFold, crossWorldData.getName());
-                if (!file.exists()) {
-                    //noinspection ResultOfMethodCallIgnored
-                    file.createNewFile();
-                    CompressedStreamTools.safeWrite(crossWorldData.save(), file);
-                }
+                CompressedStreamTools.safeWrite(crossWorldData.save(), file);
             }
             
             this.data.clear();
@@ -104,11 +101,11 @@ public enum CrossWorldDataHandler {
     private static void getDataFold() {
         if (Gregica.currentServer != null) {
             MinecraftServer server = Gregica.currentServer;
-            dataFold = server.getActiveAnvilConverter().getFile(server.getName(), "gregica_data");
+            dataFold = server.getActiveAnvilConverter().getFile(server.getFolderName(), "gregica_data");
         }
         
         if (dataFold != null) {
-            dataFold = new File(dataFold, "gregica_data");
+            //dataFold = new File(dataFold, "gregica_data");
             if (!dataFold.exists()) {
                 //noinspection ResultOfMethodCallIgnored
                 dataFold.mkdirs();

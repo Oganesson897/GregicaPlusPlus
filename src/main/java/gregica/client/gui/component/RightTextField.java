@@ -7,6 +7,7 @@ import net.minecraft.client.Minecraft;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+@Deprecated
 public class RightTextField extends TextFieldWidget {
     
     public RightTextField(int xPosition, int yPosition, int width, int height, boolean enableBackground, Supplier<String> textSupplier, Consumer<String> textResponder) {

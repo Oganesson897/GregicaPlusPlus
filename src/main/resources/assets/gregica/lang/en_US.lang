@@ -462,8 +462,20 @@ gregica.gui.mode.all=All Channels
 gregica.gui.available_channel=Channel Available
 gregica.gui.unavailable_channel=Channel Unavailable
 gregica.gui.channel_to_bind=Channel:
-gregica.gui.set_channel:Set/Create Channel
-
+gregica.gui.set_channel=Set/Create Channel
+gregica.gui.uuid=Your UUID : %s
+gregica.gui.copy=Copy
+gregica.gui.channel_mode_choose=Channel Mode Choose:
+gregica.gui.cross_world_electricity=Wireless Electricity Web
+gregica.gui.create_or_op=Only creative player or op can use this.
+gregica.gui.current_mode=Mode: Unknown
+gregica.gui.current_mode0=Mode: Wireless Electricity Web
+gregica.gui.channel=Channel: %d
+gregica.gui.channel_owner_count=Owners Count: %s
+gregica.gui.channel_choose=Choose
+gregica.gui.channel_invite=Invite
+gregica.gui.channel_join=Join
+gregica.gui.channel_delete=Delete
 
 #Mixin
 gregica.mixin.gregtech.itemblock.multiblock_controller=§aThis is a multiblock controller.

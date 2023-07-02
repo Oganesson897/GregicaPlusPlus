@@ -19,4 +19,5 @@ public interface IEnergyBufferLogic<T extends Number> {
     
     long getLastOutput();
     
+    IEnergyContainer getEnergyContainer();
 }

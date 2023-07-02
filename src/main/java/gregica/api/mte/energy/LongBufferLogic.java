@@ -2,11 +2,13 @@ package gregica.api.mte.energy;
 
 import gregica.api.mte.IUpdatable;
 import gregica.common.tileentities.mte.multi.MultiblockWithUpdatable;
+import gregtech.api.GTValues;
 import gregtech.api.capability.GregtechDataCodes;
 import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
+import net.minecraft.util.EnumFacing;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -30,6 +32,8 @@ public class LongBufferLogic implements IEnergyBufferLogic<Long>, IUpdatable {
     private long lastOutput;
     
     private boolean workingEnable;
+    
+    private IEnergyContainer energyContainer;
     
     public LongBufferLogic(MultiblockWithUpdatable<?> metaTileEntity) {
         this.metaTileEntity = metaTileEntity;
@@ -177,5 +181,48 @@ public class LongBufferLogic implements IEnergyBufferLogic<Long>, IUpdatable {
     @Override
     public long getLastOutput() {
         return lastOutput;
+    }
+    
+    @Override
+    public IEnergyContainer getEnergyContainer() {
+        if(energyContainer == null){
+            energyContainer = new IEnergyContainer() {
+                @Override
+                public long acceptEnergyFromNetwork(EnumFacing enumFacing, long l, long l1) {
+                    return 0;
+                }
+    
+                @Override
+                public boolean inputsEnergy(EnumFacing enumFacing) {
+                    return false;
+                }
+    
+                @Override
+                public long changeEnergy(long l) {
+                    return 0;
+                }
+    
+                @Override
+                public long getEnergyStored() {
+                    return stored;
+                }
+    
+                @Override
+                public long getEnergyCapacity() {
+                    return capacity;
+                }
+    
+                @Override
+                public long getInputAmperage() {
+                    return Integer.MAX_VALUE;
+                }
+    
+                @Override
+                public long getInputVoltage() {
+                    return GTValues.V[GTValues.MAX];
+                }
+            };
+        }
+        return energyContainer;
     }
 }

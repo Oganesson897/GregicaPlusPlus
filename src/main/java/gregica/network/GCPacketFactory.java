@@ -1,7 +1,8 @@
 package gregica.network;
 
+import gregica.network.packets.CWDataUpdatePacket;
 import io.netty.buffer.ByteBuf;
-import gregica.network.packets.MouseEventToSeverPacker;
+import gregica.network.packets.MouseEventToSeverPacket;
 import gregica.network.packets.UpdateConnectionsClient;
 
 import java.lang.reflect.Constructor;
@@ -38,8 +39,9 @@ public enum GCPacketFactory {
         }
     }
     public enum PacketType {
-        MOUSE_EVENT_TO_SEVER(MouseEventToSeverPacker.class),
-        UPDATE_CONNECTIONS_CLIENT(UpdateConnectionsClient.class);
+        MOUSE_EVENT_TO_SEVER(MouseEventToSeverPacket.class),
+        UPDATE_CONNECTIONS_CLIENT(UpdateConnectionsClient.class),
+        CW_DATA_UPDATE(CWDataUpdatePacket.class);
         //按需加枚举类型
         //然后就可以直接按数组进行索引了
         public static final PacketType[] VALUES = PacketType.values();

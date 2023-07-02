@@ -8,15 +8,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-public class MouseEventToSeverPacker implements GCPacket {
+public class MouseEventToSeverPacket implements GCPacket {
     
     private final boolean isUp;
     
-    public MouseEventToSeverPacker(ByteBuf byteBuf){
+    @SuppressWarnings("unused")
+    public MouseEventToSeverPacket(ByteBuf byteBuf){
         this.isUp = byteBuf.readBoolean();
     }
     
-    public MouseEventToSeverPacker(boolean b){
+    public MouseEventToSeverPacket(boolean b){
         this.isUp = b;
     }
     
