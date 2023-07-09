@@ -71,7 +71,7 @@ public class RecipeConflicts {
                 .fluidInputs(Water.getFluid(3000))
                 .fluidInputs(Methane.getFluid(6000))
                 .fluidInputs(Chlorine.getFluid(12000))
-                .notConsumable(new IntCircuitIngredient(24))
+                .circuitMeta(24)
                 .output(dust, Polydimethylsiloxane, 9)
                 .fluidOutputs(HydrochloricAcid.getFluid(6000))
                 .fluidOutputs(DilutedHydrochloricAcid.getFluid(6000))
