@@ -3,6 +3,9 @@ package gregica.loader.recipes;
 import gregica.modules.gcys.api.unification.materials.GCYSMaterials;
 import gregtech.api.recipes.GTRecipeHandler;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
+import gregtech.api.unification.OreDictUnifier;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 
 import static gregtech.api.GTValues.LV;
 import static gregtech.api.GTValues.VA;
@@ -53,5 +56,25 @@ public class RecipeConflicts {
                 .output(dust, Sodium)
                 .fluidOutputs(Chlorine.getFluid(1000))
                 .duration(56).EUt(VA[LV]).buildAndRegister();
+
+        // Conflict between Polydimethylsiloxane and Carbon Tetrachloride
+        GTRecipeHandler.removeRecipesByInputs(CHEMICAL_RECIPES,
+                new ItemStack[]{OreDictUnifier.get(dust, Silicon), IntCircuitIngredient.getIntegratedCircuit(2)},
+                new FluidStack[]{Water.getFluid(1000), Chlorine.getFluid(4000), Methane.getFluid(2000)}
+        );
+        GTRecipeHandler.removeRecipesByInputs(LARGE_CHEMICAL_RECIPES,
+                new ItemStack[]{OreDictUnifier.get(dust, Silicon), IntCircuitIngredient.getIntegratedCircuit(2)},
+                new FluidStack[]{Water.getFluid(1000), Chlorine.getFluid(4000), Methane.getFluid(2000)}
+        );
+        LARGE_CHEMICAL_RECIPES.recipeBuilder()
+                .input(dust, Silicon, 3)
+                .fluidInputs(Water.getFluid(3000))
+                .fluidInputs(Methane.getFluid(6000))
+                .fluidInputs(Chlorine.getFluid(12000))
+                .circuitMeta(24)
+                .output(dust, Polydimethylsiloxane, 9)
+                .fluidOutputs(HydrochloricAcid.getFluid(6000))
+                .fluidOutputs(DilutedHydrochloricAcid.getFluid(6000))
+                .duration(2880).EUt(96).buildAndRegister();
     }
 }
