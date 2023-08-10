@@ -79,6 +79,20 @@ repositories {
     maven {url = "https://api.modrinth.com/maven"}
     maven {url = 'https://maven.cleanroommc.com'}
     maven {url = 'https://oss.sonatype.org/content/groups/public/'}
+
+    // fix su5ed.jfrog.io -> maven.su5ed.dev/releases
+    maven { url = 'https://maven.minecraftforge.net/' }
+
+    all { ArtifactRepository repo ->
+        if (repo instanceof MavenArtifactRepository) {
+            def url = repo.url.toString()
+            if (url.startsWith('https://su5ed.jfrog.io/')) {
+                remove repo
+            }
+        }
+    }
+    maven { url = 'https://maven.su5ed.dev/releases' }
+    maven { url = 'https://pizerolol.github.io/LegacyDev/' }
 }
 
 dependencies {

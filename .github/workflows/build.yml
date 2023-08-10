@@ -1,0 +1,36 @@
+name: build
+on: 
+  push:
+    branches:
+      - master
+      - dev
+      - test*
+      - feature*
+      - fix*
+  pull_request:
+    branches:
+      - master
+      - dev
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get files
+        uses: actions/checkout@v3.5.3
+      - name: setup java 8
+        uses: actions/setup-java@v3
+        with: 
+           java-version: 8
+           cache: 'gradle'
+           distribution: 'temurin'
+      - name: chmod gradlew
+        run: |
+          chmod +x ./gradlew
+      - name: build
+        uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
+        with:
+          arguments: build
+      - name: upload
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          path: build/libs
